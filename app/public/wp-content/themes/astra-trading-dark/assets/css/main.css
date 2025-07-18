@@ -1,0 +1,847 @@
+/* DoItTrading - Main Styles */
+
+/* Reset general */
+* {
+    box-sizing: border-box;
+}
+
+/* Body oscuro */
+body {
+    background-color: #0A0A0A !important;
+    color: #E5E5E5 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header mejorado */
+.main-header-bar {
+    background-color: rgba(17, 17, 17, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 215, 117, 0.3);
+}
+
+/* Logo/Título del sitio */
+.site-title a {
+    color: #00D775 !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Menú de navegación */
+.main-navigation a {
+    color: #E5E5E5 !important;
+}
+
+.main-navigation a:hover {
+    color: #00D775 !important;
+}
+
+/* Contenido principal */
+.site-content {
+    background-color: #0A0A0A;
+    min-height: 80vh;
+}
+
+/* Ocultar el post de ejemplo */
+article.post {
+    background: #111111;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 215, 117, 0.2);
+}
+
+/* Enlaces */
+a {
+    color: #00D775;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00D775;
+    opacity: 0.8;
+}
+
+/* Botones */
+.button,
+button,
+input[type="submit"] {
+    background-color: #00D775 !important;
+    color: #0A0A0A !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.button:hover,
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 215, 117, 0.4);
+}
+
+/* WooCommerce - Product Grid */
+.woocommerce ul.products li.product {
+    background: linear-gradient(135deg, #111111 0%, #1A1A1A 100%);
+    border: 1px solid rgba(0, 215, 117, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.woocommerce ul.products li.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 215, 117, 0.3);
+    border-color: #00D775;
+}
+
+/* Product Title */
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    color: #E5E5E5;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Price */
+.woocommerce ul.products li.product .price {
+    color: #FFD700;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+/* Add to Cart Button */
+.woocommerce ul.products li.product .button {
+    background: #00D775;
+    color: #0A0A0A;
+    border: none;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Shop Page */
+.woocommerce-shop .site-content {
+    background: #0A0A0A;
+}
+
+/* Ocultar sidebar si aparece */
+.widget-area {
+    display: none;
+}
+
+/* Full width para productos */
+.woocommerce .col-full,
+.woocommerce-page .col-full {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* DoItTrading EA Stats */
+.doittrading-ea-stats {
+    background: #111111;
+    border: 1px solid rgba(0, 215, 117, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.doittrading-ea-stats h3 {
+    color: #00D775;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.stat-box {
+    background: rgba(0, 215, 117, 0.05);
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    color: #A0A0A0;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.stat-value.positive {
+    color: #00D775;
+}
+
+.stat-value.negative {
+    color: #FF4757;
+}
+
+/* Single Product Layout */
+.woocommerce div.product div.images {
+    background: #111111;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 215, 117, 0.2);
+}
+
+.woocommerce div.product div.summary {
+    background: transparent;
+}
+
+.woocommerce div.product .product_title {
+    color: #E5E5E5;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.woocommerce div.product p.price {
+    color: #FFD700;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.woocommerce div.product p.price del {
+    color: #666;
+    font-size: 1.5rem;
+}
+
+.woocommerce div.product .woocommerce-product-details__short-description {
+    background: rgba(0, 215, 117, 0.05);
+    padding: 1rem;
+    border-left: 3px solid #00D775;
+    margin-bottom: 1rem;
+}
+
+/* Add to Cart Button */
+.woocommerce div.product form.cart .button {
+    background: #00D775;
+    color: #0A0A0A;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+.woocommerce div.product form.cart .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 215, 117, 0.4);
+}
+
+/* Tabs */
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+    background: transparent;
+    border: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    background: #0A0A0A;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    color: #E5E5E5;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel {
+    background: #111111;
+    color: #E5E5E5;
+}
+
+/* Download Buttons */
+.doittrading-downloads {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 215, 117, 0.05);
+    border: 1px solid rgba(0, 215, 117, 0.2);
+    border-radius: 8px;
+}
+
+.doittrading-downloads h3 {
+    color: #00D775;
+    margin-bottom: 1rem;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.mt4-btn {
+    background: #2196F3;
+    color: white;
+}
+
+.mt5-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* MQL5 Buy Section */
+.doittrading-buy-section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(0, 215, 117, 0.05);
+    border: 1px solid rgba(0, 215, 117, 0.2);
+    border-radius: 8px;
+}
+
+.mql5-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.mql5-buy-btn {
+    flex: 1;
+    min-width: 200px;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.mt4-btn {
+    background: #2196F3;
+    color: white;
+}
+
+.mt5-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.mql5-buy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    color: white;
+}
+
+/* Ocultar elementos de WooCommerce que no necesitas */
+.product_meta {
+    display: none;
+}
+
+.woocommerce-product-rating {
+    display: none;
+}
+
+/* Ocultar precio si no lo necesitas */
+.woocommerce div.product p.price {
+    /* display: none; */ /* Descomenta si no quieres mostrar precio */
+}
+
+/* Hero Statement - Urgencia */
+.hero-statement {
+    margin: 1rem 0;
+}
+
+.alert-success {
+    background: linear-gradient(90deg, rgba(0, 215, 117, 0.1) 0%, rgba(0, 215, 117, 0.05) 100%);
+    border-left: 4px solid #00D775;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+    0%, 100% { border-left-color: #00D775; }
+    50% { border-left-color: #00FF88; }
+}
+
+/* Trust Badges */
+.trust-badges-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.trust-badge:hover {
+    background: rgba(0, 215, 117, 0.1);
+    border-color: rgba(0, 215, 117, 0.3);
+}
+
+.trust-badge .icon {
+    font-size: 1.2rem;
+}
+
+/* Live Trades Ticker */
+.live-trades-ticker {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(17, 17, 17, 0.95);
+    border: 1px solid rgba(0, 215, 117, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.ticker-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #00D775;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: #00D775;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.trade-item {
+    display: grid;
+    grid-template-columns: 50px 1fr auto;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.trade-item.profit {
+    background: rgba(0, 215, 117, 0.1);
+}
+
+.trade-item.loss {
+    background: rgba(255, 71, 87, 0.1);
+}
+
+.trade-item .time {
+    color: #666;
+}
+
+.trade-item .result {
+    font-weight: 600;
+}
+
+.trade-item.profit .result {
+    color: #00D775;
+}
+
+.trade-item.loss .result {
+    color: #FF4757;
+}
+
+/* Mejorar Stats Section */
+.doittrading-ea-stats {
+    background: linear-gradient(135deg, #111111 0%, #1A1A1A 100%);
+    border: 2px solid rgba(0, 215, 117, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 215, 117, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.doittrading-ea-stats::before {
+    content: '✓ VERIFIED RESULTS';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    color: #00D775;
+    opacity: 0.5;
+}
+
+/* Highlight ganancia mensual */
+.stat-box:first-child {
+    background: linear-gradient(135deg, rgba(0, 215, 117, 0.1) 0%, rgba(0, 215, 117, 0.05) 100%);
+    border: 1px solid rgba(0, 215, 117, 0.2);
+}
+
+/* CTA Section mejorada */
+.doittrading-buy-section {
+    background: linear-gradient(135deg, rgba(0, 215, 117, 0.1) 0%, rgba(0, 215, 117, 0.05) 100%);
+    border: 2px solid rgba(0, 215, 117, 0.3);
+    position: relative;
+}
+
+.doittrading-buy-section::before {
+    content: '🔥 SPECIAL OFFER';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #FF4757;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Urgency elements */
+.limited-time {
+    background: rgba(255, 71, 87, 0.1);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.countdown {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FF4757;
+    font-family: 'Courier New', monospace;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .live-trades-ticker {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .trust-badges-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Product FAQs */
+.product-faqs {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #111111;
+    border-radius: 8px;
+}
+
+.product-faqs h2 {
+    color: #00D775;
+    margin-bottom: 2rem;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    color: #E5E5E5;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    color: #A0A0A0;
+    line-height: 1.6;
+}
+
+/* Why DoItTrading */
+.why-doittrading {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.why-doittrading h2 {
+    color: #E5E5E5;
+    margin-bottom: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    color: #00D775;
+    margin-bottom: 0.5rem;
+}
+
+.feature p {
+    color: #A0A0A0;
+    line-height: 1.6;
+}
+
+/* Trust Bar */
+.trust-bar {
+    background: linear-gradient(90deg, #1a1a1a 0%, #0a0a0a 100%);
+    border-bottom: 2px solid #00D775;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Social Proof */
+.social-proof-box {
+    background: rgba(255, 71, 87, 0.05);
+    border: 1px solid rgba(255, 71, 87, 0.2);
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+}
+
+.recent-purchase {
+    color: #FFD700;
+    margin-bottom: 0.5rem;
+}
+
+.stock-warning {
+    color: #FF4757;
+    font-size: 0.95rem;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit {
+    background: rgba(0, 215, 117, 0.03);
+    border: 1px solid rgba(0, 215, 117, 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.benefit .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.benefit strong {
+    color: #00D775;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.benefit p {
+    color: #A0A0A0;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Hacer Stats más prominentes */
+.doittrading-ea-stats {
+    background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
+    border: 2px solid #00D775;
+    box-shadow: 0 0 30px rgba(0, 215, 117, 0.3);
+    margin: 2rem 0;
+    transform: scale(1.02);
+}
+
+/* Highlight primer stat */
+.stat-box:first-child .stat-value {
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(0, 215, 117, 0.5);
+}
+
+/* Mejorar legibilidad descripción */
+.woocommerce-Tabs-panel {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.woocommerce-Tabs-panel p {
+    margin-bottom: 1.5rem;
+}
+
+/* Trust badges más visibles */
+.trust-badges-row {
+    background: rgba(0, 215, 117, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 215, 117, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(0, 215, 117, 0.4); }
+}
+
+/* Sticky Buy Button en móvil */
+@media (max-width: 768px) {
+    .doittrading-buy-section {
+        position: sticky;
+        bottom: 0;
+        z-index: 999;
+        margin: 0 -20px;
+        border-radius: 0;
+    }
+}
+
+/* Highlight Reviews vacíos */
+.reviews_tab a {
+    position: relative;
+}
+
+.reviews_tab a::after {
+    content: 'Be First!';
+    position: absolute;
+    top: -10px;
+    right: -40px;
+    background: #FFD700;
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+}
+
+/* MQL5 Reviews Styling */
+.mql5-reviews {
+    max-width: 800px;
+}
+
+.reviews-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rating-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.rating-summary .stars {
+    color: #FFD700;
+}
+
+.review-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.review-item:hover {
+    background: rgba(0, 215, 117, 0.05);
+    border-color: rgba(0, 215, 117, 0.2);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.review-header strong {
+    color: #00D775;
+    font-size: 1.1rem;
+}
+
+.review-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.review-text {
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    color: #E5E5E5;
+}
+
+.verified-badge {
+    display: inline-block;
+    background: rgba(0, 215, 117, 0.1);
+    color: #00D775;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.view-all-reviews {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #00D775;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-all-reviews:hover {
+    text-decoration: underline;
+}

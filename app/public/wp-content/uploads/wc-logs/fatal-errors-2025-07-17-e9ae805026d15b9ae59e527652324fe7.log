@@ -1,0 +1,108 @@
+2025-07-17T19:59:12+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:1
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584): eval()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(472): Code_Snippets\execute_snippet('echo "TEST: " ....', 5, true)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(512): Code_Snippets\test_snippet_code(Object(Code_Snippets\Snippet))
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\rest-api\class-snippets-rest-controller.php(270): Code_Snippets\save_snippet(Object(Code_Snippets\Snippet))
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): Code_Snippets\REST_API\Snippets_REST_Controller->update_item(Object(WP_REST_Request))
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/code-snippets/...', Array, NULL)
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api.php(459): WP_REST_Server->serve_request('/code-snippets/...')
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#12 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp.php(818): WP->parse_request('')
+#13 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\functions.php(1342): WP->main('')
+#14 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(16): wp()
+#15 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#16 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code on line 1
+
+2025-07-17T19:59:13+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:1
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584): eval()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(472): Code_Snippets\execute_snippet('echo "TEST: " ....', 5, true)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(512): Code_Snippets\test_snippet_code(Object(Code_Snippets\Snippet))
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\rest-api\class-snippets-rest-controller.php(270): Code_Snippets\save_snippet(Object(Code_Snippets\Snippet))
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): Code_Snippets\REST_API\Snippets_REST_Controller->update_item(Object(WP_REST_Request))
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/code-snippets/...', Array, NULL)
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api.php(459): WP_REST_Server->serve_request('/code-snippets/...')
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#12 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp.php(818): WP->parse_request('')
+#13 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\functions.php(1342): WP->main('')
+#14 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(16): wp()
+#15 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#16 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code on line 1
+
+2025-07-17T19:59:18+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:1
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584): eval()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(472): Code_Snippets\execute_snippet('echo "TEST: " ....', 5, true)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(512): Code_Snippets\test_snippet_code(Object(Code_Snippets\Snippet))
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\rest-api\class-snippets-rest-controller.php(270): Code_Snippets\save_snippet(Object(Code_Snippets\Snippet))
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): Code_Snippets\REST_API\Snippets_REST_Controller->update_item(Object(WP_REST_Request))
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/code-snippets/...', Array, NULL)
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\rest-api.php(459): WP_REST_Server->serve_request('/code-snippets/...')
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#12 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp.php(818): WP->parse_request('')
+#13 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\functions.php(1342): WP->main('')
+#14 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(16): wp()
+#15 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#16 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code on line 1
+
+2025-07-17T19:59:26+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:4
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_show_ea_stats_acf('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\content-single-product.php(60): do_action('woocommerce_sin...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\Users\\Diego\\...', false)
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(37): wc_get_template_part('content', 'single-product')
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#10 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code on line 4
+
+2025-07-17T19:59:51+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:4
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_show_ea_stats_acf('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\content-single-product.php(60): do_action('woocommerce_sin...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\Users\\Diego\\...', false)
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(37): wc_get_template_part('content', 'single-product')
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#10 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code on line 4
+
+2025-07-17T20:02:27+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:4
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_show_ea_stats_acf('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\content-single-product.php(60): do_action('woocommerce_sin...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\Users\\Diego\\...', false)
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(37): wc_get_template_part('content', 'single-product')
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#10 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code on line 4
+
