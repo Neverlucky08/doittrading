@@ -137,19 +137,129 @@ button:hover {
     padding: 2rem;
 }
 
-/* DoItTrading EA Stats */
-.doittrading-ea-stats {
+/* ========================================
+   SINGLE PRODUCT PAGE LAYOUT
+   ======================================== */
+
+/* Product Title - ACTUALIZADO */
+.woocommerce div.product .product_title {
+    color: #E5E5E5 !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.2 !important;
+}
+
+/* Product Layout - NUEVO */
+.woocommerce div.product div.images {
+    width: 35% !important;
+    max-width: 400px !important;
+    margin-right: 3rem !important;
     background: #111111;
+    padding: 2rem;
+    border-radius: 12px;
     border: 1px solid rgba(0, 215, 117, 0.2);
+}
+
+.woocommerce div.product div.summary {
+    width: 60% !important;
+    float: right !important;
+    background: transparent;
+}
+
+/* Product Image - ACTUALIZADO */
+.woocommerce div.product div.images img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 12px !important;
+}
+
+/* Product Price - ACTUALIZADO */
+.woocommerce div.product p.price {
+    color: #FFD700 !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    margin: 1rem 0 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.woocommerce div.product p.price del {
+    color: #666;
+    font-size: 1.5rem;
+}
+
+/* Short Description - ACTUALIZADO */
+.woocommerce div.product .woocommerce-product-details__short-description {
+    background: rgba(0, 215, 117, 0.08) !important;
+    border-left: 4px solid #00D775 !important;
+    padding: 1.5rem !important;
+    margin: 1.5rem 0 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+}
+
+/* ========================================
+   HERO LIVE INDICATORS - NUEVO
+   ======================================== */
+
+.doittrading-hero-bar {
+    background: linear-gradient(90deg, rgba(0, 215, 117, 0.1) 0%, rgba(0, 215, 117, 0.05) 100%);
+    border: 1px solid rgba(0, 215, 117, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #00D775;
+    font-size: 0.95rem;
+}
+
+.live-dot {
+    width: 10px;
+    height: 10px;
+    background: #00D775;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+}
+
+.recent-trade {
+    color: #FFD700;
+    font-size: 0.95rem;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* ========================================
+   EA STATS SECTION - ACTUALIZADO
+   ======================================== */
+
+.doittrading-ea-stats {
+    background: linear-gradient(135deg, #00D775 0.1%, #111111 0.1%) !important;
+    border-left: 5px solid #00D775 !important;
     border-radius: 8px;
     padding: 1.5rem;
-    margin: 2rem 0;
+    margin: 2rem 0 !important;
+    box-shadow: 0 5px 20px rgba(0, 215, 117, 0.2) !important;
 }
 
 .doittrading-ea-stats h3 {
-    color: #00D775;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+    color: #00D775 !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center !important;
 }
 
 .stats-grid {
@@ -187,44 +297,108 @@ button:hover {
     color: #FF4757;
 }
 
-/* Single Product Layout */
-.woocommerce div.product div.images {
-    background: #111111;
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 215, 117, 0.2);
+/* ========================================
+   URGENCY SECTION - NUEVO
+   ======================================== */
+
+.doittrading-urgency {
+    background: rgba(255, 71, 87, 0.08);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
 }
 
-.woocommerce div.product div.summary {
-    background: transparent;
+.price-warning {
+    color: #FF4757;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
-.woocommerce div.product .product_title {
-    color: #E5E5E5;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.woocommerce div.product p.price {
+.stock-info {
     color: #FFD700;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-.woocommerce div.product p.price del {
-    color: #666;
-    font-size: 1.5rem;
+.final-price {
+    color: #E5E5E5;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
-.woocommerce div.product .woocommerce-product-details__short-description {
-    background: rgba(0, 215, 117, 0.05);
-    padding: 1rem;
-    border-left: 3px solid #00D775;
-    margin-bottom: 1rem;
+/* ========================================
+   BUY SECTION - ACTUALIZADO
+   ======================================== */
+
+.doittrading-buy-section {
+    background: linear-gradient(135deg, rgba(0, 215, 117, 0.1) 0%, rgba(0, 215, 117, 0.05) 100%) !important;
+    border: 2px solid #00D775 !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    margin: 2rem 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
-/* Add to Cart Button */
+.doittrading-buy-section::before {
+    content: '🚀 SECURE PURCHASE';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00D775;
+    color: #0A0A0A;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.doittrading-buy-section h3 {
+    text-align: center !important;
+    margin-bottom: 2rem !important;
+    font-size: 1.3rem !important;
+}
+
+.mql5-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+}
+
+.mql5-buy-btn {
+    width: 100% !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    font-size: 1.3rem !important;
+    padding: 1.2rem 2.5rem !important;
+    margin: 0.5rem 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.mql5-buy-btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+}
+
+.mt4-btn {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%) !important;
+}
+
+.mt5-btn {
+    background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%) !important;
+}
+
+/* Add to Cart Button - EXISTENTE MANTENIDO */
 .woocommerce div.product form.cart .button {
     background: #00D775;
     color: #0A0A0A;
@@ -238,7 +412,7 @@ button:hover {
     box-shadow: 0 10px 30px rgba(0, 215, 117, 0.4);
 }
 
-/* Tabs */
+/* Tabs - EXISTENTE MANTENIDO */
 .woocommerce div.product .woocommerce-tabs ul.tabs {
     background: #111111;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -262,7 +436,7 @@ button:hover {
     color: #E5E5E5;
 }
 
-/* Download Buttons */
+/* Download Buttons - EXISTENTE MANTENIDO */
 .doittrading-downloads {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -290,67 +464,12 @@ button:hover {
     transition: all 0.3s ease;
 }
 
-.mt4-btn {
-    background: #2196F3;
-    color: white;
-}
-
-.mt5-btn {
-    background: #4CAF50;
-    color: white;
-}
-
 .download-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* MQL5 Buy Section */
-.doittrading-buy-section {
-    margin: 2rem 0;
-    padding: 2rem;
-    background: rgba(0, 215, 117, 0.05);
-    border: 1px solid rgba(0, 215, 117, 0.2);
-    border-radius: 8px;
-}
-
-.mql5-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-}
-
-.mql5-buy-btn {
-    flex: 1;
-    min-width: 200px;
-    padding: 1rem 2rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.mt4-btn {
-    background: #2196F3;
-    color: white;
-}
-
-.mt5-btn {
-    background: #4CAF50;
-    color: white;
-}
-
-.mql5-buy-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    color: white;
-}
-
-/* Ocultar elementos de WooCommerce que no necesitas */
+/* Ocultar elementos WooCommerce innecesarios */
 .product_meta {
     display: none;
 }
@@ -359,11 +478,7 @@ button:hover {
     display: none;
 }
 
-/* Ocultar precio si no lo necesitas */
-.woocommerce div.product p.price {
-    /* display: none; */ /* Descomenta si no quieres mostrar precio */
-}
-
+/* RESTO DE ESTILOS EXISTENTES... */
 /* Hero Statement - Urgencia */
 .hero-statement {
     margin: 1rem 0;
@@ -389,6 +504,9 @@ button:hover {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 1rem;
     margin: 2rem 0;
+    background: rgba(0, 215, 117, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
 }
 
 .trust-badge {
@@ -435,14 +553,6 @@ button:hover {
     color: #00D775;
 }
 
-.live-dot {
-    width: 8px;
-    height: 8px;
-    background: #00D775;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
 .trade-item {
     display: grid;
     grid-template-columns: 50px 1fr auto;
@@ -475,154 +585,6 @@ button:hover {
 
 .trade-item.loss .result {
     color: #FF4757;
-}
-
-/* Mejorar Stats Section */
-.doittrading-ea-stats {
-    background: linear-gradient(135deg, #111111 0%, #1A1A1A 100%);
-    border: 2px solid rgba(0, 215, 117, 0.3);
-    box-shadow: 0 10px 40px rgba(0, 215, 117, 0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-.doittrading-ea-stats::before {
-    content: '✓ VERIFIED RESULTS';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 0.75rem;
-    color: #00D775;
-    opacity: 0.5;
-}
-
-/* Highlight ganancia mensual */
-.stat-box:first-child {
-    background: linear-gradient(135deg, rgba(0, 215, 117, 0.1) 0%, rgba(0, 215, 117, 0.05) 100%);
-    border: 1px solid rgba(0, 215, 117, 0.2);
-}
-
-/* CTA Section mejorada */
-.doittrading-buy-section {
-    background: linear-gradient(135deg, rgba(0, 215, 117, 0.1) 0%, rgba(0, 215, 117, 0.05) 100%);
-    border: 2px solid rgba(0, 215, 117, 0.3);
-    position: relative;
-}
-
-.doittrading-buy-section::before {
-    content: '🔥 SPECIAL OFFER';
-    position: absolute;
-    top: -12px;
-    left: 20px;
-    background: #FF4757;
-    color: white;
-    padding: 0.3rem 1rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-/* Urgency elements */
-.limited-time {
-    background: rgba(255, 71, 87, 0.1);
-    border: 1px solid rgba(255, 71, 87, 0.3);
-    padding: 1rem;
-    border-radius: 6px;
-    margin: 1rem 0;
-    text-align: center;
-}
-
-.countdown {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #FF4757;
-    font-family: 'Courier New', monospace;
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .live-trades-ticker {
-        position: relative;
-        top: 0;
-        right: 0;
-        width: 100%;
-        margin-bottom: 2rem;
-    }
-    
-    .trust-badges-row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Product FAQs */
-.product-faqs {
-    margin: 3rem 0;
-    padding: 2rem;
-    background: #111111;
-    border-radius: 8px;
-}
-
-.product-faqs h2 {
-    color: #00D775;
-    margin-bottom: 2rem;
-}
-
-.faq-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.faq-item:last-child {
-    border-bottom: none;
-}
-
-.faq-item h3 {
-    color: #E5E5E5;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.faq-item p {
-    color: #A0A0A0;
-    line-height: 1.6;
-}
-
-/* Why DoItTrading */
-.why-doittrading {
-    margin: 3rem 0;
-    text-align: center;
-}
-
-.why-doittrading h2 {
-    color: #E5E5E5;
-    margin-bottom: 2rem;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.feature {
-    text-align: center;
-}
-
-.feature .icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.feature h3 {
-    color: #00D775;
-    margin-bottom: 0.5rem;
-}
-
-.feature p {
-    color: #A0A0A0;
-    line-height: 1.6;
 }
 
 /* Trust Bar */
@@ -695,70 +657,75 @@ button:hover {
     margin: 0;
 }
 
-/* Hacer Stats más prominentes */
-.doittrading-ea-stats {
-    background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
-    border: 2px solid #00D775;
-    box-shadow: 0 0 30px rgba(0, 215, 117, 0.3);
-    margin: 2rem 0;
-    transform: scale(1.02);
-}
-
-/* Highlight primer stat */
-.stat-box:first-child .stat-value {
-    font-size: 2rem;
-    text-shadow: 0 0 10px rgba(0, 215, 117, 0.5);
-}
-
-/* Mejorar legibilidad descripción */
-.woocommerce-Tabs-panel {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-.woocommerce-Tabs-panel p {
-    margin-bottom: 1.5rem;
-}
-
-/* Trust badges más visibles */
-.trust-badges-row {
-    background: rgba(0, 215, 117, 0.05);
-    padding: 1rem;
+/* Product FAQs */
+.product-faqs {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #111111;
     border-radius: 8px;
-    margin: 2rem 0;
 }
 
-@keyframes glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(0, 215, 117, 0.2); }
-    50% { box-shadow: 0 0 40px rgba(0, 215, 117, 0.4); }
+.product-faqs h2 {
+    color: #00D775;
+    margin-bottom: 2rem;
 }
 
-/* Sticky Buy Button en móvil */
-@media (max-width: 768px) {
-    .doittrading-buy-section {
-        position: sticky;
-        bottom: 0;
-        z-index: 999;
-        margin: 0 -20px;
-        border-radius: 0;
-    }
+.faq-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Highlight Reviews vacíos */
-.reviews_tab a {
-    position: relative;
+.faq-item:last-child {
+    border-bottom: none;
 }
 
-.reviews_tab a::after {
-    content: 'Be First!';
-    position: absolute;
-    top: -10px;
-    right: -40px;
-    background: #FFD700;
-    color: #000;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 0.7rem;
+.faq-item h3 {
+    color: #E5E5E5;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    color: #A0A0A0;
+    line-height: 1.6;
+}
+
+/* Why DoItTrading */
+.why-doittrading {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.why-doittrading h2 {
+    color: #E5E5E5;
+    margin-bottom: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    color: #00D775;
+    margin-bottom: 0.5rem;
+}
+
+.feature p {
+    color: #A0A0A0;
+    line-height: 1.6;
 }
 
 /* MQL5 Reviews Styling */
@@ -844,4 +811,48 @@ button:hover {
 
 .view-all-reviews:hover {
     text-decoration: underline;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    /* Product Layout Mobile */
+    .woocommerce div.product div.images,
+    .woocommerce div.product div.summary {
+        width: 100% !important;
+        float: none !important;
+        margin: 0 !important;
+    }
+    
+    .woocommerce div.product .product_title {
+        font-size: 2rem !important;
+    }
+    
+    .woocommerce div.product p.price {
+        font-size: 1.8rem !important;
+    }
+    
+    .doittrading-hero-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .live-trades-ticker {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .trust-badges-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .doittrading-buy-section {
+        position: sticky;
+        bottom: 0;
+        z-index: 999;
+        margin: 0 -20px;
+        border-radius: 0;
+    }
 }
