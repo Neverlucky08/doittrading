@@ -1,0 +1,364 @@
+/* DoItTrading - Product Single Page */
+
+/* ========================================
+   PRODUCT LAYOUT
+   ======================================== */
+
+/* Product Images */
+.woocommerce div.product div.images {
+    width: 35% !important;
+    max-width: 400px !important;
+    margin-right: var(--space-xl) !important;
+    background: var(--doit-dark-secondary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--doit-border);
+}
+
+.woocommerce div.product div.images img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: var(--radius-lg) !important;
+}
+
+/* Product Summary */
+.woocommerce div.product div.summary {
+    width: 60% !important;
+    float: right !important;
+    background: transparent;
+}
+
+/* ========================================
+   PRODUCT TITLE & PRICE
+   ======================================== */
+
+/* Product Title */
+.woocommerce div.product .product_title {
+    color: var(--doit-text) !important;
+    font-size: var(--font-size-4xl) !important;
+    font-weight: var(--font-weight-bold) !important;
+    margin-bottom: var(--space-sm) !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.2 !important;
+}
+
+/* Product Price */
+.woocommerce div.product p.price {
+    color: var(--doit-gold) !important;
+    font-size: var(--font-size-3xl) !important;
+    font-weight: var(--font-weight-bold) !important;
+    margin-bottom: var(--space-sm) !important;
+    font-family: var(--font-mono);
+}
+
+.woocommerce div.product p.price del {
+    color: var(--doit-text-dark);
+    font-size: var(--font-size-2xl);
+}
+
+/* ========================================
+   SHORT DESCRIPTION
+   ======================================== */
+
+.woocommerce div.product .woocommerce-product-details__short-description {
+    background: var(--doit-bg-green-light);
+    padding: var(--space-sm);
+    border-left: 3px solid var(--doit-green);
+    margin-bottom: var(--space-sm);
+    border-radius: var(--radius-sm);
+}
+
+/* ========================================
+   HERO LIVE INDICATORS
+   ======================================== */
+
+.doittrading-hero-bar {
+    background: var(--gradient-hero);
+    border: 1px solid var(--doit-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--doit-green);
+    font-size: var(--font-size-base);
+}
+
+.live-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--doit-green);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+}
+
+.recent-trade {
+    color: var(--doit-gold);
+    font-size: var(--font-size-base);
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* ========================================
+   EA STATS SECTION
+   ======================================== */
+
+.doittrading-ea-stats {
+    background: var(--gradient-green) !important;
+    border-left: 5px solid var(--doit-green) !important;
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin: var(--space-lg) 0;
+    box-shadow: var(--shadow-green-lg) !important;
+}
+
+.doittrading-ea-stats h3 {
+    color: var(--doit-green) !important;
+    font-size: var(--font-size-xl) !important;
+    margin-bottom: var(--space-sm) !important;
+    text-align: center !important;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+}
+
+.stat-box {
+    background: var(--doit-bg-green-light);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    color: var(--doit-text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.stat-value {
+    display: block;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-mono);
+}
+
+.stat-value.positive {
+    color: var(--doit-green);
+}
+
+.stat-value.negative {
+    color: var(--doit-red);
+}
+
+/* Platform badges */
+.platforms-badges {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    margin-top: var(--space-sm);
+}
+
+.platform-badge {
+    background: var(--doit-green);
+    color: var(--doit-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   URGENCY SECTION
+   ======================================== */
+
+.doittrading-urgency {
+    background: var(--doit-bg-red-medium);
+    border: 1px solid var(--doit-border-red-strong);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+    text-align: center;
+}
+
+.price-warning {
+    color: var(--doit-red);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-xs);
+}
+
+.stock-info {
+    color: var(--doit-gold);
+    margin-bottom: var(--space-xs);
+}
+
+.final-price {
+    color: var(--doit-text);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-mono);
+}
+
+/* ========================================
+   PRODUCT TABS
+   ======================================== */
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+    background: var(--doit-dark-secondary);
+    border: 1px solid var(--doit-border-light);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+    background: transparent;
+    border: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    background: var(--doit-dark);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    color: var(--doit-text) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: var(--font-weight-semibold) !important;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+    color: var(--doit-green) !important;
+    font-weight: var(--font-weight-bold) !important;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel {
+    background: var(--doit-dark-secondary);
+    color: var(--doit-text) !important;
+}
+
+/* Títulos dentro de tabs */
+.woocommerce div.product .woocommerce-tabs .panel h1,
+.woocommerce div.product .woocommerce-tabs .panel h2,
+.woocommerce div.product .woocommerce-tabs .panel h3,
+.woocommerce div.product .woocommerce-tabs .panel h4,
+.woocommerce div.product .woocommerce-tabs .panel h5,
+.woocommerce div.product .woocommerce-tabs .panel h6 {
+    color: var(--doit-text) !important;
+    font-weight: var(--font-weight-bold) !important;
+    margin-bottom: var(--space-sm) !important;
+}
+
+/* ========================================
+   ADD TO CART BUTTON
+   ======================================== */
+
+.woocommerce div.product form.cart .button {
+    background: var(--doit-green);
+    color: var(--doit-dark);
+    font-size: var(--font-size-xl);
+    padding: var(--space-sm) var(--space-lg);
+    width: 100%;
+}
+
+.woocommerce div.product form.cart .button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-green);
+}
+
+/* ========================================
+   MQL5 BUY SECTION
+   ======================================== */
+
+.doittrading-buy-section {
+    margin: var(--space-lg) 0;
+    padding: var(--space-lg);
+    background: var(--gradient-buy);
+    border: 1px solid var(--doit-border);
+    border-radius: var(--radius-md);
+}
+
+.mql5-buttons {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-sm);
+}
+
+.mql5-buy-btn {
+    flex: 1;
+    min-width: 200px;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
+    text-align: center;
+    transition: var(--transition-all);
+    display: inline-block;
+}
+
+.mt4-btn {
+    background: var(--gradient-mt4);
+    color: white;
+}
+
+.mt5-btn {
+    background: var(--gradient-mt5);
+    color: white;
+}
+
+.mql5-buy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: white;
+}
+
+/* ========================================
+   DOWNLOAD BUTTONS
+   ======================================== */
+
+.doittrading-downloads {
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--doit-bg-green-light);
+    border: 1px solid var(--doit-border);
+    border-radius: var(--radius-md);
+}
+
+.doittrading-downloads h3 {
+    color: var(--doit-green);
+    margin-bottom: var(--space-sm);
+}
+
+.download-buttons {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    transition: var(--transition-all);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}

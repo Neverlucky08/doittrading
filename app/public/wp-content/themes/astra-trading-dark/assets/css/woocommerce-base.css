@@ -1,0 +1,123 @@
+/* DoItTrading - WooCommerce Base Styles */
+
+/* ========================================
+   SHOP PAGE - PRODUCT GRID
+   ======================================== */
+
+/* Shop Page Background */
+.woocommerce-shop .site-content {
+    background: var(--doit-dark);
+}
+
+/* Product Grid Items */
+.woocommerce ul.products li.product {
+    background: var(--gradient-product);
+    border: 1px solid var(--doit-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    transition: var(--transition-all);
+}
+
+.woocommerce ul.products li.product:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-green-xl);
+    border-color: var(--doit-green);
+}
+
+/* Product Title en Grid */
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    color: var(--doit-text);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-xs);
+}
+
+/* Price en Grid */
+.woocommerce ul.products li.product .price {
+    color: var(--doit-gold);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-mono);
+}
+
+/* Add to Cart Button en Grid */
+.woocommerce ul.products li.product .button {
+    background: var(--doit-green);
+    color: var(--doit-dark);
+    border: none;
+    width: 100%;
+    margin-top: var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* ========================================
+   RELATED PRODUCTS
+   ======================================== */
+
+.woocommerce .related.products h2,
+.woocommerce .upsells.products h2,
+.woocommerce .cross-sells h2 {
+    color: var(--doit-text) !important;
+    font-size: var(--font-size-3xl) !important;
+    font-weight: var(--font-weight-bold) !important;
+    margin-bottom: var(--space-md) !important;
+    text-align: center !important;
+}
+
+/* ========================================
+   WOOCOMMERCE ATTRIBUTES
+   ======================================== */
+
+.woocommerce-product-attributes-item__label {
+    color: var(--doit-green) !important;
+    font-weight: var(--font-weight-semibold) !important;
+}
+
+.woocommerce-product-attributes-item__value {
+    color: var(--doit-text) !important;
+}
+
+/* ========================================
+   BREADCRUMBS
+   ======================================== */
+
+.woocommerce-breadcrumb {
+    color: var(--doit-text-muted) !important;
+}
+
+.woocommerce-breadcrumb a {
+    color: var(--doit-green) !important;
+}
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+.woocommerce form .form-row label {
+    color: var(--doit-text) !important;
+    font-weight: var(--font-weight-semibold) !important;
+}
+
+/* ========================================
+   HIDDEN ELEMENTS
+   ======================================== */
+
+/* Ocultar elementos de WooCommerce innecesarios */
+.product_meta {
+    display: none;
+}
+
+.woocommerce-product-rating {
+    display: none;
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+
+/* Table headers */
+th {
+    color: var(--doit-green) !important;
+    font-weight: var(--font-weight-bold) !important;
+}
