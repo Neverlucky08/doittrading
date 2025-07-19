@@ -856,3 +856,130 @@ button:hover {
         border-radius: 0;
     }
 }
+
+
+/* ========================================
+   FIX: TÍTULOS OSCUROS - VISIBILIDAD
+   Añadir al final de main.css
+   ======================================== */
+
+/* Fix: Títulos de Tabs (Description, Reviews, etc) */
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    color: #E5E5E5 !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+    color: #00D775 !important;
+    font-weight: 700 !important;
+}
+
+/* Fix: Títulos dentro de las tabs (h2, h3, etc) */
+.woocommerce div.product .woocommerce-tabs .panel h1,
+.woocommerce div.product .woocommerce-tabs .panel h2,
+.woocommerce div.product .woocommerce-tabs .panel h3,
+.woocommerce div.product .woocommerce-tabs .panel h4,
+.woocommerce div.product .woocommerce-tabs .panel h5,
+.woocommerce div.product .woocommerce-tabs .panel h6 {
+    color: #E5E5E5 !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Fix: Títulos de Related Products */
+.woocommerce .related.products h2,
+.woocommerce .upsells.products h2,
+.woocommerce .cross-sells h2 {
+    color: #E5E5E5 !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center !important;
+}
+
+/* Fix: Títulos generales del theme */
+h1, h2, h3, h4, h5, h6 {
+    color: #E5E5E5 !important;
+}
+
+/* Fix: Títulos específicos de WooCommerce */
+.woocommerce-product-attributes-item__label {
+    color: #00D775 !important;
+    font-weight: 600 !important;
+}
+
+.woocommerce-product-attributes-item__value {
+    color: #E5E5E5 !important;
+}
+
+/* Fix: Breadcrumbs si están muy oscuros */
+.woocommerce-breadcrumb {
+    color: #A0A0A0 !important;
+}
+
+.woocommerce-breadcrumb a {
+    color: #00D775 !important;
+}
+
+/* Fix: Labels de formularios */
+.woocommerce form .form-row label {
+    color: #E5E5E5 !important;
+    font-weight: 600 !important;
+}
+
+/* Fix: Títulos de widgets/sidebar si aparecen */
+.widget-title,
+.widget .widget-title {
+    color: #E5E5E5 !important;
+    font-weight: 700 !important;
+}
+
+/* Fix: Títulos de blog/posts si los tienes */
+.entry-title,
+.entry-title a {
+    color: #E5E5E5 !important;
+}
+
+/* Fix: Strong/Bold text visibility */
+strong, b {
+    color: #E5E5E5 !important;
+    font-weight: 700 !important;
+}
+
+/* Fix: Cualquier título que se nos escape */
+.site-content h1,
+.site-content h2,
+.site-content h3,
+.site-content h4,
+.site-content h5,
+.site-content h6 {
+    color: #E5E5E5 !important;
+}
+
+/* Fix: Content area general text visibility */
+.site-content {
+    color: #E5E5E5 !important;
+}
+
+/* Fix: WooCommerce specific content */
+.woocommerce div.product .woocommerce-tabs .panel {
+    color: #E5E5E5 !important;
+}
+
+/* Fix: Table headers si hay tablas */
+th {
+    color: #00D775 !important;
+    font-weight: 700 !important;
+}
+
+/* Fix: Lista items que puedan estar oscuros */
+li {
+    color: #E5E5E5 !important;
+}
+
+/* Fix: Párrafos generales */
+p {
+    color: #E5E5E5 !important;
+    line-height: 1.6 !important;
+}
