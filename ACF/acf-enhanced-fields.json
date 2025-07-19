@@ -1,0 +1,197 @@
+[
+    {
+        "key": "group_enhanced_product_fields",
+        "title": "DoItTrading Enhanced Product Fields",
+        "fields": [
+            {
+                "key": "field_hero_hook_title",
+                "label": "Hero Hook Title",
+                "name": "hero_hook_title",
+                "type": "text",
+                "instructions": "Título emocional principal (ej: 'Finally, A GBPUSD EA That Actually Works')",
+                "required": 0,
+                "default_value": "Finally, A GBPUSD EA That Actually Works",
+                "placeholder": "Hook emocional para el hero",
+                "maxlength": 100
+            },
+            {
+                "key": "field_hero_subtitle",
+                "label": "Hero Subtitle",
+                "name": "hero_subtitle", 
+                "type": "text",
+                "instructions": "Subtítulo con credenciales (se combina con win_rate automáticamente)",
+                "required": 0,
+                "default_value": "MyFxBook Verified • No Martingale",
+                "placeholder": "Credenciales y diferenciadores",
+                "maxlength": 150
+            },
+            {
+                "key": "field_countdown_end_date",
+                "label": "Countdown End Date",
+                "name": "countdown_end_date",
+                "type": "date_time_picker",
+                "instructions": "Fecha y hora cuando termina la oferta especial",
+                "required": 0,
+                "display_format": "d/m/Y H:i",
+                "return_format": "Y-m-d H:i:s",
+                "first_day": 1
+            },
+            {
+                "key": "field_stock_remaining",
+                "label": "Stock Remaining",
+                "name": "stock_remaining",
+                "type": "number",
+                "instructions": "Número de licencias restantes (para crear urgencia)",
+                "required": 0,
+                "default_value": 7,
+                "min": 1,
+                "max": 50
+            },
+            {
+                "key": "field_monthly_gain_context",
+                "label": "Monthly Gain Context",
+                "name": "monthly_gain_context",
+                "type": "text",
+                "instructions": "Contexto adicional para monthly gain (ej: 'Last 6 months')",
+                "required": 0,
+                "default_value": "Last 6 months",
+                "placeholder": "Periodo de tiempo"
+            },
+            {
+                "key": "field_win_rate_context",
+                "label": "Win Rate Context",
+                "name": "win_rate_context",
+                "type": "text",
+                "instructions": "Contexto para win rate (ej: '247 of 325 trades')",
+                "required": 0,
+                "default_value": "247 of 325 trades",
+                "placeholder": "X de Y trades"
+            },
+            {
+                "key": "field_drawdown_context",
+                "label": "Drawdown Context",
+                "name": "drawdown_context",
+                "type": "text",
+                "instructions": "Contexto para max drawdown (ej: 'Worst period Dec 2024')",
+                "required": 0,
+                "default_value": "Worst period Dec 2024",
+                "placeholder": "Periodo del drawdown"
+            },
+            {
+                "key": "field_comparison_benchmark",
+                "label": "Comparison Benchmark",
+                "name": "comparison_benchmark",
+                "type": "text",
+                "instructions": "Benchmark para comparar (ej: 'vs 2.1% S&P500')",
+                "required": 0,
+                "default_value": "vs 2.1% S&P500",
+                "placeholder": "vs X% benchmark"
+            },
+            {
+                "key": "field_roi_capital_base",
+                "label": "ROI Capital Base",
+                "name": "roi_capital_base",
+                "type": "number",
+                "instructions": "Capital base para calcular ROI (recomendado: $1000)",
+                "required": 0,
+                "default_value": 1000,
+                "min": 100,
+                "step": 100,
+                "prepend": "$"
+            },
+            {
+                "key": "field_performance_period",
+                "label": "Performance Period",
+                "name": "performance_period",
+                "type": "select",
+                "instructions": "Periodo base para cálculos de performance",
+                "required": 0,
+                "choices": {
+                    "3": "3 months",
+                    "6": "6 months", 
+                    "12": "12 months",
+                    "24": "24 months"
+                },
+                "default_value": "6",
+                "return_format": "value"
+            },
+            {
+                "key": "field_mql5_reviews_verified",
+                "label": "Reviews are MQL5 Verified",
+                "name": "mql5_reviews_verified",
+                "type": "true_false",
+                "instructions": "Marcar si todas las reviews son compras verificadas en MQL5",
+                "required": 0,
+                "default_value": 1,
+                "ui": 1
+            },
+            {
+                "key": "field_live_traders_count_min",
+                "label": "Live Traders Count (Min)",
+                "name": "live_traders_count_min",
+                "type": "number",
+                "instructions": "Número mínimo de traders en vivo (para randomizar)",
+                "required": 0,
+                "default_value": 8,
+                "min": 1,
+                "max": 50
+            },
+            {
+                "key": "field_live_traders_count_max", 
+                "label": "Live Traders Count (Max)",
+                "name": "live_traders_count_max",
+                "type": "number",
+                "instructions": "Número máximo de traders en vivo (para randomizar)",
+                "required": 0,
+                "default_value": 15,
+                "min": 1,
+                "max": 100
+            },
+            {
+                "key": "field_last_trade_pips_min",
+                "label": "Last Trade Pips (Min)",
+                "name": "last_trade_pips_min", 
+                "type": "number",
+                "instructions": "Pips mínimos para último trade (randomizar)",
+                "required": 0,
+                "default_value": 25,
+                "min": 5
+            },
+            {
+                "key": "field_last_trade_pips_max",
+                "label": "Last Trade Pips (Max)", 
+                "name": "last_trade_pips_max",
+                "type": "number",
+                "instructions": "Pips máximos para último trade (randomizar)",
+                "required": 0,
+                "default_value": 65,
+                "min": 10
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "product"
+                }
+            ],
+            [
+                {
+                    "param": "post_taxonomy",
+                    "operator": "==", 
+                    "value": "product_cat:expert-advisors"
+                }
+            ]
+        ],
+        "menu_order": 1,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Campos adicionales para el layout V2 mejorado",
+        "show_in_rest": 0
+    }
+]
