@@ -362,3 +362,166 @@
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
+
+/* ========================================
+   HERO SECTION FIXES - Añadir al final de product-single.css
+   ======================================== */
+
+/* Hero Section Container - Mejor balance visual */
+.woocommerce div.product {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+/* Hero Images - 40% más equilibrado */
+.woocommerce div.product div.images {
+    width: 40% !important;
+    max-width: 450px !important;
+    margin-right: 0 !important;
+    flex-shrink: 0;
+}
+
+/* Hero Summary - 55% para mejor distribución */
+.woocommerce div.product div.summary {
+    width: 55% !important;
+    float: none !important;
+    flex: 1;
+    min-width: 400px;
+}
+
+/* Title - Mejor espaciado */
+.woocommerce div.product .product_title {
+    margin-bottom: 1.5rem !important;
+    line-height: 1.1 !important;
+}
+
+/* Price - Más prominente */
+.woocommerce div.product p.price {
+    margin-bottom: 2rem !important;
+    text-align: left;
+}
+
+/* Hero Live Bar - Más compacta */
+.doittrading-hero-bar {
+    margin-bottom: 2rem;
+    max-width: 100%;
+}
+
+/* EA Stats - Optimizada para hero */
+.doittrading-ea-stats {
+    margin: 2rem 0 !important;
+    max-width: 100%;
+}
+
+.doittrading-ea-stats h3 {
+    font-size: 1.4rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Urgency Section - Más compacta */
+.doittrading-urgency {
+    margin: 1.5rem 0;
+    max-width: 100%;
+}
+
+/* Buy Section - Centrada y prominente */
+.doittrading-buy-section {
+    max-width: 500px;
+    margin: 2rem auto !important;
+    text-align: center;
+    position: relative;
+    clear: both;
+}
+
+.doittrading-buy-section h3 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mql5-buttons {
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto 1rem auto;
+}
+
+.mql5-buy-btn {
+    min-width: 180px;
+}
+
+/* Short Description - Mejor integración */
+.woocommerce div.product .woocommerce-product-details__short-description {
+    margin: 1.5rem 0 !important;
+    padding: 1.2rem !important;
+    font-size: 1rem !important;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE HERO FIXES
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Stack en mobile */
+    .woocommerce div.product {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .woocommerce div.product div.images,
+    .woocommerce div.product div.summary {
+        width: 100% !important;
+        min-width: auto;
+    }
+    
+    .woocommerce div.product .product_title {
+        font-size: 2rem !important;
+        text-align: center;
+    }
+    
+    .woocommerce div.product p.price {
+        font-size: 1.8rem !important;
+        text-align: center;
+    }
+    
+    .doittrading-buy-section {
+        max-width: 100%;
+        margin: 1.5rem 0 !important;
+    }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+    /* Tablet adjustments */
+    .woocommerce div.product div.images {
+        width: 45% !important;
+    }
+    
+    .woocommerce div.product div.summary {
+        width: 50% !important;
+        min-width: 350px;
+    }
+}
+
+/* ========================================
+   VISUAL IMPROVEMENTS
+   ======================================== */
+
+/* Add subtle separator between hero and tabs */
+.woocommerce div.product .woocommerce-tabs {
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+}
+
+/* Improve visual hierarchy */
+.woocommerce div.product div.summary > * {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Center-align key elements for better flow */
+.doittrading-hero-bar,
+.doittrading-urgency,
+.doittrading-buy-section {
+    margin-left: auto;
+    margin-right: auto;
+}
