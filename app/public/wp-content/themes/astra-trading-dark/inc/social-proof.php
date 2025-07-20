@@ -8,29 +8,6 @@
 if (!defined('ABSPATH')) exit;
 
 /**
- * Trust Bar - Top indicators
- */
-add_action('woocommerce_before_single_product_summary', 'doittrading_trust_indicators', 5);
-function doittrading_trust_indicators() {
-    if (!doittrading_is_ea()) return;
-    
-    $active_traders = doittrading_get_active_traders();
-    $last_trade = doittrading_get_last_trade();
-    ?>
-    <div class="trust-bar">
-        <div class="trust-item">
-            <span class="icon">🟢</span>
-            <span class="text"><?php echo $active_traders; ?> Active Users Right Now</span>
-        </div>
-        <div class="trust-item">
-            <span class="icon">⚡</span>
-            <span class="text">Last Trade: <?php echo $last_trade['direction'] === 'profit' ? '+' : '-'; ?><?php echo $last_trade['pips']; ?> pips (<?php echo $last_trade['time_ago']; ?>m ago)</span>
-        </div>
-    </div>
-    <?php
-}
-
-/**
  * Trust Badges
  */
 add_action('woocommerce_single_product_summary', 'doittrading_trust_badges', 15);

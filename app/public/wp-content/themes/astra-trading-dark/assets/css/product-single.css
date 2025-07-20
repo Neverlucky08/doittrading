@@ -4,17 +4,6 @@
    PRODUCT LAYOUT
    ======================================== */
 
-/* Product Images */
-.woocommerce div.product div.images {
-    width: 35% !important;
-    max-width: 400px !important;
-    margin-right: var(--space-xl) !important;
-    background: var(--doit-dark-secondary);
-    padding: var(--space-lg);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--doit-border);
-}
-
 .woocommerce div.product div.images img {
     max-width: 100% !important;
     height: auto !important;

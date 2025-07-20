@@ -29,13 +29,25 @@ function doittrading_hero_hybrid_smart() {
     global $product;
     $product_id = get_the_ID();
     $win_rate = get_field('win_rate', $product_id);
+    
+    // Get product image
+    $image_id = $product->get_image_id();
+    $image_url = wp_get_attachment_image_url($image_id, 'large');
+    $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+    
+    if (!$image_url) {
+        $image_url = wc_placeholder_img_src('large');
+        $image_alt = 'Product placeholder';
+    }
     ?>
     <div class="doittrading-hero-hybrid">
         <!-- Left Column: Product Image with Live Badge -->
         <div class="hero-image-column">
             <div class="product-image-wrapper">
                 <div class="live-badge-hero">🟢 LIVE</div>
-                <?php woocommerce_show_product_images(); ?>
+                <img src="<?php echo esc_url($image_url); ?>" 
+                     alt="<?php echo esc_attr($image_alt ?: get_the_title()); ?>" 
+                     class="hero-product-image">
             </div>
         </div>
         
