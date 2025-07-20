@@ -1,6 +1,37 @@
 /* DoItTrading - Product Single Page */
 
 /* ========================================
+   HERO HYBRID – Ajuste de imagen al alto del contenido
+   ======================================== */
+.doittrading-hero-hybrid {
+  display: grid;
+  /* ajusta estas proporciones según tu diseño */
+  grid-template-columns: 40% 60%;
+  gap: var(--space-lg);
+  align-items: stretch;           /* estira ambas columnas al mismo alto */
+}
+
+.doittrading-hero-hybrid .hero-image-column {
+  height: 100%;                   /* iguala la altura de la fila */
+  display: flex;
+  align-items: center;            /* centra verticalmente */
+  justify-content: center;        /* centra horizontalmente */
+}
+
+/* ========================================
+   Posicionar LIVE Badge sobre la imagen
+   ======================================== */
+.doittrading-hero-hybrid .hero-image-column .product-image-wrapper {
+  position: relative;
+}
+
+.doittrading-hero-hybrid .hero-image-column .hero-product-image {
+  width: auto;                    /* respeta el ratio */
+  height: 100%;                   /* llena toda la altura del contenedor */
+  object-fit: contain;            /* sin recortar, mantiene proporción */
+}
+
+/* ========================================
    PRODUCT LAYOUT
    ======================================== */
 
@@ -1227,4 +1258,3 @@
     line-height: 1.2;
 }
 
-/* OCULTAR elementos duplicados */
