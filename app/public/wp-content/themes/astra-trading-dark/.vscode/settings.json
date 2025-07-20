@@ -37,10 +37,6 @@
         "pcntl",
         "pcre",
         "PDO",
-        "pdo_ibm",
-        "pdo_mysql",
-        "pdo_pgsql",
-        "pdo_sqlite",
         "pgsql",
         "Phar",
         "posix",
@@ -71,6 +67,27 @@
         "Zend OPcache",
         "zip",
         "zlib",
-        "wordpress"
+        "wordpress",
+        "random"
+    ],
+    "intelephense.files.maxSize": 5000000,
+    "intelephense.environment.includePaths": [
+        "${workspaceFolder}/app/public/wp-includes",
+        "${workspaceFolder}/app/public/wp-content/plugins/woocommerce",
+        "${workspaceFolder}/app/public/wp-content/plugins/advanced-custom-fields-pro",
+        "stubs/wordpress",
+        "stubs/woocommerce"
+    ],
+    "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/.svn/**",
+        "**/.hg/**",
+        "**/CVS/**",
+        "**/.DS_Store/**",
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/vendor/**/{Tests,tests}/**",
+        "**/.history/**",
+        "**/vendor/**/vendor/**"
     ]
 }

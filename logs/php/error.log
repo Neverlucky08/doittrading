@@ -1055,3 +1055,325 @@ Stack trace:
 [19-Jul-2025 10:12:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
 [19-Jul-2025 10:12:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
 [19-Jul-2025 10:12:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[19-Jul-2025 20:04:12 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:04:12 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 367
+[19-Jul-2025 20:04:12 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 368
+[19-Jul-2025 20:07:23 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:24 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:27 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:29 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:30 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:40 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:40 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:41 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:41 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:42 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:07:42 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:08:24 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:08:41 UTC] PHP Fatal error:  Cannot redeclare doittrading_hero_v2() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:15) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\product-display.php on line 14
+[19-Jul-2025 20:08:41 UTC] PHP Fatal error:  Cannot redeclare doittrading_hero_v2() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:15) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\product-display.php on line 14
+[19-Jul-2025 20:08:53 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:08:53 UTC] PHP Fatal error:  Cannot redeclare doittrading_mql5_buy_buttons() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:5) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 28
+[19-Jul-2025 20:09:07 UTC] PHP Fatal error:  Cannot redeclare doittrading_hero_v2() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:15) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\product-display.php on line 14
+[19-Jul-2025 20:09:08 UTC] PHP Fatal error:  Cannot redeclare doittrading_hero_v2() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\code-snippets\php\snippet-ops.php(584) : eval()'d code:15) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\product-display.php on line 14
+[19-Jul-2025 20:10:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_short_description() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:196
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 196
+[19-Jul-2025 20:10:34 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_short_description() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:196
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 196
+[19-Jul-2025 20:10:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_short_description() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:196
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 196
+[19-Jul-2025 20:10:59 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_short_description() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:196
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 196
+[19-Jul-2025 20:11:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_short_description() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:196
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 196
+[19-Jul-2025 20:23:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_short_description() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:196
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 196
+[19-Jul-2025 20:23:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_short_description() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:196
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 196
+[19-Jul-2025 20:24:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_short_description() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:196
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 196
+[19-Jul-2025 20:26:02 UTC] PHP Warning:  require_once(C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php): Failed to open stream: No such file or directory in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 60
+[19-Jul-2025 20:26:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:60
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(103): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 60
+[19-Jul-2025 20:26:03 UTC] PHP Warning:  require_once(C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/core-functions.php): Failed to open stream: No such file or directory in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 60
+[19-Jul-2025 20:26:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/core-functions.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:60
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(103): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 60
+[19-Jul-2025 20:26:12 UTC] PHP Warning:  require_once(C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/core-functions.php): Failed to open stream: No such file or directory in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 60
+[19-Jul-2025 20:26:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/core-functions.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:60
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(103): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\Diego\\...')
+#4 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 60
+[19-Jul-2025 20:26:51 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func(): Argument #1 ($callback) must be a valid callback, function "doittrading_mql5_reviews_content" not found or invalid function name in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php:47
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1591): wc_get_template('single-product/...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): woocommerce_output_product_data_tabs('')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\content-single-product.php(72): do_action('woocommerce_aft...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require('C:\\Users\\Diego\\...')
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\Users\\Diego\\...', false)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(37): wc_get_template_part('content', 'single-product')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php on line 47
+[19-Jul-2025 20:26:54 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func(): Argument #1 ($callback) must be a valid callback, function "doittrading_mql5_reviews_content" not found or invalid function name in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php:47
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1591): wc_get_template('single-product/...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): woocommerce_output_product_data_tabs('')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\content-single-product.php(72): do_action('woocommerce_aft...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require('C:\\Users\\Diego\\...')
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\Users\\Diego\\...', false)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(37): wc_get_template_part('content', 'single-product')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php on line 47
+[19-Jul-2025 20:27:04 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func(): Argument #1 ($callback) must be a valid callback, function "doittrading_mql5_reviews_content" not found or invalid function name in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php:47
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1591): wc_get_template('single-product/...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): woocommerce_output_product_data_tabs('')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\content-single-product.php(72): do_action('woocommerce_aft...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require('C:\\Users\\Diego\\...')
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\Users\\Diego\\...', false)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(37): wc_get_template_part('content', 'single-product')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php on line 47
+[19-Jul-2025 20:27:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_short_description() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:196
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 196
+[19-Jul-2025 20:29:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:122
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 122
+[19-Jul-2025 20:31:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:122
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 122
+[19-Jul-2025 20:31:45 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:122
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 122
+[19-Jul-2025 20:31:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:122
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 122
+[19-Jul-2025 20:32:05 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_price() on string in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php:122
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): doittrading_product_schema('')
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(3192): do_action('wp_head')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra\header.php(31): wp_head()
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(810): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', true, Array)
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(22): get_header('shop')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 122
