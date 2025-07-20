@@ -38,7 +38,7 @@ function doittrading_trust_badges() {
 /**
  * Enhanced Reviews Section
  */
-add_action('woocommerce_after_single_product_summary', 'doittrading_reviews_enhanced', 15);
+add_action('woocommerce_single_product_summary', 'doittrading_reviews_enhanced', 15);
 function doittrading_reviews_enhanced() {
     $product_id = get_the_ID();
     
