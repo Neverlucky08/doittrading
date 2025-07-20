@@ -101,13 +101,14 @@ function doittrading_reviews_enhanced() {
 /**
  * Value Proposition Comparison
  */
-add_action('woocommerce_after_single_product_summary', 'doittrading_value_proposition', 17);
+add_action('woocommerce_single_product_summary', 'doittrading_value_proposition', 15);
 function doittrading_value_proposition() {
     global $product;
     
     if (!doittrading_is_ea()) return;
     
     $price = $product->get_price();
+    $product_name = $product->get_name();
     ?>
     <div class="value-proposition-section">
         <h3>Why $<?php echo $price; ?> is Actually Cheap</h3>
@@ -125,7 +126,7 @@ function doittrading_value_proposition() {
             </div>
             
             <div class="value-column good">
-                <h4>✅ DoItTrading EAs:</h4>
+                <h4>✅ <?php echo esc_html($product_name); ?>:</h4>
                 <ul>
                     <li>Live MyFxBook verified</li>
                     <li>Conservative risk management</li>
