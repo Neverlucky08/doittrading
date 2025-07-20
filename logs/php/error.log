@@ -1404,3 +1404,19 @@ Stack trace:
 [20-Jul-2025 06:27:05 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
 [20-Jul-2025 06:27:05 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
 [20-Jul-2025 06:27:05 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[20-Jul-2025 07:49:19 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func(): Argument #1 ($callback) must be a valid callback, function "doittrading_mql5_reviews_content" not found or invalid function name in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php:47
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1591): wc_get_template('single-product/...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(324): woocommerce_output_product_data_tabs('')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\content-single-product.php(72): do_action('woocommerce_aft...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require('C:\\Users\\Diego\\...')
+#7 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\Users\\Diego\\...', false)
+#8 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product.php(37): wc_get_template_part('content', 'single-product')
+#9 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#10 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#12 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php on line 47

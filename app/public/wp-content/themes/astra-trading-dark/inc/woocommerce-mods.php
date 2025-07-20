@@ -11,18 +11,24 @@ if (!defined('ABSPATH')) exit;
  * Remove unnecessary WooCommerce elements
  */
 add_action('init', 'doittrading_clean_woocommerce');
+
 function doittrading_clean_woocommerce() {
     // Remover meta innecesaria
     remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
     
     // Remover rating si no hay reviews
     remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+
+     /* 3. Precio <p class="price">…</p> */
+    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+
+    // Quitar el formulario <form class="cart"> original
+    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 }
 
 /**
  * Reemplazar Add to Cart con botones MQL5
  */
-remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
 add_action('woocommerce_single_product_summary', 'doittrading_mql5_buy_buttons', 30);
 
 function doittrading_mql5_buy_buttons() {

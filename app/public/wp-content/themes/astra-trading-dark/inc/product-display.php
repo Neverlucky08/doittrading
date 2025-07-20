@@ -121,17 +121,17 @@ function doittrading_stats_enhanced() {
                 <div class="stat-context">Last 6 months avg<br>(Live account)</div>
             </div>
             <div class="stat-box-enhanced">
-                <div class="stat-value"><?php the_field('win_rate', $product_id); ?>%</div>
+                <div class="stat-value positive"><?php the_field('win_rate', $product_id); ?>%</div>
                 <div class="stat-label">Win Rate</div>
                 <div class="stat-context">Verified trades<br>Since Jan 2024</div>
             </div>
             <div class="stat-box-enhanced">
-                <div class="stat-value negative">-<?php the_field('max_drawdown', $product_id); ?>%</div>
+                <div class="stat-value positive">-<?php the_field('max_drawdown', $product_id); ?>%</div>
                 <div class="stat-label">Max Drawdown</div>
                 <div class="stat-context">Conservative<br>Risk management</div>
             </div>
             <div class="stat-box-enhanced">
-                <div class="stat-value"><?php the_field('profit_factor', $product_id); ?></div>
+                <div class="stat-value positive"><?php the_field('profit_factor', $product_id); ?></div>
                 <div class="stat-label">Profit Factor</div>
                 <div class="stat-context">$<?php echo number_format((float)get_field('profit_factor', $product_id), 2); ?> earned<br>per $1 risked</div>
             </div>

@@ -102,3 +102,4 @@ function doittrading_check_dependencies() {
         echo '<div class="notice notice-warning"><p>DoItTrading Theme requires Advanced Custom Fields for full functionality.</p></div>';
     }
 }
+
