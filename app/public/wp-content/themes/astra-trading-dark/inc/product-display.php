@@ -13,42 +13,82 @@
 if (!defined('ABSPATH')) exit;
 
 /**
- * Hero Section V2 - Emotional Hook
+ * Hero Section V2 - Hybrid Smart Layout
+ * Hooks into woocommerce_before_single_product_summary to control full layout
  */
-add_action('woocommerce_single_product_summary', 'doittrading_hero_v2', 5);
-function doittrading_hero_v2() {
-    if (!doittrading_is_ea()) return;
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+add_action('woocommerce_before_single_product_summary', 'doittrading_hero_hybrid_smart', 20);
+
+function doittrading_hero_hybrid_smart() {
+    if (!doittrading_is_ea()) {
+        // For non-EA products, show default images
+        woocommerce_show_product_images();
+        return;
+    }
     
+    global $product;
     $product_id = get_the_ID();
     $win_rate = get_field('win_rate', $product_id);
     ?>
-    <div class="doittrading-hero-v2">
-        <!-- Hook Emocional -->
-        <div class="hero-hook">
-            <h1 class="hero-title">Finally, A Trading EA That Actually Works</h1>
-            <div class="hero-subtitle">
-                <?php echo esc_html($win_rate); ?>% Win Rate • MyFxBook Verified • No Martingale
+    <div class="doittrading-hero-hybrid">
+        <!-- Left Column: Product Image with Live Badge -->
+        <div class="hero-image-column">
+            <div class="product-image-wrapper">
+                <div class="live-badge-hero">🟢 LIVE</div>
+                <?php woocommerce_show_product_images(); ?>
             </div>
         </div>
         
-        <!-- Live Indicators -->
-        <div class="hero-live-bar">
-            <div class="live-indicator">
-                <span class="live-dot"></span>
-                <strong>LIVE:</strong> <?php echo doittrading_get_active_traders(); ?> traders using this EA right now
+        <!-- Right Column: Hero Content -->
+        <div class="hero-content-column">
+            <!-- Hero V2 Content -->
+            <div class="doittrading-hero-v2">
+                <!-- Hook Emocional -->
+                <div class="hero-hook">
+                    <h1 class="hero-title">Finally, A Trading EA That Actually Works</h1>
+                    <div class="hero-subtitle">
+                        <?php echo esc_html($win_rate); ?>% Win Rate • MyFxBook Verified • No Martingale
+                    </div>
+                </div>
+                
+                <!-- Live Indicators -->
+                <div class="hero-live-bar">
+                    <div class="live-indicator">
+                        <span class="live-dot"></span>
+                        <strong>LIVE:</strong> <?php echo doittrading_get_active_traders(); ?> traders using this EA right now
+                    </div>
+                    <div class="recent-trade">
+                        <?php 
+                        $last_trade = doittrading_get_last_trade();
+                        $icon = $last_trade['direction'] === 'profit' ? '✅' : '⚡';
+                        ?>
+                        <?php echo $icon; ?> <strong>Last trade:</strong> 
+                        <?php echo $last_trade['direction'] === 'profit' ? '+' : '-'; ?><?php echo $last_trade['pips']; ?> pips 
+                        (<?php echo $last_trade['time_ago']; ?>m ago)
+                    </div>
+                </div>
             </div>
-            <div class="recent-trade">
-                <?php 
-                $last_trade = doittrading_get_last_trade();
-                $icon = $last_trade['direction'] === 'profit' ? '✅' : '⚡';
-                ?>
-                <?php echo $icon; ?> <strong>Last trade:</strong> 
-                <?php echo $last_trade['direction'] === 'profit' ? '+' : '-'; ?><?php echo $last_trade['pips']; ?> pips 
-                (<?php echo $last_trade['time_ago']; ?>m ago)
-            </div>
+            
+            <!-- Price Section (from marketing-features.php) -->
+            <?php doittrading_urgency_section(); ?>
         </div>
     </div>
     <?php
+}
+
+/**
+ * Wrapper for full-width sections after hero
+ */
+add_action('woocommerce_single_product_summary', 'doittrading_full_width_wrapper_start', 10);
+function doittrading_full_width_wrapper_start() {
+    if (!doittrading_is_ea()) return;
+    echo '<div class="doittrading-full-width-sections">';
+}
+
+add_action('woocommerce_single_product_summary', 'doittrading_full_width_wrapper_end', 25);
+function doittrading_full_width_wrapper_end() {
+    if (!doittrading_is_ea()) return;
+    echo '</div>';
 }
 
 /**

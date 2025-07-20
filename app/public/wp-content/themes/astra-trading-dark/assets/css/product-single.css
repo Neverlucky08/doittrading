@@ -28,6 +28,27 @@
     background: transparent;
 }
 
+/* Product Container - Asegurar fondo visible */
+.single-product .site-content {
+    background-color: var(--doit-dark) !important;
+}
+
+/* Product Wrapper */
+.woocommerce.single-product #primary {
+    background-color: transparent !important;
+}
+
+/* Product Images */
+.woocommerce div.product div.images {
+    width: 35% !important;
+    max-width: 400px !important;
+    margin-right: var(--space-xl) !important;
+    background: var(--doit-dark-secondary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--doit-border);
+}
+
 /* ========================================
    PRODUCT TITLE & PRICE
    ======================================== */

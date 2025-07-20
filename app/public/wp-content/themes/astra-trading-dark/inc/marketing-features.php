@@ -9,8 +9,10 @@ if (!defined('ABSPATH')) exit;
 
 /**
  * Price & Urgency Section
+ * Now called from hero layout, not as separate action
  */
-add_action('woocommerce_single_product_summary', 'doittrading_urgency_section', 9);
+// Remove from default position as it's now part of hero
+// add_action('woocommerce_single_product_summary', 'doittrading_urgency_section', 9);
 function doittrading_urgency_section() {
     global $product;
     
@@ -46,9 +48,11 @@ function doittrading_urgency_section() {
  */
 add_action('woocommerce_single_product_summary', 'doittrading_social_proof_box', 11);
 function doittrading_social_proof_box() {
-    if (!doittrading_is_ea()) return;
+    if (!function_exists('doittrading_is_ea') || !doittrading_is_ea()) return;
     
-    $recent_buyer = doittrading_get_recent_buyer();
+    $recent_buyer = function_exists('doittrading_get_recent_buyer') 
+        ? doittrading_get_recent_buyer() 
+        : array('name' => 'Alex K.', 'country' => 'USA');
     $minutes_ago = rand(3, 15);
     ?>
     <div class="social-proof-box">
@@ -75,9 +79,27 @@ function doittrading_bonus_offer() {
     // Verificar que tenemos un producto válido
     if (!$product || !is_a($product, 'WC_Product')) return;
     
+    // Obtener precio - manejar productos externos
+    $price = 0;
+    
+    // Primero intentar precio normal
+    if (method_exists($product, 'get_price') && $product->get_price()) {
+        $price = $product->get_price();
+    } 
+    // Si no hay precio, intentar regular price
+    elseif (method_exists($product, 'get_regular_price') && $product->get_regular_price()) {
+        $price = $product->get_regular_price();
+    }
+    // Para productos externos, buscar en meta
+    elseif ($product->is_type('external')) {
+        $price = get_post_meta($product->get_id(), '_regular_price', true);
+        if (!$price) {
+            $price = get_post_meta($product->get_id(), '_price', true);
+        }
+    }
+    
     // Solo mostrar si el precio es mayor a $200
-    $price = $product->get_price();
-    if (empty($price) || $price < 200) return;
+    if (empty($price) || floatval($price) < 200) return;
     ?>
     <div class="bonus-offer-section">
         <h3>🎁 Limited Time Bonus</h3>
