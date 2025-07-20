@@ -145,41 +145,6 @@ function doittrading_value_proposition() {
 }
 
 /**
- * Why DoItTrading Section
- */
-add_action('woocommerce_after_single_product_summary', 'doittrading_why_us_section', 20);
-function doittrading_why_us_section() {
-    if (!doittrading_is_ea()) return;
-    ?>
-    <div class="why-doittrading">
-        <h2>Why 500+ Traders Choose DoItTrading</h2>
-        <div class="features-grid">
-            <div class="feature">
-                <div class="icon">📈</div>
-                <h3>Transparent Results</h3>
-                <p>Every EA has public MyFxBook accounts. No hiding, no tricks.</p>
-            </div>
-            <div class="feature">
-                <div class="icon">🛠️</div>
-                <h3>Real Support</h3>
-                <p>Get help from the actual developer. Response within 24 hours.</p>
-            </div>
-            <div class="feature">
-                <div class="icon">📚</div>
-                <h3>Complete Guides</h3>
-                <p>Step-by-step setup instructions and optimization tips included.</p>
-            </div>
-            <div class="feature">
-                <div class="icon">🔄</div>
-                <h3>Active Updates</h3>
-                <p>EAs updated based on market changes and user feedback.</p>
-            </div>
-        </div>
-    </div>
-    <?php
-}
-
-/**
  * MQL5 Reviews Tab Content
  */
 function doittrading_mql5_reviews_content() {

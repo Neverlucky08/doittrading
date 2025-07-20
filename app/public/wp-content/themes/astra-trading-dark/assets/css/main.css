@@ -26,7 +26,10 @@
 /* 7. Sections - FAQs, reviews, specific content areas */
 @import url('sections.css');
 
-/* 8. Responsive - Mobile and tablet adjustments (loaded last) */
+/* 8. Product Details - Tabs/Accordion system */
+@import url('product-details.css');
+
+/* 9. Responsive - Mobile and tablet adjustments (loaded last) */
 @import url('responsive.css');
 
 /* ========================================

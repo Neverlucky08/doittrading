@@ -42,6 +42,8 @@ function doittrading_enqueue_assets() {
     if (is_product()) {
         wp_enqueue_script('doittrading-product', get_stylesheet_directory_uri() . '/assets/js/product-features.js', array('jquery'), '2.0', true);
         
+        wp_enqueue_script('doittrading-product-details', get_stylesheet_directory_uri() . '/assets/js/product-details.js', array('jquery'), '2.0', true);
+        
         // Pasar datos PHP a JavaScript
         wp_localize_script('doittrading-product', 'doittrading_vars', array(
             'ajax_url' => admin_url('admin-ajax.php'),

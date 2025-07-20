@@ -732,6 +732,67 @@
 }
 
 /* ========================================
+   OPCIÓN 1: BOTONES COMPACTOS EN HERO
+   ======================================== */
+.hero-cta-compact {
+    margin-top: var(--space-lg);
+    text-align: center;
+}
+
+.hero-buy-buttons {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-bottom: var(--space-sm);
+}
+
+.hero-buy-btn {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-md);
+    transition: var(--transition-all);
+    min-width: 120px;
+    text-align: center;
+    border: 2px solid;
+}
+
+.hero-buy-btn.mt4-compact {
+    background: var(--doit-blue);
+    color: white;
+    border-color: var(--doit-blue);
+}
+
+.hero-buy-btn.mt5-compact {
+    background: var(--doit-green-alt);
+    color: white;
+    border-color: var(--doit-green-alt);
+}
+
+.hero-buy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    color: white;
+}
+
+.hero-learn-more {
+    margin-top: var(--space-sm);
+}
+
+.learn-more-link {
+    color: var(--doit-text-muted);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    transition: var(--transition-fast);
+}
+
+.learn-more-link:hover {
+    color: var(--doit-green);
+    text-decoration: underline;
+}
+
+/* ========================================
    STATS ENHANCED
    ======================================== */
 

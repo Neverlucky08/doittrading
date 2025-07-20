@@ -40,6 +40,35 @@ function doittrading_urgency_section() {
             ⚠️ Only <strong><?php echo $remaining; ?> licenses</strong> left at this price
         </div>
     </div>
+    <div class="hero-cta-compact">
+        <?php 
+        $product_id = get_the_ID();
+        $mt4_link = get_field('mql5_purchase_link_mt4', $product_id);
+        $mt5_link = get_field('mql5_purchase_link_mt5', $product_id);
+        ?>
+        
+        <?php if ($mt4_link || $mt5_link): ?>
+            <div class="hero-buy-buttons">
+                <?php if ($mt4_link): ?>
+                    <a href="<?php echo esc_url($mt4_link); ?>" 
+                    target="_blank" 
+                    class="hero-buy-btn mt4-compact"
+                    onclick="doittrading_track_click('hero_mt4', <?php echo $product_id; ?>)">
+                        🛒 Get MT4 Version
+                    </a>
+                <?php endif; ?>
+                
+                <?php if ($mt5_link): ?>
+                    <a href="<?php echo esc_url($mt5_link); ?>" 
+                    target="_blank" 
+                    class="hero-buy-btn mt5-compact"
+                    onclick="doittrading_track_click('hero_mt5', <?php echo $product_id; ?>)">
+                        🛒 Get MT5 Version
+                    </a>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+    </div>
     <?php
 }
 
@@ -99,30 +128,9 @@ function doittrading_bonus_offer() {
     }
 }
 
-/**
- * Guarantee Section
- */
-add_action('woocommerce_after_single_product_summary', 'doittrading_guarantee_section', 5);
-function doittrading_guarantee_section() {
-    if (!doittrading_is_ea()) return;
-    ?>
-    <div class="guarantee-section">
-        <div class="guarantee-content">
-            <h3>🛡️ Our Trading Promise</h3>
-            <p>We're so confident in our EAs that we offer:</p>
-            <ul>
-                <li>✓ <strong>30-Day Performance Check:</strong> If the EA doesn't match advertised stats, we'll help optimize it for your broker</li>
-                <li>✓ <strong>Lifetime Updates:</strong> All improvements and optimizations included forever</li>
-                <li>✓ <strong>Setup Support:</strong> We'll help you get it running perfectly</li>
-            </ul>
-            <p class="guarantee-note">Note: Due to digital nature, no refunds after download. But we WILL make sure it works for you!</p>
-        </div>
-    </div>
-    <?php
-}
 
 /**
- * Add schema markup for products
+ * Add schema markup for products - Creo q no hace nada
  */
 add_action('wp_head', 'doittrading_product_schema');
 function doittrading_product_schema() {
