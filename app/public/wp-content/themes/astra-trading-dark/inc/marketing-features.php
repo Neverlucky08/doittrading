@@ -97,23 +97,6 @@ function doittrading_bonus_offer() {
             $price = get_post_meta($product->get_id(), '_price', true);
         }
     }
-    
-    // Solo mostrar si el precio es mayor a $200
-    if (empty($price) || floatval($price) < 200) return;
-    ?>
-    <div class="bonus-offer-section">
-        <h3>🎁 Limited Time Bonus</h3>
-        <div class="bonus-content">
-            <p><strong>Purchase today and receive:</strong></p>
-            <ul>
-                <li>✓ Free VPS Setup Guide ($97 value)</li>
-                <li>✓ Advanced Settings Pack ($149 value)</li>
-                <li>✓ Priority Support Access</li>
-            </ul>
-            <p class="bonus-timer">Bonus expires with price increase!</p>
-        </div>
-    </div>
-    <?php
 }
 
 /**

@@ -41,13 +41,16 @@ function doittrading_mql5_buy_buttons() {
         return;
     }
     
+    $total_reviews = get_field('mql5_total_reviews', $product_id) ?: 10;
     $mt4_link = get_field('mql5_purchase_link_mt4', $product_id);
     $mt5_link = get_field('mql5_purchase_link_mt5', $product_id);
+
+    $countdown_target = function_exists('doittrading_get_countdown_target') ? doittrading_get_countdown_target() : date('Y-m-d H:i:s', strtotime('+2 days'));
     
     if ($mt4_link || $mt5_link): ?>
         <div class="doittrading-buy-section">
             <?php if ($mt4_link && $mt5_link): ?>
-                <h3>Choose your platform:</h3>
+                <h2>Join <?php echo $total_reviews; ?>+ Verified Traders Making Consistent Profits</h2>
             <?php endif; ?>
             
             <div class="mql5-buttons">
@@ -56,7 +59,7 @@ function doittrading_mql5_buy_buttons() {
                        target="_blank" 
                        class="mql5-buy-btn mt4-btn"
                        onclick="doittrading_track_click('mql5_mt4', <?php echo $product_id; ?>)">
-                        🛒 Buy for MT4 on MQL5
+                        🛒 Get MT4 Version
                     </a>
                 <?php endif; ?>
                 
@@ -65,7 +68,7 @@ function doittrading_mql5_buy_buttons() {
                        target="_blank" 
                        class="mql5-buy-btn mt5-btn"
                        onclick="doittrading_track_click('mql5_mt5', <?php echo $product_id; ?>)">
-                        🛒 Buy for MT5 on MQL5
+                        🛒 Get MT5 Version
                     </a>
                 <?php endif; ?>
             </div>
@@ -74,9 +77,13 @@ function doittrading_mql5_buy_buttons() {
                 <p>
                     ✓ Secure payment via MQL5 Market<br>
                     ✓ Instant download after purchase<br>
-                    ✓ Free lifetime updates<br>
-                    ✓ 1 activation per license
+                    ✓ Free lifetime updates included<br>
+                    ✓ 24/7 setup support available
                 </p>
+            </div>
+
+            <div class="price-reminder-box">
+                <strong>⏰ Remember:</strong> Price increases to $999 in <strong class="countdown-inline" data-target="<?php echo esc_attr($countdown_target); ?>">calculating...</strong>
             </div>
         </div>
     <?php else: ?>
@@ -88,6 +95,7 @@ function doittrading_mql5_buy_buttons() {
         </div>
     <?php endif;
 }
+
 
 /**
  * Custom product tabs

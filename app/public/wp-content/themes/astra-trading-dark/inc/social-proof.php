@@ -50,7 +50,7 @@ function doittrading_reviews_enhanced() {
         <div class="reviews-enhanced-grid">
             <?php 
             // Mostrar hasta 3 reviews principales
-            for ($i = 1; $i <= 3; $i++):
+            for ($i = 1; $i <= 2; $i++):
                 $name = get_field("review_{$i}_name", $product_id);
                 if (!$name) continue;
                 

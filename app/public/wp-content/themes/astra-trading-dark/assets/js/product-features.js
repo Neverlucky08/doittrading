@@ -38,6 +38,34 @@
     }
     
     /**
+     * Inline Countdown (for CTA section)
+     */
+    function initInlineCountdown() {
+        const $timer = $('.countdown-inline');
+        if (!$timer.length) return;
+        
+        const target = new Date($timer.data('target')).getTime();
+        
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const difference = target - now;
+            
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                
+                $timer.text(`${days} days ${hours}:${minutes.toString().padStart(2, '0')}:00`);
+            } else {
+                $timer.text('NOW!');
+            }
+        };
+        
+        setInterval(updateTimer, 60000); // Update every minute
+        updateTimer();
+    }
+    
+    /**
      * Live dot animation
      */
     function initLiveDot() {
@@ -148,6 +176,7 @@
      */
     $(document).ready(function() {
         initCountdown();
+        initInlineCountdown();
         initLiveDot();
         showPurchaseNotification();
         initSmoothScroll();

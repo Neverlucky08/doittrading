@@ -15,3 +15,9 @@ Stack trace:
 #12 {main}
   thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php on line 47
 
+2025-07-20T12:39:00+00:00 CRITICAL syntax error, unexpected token "<" in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 47
+
+2025-07-20T12:39:01+00:00 CRITICAL syntax error, unexpected token "<" in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 47
+
+2025-07-20T12:39:11+00:00 CRITICAL syntax error, unexpected token "<" in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 47
+

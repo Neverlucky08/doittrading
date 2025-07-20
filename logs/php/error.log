@@ -1420,3 +1420,7 @@ Stack trace:
 #11 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
 #12 {main}
   thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\templates\single-product\tabs\tabs.php on line 47
+[20-Jul-2025 12:30:44 UTC] PHP Warning:  Undefined variable $total_reviews in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 50
+[20-Jul-2025 12:39:00 UTC] PHP Parse error:  syntax error, unexpected token "<" in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 47
+[20-Jul-2025 12:39:01 UTC] PHP Parse error:  syntax error, unexpected token "<" in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 47
+[20-Jul-2025 12:39:11 UTC] PHP Parse error:  syntax error, unexpected token "<" in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\woocommerce-mods.php on line 47
