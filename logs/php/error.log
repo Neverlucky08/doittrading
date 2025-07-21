@@ -1485,3 +1485,28 @@ Stack trace:
 #4 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
 #5 {main}
   thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 62
+[21-Jul-2025 12:55:37 UTC] PHP Fatal error:  Cannot redeclare doittrading_shop_body_class() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:109) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\shop\shop-page.php on line 287
+[21-Jul-2025 12:55:37 UTC] PHP Fatal error:  Cannot redeclare doittrading_shop_body_class() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:109) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\shop\shop-page.php on line 287
+[21-Jul-2025 12:56:14 UTC] DoItTrading: Shop template should load
+[21-Jul-2025 12:56:14 UTC] DoItTrading: Template found at C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/page-shop.php
+[21-Jul-2025 12:56:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_shop_stats() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\page-shop.php:37
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#3 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\page-shop.php on line 37
+[21-Jul-2025 12:56:15 UTC] DoItTrading: Shop template should load
+[21-Jul-2025 12:56:15 UTC] DoItTrading: Template found at C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/page-shop.php
+[21-Jul-2025 12:56:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_shop_stats() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\page-shop.php:37
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#3 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\page-shop.php on line 37
+[21-Jul-2025 12:56:30 UTC] PHP Fatal error:  Cannot redeclare doittrading_shop_body_class() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:109) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\shop\shop-page.php on line 287
+[21-Jul-2025 12:56:30 UTC] PHP Fatal error:  Cannot redeclare doittrading_shop_body_class() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:109) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\shop\shop-page.php on line 287
+[21-Jul-2025 12:56:47 UTC] PHP Fatal error:  Cannot redeclare doittrading_shop_body_class() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:109) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\shop\shop-page.php on line 287
+[21-Jul-2025 12:56:47 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 367
+[21-Jul-2025 12:56:47 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 368

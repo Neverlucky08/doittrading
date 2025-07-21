@@ -55,7 +55,7 @@ function doittrading_homepage_hero() {
                     <div class="live-dot-hero"></div>
                     <span class="live-text">LIVE NOW:</span>
                     <span class="live-details">
-                        GBP Master <?php echo $last_trade['direction'] === 'profit' ? '+' : ''; ?><?php echo $last_trade['pips']; ?> pips 
+                        DoIt GBP Master <?php echo $last_trade['direction'] === 'profit' ? '+' : ''; ?><?php echo $last_trade['pips']; ?> pips 
                         (<?php echo $last_trade['time_ago']; ?>m ago)
                     </span>
                 </div>
@@ -162,7 +162,7 @@ function doittrading_homepage_social_proof() {
             'name' => 'MBlue6',
             'country' => 'Germany',
             'text' => 'Setup was simple, and the performance has been great so far. Diego has been exceptionally friendly, responsive, and supportive throughout.',
-            'product' => 'GBP Master',
+            'product' => 'DoIt GBP Master',
             'verified' => true,
             'rating' => 5
         ),
@@ -170,7 +170,7 @@ function doittrading_homepage_social_proof() {
             'name' => 'klausdiemaus',
             'country' => 'Austria',
             'text' => 'Diego\'s EAs have always been reliable, so buying the DoIt GBP Master was an easy decision. Best EA I have ever tried!',
-            'product' => 'GBP Master',
+            'product' => 'DoIt GBP Master',
             'verified' => true,
             'rating' => 5
         ),
@@ -178,7 +178,7 @@ function doittrading_homepage_social_proof() {
             'name' => 'Butterfly0856',
             'country' => 'Spain',
             'text' => 'Been using DoIt GBP Master for two weeks now, and the results have been amazing! The consistency is impressive.',
-            'product' => 'GBP Master',
+            'product' => 'DoIt GBP Master',
             'verified' => true,
             'rating' => 5
         )
@@ -741,7 +741,7 @@ function doittrading_homepage_live_results() {
                     <div class="perf-content">
                         <div class="perf-value positive"><?php echo $performance_data['monthly_return']; ?>%</div>
                         <div class="perf-label">This Month Return</div>
-                        <div class="perf-sublabel">GBP Master Live Account</div>
+                        <div class="perf-sublabel">DoIt GBP Master Live Account</div>
                     </div>
                 </div>
                 
@@ -975,7 +975,7 @@ function doittrading_homepage_live_results() {
                     <div class="myfxbook-links">
                         <a href="https://www.myfxbook.com/members/DoItTrading/doit-gbp-master/11493777" 
                            target="_blank" class="myfxbook-link">
-                            📊 GBP Master Account →
+                            📊 DoIt GBP Master Account →
                         </a>
                         <a href="https://www.myfxbook.com/portfolio/doit-gold-guardian/11493798" 
                            target="_blank" class="myfxbook-link">

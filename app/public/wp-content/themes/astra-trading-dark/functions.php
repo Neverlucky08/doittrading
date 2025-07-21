@@ -80,6 +80,9 @@ require_once get_stylesheet_directory() . '/inc/products/marketing-features.php'
 // 6. Homepage sections (después de las otras inclusiones)
 require_once get_stylesheet_directory() . '/inc/homepage/homepage-sections.php';
 
+// 7. Forex Bots Page
+require_once get_stylesheet_directory() . '/inc/pages/forex-bots-page.php';
+
 /**
  * Debug helper (solo en desarrollo)
  */
@@ -111,4 +114,3 @@ function doittrading_check_dependencies() {
         echo '<div class="notice notice-warning"><p>DoItTrading Theme requires Advanced Custom Fields for full functionality.</p></div>';
     }
 }
-
