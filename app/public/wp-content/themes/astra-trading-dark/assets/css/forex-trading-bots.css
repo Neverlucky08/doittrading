@@ -312,6 +312,8 @@
 }
 
 .featured-stat.highlight {
+    text-align: center;
+    padding: 1.5rem;
     background: rgba(0, 215, 117, 0.1);
     border-color: #00D775;
 }

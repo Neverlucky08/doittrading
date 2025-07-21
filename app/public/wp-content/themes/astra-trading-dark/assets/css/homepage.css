@@ -358,7 +358,7 @@
     color: var(--doit-text);
 }
 
-.step-number {
+.how-step .step-number {
     background: var(--doit-green);
     color: var(--doit-dark);
     width: 24px;
@@ -372,7 +372,7 @@
     flex-shrink: 0;
 }
 
-.step-text {
+.how-step .step-text {
     font-weight: var(--font-weight-medium);
 }
 
