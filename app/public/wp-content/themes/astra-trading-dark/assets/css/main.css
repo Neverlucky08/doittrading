@@ -32,6 +32,9 @@
 /* 9. Responsive - Mobile and tablet adjustments (loaded last) */
 @import url('responsive.css');
 
+/* 10. Homepage - Sections específicas de homepage */
+@import url('homepage.css');
+
 /* ========================================
    FILE STRUCTURE DOCUMENTATION
    ======================================== */

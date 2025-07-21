@@ -1465,3 +1465,23 @@ Stack trace:
 [20-Jul-2025 19:51:22 UTC] PHP Warning:  Undefined variable $recent_buyer in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 80
 [20-Jul-2025 19:51:22 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 80
 [20-Jul-2025 19:51:22 UTC] PHP Warning:  Undefined variable $minutes_ago in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\marketing-features.php on line 80
+[21-Jul-2025 06:28:16 UTC] PHP Warning:  require_once(C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/products/core-functions.php): Failed to open stream: No such file or directory in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 62
+[21-Jul-2025 06:28:16 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/products/core-functions.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:62
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(103): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 62
+[21-Jul-2025 06:28:16 UTC] PHP Warning:  require_once(C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/products/core-functions.php): Failed to open stream: No such file or directory in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 62
+[21-Jul-2025 06:28:16 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/products/core-functions.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:62
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(103): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 62

@@ -51,6 +51,10 @@ function doittrading_enqueue_assets() {
             'nonce' => wp_create_nonce('doittrading_nonce')
         ));
     }
+
+    if (is_front_page()) {
+        wp_enqueue_script('chartjs', 'https://cdn.jsdelivr.net/npm/chart.js', array(), '3.9.1', true);
+    }
 }
 
 /**
@@ -62,16 +66,19 @@ function doittrading_enqueue_assets() {
 require_once get_stylesheet_directory() . '/inc/core-functions.php';
 
 // 2. WooCommerce modifications
-require_once get_stylesheet_directory() . '/inc/woocommerce-mods.php';
+require_once get_stylesheet_directory() . '/inc/products/woocommerce-mods.php';
 
 // 3. Product display features
-require_once get_stylesheet_directory() . '/inc/product-display.php';
+require_once get_stylesheet_directory() . '/inc/products/product-display.php';
 
 // 4. Social proof elements
-require_once get_stylesheet_directory() . '/inc/social-proof.php';
+require_once get_stylesheet_directory() . '/inc/products/social-proof.php';
 
 // 5. Marketing features (DEBE IR AL FINAL porque usa funciones de core)
-require_once get_stylesheet_directory() . '/inc/marketing-features.php';
+require_once get_stylesheet_directory() . '/inc/products/marketing-features.php';
+
+// 6. Homepage sections (después de las otras inclusiones)
+require_once get_stylesheet_directory() . '/inc/homepage/homepage-sections.php';
 
 /**
  * Debug helper (solo en desarrollo)
