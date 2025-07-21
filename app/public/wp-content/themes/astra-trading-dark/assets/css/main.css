@@ -35,7 +35,11 @@
 /* 10. Homepage - Sections específicas de homepage */
 @import url('homepage.css');
 
+/* 11. Expert Advisors - Specific page styles */
 @import url('forex-trading-bots.css');
+
+/* 12. Indicators - Specific page styles */
+@import url('indicators.css');
 
 /* ========================================
    FILE STRUCTURE DOCUMENTATION

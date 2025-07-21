@@ -83,6 +83,9 @@ require_once get_stylesheet_directory() . '/inc/homepage/homepage-sections.php';
 // 7. Forex Bots Page
 require_once get_stylesheet_directory() . '/inc/pages/forex-bots-page.php';
 
+// 8. Indicators page sections (nuevo)
+require_once get_stylesheet_directory() . '/inc/pages/indicators-page.php';
+
 /**
  * Debug helper (solo en desarrollo)
  */
