@@ -116,45 +116,45 @@ let stickyOffset = 0;
     }
     
     function handleStickyTabs(originalWidth) {
-    const $tabsNav = $('.details-tabs-nav');
-    const $container = $('.doittrading-product-details');
-    const scrollTop = $(window).scrollTop();
-    
-    if (scrollTop >= stickyOffset - 20) {
-        if (!$tabsNav.hasClass('sticky')) {
-            // Get container position and width
-            const containerOffset = $container.offset();
-            const containerWidth = $container.outerWidth();
-            
-            $tabsNav.addClass('sticky');
-            
-            // Set width and position to match original container
-            $tabsNav.css({
-                'width': containerWidth + 'px',
-                'left': '50%',
-                'transform': 'translateX(-50%)',
-                'margin-left': '0'
-            });
-            
-            // Add spacer to prevent jump
-            $tabsNav.before('<div class="sticky-spacer" style="height: ' + $tabsNav.outerHeight() + 'px;"></div>');
-        }
-    } else {
-        if ($tabsNav.hasClass('sticky')) {
-            $tabsNav.removeClass('sticky');
-            
-            // Reset styles
-            $tabsNav.css({
-                'width': '',
-                'left': '',
-                'transform': '',
-                'margin-left': ''
-            });
-            
-            $('.sticky-spacer').remove();
+        const $tabsNav = $('.details-tabs-nav');
+        const $container = $('.doittrading-product-details');
+        const scrollTop = $(window).scrollTop();
+        
+        if (scrollTop >= stickyOffset - 20) {
+            if (!$tabsNav.hasClass('sticky')) {
+                // Get container position and width
+                const containerOffset = $container.offset();
+                const containerWidth = $container.outerWidth();
+                
+                $tabsNav.addClass('sticky');
+                
+                // Set width and position to match original container
+                $tabsNav.css({
+                    'width': containerWidth + 'px',
+                    'left': '50%',
+                    'transform': 'translateX(-50%)',
+                    'margin-left': '0'
+                });
+                
+                // Add spacer to prevent jump
+                $tabsNav.before('<div class="sticky-spacer" style="height: ' + $tabsNav.outerHeight() + 'px;"></div>');
+            }
+        } else {
+            if ($tabsNav.hasClass('sticky')) {
+                $tabsNav.removeClass('sticky');
+                
+                // Reset styles
+                $tabsNav.css({
+                    'width': '',
+                    'left': '',
+                    'transform': '',
+                    'margin-left': ''
+                });
+                
+                $('.sticky-spacer').remove();
+            }
         }
     }
-}
     
     /**
      * URL Hash management
