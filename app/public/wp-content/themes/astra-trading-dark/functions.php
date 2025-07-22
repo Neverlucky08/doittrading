@@ -27,8 +27,8 @@ function doittrading_theme_setup() {
 /**
  * Enqueue Styles & Scripts
  */
-add_action('wp_enqueue_scripts', 'doittrading_enqueue_assets', 20);
-function doittrading_enqueue_assets() {
+add_action('wp_enqueue_scripts', 'doittrading_enqueue_styles', 20);
+function doittrading_enqueue_styles() {
     // Parent theme style
     wp_enqueue_style('astra-parent-style', get_template_directory_uri() . '/style.css');
     
@@ -53,7 +53,12 @@ function doittrading_enqueue_assets() {
     }
 
     if (is_front_page()) {
+        wp_enqueue_style('doittrading-homepage', get_stylesheet_directory_uri() . '/assets/css/homepage.css', array('doittrading-main'), '1.0');
         wp_enqueue_script('chartjs', 'https://cdn.jsdelivr.net/npm/chart.js', array(), '3.9.1', true);
+    }
+
+    if (is_page('indicators')) {
+            wp_enqueue_style('indicators-style', get_stylesheet_directory_uri() . '/assets/css/indicators.css');
     }
 }
 
@@ -117,3 +122,14 @@ function doittrading_check_dependencies() {
         echo '<div class="notice notice-warning"><p>DoItTrading Theme requires Advanced Custom Fields for full functionality.</p></div>';
     }
 }
+
+function doittrading_page_body_class($classes) {
+    if (is_front_page()) {
+        $classes[] = 'page-home-style';
+    }
+    if (is_page('indicators')) {
+        $classes[] = 'page-indicators-style';
+    }
+    return $classes;
+}
+add_filter('body_class', 'doittrading_page_body_class');
