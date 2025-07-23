@@ -1,0 +1,53 @@
+[
+  {
+    "key": "group_insights",
+    "title": "Insight Options",
+    "fields": [
+      {
+        "key": "field_insight_type",
+        "label": "Insight Type",
+        "name": "insight_type",
+        "type": "select",
+        "choices": {
+          "performance": "📈 Performance Report",
+          "education":  "🎓 Education",
+          "setup":      "⚙️ Setup Guide",
+          "analysis":   "📊 Market Analysis",
+          "strategy":   "💡 Strategy",
+          "success":    "🏆 Success Story"
+        }
+      },
+      {
+        "key": "field_is_featured",
+        "label": "Featured Post",
+        "name": "is_featured",
+        "type": "true_false",
+        "instructions": "Show in featured section"
+      },
+      {
+        "key": "field_is_live",
+        "label": "Live Data",
+        "name": "has_live_data",
+        "type": "true_false",
+        "instructions": "Contains live trading data"
+      },
+      {
+        "key": "field_related_eas",
+        "label": "Related EAs",
+        "name": "related_eas",
+        "type": "relationship",
+        "post_type": ["product"],
+        "filters": ["search", "taxonomy"],
+        "taxonomy": ["product_cat:expert-advisors"]
+      },
+      {
+        "key": "field_reading_time",
+        "label": "Reading Time",
+        "name": "reading_time",
+        "type": "number",
+        "default_value": 5,
+        "append": "min"
+      }
+    ]
+  }
+]

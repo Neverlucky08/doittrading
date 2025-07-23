@@ -1510,3 +1510,185 @@ Stack trace:
 [21-Jul-2025 12:56:47 UTC] PHP Fatal error:  Cannot redeclare doittrading_shop_body_class() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:109) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\shop\shop-page.php on line 287
 [21-Jul-2025 12:56:47 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 367
 [21-Jul-2025 12:56:47 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 368
+[23-Jul-2025 12:51:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+[23-Jul-2025 12:53:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+[23-Jul-2025 12:53:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Undefined variable $live_data in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 15
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 15
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 15
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Undefined variable $live_data in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 15
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 15
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 15
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Undefined variable $live_data in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 16
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 16
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 16
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Undefined variable $live_data in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 16
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 16
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 16
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Undefined variable $live_data in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 17
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 17
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 17
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Undefined variable $live_data in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 17
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 17
+[23-Jul-2025 12:53:36 UTC] PHP Warning:  Trying to access array offset on value of type null in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 17
+[23-Jul-2025 12:53:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_featured_insights() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\featured-posts.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(19): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\featured-posts.php on line 5
+[23-Jul-2025 12:59:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+[23-Jul-2025 12:59:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+[23-Jul-2025 13:00:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+[23-Jul-2025 13:00:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+[23-Jul-2025 13:00:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+[23-Jul-2025 13:01:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+[23-Jul-2025 13:34:42 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:42 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:42 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:42 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:42 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:42 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:42 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:42 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:42 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:50 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:50 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:50 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:50 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:50 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:50 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:50 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:50 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:50 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:58 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:58 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:58 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:58 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:58 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:58 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:58 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:58 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:34:58 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:35:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:35:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:35:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:35:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:35:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:35:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:35:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:35:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:35:26 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:02 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:02 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:02 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:02 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:02 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:02 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:02 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:02 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:02 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:09 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:09 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:09 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:09 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:09 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:09 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:09 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:09 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61
+[23-Jul-2025 13:36:09 UTC] PHP Warning:  Attempt to read property "type" on bool in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\plugins\woocommerce\packages\woocommerce-admin\src\RemoteInboxNotifications\RuleEvaluator.php on line 61

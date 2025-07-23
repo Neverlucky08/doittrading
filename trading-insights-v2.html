@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Insights - DoItTrading</title>
+    <style>
+        /* Variables */
+        :root {
+            --doit-dark: #0A0A0A;
+            --doit-dark-secondary: #111111;
+            --doit-dark-tertiary: #1A1A1A;
+            --doit-card-bg: #151515;
+            --doit-card-hover: #1C1C1C;
+            --doit-green: #00D775;
+            --doit-green-light: #00FF88;
+            --doit-gold: #FFD700;
+            --doit-red: #FF4757;
+            --doit-blue: #2196F3;
+            --doit-purple: #9C27B0;
+            --doit-cyan: #00BCD4;
+            --doit-orange: #FF9800;
+            --doit-text: #E5E5E5;
+            --doit-text-muted: #A0A0A0;
+            --doit-border: rgba(0, 215, 117, 0.3);
+            --doit-border-light: rgba(255, 255, 255, 0.15);
+            --doit-border-lighter: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--doit-dark);
+            color: var(--doit-text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: rgba(20, 20, 20, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--doit-green);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 215, 117, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--doit-green);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-shadow: 0 0 20px rgba(0, 215, 117, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--doit-text);
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            color: var(--doit-green);
+            background: rgba(0, 215, 117, 0.1);
+        }
+
+        .nav-links a.active {
+            color: var(--doit-dark);
+            background: var(--doit-green);
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 215, 117, 0.15) 0%, rgba(0, 215, 117, 0.05) 50%, transparent 100%);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid rgba(0, 215, 117, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--doit-green), transparent);
+            animation: slide 3s infinite;
+        }
+
+        @keyframes slide {
+            to { left: 100%; }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--doit-text);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--doit-text);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .live-indicator {
+            background: var(--doit-card-bg);
+            border: 2px solid var(--doit-green);
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            box-shadow: 0 0 30px rgba(0, 215, 117, 0.3);
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--doit-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 10px var(--doit-green);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.3); }
+        }
+
+        /* Section Separator */
+        .section-separator {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--doit-border-light), transparent);
+            margin: 3rem 0;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 3rem 0;
+            border-radius: 20px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--doit-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .featured-card {
+            background: var(--doit-card-bg);
+            border: 2px solid var(--doit-border-light);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .featured-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--doit-green);
+            box-shadow: 0 20px 40px rgba(0, 215, 117, 0.3);
+            background: var(--doit-card-hover);
+        }
+
+        .featured-image {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 215, 117, 0.2) 0%, rgba(0, 215, 117, 0.05) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            border-bottom: 1px solid var(--doit-border-light);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--doit-gold);
+            color: var(--doit-dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .featured-content {
+            padding: 2rem;
+        }
+
+        .featured-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--doit-text);
+            font-weight: 700;
+        }
+
+        .featured-content p {
+            color: var(--doit-text-muted);
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .read-time {
+            color: var(--doit-green);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Filter Bar */
+        .filter-section {
+            background: var(--doit-card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--doit-border-light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .filter-bar::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .filter-bar::-webkit-scrollbar-track {
+            background: var(--doit-dark);
+            border-radius: 3px;
+        }
+
+        .filter-bar::-webkit-scrollbar-thumb {
+            background: var(--doit-border-light);
+            border-radius: 3px;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            border: 2px solid var(--doit-border-light);
+            background: transparent;
+            color: var(--doit-text);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--doit-green);
+            color: var(--doit-green);
+            background: rgba(0, 215, 117, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--doit-green);
+            color: var(--doit-dark);
+            border-color: var(--doit-green);
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 215, 117, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Posts Section */
+        .posts-section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--doit-border-light);
+        }
+
+        .posts-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--doit-border-light);
+        }
+
+        .posts-header h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--doit-text);
+        }
+
+        /* Posts Grid */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .post-card {
+            background: var(--doit-card-bg);
+            border: 2px solid var(--doit-border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--doit-green);
+            box-shadow: 0 10px 30px rgba(0, 215, 117, 0.2);
+            background: var(--doit-card-hover);
+        }
+
+        .post-thumbnail {
+            height: 150px;
+            background: linear-gradient(135deg, var(--doit-dark-tertiary) 0%, var(--doit-card-bg) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            border-bottom: 1px solid var(--doit-border-light);
+        }
+
+        .post-badge {
+            position: absolute;
+            top: 0.8rem;
+            left: 0.8rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge-live {
+            background: var(--doit-green);
+            color: var(--doit-dark);
+            animation: livePulse 2s infinite;
+        }
+
+        @keyframes livePulse {
+            0%, 100% { box-shadow: 0 2px 10px rgba(0, 215, 117, 0.5); }
+            50% { box-shadow: 0 2px 20px rgba(0, 215, 117, 0.8); }
+        }
+
+        .badge-update {
+            background: var(--doit-blue);
+            color: white;
+        }
+
+        .badge-guide {
+            background: var(--doit-gold);
+            color: var(--doit-dark);
+        }
+
+        .badge-strategy {
+            background: var(--doit-purple);
+            color: white;
+        }
+
+        .badge-success {
+            background: var(--doit-orange);
+            color: white;
+        }
+
+        .badge-setup {
+            background: var(--doit-cyan);
+            color: var(--doit-dark);
+        }
+
+        .post-content {
+            padding: 1.5rem;
+        }
+
+        .post-meta {
+            color: var(--doit-text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .post-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--doit-text);
+            line-height: 1.4;
+        }
+
+        .post-excerpt {
+            color: var(--doit-text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .post-stats {
+            display: flex;
+            gap: 1.2rem;
+            color: var(--doit-text-muted);
+            font-size: 0.85rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--doit-border-light);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .widget {
+            background: var(--doit-card-bg);
+            border: 2px solid var(--doit-border-light);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .widget-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--doit-text);
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--doit-border-light);
+        }
+
+        .performance-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .performance-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+            background: rgba(0, 215, 117, 0.08);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 215, 117, 0.2);
+            transition: all 0.3s;
+        }
+
+        .performance-item:hover {
+            background: rgba(0, 215, 117, 0.12);
+            transform: translateX(5px);
+        }
+
+        .performance-value {
+            color: var(--doit-green);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .trending-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .trending-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--doit-border-light);
+            color: var(--doit-text);
+            transition: all 0.3s;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .trending-item:hover {
+            color: var(--doit-green);
+            padding-left: 0.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .newsletter-input {
+            padding: 1rem;
+            background: var(--doit-dark);
+            border: 2px solid var(--doit-border-light);
+            border-radius: 8px;
+            color: var(--doit-text);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--doit-green);
+            box-shadow: 0 0 10px rgba(0, 215, 117, 0.2);
+        }
+
+        .newsletter-btn {
+            padding: 1rem;
+            background: var(--doit-green);
+            color: var(--doit-dark);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 215, 117, 0.4);
+        }
+
+        .help-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .help-links a {
+            color: var(--doit-text);
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            font-weight: 500;
+        }
+
+        .help-links a:hover {
+            color: var(--doit-green);
+            padding-left: 0.5rem;
+        }
+
+        /* Load More */
+        .load-more {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .load-more-btn {
+            padding: 1rem 3rem;
+            background: transparent;
+            border: 2px solid var(--doit-green);
+            color: var(--doit-green);
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .load-more-btn:hover {
+            background: var(--doit-green);
+            color: var(--doit-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 215, 117, 0.3);
+        }
+
+        /* View All Link */
+        .view-all-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--doit-border-light);
+            color: var(--doit-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-all-link:hover {
+            letter-spacing: 1px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                order: -1;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .posts-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">DoItTrading</a>
+            <ul class="nav-links">
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Expert Advisors</a></li>
+                <li><a href="#">Indicators</a></li>
+                <li><a href="#" class="active">Insights</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">📊 Trading Insights</h1>
+            <p class="hero-subtitle">Real Analysis. Live Results. No BS.</p>
+            <div class="live-indicator">
+                <div class="live-dot"></div>
+                <span><strong>LIVE</strong> GBP Master: +32 pips | Gold Guardian: +18 pips | Index: +7 pips</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-header">📌 Essential Guides</h2>
+            <div class="featured-grid">
+                <!-- Featured Card 1 -->
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <span class="featured-badge">Essential</span>
+                        📚
+                    </div>
+                    <div class="featured-content">
+                        <h3>Complete Guide to DoIt EAs</h3>
+                        <p>Everything you need to start trading with our Expert Advisors successfully</p>
+                        <span class="read-time">📖 15 min read • 🔥 Most read</span>
+                    </div>
+                </div>
+
+                <!-- Featured Card 2 -->
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <span class="featured-badge">Must Read</span>
+                        🛡️
+                    </div>
+                    <div class="featured-content">
+                        <h3>Risk Management Masterclass</h3>
+                        <p>How to protect your capital and survive drawdowns like a pro</p>
+                        <span class="read-time">📖 12 min read • ⭐ Featured</span>
+                    </div>
+                </div>
+
+                <!-- Featured Card 3 -->
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <span class="featured-badge">Popular</span>
+                        🎯
+                    </div>
+                    <div class="featured-content">
+                        <h3>Choosing Your First EA</h3>
+                        <p>Which EA fits your trading style, account size, and risk tolerance</p>
+                        <span class="read-time">📖 8 min read • 💡 Beginner friendly</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="container">
+        <div class="filter-section">
+            <div class="filter-bar">
+                <button class="filter-btn active">All Posts</button>
+                <button class="filter-btn">📈 Performance Reports</button>
+                <button class="filter-btn">🎓 Education</button>
+                <button class="filter-btn">⚙️ Setup Guides</button>
+                <button class="filter-btn">📊 Market Analysis</button>
+                <button class="filter-btn">💡 Trading Strategy</button>
+                <button class="filter-btn">🏆 Success Stories</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="container">
+        <div class="main-content">
+            <!-- Posts Section -->
+            <div class="posts-section">
+                <div class="posts-header">
+                    <h2>Recent Insights</h2>
+                </div>
+                
+                <div class="posts-grid">
+                    <!-- Post Card 1 -->
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <div class="post-badge badge-live">🟢 LIVE UPDATE</div>
+                            📈
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">Performance Report • 3 days ago</div>
+                            <h3 class="post-title">Weekly Performance Report: All EAs Analysis</h3>
+                            <p class="post-excerpt">Complete breakdown of this week's trading results across all our Expert Advisors...</p>
+                            <div class="post-stats">
+                                <span>👁 2.3k views</span>
+                                <span>📖 5 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post Card 2 -->
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <div class="post-badge badge-update">📊 ANALYSIS</div>
+                            💹
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">Market Analysis • 5 days ago</div>
+                            <h3 class="post-title">NFP Impact Analysis: How Our EAs Performed</h3>
+                            <p class="post-excerpt">Detailed analysis of EA behavior during high volatility NFP release...</p>
+                            <div class="post-stats">
+                                <span>👁 1.8k views</span>
+                                <span>📖 7 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post Card 3 -->
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <div class="post-badge badge-guide">🎓 EDUCATION</div>
+                            ⚡
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">Education • 1 week ago</div>
+                            <h3 class="post-title">MT4 vs MT5: Which Platform for Your EAs?</h3>
+                            <p class="post-excerpt">Complete comparison for automated trading platforms...</p>
+                            <div class="post-stats">
+                                <span>👁 1.2k views</span>
+                                <span>📖 6 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post Card 4 -->
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <div class="post-badge badge-strategy">💡 STRATEGY</div>
+                            🎯
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">Strategy • 1 week ago</div>
+                            <h3 class="post-title">Portfolio Approach: Combining Multiple EAs</h3>
+                            <p class="post-excerpt">How to diversify risk with multiple trading strategies...</p>
+                            <div class="post-stats">
+                                <span>👁 987 views</span>
+                                <span>📖 10 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post Card 5 -->
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <div class="post-badge badge-success">🏆 SUCCESS</div>
+                            💰
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">Success Story • 2 weeks ago</div>
+                            <h3 class="post-title">From $500 to $2000: Real Journey</h3>
+                            <p class="post-excerpt">Documented growth using DoIt GBP Master EA...</p>
+                            <div class="post-stats">
+                                <span>👁 3.1k views</span>
+                                <span>📖 8 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post Card 6 -->
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <div class="post-badge badge-setup">⚙️ SETUP</div>
+                            🖥️
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">Technical Guide • 2 weeks ago</div>
+                            <h3 class="post-title">Optimize Your VPS for 24/7 Trading</h3>
+                            <p class="post-excerpt">Complete VPS setup guide for maximum uptime...</p>
+                            <div class="post-stats">
+                                <span>👁 654 views</span>
+                                <span>📖 4 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

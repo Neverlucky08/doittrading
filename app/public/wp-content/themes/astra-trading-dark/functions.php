@@ -133,3 +133,31 @@ function doittrading_page_body_class($classes) {
     return $classes;
 }
 add_filter('body_class', 'doittrading_page_body_class');
+
+function doittrading_enqueue_insights_assets() {
+    if (is_page('insights') || is_singular('insight')) {
+        // CSS
+        wp_enqueue_style(
+            'doittrading-insights', 
+            get_stylesheet_directory_uri() . '/assets/css/insights.css', 
+            array('doittrading-main'), 
+            '1.0'
+        );
+        
+        // JavaScript
+        wp_enqueue_script(
+            'doittrading-insights', 
+            get_stylesheet_directory_uri() . '/assets/js/insights.js', 
+            array('jquery'), 
+            '1.0', 
+            true
+        );
+        
+        // Localize para AJAX
+        wp_localize_script('doittrading-insights', 'doittrading_ajax', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('insights_nonce')
+        ));
+    }
+}
+add_action('wp_enqueue_scripts', 'doittrading_enqueue_insights_assets');

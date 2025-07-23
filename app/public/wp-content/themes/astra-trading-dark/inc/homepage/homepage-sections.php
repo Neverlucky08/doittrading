@@ -66,7 +66,7 @@ function doittrading_homepage_hero() {
             
             <!-- Hero CTAs -->
             <div class="hero-cta-section">
-                <a href="/shop/" class="hero-cta-primary">
+                <a href="/forex-trading-bots/" class="hero-cta-primary">
                     View Our EAs
                 </a>
                 <a href="#live-results" class="hero-cta-secondary">
@@ -556,7 +556,7 @@ function doittrading_homepage_featured_products() {
                         <strong>Not sure which EA is right for you?</strong><br>
                         Compare all features and see detailed performance analysis
                     </p>
-                    <a href="/shop/" class="footer-cta-button">
+                    <a href="/forex-trading-bots/" class="footer-cta-button">
                         Compare All EAs →
                     </a>
                 </div>
