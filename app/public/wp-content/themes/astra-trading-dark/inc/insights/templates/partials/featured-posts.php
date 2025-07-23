@@ -2,7 +2,28 @@
 /**
  * Featured Insights Section
  */
-$featured_query = doittrading_get_featured_insights();
+
+// Query for featured posts
+$featured_args = array(
+    'post_type' => 'post',
+    'category_name' => 'trading-insights',
+    'posts_per_page' => 3,
+    'meta_key' => 'is_featured',
+    'meta_value' => '1',
+    'meta_compare' => '='
+);
+
+// Si no tienes posts featured, muestra los más recientes
+$featured_query = new WP_Query($featured_args);
+
+if (!$featured_query->have_posts()) {
+    // Fallback: mostrar últimos 3 posts
+    $featured_query = new WP_Query(array(
+        'post_type' => 'insight',
+        'category_name' => 'trading-insights',
+        'posts_per_page' => 3
+    ));
+}
 ?>
 
 <?php if ($featured_query->have_posts()) : ?>
@@ -14,9 +35,7 @@ $featured_query = doittrading_get_featured_insights();
                 <div class="featured-card">
                     <a href="<?php the_permalink(); ?>">
                         <div class="featured-image">
-                            <span class="featured-badge">
-                                <?php echo get_field('is_featured') ? 'Essential' : 'Featured'; ?>
-                            </span>
+                            <span class="featured-badge">Essential</span>
                             <?php if (has_post_thumbnail()) : ?>
                                 <?php the_post_thumbnail('medium'); ?>
                             <?php else : ?>
@@ -28,9 +47,6 @@ $featured_query = doittrading_get_featured_insights();
                             <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
                             <span class="read-time">
                                 📖 <?php echo get_field('reading_time') ?: 5; ?> min read
-                                <?php if (get_field('has_live_data')) : ?>
-                                    • 🔥 Live Data
-                                <?php endif; ?>
                             </span>
                         </div>
                     </a>

@@ -82,14 +82,22 @@ require_once get_stylesheet_directory() . '/inc/products/social-proof.php';
 // 5. Marketing features (DEBE IR AL FINAL porque usa funciones de core)
 require_once get_stylesheet_directory() . '/inc/products/marketing-features.php';
 
-// 6. Homepage sections (después de las otras inclusiones)
+// 6. Homepage sections 
 require_once get_stylesheet_directory() . '/inc/homepage/homepage-sections.php';
 
 // 7. Forex Bots Page
 require_once get_stylesheet_directory() . '/inc/pages/forex-bots-page.php';
 
-// 8. Indicators page sections (nuevo)
+// 8. Indicators page sections
 require_once get_stylesheet_directory() . '/inc/pages/indicators-page.php';
+
+// 9. Trading insights
+require_once get_stylesheet_directory() . '/inc/insights/insights-cpt.php';
+require_once get_stylesheet_directory() . '/inc/insights/insights-functions.php';
+
+// Registrar CPT y taxonomías
+add_action('init', 'doittrading_register_insights_cpt');
+add_action('init', 'doittrading_register_insights_taxonomies');
 
 /**
  * Debug helper (solo en desarrollo)

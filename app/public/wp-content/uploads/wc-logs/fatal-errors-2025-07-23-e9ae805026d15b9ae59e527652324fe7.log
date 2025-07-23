@@ -118,3 +118,39 @@ Stack trace:
 #7 {main}
   thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
 
+2025-07-23T19:03:54+00:00 CRITICAL Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+
+2025-07-23T19:04:14+00:00 CRITICAL Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+
+2025-07-23T19:04:25+00:00 CRITICAL Uncaught Error: Call to undefined function doittrading_get_live_trading_data() in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php:5
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template.php(745): load_template('C:\\Users\\Diego\\...', false, Array)
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\template-parts\page-insights.php(14): get_template_part('inc/insights/te...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\Diego\\...')
+#5 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(19): require_once('C:\\Users\\Diego\\...')
+#6 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#7 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\templates\partials\hero-section.php on line 5
+

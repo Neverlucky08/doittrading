@@ -41,6 +41,8 @@
 /* 12. Indicators - Specific page styles */
 @import url('indicators.css');
 
+/* 13. Trading Insights - Specific page styles */
+@import url('insights.css');
 /* ========================================
    FILE STRUCTURE DOCUMENTATION
    ======================================== */
