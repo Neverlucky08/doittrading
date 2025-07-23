@@ -916,7 +916,7 @@
     margin-bottom: var(--space-xl);
 }
 
-/* NUEVO: Wrapper para permitir que el badge sobresalga */
+/* Wrapper para permitir que el badge sobresalga */
 .featured-product-wrapper {
     position: relative;
     height: 100%;
@@ -932,7 +932,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow: hidden; /* Mantiene el overflow hidden para shimmerGold */
+    overflow: hidden;
 }
 
 .featured-product-card::before {
@@ -951,7 +951,7 @@
     opacity: 1;
 }
 
-/* El hover ahora se aplica al wrapper y afecta la card */
+/* El hover se aplica al wrapper y afecta la card */
 .featured-product-wrapper:hover .featured-product-card {
     transform: translateY(-10px);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
@@ -1003,20 +1003,18 @@
     transition: var(--transition-all);
 }
 
-/* SOLUCIÓN: Badge para card destacada - posición ajustada */
+/* Badge para card destacada - posición ajustada */
 .featured-product-wrapper:has(.featured-product-card.featured-highlight) .product-badge {
-    top: -40px; /* Ligeramente más alto para compensar el scale(1.05) */
-    transform: scale(1.10); /* Se escala igual que la card */
+    top: calc(-12px - (12px * 1.1 * 2)); /* -12px base - compensación por scale */
+    transform: scale(1.10); /* Se escala algo mas grande q la card */
 }
 
-/* Badge se mueve con el hover del wrapper */
 .featured-product-wrapper:hover .product-badge {
-    transform: translateY(-10px);
+    transform: scale(1.03) translateY(-10px);
 }
-
 /* Badge destacado en hover - combina escala y movimiento */
 .featured-product-wrapper:hover:has(.featured-product-card.featured-highlight) .product-badge {
-    transform: scale(1.10) translateY(-10px);
+    transform: scale(1.14) translateY(-10px);
 }
 
 /* Badge Colors */
