@@ -449,9 +449,9 @@ function doittrading_homepage_featured_products() {
             <div class="featured-products-grid">
                 
                 <?php foreach ($featured_products as $index => $product): ?>
-                    
+
                 <!-- NUEVO: Wrapper que permite que el badge sobresalga -->
-                <div class="featured-product-wrapper">
+                <div class="featured-product-wrapper <?php echo $index === 0 ? 'wrapper-highlight' : ''; ?>">
                     
                     <!-- Product Badge - MOVIDO FUERA de la card -->
                     <div class="product-badge badge-<?php echo esc_attr($product['badge_color']); ?>">
