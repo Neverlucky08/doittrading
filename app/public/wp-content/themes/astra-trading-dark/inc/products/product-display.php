@@ -151,8 +151,8 @@ function doittrading_stats_enhanced() {
 /**
  * ROI Calculator
  */
-add_action('woocommerce_single_product_summary', 'doittrading_roi_calculator', 21);
-function doittrading_roi_calculator() {
+add_action('woocommerce_single_product_summary', 'doittrading_interactive_roi_calculator', 21);
+function doittrading_interactive_roi_calculator() {
     global $product;
     $product_id = get_the_ID();
     
@@ -163,35 +163,77 @@ function doittrading_roi_calculator() {
     
     if (!$monthly_gain || !$price) return;
     
-    // Cálculos ROI
-    $capital = 1000;
-    $monthly_return = ($monthly_gain / 100) * $capital;
-    $payback_months = ceil($price / $monthly_return);
-    $yearly_profit = $monthly_return * 12;
-    $roi_percentage = (($yearly_profit / $price) * 100);
+    // Enqueue our scripts and styles with correct path
+    wp_enqueue_script('roi-calculator-js', get_stylesheet_directory_uri() . '/assets/js/roi-calculator.js', array(), '1.0.1', true);
+
+    // Pass PHP data to JavaScript
+    wp_localize_script('roi-calculator-js', 'roiConfig', array(
+        'price' => floatval($price),
+        'monthlyGain' => floatval($monthly_gain),
+        'currency' => get_woocommerce_currency_symbol(),
+        'debug' => true // Para debugging
+    ));
     ?>
-    <div class="roi-calculator-section">
-        <h3>💰 ROI Calculator: See Your Real Returns</h3>
-        <div class="roi-grid">
-            <div class="roi-item">
-                <div class="roi-value"><?php echo doittrading_format_price($price); ?></div>
-                <div class="roi-label">EA Cost</div>
-            </div>
-            <div class="roi-item">
-                <div class="roi-value"><?php echo doittrading_format_price($monthly_return); ?></div>
-                <div class="roi-label">Monthly Return<br><small>(<?php echo $monthly_gain; ?>% on $1,000)</small></div>
-            </div>
-            <div class="roi-item">
-                <div class="roi-value"><?php echo $payback_months; ?></div>
-                <div class="roi-label">Months to<br>Break Even</div>
-            </div>
-            <div class="roi-item">
-                <div class="roi-value"><?php echo number_format($roi_percentage); ?>%</div>
-                <div class="roi-label">Year 1 ROI<br><small>(<?php echo doittrading_format_price($yearly_profit); ?> profit)</small></div>
+    
+    <div class="roi-calculator-interactive">
+        <div class="roi-header">
+            <h3 class="roi-title">💰 Calculate Your Real Returns</h3>
+            <p class="roi-subtitle">See how much profit you could make with your investment capital</p>
+        </div>
+
+        <div class="controls-section">
+            <div class="capital-control">
+                <label class="capital-label">Your Investment Capital:</label>
+                <div class="capital-display pulse" id="capitalDisplay">$5,000</div>
+                <input type="range" class="capital-slider" id="capitalSlider" 
+                       min="500" max="50000" step="500" value="5000">
+                
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-amount="1000">$1,000</button>
+                    <button class="preset-btn" data-amount="5000">$5,000</button>
+                    <button class="preset-btn" data-amount="10000">$10,000</button>
+                    <button class="preset-btn" data-amount="25000">$25,000</button>
+                    <button class="preset-btn" data-amount="50000">$50,000</button>
+                </div>
             </div>
         </div>
-        <p class="roi-disclaimer">*Based on historical performance. Past results don't guarantee future returns.</p>
+
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="result-icon">💰</div>
+                <div class="result-value" id="eaCost"><?php echo doittrading_format_price($price); ?></div>
+                <div class="result-label">EA Cost</div>
+                <div class="result-description">One-time investment to access the EA</div>
+            </div>
+
+            <div class="result-card">
+                <div class="result-icon">📈</div>
+                <div class="result-value" id="monthlyReturn">$375</div>
+                <div class="result-label">Monthly Return</div>
+                <div class="result-description" id="monthlyDesc"><?php echo $monthly_gain; ?>% monthly gain on your capital</div>
+            </div>
+
+            <div class="result-card">
+                <div class="result-icon">⏱️</div>
+                <div class="result-value" id="paybackTime">0.8</div>
+                <div class="result-label">Months to Break Even</div>
+                <div class="result-description">Time to recover your EA investment</div>
+            </div>
+
+            <div class="result-card">
+                <div class="result-icon">🚀</div>
+                <div class="result-value" id="yearlyROI">1,414%</div>
+                <div class="result-label">Year 1 ROI</div>
+                <div class="result-description" id="yearlyProfit">$4,203 total profit in first year</div>
+            </div>
+        </div>
+
+        <p class="roi-disclaimer">
+            *Calculations based on historical EA performance of <?php echo $monthly_gain; ?>% monthly returns. 
+            Past results don't guarantee future returns. Trading involves risk of loss.
+        </p>
     </div>
+    
     <?php
 }
 
@@ -350,7 +392,7 @@ function doittrading_get_overview_content($product_id) {
             <h3>🔑 Key Features</h3>
             <div class="features-content">
                 <?php 
-                $features = get_field('key_features', $product_id);
+                $features = get_field('key_features', $product_id) ?? '';
                 $features_array = explode("\n", $features);
                 echo '<ul>';
                 foreach ($features_array as $feature) {
