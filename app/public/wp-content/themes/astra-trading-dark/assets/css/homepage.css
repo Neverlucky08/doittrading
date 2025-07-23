@@ -438,7 +438,7 @@
 
 .process-step {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-sm);
     font-size: var(--font-size-md);
     color: var(--doit-text);
@@ -916,6 +916,12 @@
     margin-bottom: var(--space-xl);
 }
 
+/* NUEVO: Wrapper para permitir que el badge sobresalga */
+.featured-product-wrapper {
+    position: relative;
+    height: 100%;
+}
+
 .featured-product-card {
     background: linear-gradient(135deg, var(--doit-dark-secondary) 0%, rgba(17, 17, 17, 0.95) 100%);
     border: 2px solid var(--doit-border-light);
@@ -926,7 +932,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow: hidden;
+    overflow: hidden; /* Mantiene el overflow hidden para shimmerGold */
 }
 
 .featured-product-card::before {
@@ -945,7 +951,8 @@
     opacity: 1;
 }
 
-.featured-product-card:hover {
+/* El hover ahora se aplica al wrapper y afecta la card */
+.featured-product-wrapper:hover .featured-product-card {
     transform: translateY(-10px);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
     border-color: var(--doit-green);
@@ -974,12 +981,13 @@
     100% { transform: translateX(100%); }
 }
 
-.featured-product-card.featured-highlight:hover {
+/* El hover del highlight también se aplica desde el wrapper */
+.featured-product-wrapper:hover .featured-product-card.featured-highlight {
     transform: scale(1.05) translateY(-10px);
     box-shadow: 0 40px 80px rgba(255, 215, 0, 0.3);
 }
 
-/* Product Badges */
+/* Product Badges - CAMBIO IMPORTANTE */
 .product-badge {
     position: absolute;
     top: -12px;
@@ -992,6 +1000,33 @@
     letter-spacing: 1px;
     z-index: 2;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    /* NUEVO: El badge se posiciona relativo al wrapper, no a la card */
+    /* Esto permite que sobresalga del overflow hidden de la card */
+}
+
+/* NUEVO: Posicionamos el badge relativo al wrapper */
+.featured-product-wrapper .product-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    z-index: 3; /* Asegura que esté por encima de todo */
+    transition: var(--transition-all); /* Para que se mueva con el hover */
+}
+
+/* NUEVO: El badge se mueve con el hover del wrapper */
+.featured-product-wrapper:hover .product-badge {
+    transform: translateY(-10px);
+}
+
+/* NUEVO: Para el caso highlighted, el badge también se escala */
+.featured-product-wrapper .featured-product-card.featured-highlight ~ .product-badge,
+.featured-product-wrapper:has(.featured-product-card.featured-highlight) .product-badge {
+    transform: scale(1.05);
+}
+
+.featured-product-wrapper:hover .featured-product-card.featured-highlight ~ .product-badge,
+.featured-product-wrapper:hover:has(.featured-product-card.featured-highlight) .product-badge {
+    transform: scale(1.05) translateY(-10px);
 }
 
 .product-badge.badge-green {
@@ -1015,7 +1050,7 @@
     color: white;
 }
 
-/* Product Content */
+/* Product Content - Sin cambios */
 .product-card-header {
     margin-bottom: var(--space-lg);
     text-align: center;
@@ -1043,7 +1078,7 @@
     margin: 0;
 }
 
-/* Product Stats Grid */
+/* Product Stats Grid - Sin cambios */
 .product-stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1090,7 +1125,7 @@
     letter-spacing: 0.5px;
 }
 
-/* Pricing Section */
+/* Pricing Section - Sin cambios */
 .product-pricing {
     margin-bottom: var(--space-lg);
     text-align: center;
@@ -1132,7 +1167,7 @@
     50% { opacity: 0.8; }
 }
 
-/* Product Actions */
+/* Product Actions - Sin cambios */
 .product-actions {
     display: flex;
     flex-direction: column;
@@ -1199,7 +1234,7 @@
     background: rgba(255, 215, 0, 0.05);
 }
 
-/* Product Trust Elements */
+/* Product Trust Elements - Sin cambios */
 .product-trust-elements {
     display: flex;
     justify-content: space-between;
@@ -1229,7 +1264,7 @@
     line-height: 1.2;
 }
 
-/* Featured Products Footer */
+/* Featured Products Footer - Sin cambios */
 .featured-products-footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1307,7 +1342,6 @@
     box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
     color: var(--doit-dark);
 }
-
 /* ========================================
    WHY CHOOSE US SECTION (doittrading_homepage_why_choose_us)
    ======================================== */

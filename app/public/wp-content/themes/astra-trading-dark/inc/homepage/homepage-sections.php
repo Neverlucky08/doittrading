@@ -449,85 +449,90 @@ function doittrading_homepage_featured_products() {
             <div class="featured-products-grid">
                 
                 <?php foreach ($featured_products as $index => $product): ?>
-                <div class="featured-product-card <?php echo $index === 0 ? 'featured-highlight' : ''; ?>">
                     
-                    <!-- Product Badge -->
+                <!-- NUEVO: Wrapper que permite que el badge sobresalga -->
+                <div class="featured-product-wrapper">
+                    
+                    <!-- Product Badge - MOVIDO FUERA de la card -->
                     <div class="product-badge badge-<?php echo esc_attr($product['badge_color']); ?>">
                         <?php echo esc_html($product['badge']); ?>
                     </div>
                     
-                    <!-- Product Header -->
-                    <div class="product-card-header">
-                        <h3 class="product-name"><?php echo esc_html($product['name']); ?></h3>
-                        <p class="product-subtitle"><?php echo esc_html($product['subtitle']); ?></p>
-                        <p class="product-description"><?php echo esc_html($product['description']); ?></p>
-                    </div>
-                    
-                    <!-- Product Stats -->
-                    <div class="product-stats-grid">
-                        <div class="product-stat">
-                            <span class="stat-value positive">+<?php echo esc_html($product['monthly_gain']); ?>%</span>
-                            <span class="stat-label">Monthly Gain</span>
+                    <div class="featured-product-card <?php echo $index === 0 ? 'featured-highlight' : ''; ?>">
+                        
+                        <!-- Product Header -->
+                        <div class="product-card-header">
+                            <h3 class="product-name"><?php echo esc_html($product['name']); ?></h3>
+                            <p class="product-subtitle"><?php echo esc_html($product['subtitle']); ?></p>
+                            <p class="product-description"><?php echo esc_html($product['description']); ?></p>
                         </div>
-                        <div class="product-stat">
-                            <span class="stat-value"><?php echo esc_html($product['win_rate']); ?>%</span>
-                            <span class="stat-label">Win Rate</span>
-                        </div>
-                        <div class="product-stat">
-                            <span class="stat-value drawdown">-<?php echo esc_html($product['max_drawdown']); ?>%</span>
-                            <span class="stat-label">Max DD</span>
-                        </div>
-                        <div class="product-stat">
-                            <span class="stat-value"><?php echo esc_html($product['profit_factor']); ?></span>
-                            <span class="stat-label">Profit Factor</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Pricing Section -->
-                    <div class="product-pricing">
-                        <?php if ($product['current_price'] < $product['original_price']): ?>
-                            <div class="price-section">
-                                <span class="current-price">$<?php echo esc_html($product['current_price']); ?></span>
-                                <span class="original-price">$<?php echo esc_html($product['original_price']); ?></span>
+                        
+                        <!-- Product Stats -->
+                        <div class="product-stats-grid">
+                            <div class="product-stat">
+                                <span class="stat-value positive">+<?php echo esc_html($product['monthly_gain']); ?>%</span>
+                                <span class="stat-label">Monthly Gain</span>
                             </div>
-                            <div class="savings-badge">
-                                Save $<?php echo esc_html($product['original_price'] - $product['current_price']); ?>
+                            <div class="product-stat">
+                                <span class="stat-value"><?php echo esc_html($product['win_rate']); ?>%</span>
+                                <span class="stat-label">Win Rate</span>
                             </div>
-                        <?php else: ?>
-                            <div class="price-section">
-                                <span class="current-price">$<?php echo esc_html($product['current_price']); ?></span>
+                            <div class="product-stat">
+                                <span class="stat-value drawdown">-<?php echo esc_html($product['max_drawdown']); ?>%</span>
+                                <span class="stat-label">Max DD</span>
                             </div>
-                        <?php endif; ?>
-                    </div>
-                    
-                    <!-- Product Actions -->
-                    <div class="product-actions">
-                        <a href="<?php echo esc_url($product['url']); ?>" class="product-cta-primary">
-                            View Details
-                        </a>
-                        <a href="<?php echo esc_url($product['myfxbook']); ?>" 
-                           target="_blank" 
-                           class="product-cta-secondary">
-                            📊 Live Results
-                        </a>
-                    </div>
-                    
-                    <!-- Trust Elements -->
-                    <div class="product-trust-elements">
-                        <div class="trust-element">
-                            <span class="trust-icon">🟢</span>
-                            <span class="trust-text">Live Verified</span>
+                            <div class="product-stat">
+                                <span class="stat-value"><?php echo esc_html($product['profit_factor']); ?></span>
+                                <span class="stat-label">Profit Factor</span>
+                            </div>
                         </div>
-                        <div class="trust-element">
-                            <span class="trust-icon">🛡️</span>
-                            <span class="trust-text">No Martingale</span>
+                        
+                        <!-- Pricing Section -->
+                        <div class="product-pricing">
+                            <?php if ($product['current_price'] < $product['original_price']): ?>
+                                <div class="price-section">
+                                    <span class="current-price">$<?php echo esc_html($product['current_price']); ?></span>
+                                    <span class="original-price">$<?php echo esc_html($product['original_price']); ?></span>
+                                </div>
+                                <div class="savings-badge">
+                                    Save $<?php echo esc_html($product['original_price'] - $product['current_price']); ?>
+                                </div>
+                            <?php else: ?>
+                                <div class="price-section">
+                                    <span class="current-price">$<?php echo esc_html($product['current_price']); ?></span>
+                                </div>
+                            <?php endif; ?>
                         </div>
-                        <div class="trust-element">
-                            <span class="trust-icon">📞</span>
-                            <span class="trust-text">24/7 Support</span>
+                        
+                        <!-- Product Actions -->
+                        <div class="product-actions">
+                            <a href="<?php echo esc_url($product['url']); ?>" class="product-cta-primary">
+                                View Details
+                            </a>
+                            <a href="<?php echo esc_url($product['myfxbook']); ?>" 
+                               target="_blank" 
+                               class="product-cta-secondary">
+                                📊 Live Results
+                            </a>
                         </div>
+                        
+                        <!-- Trust Elements -->
+                        <div class="product-trust-elements">
+                            <div class="trust-element">
+                                <span class="trust-icon">🟢</span>
+                                <span class="trust-text">Live Verified</span>
+                            </div>
+                            <div class="trust-element">
+                                <span class="trust-icon">🛡️</span>
+                                <span class="trust-text">No Martingale</span>
+                            </div>
+                            <div class="trust-element">
+                                <span class="trust-icon">📞</span>
+                                <span class="trust-text">24/7 Support</span>
+                            </div>
+                        </div>
+                        
                     </div>
-                    
                 </div>
                 <?php endforeach; ?>
                 
