@@ -294,7 +294,7 @@
     position: relative;
 }
 
-.step-number {
+.how-step .step-number {
     position: absolute;
     top: -15px;
     left: 50%;

@@ -582,7 +582,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.step-number {
+.how-it-works-steps .step-number {
     font-size: 3rem;
     line-height: 1;
 }
