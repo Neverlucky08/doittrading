@@ -987,7 +987,7 @@
     box-shadow: 0 40px 80px rgba(255, 215, 0, 0.3);
 }
 
-/* Product Badges - CAMBIO IMPORTANTE */
+/* Product Badges - POSICIONAMIENTO BASE */
 .product-badge {
     position: absolute;
     top: -12px;
@@ -998,37 +998,28 @@
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
     letter-spacing: 1px;
-    z-index: 2;
+    z-index: 3;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    /* NUEVO: El badge se posiciona relativo al wrapper, no a la card */
-    /* Esto permite que sobresalga del overflow hidden de la card */
+    transition: var(--transition-all);
 }
 
-/* NUEVO: Posicionamos el badge relativo al wrapper */
-.featured-product-wrapper .product-badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    z-index: 3; /* Asegura que esté por encima de todo */
-    transition: var(--transition-all); /* Para que se mueva con el hover */
+/* SOLUCIÓN: Badge para card destacada - posición ajustada */
+.featured-product-wrapper:has(.featured-product-card.featured-highlight) .product-badge {
+    top: -40px; /* Ligeramente más alto para compensar el scale(1.05) */
+    transform: scale(1.10); /* Se escala igual que la card */
 }
 
-/* NUEVO: El badge se mueve con el hover del wrapper */
+/* Badge se mueve con el hover del wrapper */
 .featured-product-wrapper:hover .product-badge {
     transform: translateY(-10px);
 }
 
-/* NUEVO: Para el caso highlighted, el badge también se escala */
-.featured-product-wrapper .featured-product-card.featured-highlight ~ .product-badge,
-.featured-product-wrapper:has(.featured-product-card.featured-highlight) .product-badge {
-    transform: scale(1.05);
-}
-
-.featured-product-wrapper:hover .featured-product-card.featured-highlight ~ .product-badge,
+/* Badge destacado en hover - combina escala y movimiento */
 .featured-product-wrapper:hover:has(.featured-product-card.featured-highlight) .product-badge {
-    transform: scale(1.05) translateY(-10px);
+    transform: scale(1.10) translateY(-10px);
 }
 
+/* Badge Colors */
 .product-badge.badge-green {
     background: linear-gradient(135deg, var(--doit-green) 0%, var(--doit-green-light) 100%);
     color: var(--doit-dark);
