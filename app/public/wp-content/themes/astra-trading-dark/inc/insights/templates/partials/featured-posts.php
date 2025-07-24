@@ -5,23 +5,27 @@
 
 // Query for featured posts
 $featured_args = array(
-    'post_type' => 'post',
-    'category_name' => 'trading-insights',
+    'post_type' => 'insight',
+    'post_status' => 'publish',
     'posts_per_page' => 3,
     'meta_key' => 'is_featured',
     'meta_value' => '1',
-    'meta_compare' => '='
+    'meta_compare' => '=',
+    'orderby' => 'date',
+    'order' => 'DESC'
 );
 
 // Si no tienes posts featured, muestra los más recientes
 $featured_query = new WP_Query($featured_args);
 
 if (!$featured_query->have_posts()) {
-    // Fallback: mostrar últimos 3 posts
+    // Fallback: mostrar últimos 3 insights
     $featured_query = new WP_Query(array(
         'post_type' => 'insight',
-        'category_name' => 'trading-insights',
-        'posts_per_page' => 3
+        'post_status' => 'publish',
+        'posts_per_page' => 3,
+        'orderby' => 'date',
+        'order' => 'DESC'
     ));
 }
 ?>

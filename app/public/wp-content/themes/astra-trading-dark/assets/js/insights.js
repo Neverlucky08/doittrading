@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
         
         // Filter posts with animation
         if (category === 'all') {
-            $('.post-card').fadeIn(300);
+            $('.post-card').fadeIn(10);
         } else {
             $('.post-card').each(function() {
                 const postCategory = $(this).data('category');

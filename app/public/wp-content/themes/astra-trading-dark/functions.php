@@ -169,3 +169,4 @@ function doittrading_enqueue_insights_assets() {
     }
 }
 add_action('wp_enqueue_scripts', 'doittrading_enqueue_insights_assets');
+
