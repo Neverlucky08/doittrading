@@ -99,6 +99,9 @@ require_once get_stylesheet_directory() . '/inc/insights/insights-functions.php'
 add_action('init', 'doittrading_register_insights_cpt');
 add_action('init', 'doittrading_register_insights_taxonomies');
 
+// 10. Helpers for Product date linking
+require_once get_stylesheet_directory() . '/inc/helpers/data-helpers.php';
+
 /**
  * Debug helper (solo en desarrollo)
  */
@@ -169,4 +172,3 @@ function doittrading_enqueue_insights_assets() {
     }
 }
 add_action('wp_enqueue_scripts', 'doittrading_enqueue_insights_assets');
-

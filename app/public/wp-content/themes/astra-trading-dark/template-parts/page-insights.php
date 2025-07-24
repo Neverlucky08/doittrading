@@ -5,7 +5,8 @@
  * @package DoItTrading
  */
 
-get_header(); ?>
+get_header(); 
+?>
 
 <div class="insights-page">
     

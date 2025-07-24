@@ -8,6 +8,9 @@
 // Exit if accessed directly
 if (!defined('ABSPATH')) exit;
 
+// Include data helpers
+require_once get_stylesheet_directory() . '/inc/helpers/data-helpers.php';
+
 /**
  * Homepage Hero Section
  */
@@ -15,10 +18,23 @@ function doittrading_homepage_hero() {
     // Solo mostrar en homepage
     if (!is_front_page()) return;
     
+    // Get featured product data
+    $featured_product = doittrading_get_featured_product();
+    $featured_id = $featured_product->ID;
+    
     // Get dynamic data
     $active_traders = doittrading_get_active_traders();
     $last_trade = doittrading_get_last_trade();
-    $years_active = date('Y') - 2022; // Started in 2022
+    $years_active = date('Y') - doittrading_get_start_year();
+
+    // Get featured product stats
+    $featured_stats = array(
+        'name' => get_the_title($featured_id),
+        'win_rate' => get_field('win_rate', $featured_id),
+        'monthly_gain' => get_field('monthly_gain', $featured_id),
+        'max_drawdown' => get_field('max_drawdown', $featured_id),
+        'url' => get_permalink($featured_id)
+    );
     ?>
     <div class="doittrading-homepage-hero">
         
@@ -36,7 +52,7 @@ function doittrading_homepage_hero() {
             <!-- Credibility Bar -->
             <div class="hero-credibility-bar">
                 <div class="credibility-item">
-                    <span class="credibility-number">500+</span>
+                    <span class="credibility-number"><?php echo doittrading_get_aggregate_stats()['total_active_traders']; ?>+</span>
                     <span class="credibility-label">Active Traders</span>
                 </div>
                 <div class="credibility-item">
@@ -55,7 +71,7 @@ function doittrading_homepage_hero() {
                     <div class="live-dot-hero"></div>
                     <span class="live-text">LIVE NOW:</span>
                     <span class="live-details">
-                        DoIt GBP Master <?php echo $last_trade['direction'] === 'profit' ? '+' : ''; ?><?php echo $last_trade['pips']; ?> pips 
+                         <?php echo esc_html($featured_stats['name']); ?> <?php echo $last_trade['direction'] === 'profit' ? '+' : ''; ?><?php echo $last_trade['pips']; ?> pips 
                         (<?php echo $last_trade['time_ago']; ?>m ago)
                     </span>
                 </div>
@@ -95,21 +111,21 @@ function doittrading_homepage_hero() {
             <!-- Featured EA Stats Card -->
             <div class="hero-stats-card">
                 <div class="stats-card-header">
-                    <h3>DoIt GBP Master</h3>
+                    <h3><?php echo esc_html($featured_stats['name']); ?></h3>
                     <span class="live-badge-small">🟢 LIVE</span>
                 </div>
                 
                 <div class="stats-showcase-grid">
                     <div class="stat-showcase">
-                        <div class="stat-number">76%</div>
+                        <div class="stat-number"><?php echo esc_html($featured_stats['win_rate']); ?>%</div>
                         <div class="stat-label">Win Rate</div>
                     </div>
                     <div class="stat-showcase">
-                        <div class="stat-number">+12.8%</div>
+                        <div class="stat-number">+<?php echo esc_html($featured_stats['monthly_gain']); ?>%</div>
                         <div class="stat-label">Monthly Growth</div>
                     </div>
                     <div class="stat-showcase">
-                        <div class="stat-number">-4.2%</div>
+                        <div class="stat-number">-<?php echo esc_html($featured_stats['max_drawdown']); ?>%</div>
                         <div class="stat-label">Max Drawdown</div>
                     </div>
                 </div>
@@ -156,54 +172,35 @@ function doittrading_homepage_social_proof() {
     // Solo mostrar en homepage
     if (!is_front_page()) return;
     
-    // Get verified testimonials data
-    $testimonials = array(
-        array(
-            'name' => 'MBlue6',
-            'country' => 'Germany',
-            'text' => 'Setup was simple, and the performance has been great so far. Diego has been exceptionally friendly, responsive, and supportive throughout.',
-            'product' => 'DoIt GBP Master',
-            'verified' => true,
-            'rating' => 5
-        ),
-        array(
-            'name' => 'klausdiemaus',
-            'country' => 'Austria',
-            'text' => 'Diego\'s EAs have always been reliable, so buying the DoIt GBP Master was an easy decision. Best EA I have ever tried!',
-            'product' => 'DoIt GBP Master',
-            'verified' => true,
-            'rating' => 5
-        ),
-        array(
-            'name' => 'Butterfly0856',
-            'country' => 'Spain',
-            'text' => 'Been using DoIt GBP Master for two weeks now, and the results have been amazing! The consistency is impressive.',
-            'product' => 'DoIt GBP Master',
-            'verified' => true,
-            'rating' => 5
-        )
-    );
+    // Get real testimonials from products
+    $testimonials = doittrading_get_all_reviews(3);
+    
+    // Get active countries
+    $active_countries = doittrading_get_active_countries();
+    
+    // Get aggregate stats
+    $stats = doittrading_get_aggregate_stats();
     
     // Countries with active users
-    $active_countries = array(
-        'US' => 'United States',
-        'GB' => 'United Kingdom', 
-        'DE' => 'Germany',
-        'ES' => 'Spain',
-        'IT' => 'Italy',
-        'FR' => 'France',
-        'AU' => 'Australia',
-        'CA' => 'Canada',
-        'JP' => 'Japan',
-        'SG' => 'Singapore'
-    );
+    // $active_countries = array(
+    //     'US' => 'United States',
+    //     'GB' => 'United Kingdom', 
+    //     'DE' => 'Germany',
+    //     'ES' => 'Spain',
+    //     'IT' => 'Italy',
+    //     'FR' => 'France',
+    //     'AU' => 'Australia',
+    //     'CA' => 'Canada',
+    //     'JP' => 'Japan',
+    //     'SG' => 'Singapore'
+    // );
     ?>
     <div class="doittrading-social-proof-section">
         <div class="social-proof-container">
             
             <!-- Section Header -->
             <div class="social-proof-header">
-                <h2>Trusted by 500+ Traders Worldwide</h2>
+                <h2>Trusted by <?php echo esc_html($stats['total_active_traders']); ?>+ Traders Worldwide</h2>
                 <p>Real results from real traders using our EAs in live accounts</p>
             </div>
             
@@ -215,57 +212,42 @@ function doittrading_homepage_social_proof() {
                 </div>
                 
                 <div class="myfxbook-widgets-grid">
-                    <!-- Widget 1: Conservative Account -->
-                    <div class="myfxbook-widget-card">
-                        <div class="widget-header">
-                            <h4>Conservative Risk Account</h4>
-                            <span class="widget-badge live">🟢 LIVE</span>
-                        </div>
-                        <div class="widget-stats">
-                            <div class="widget-stat">
-                                <span class="stat-value">+287%</span>
-                                <span class="stat-label">Total Growth</span>
-                            </div>
-                            <div class="widget-stat">
-                                <span class="stat-value">76%</span>
-                                <span class="stat-label">Win Rate</span>
-                            </div>
-                            <div class="widget-stat">
-                                <span class="stat-value">-4.2%</span>
-                                <span class="stat-label">Max DD</span>
-                            </div>
-                        </div>
-                        <a href="https://www.myfxbook.com/members/DoItTrading/doit-gbp-master/11493777" 
-                           target="_blank" class="widget-link">
-                            View Live on MyFxBook →
-                        </a>
-                    </div>
+                    <?php
+                    // Get featured products for their MyFxBook links
+                    $featured_products = doittrading_get_featured_products();
+                    $widget_types = array(
+                        0 => array('title' => 'Conservative Risk Account', 'label' => 'Steady Growth'),
+                        1 => array('title' => 'Higher Risk Account', 'label' => 'Aggressive Growth')
+                    );
                     
-                    <!-- Widget 2: Higher Risk Account -->
+                    for ($i = 0; $i < min(2, count($featured_products)); $i++):
+                        $product = $featured_products[$i];
+                    ?>
                     <div class="myfxbook-widget-card">
                         <div class="widget-header">
-                            <h4>Higher Risk Account</h4>
+                            <h4><?php echo esc_html($widget_types[$i]['title']); ?></h4>
                             <span class="widget-badge live">🟢 LIVE</span>
                         </div>
                         <div class="widget-stats">
                             <div class="widget-stat">
-                                <span class="stat-value">+456%</span>
-                                <span class="stat-label">Total Growth</span>
+                                <span class="stat-value">+<?php echo esc_html($product['monthly_gain'] * 12); ?>%</span>
+                                <span class="stat-label">Annual Growth</span>
                             </div>
                             <div class="widget-stat">
-                                <span class="stat-value">78%</span>
+                                <span class="stat-value"><?php echo esc_html($product['win_rate']); ?>%</span>
                                 <span class="stat-label">Win Rate</span>
                             </div>
                             <div class="widget-stat">
-                                <span class="stat-value">-8.1%</span>
+                                <span class="stat-value">-<?php echo esc_html($product['max_drawdown']); ?>%</span>
                                 <span class="stat-label">Max DD</span>
                             </div>
                         </div>
-                        <a href="https://www.myfxbook.com/portfolio/doit-gold-guardian/11493798" 
+                        <a href="<?php echo esc_url($product['myfxbook']); ?>" 
                            target="_blank" class="widget-link">
                             View Live on MyFxBook →
                         </a>
                     </div>
+                    <?php endfor; ?>
                 </div>
                 
                 <div class="myfxbook-disclaimer">
@@ -289,7 +271,7 @@ function doittrading_homepage_social_proof() {
                                 <span class="author-country"><?php echo esc_html($testimonial['country']); ?></span>
                             </div>
                             <div class="testimonial-rating">
-                                <?php echo str_repeat('⭐', $testimonial['rating']); ?>
+                                <?php echo str_repeat('⭐', $testimonial['stars'] ?? 5); ?>
                             </div>
                         </div>
                         
@@ -312,11 +294,11 @@ function doittrading_homepage_social_proof() {
             <div class="global-reach-section">
                 <div class="global-header">
                     <h3>🌍 Traders from Around the World</h3>
-                    <p>Our EAs are helping traders profit in over 15 countries</p>
+                    <p>Our EAs are helping traders profit in over <?php echo count($active_countries); ?> countries</p>
                 </div>
                 
                 <div class="countries-grid">
-                    <?php foreach ($active_countries as $code => $name): ?>
+                    <?php foreach (array_slice($active_countries, 0, 10) as $code => $name): ?>
                     <div class="country-item">
                         <span class="country-flag">
                             <?php
@@ -324,7 +306,8 @@ function doittrading_homepage_social_proof() {
                             $flags = array(
                                 'US' => '🇺🇸', 'GB' => '🇬🇧', 'DE' => '🇩🇪', 'ES' => '🇪🇸',
                                 'IT' => '🇮🇹', 'FR' => '🇫🇷', 'AU' => '🇦🇺', 'CA' => '🇨🇦',
-                                'JP' => '🇯🇵', 'SG' => '🇸🇬'
+                                'JP' => '🇯🇵', 'SG' => '🇸🇬', 'AE' => '🇦🇪', 'MX' => '🇲🇽',
+                                'BR' => '🇧🇷', 'IN' => '🇮🇳', 'NL' => '🇳🇱'
                             );
                             echo $flags[$code] ?? '🏳️';
                             ?>
@@ -346,10 +329,10 @@ function doittrading_homepage_social_proof() {
                         </div>
                     </div>
                     <div class="trust-indicator">
-                        <div class="indicator-icon">🛡️</div>
+                        <div class="indicator-icon">⭐</div>
                         <div class="indicator-content">
-                            <h4>No Hidden Risks</h4>
-                            <p>We show you the losses too - complete transparency</p>
+                            <h4><?php echo esc_html($stats['average_rating']); ?>/5 Rating</h4>
+                            <p>Based on <?php echo esc_html($stats['total_reviews']); ?>+ verified reviews</p>
                         </div>
                     </div>
                     <div class="trust-indicator">
@@ -384,57 +367,8 @@ function doittrading_homepage_featured_products() {
     // Solo mostrar en homepage
     if (!is_front_page()) return;
     
-    // Get featured products (hardcoded IDs for now - you can make this dynamic later)
-    $featured_products = array(
-        array(
-            'id' => 19, // DoIt GBP Master
-            'name' => 'DoIt GBP Master',
-            'subtitle' => 'The Conservative Profit Machine',
-            'description' => 'Specialized in GBPUSD with 76% win rate. Perfect for steady, consistent growth.',
-            'monthly_gain' => '12.8',
-            'win_rate' => '76',
-            'max_drawdown' => '4.2',
-            'profit_factor' => '2.34',
-            'original_price' => '999',
-            'current_price' => '599',
-            'badge' => 'BESTSELLER',
-            'badge_color' => 'green',
-            'url' => '/product/doit-gbp-master/',
-            'myfxbook' => 'https://www.myfxbook.com/members/DoItTrading/doit-gbp-master/11493777'
-        ),
-        array(
-            'id' => 30, // DoIt Gold Guardian
-            'name' => 'DoIt Gold Guardian',
-            'subtitle' => 'Gold Market Specialist',
-            'description' => 'Long-only gold strategy with 96.5% win rate. Catches major bullish moves.',
-            'monthly_gain' => '25',
-            'win_rate' => '96.5',
-            'max_drawdown' => '8',
-            'profit_factor' => '1.6',
-            'original_price' => '999',
-            'current_price' => '399',
-            'badge' => 'HIGH WIN RATE',
-            'badge_color' => 'gold',
-            'url' => '/product/doit-gold-guardian/',
-            'myfxbook' => 'https://www.myfxbook.com/portfolio/doit-gold-guardian/11493798'
-        ),
-        array(
-            'id' => 36, // Index Vanguard
-            'name' => 'Index Vanguard',
-            'subtitle' => 'Small Account Friendly',
-            'description' => 'Works with accounts as small as $30. Perfect for beginners getting started.',
-            'monthly_gain' => '10',
-            'win_rate' => '50.5',
-            'max_drawdown' => '3.5',
-            'profit_factor' => '1.2',
-            'original_price' => '599',
-            'current_price' => '129',
-            'badge' => 'BEGINNER FRIENDLY',
-            'badge_color' => 'blue',
-            'url' => '/product/index-vanguard/',
-            'myfxbook' => 'https://www.myfxbook.com/portfolio/doit-gold-guardian/11493798'
-        )
-    );
+    // Get featured products dynamically
+    $featured_products = doittrading_get_featured_products();
     ?>
     <div class="doittrading-featured-products-section">
         <div class="featured-products-container">
@@ -713,17 +647,8 @@ function doittrading_homepage_live_results() {
     // Solo mostrar en homepage
     if (!is_front_page()) return;
     
-    // Simulated performance data for last 30 days
-    $performance_data = array(
-        'monthly_return' => '+12.8',
-        'max_drawdown' => '-4.2',
-        'win_rate' => '76',
-        'total_trades' => '143',
-        'winning_trades' => '109',
-        'losing_trades' => '34',
-        'profit_factor' => '2.34',
-        'last_updated' => date('Y-m-d H:i:s')
-    );
+    // Get real performance data
+    $performance_data = doittrading_get_live_performance_data();
     ?>
     <div class="doittrading-live-results-section" id="live-results">
         <div class="live-results-container">
@@ -744,16 +669,16 @@ function doittrading_homepage_live_results() {
                 <div class="perf-card highlight">
                     <div class="perf-icon">📈</div>
                     <div class="perf-content">
-                        <div class="perf-value positive"><?php echo $performance_data['monthly_return']; ?>%</div>
+                        <div class="perf-value positive">+<?php echo esc_html($performance_data['monthly_return']); ?>%</div>
                         <div class="perf-label">This Month Return</div>
-                        <div class="perf-sublabel">DoIt GBP Master Live Account</div>
+                        <div class="perf-sublabel">Best Performing EA</div>
                     </div>
                 </div>
                 
                 <div class="perf-card">
                     <div class="perf-icon">📉</div>
                     <div class="perf-content">
-                        <div class="perf-value drawdown"><?php echo $performance_data['max_drawdown']; ?>%</div>
+                        <div class="perf-value drawdown">-<?php echo esc_html($performance_data['max_drawdown']); ?>%</div>
                         <div class="perf-label">Max Drawdown</div>
                         <div class="perf-sublabel">Conservative risk</div>
                     </div>
@@ -762,24 +687,24 @@ function doittrading_homepage_live_results() {
                 <div class="perf-card">
                     <div class="perf-icon">🎯</div>
                     <div class="perf-content">
-                        <div class="perf-value"><?php echo $performance_data['win_rate']; ?>%</div>
+                        <div class="perf-value"><?php echo esc_html($performance_data['win_rate']); ?>%</div>
                         <div class="perf-label">Win Rate</div>
-                        <div class="perf-sublabel"><?php echo $performance_data['winning_trades']; ?>/<?php echo $performance_data['total_trades']; ?> trades</div>
+                        <div class="perf-sublabel"><?php echo esc_html($performance_data['winning_trades']); ?>/<?php echo esc_html($performance_data['total_trades']); ?> trades</div>
                     </div>
                 </div>
                 
                 <div class="perf-card">
                     <div class="perf-icon">⚖️</div>
                     <div class="perf-content">
-                        <div class="perf-value"><?php echo $performance_data['profit_factor']; ?></div>
+                        <div class="perf-value"><?php echo esc_html($performance_data['profit_factor']); ?></div>
                         <div class="perf-label">Profit Factor</div>
-                        <div class="perf-sublabel">$<?php echo $performance_data['profit_factor']; ?> per $1 risked</div>
+                        <div class="perf-sublabel">$<?php echo esc_html($performance_data['profit_factor']); ?> per $1 risked</div>
                     </div>
                 </div>
                 
             </div>
             
-            <!-- Chart Section -->
+            <!-- Chart Section (unchanged - JavaScript handles this) -->
             <div class="chart-section">
                 <div class="chart-header">
                     <h3>Live Growth Performance</h3>
@@ -808,6 +733,7 @@ function doittrading_homepage_live_results() {
                 </div>
             </div>
             
+            <!-- JavaScript para el chart permanece igual -->
             <script>
             // Real growth data from your MyFxBook
             const chartDatasets = {
@@ -978,14 +904,19 @@ function doittrading_homepage_live_results() {
                     <p>We believe in complete transparency. That's why all our results are publicly available on MyFxBook - the industry standard for verified trading results.</p>
                     
                     <div class="myfxbook-links">
-                        <a href="https://www.myfxbook.com/members/DoItTrading/doit-gbp-master/11493777" 
+                        <?php
+                        $featured_products = doittrading_get_featured_products();
+                        foreach ($featured_products as $product):
+                            if (!empty($product['myfxbook'])):
+                        ?>
+                        <a href="<?php echo esc_url($product['myfxbook']); ?>" 
                            target="_blank" class="myfxbook-link">
-                            📊 DoIt GBP Master Account →
+                            📊 <?php echo esc_html($product['name']); ?> Account →
                         </a>
-                        <a href="https://www.myfxbook.com/portfolio/doit-gold-guardian/11493798" 
-                           target="_blank" class="myfxbook-link">
-                            📊 Gold Guardian Account →
-                        </a>
+                        <?php 
+                            endif;
+                        endforeach; 
+                        ?>
                     </div>
                 </div>
             </div>
@@ -1017,14 +948,15 @@ function doittrading_homepage_about() {
     // Solo mostrar en homepage
     if (!is_front_page()) return;
     
-    // Stats de credibilidad
+    // Get real stats
+    $stats = doittrading_get_aggregate_stats();
     $about_stats = array(
-        'years_experience' => date('Y') - 2022, // Started in 2022
-        'satisfied_customers' => '500+',
-        'total_trades' => '10,000+', 
-        'avg_rating' => '4.9',
-        'volume_traded' => '$2M+',
-        'countries' => '15+'
+        'years_experience' => date('Y') - doittrading_get_start_year(),
+        'satisfied_customers' => $stats['total_active_traders'],
+        'total_trades' => $stats['total_trades'],
+        'avg_rating' => $stats['average_rating'],
+        'volume_traded' => $stats['total_volume_traded'],
+        'countries' => count(doittrading_get_active_countries())
     );
     ?>
     <div class="doittrading-about-section">
@@ -1088,11 +1020,11 @@ function doittrading_homepage_about() {
                             <div class="achievement-label">Years Developing EAs</div>
                         </div>
                         <div class="achievement-item">
-                            <div class="achievement-number"><?php echo $about_stats['satisfied_customers']; ?></div>
+                            <div class="achievement-number"><?php echo $about_stats['satisfied_customers']; ?>+</div>
                             <div class="achievement-label">Satisfied Customers</div>
                         </div>
                         <div class="achievement-item">
-                            <div class="achievement-number"><?php echo $about_stats['total_trades']; ?></div>
+                            <div class="achievement-number"><?php echo $about_stats['total_trades']; ?>+</div>
                             <div class="achievement-label">Live Trades Executed</div>
                         </div>
                         <div class="achievement-item">
@@ -1104,7 +1036,7 @@ function doittrading_homepage_about() {
                             <div class="achievement-label">Volume Traded</div>
                         </div>
                         <div class="achievement-item">
-                            <div class="achievement-number"><?php echo $about_stats['countries']; ?></div>
+                            <div class="achievement-number"><?php echo $about_stats['countries']; ?>+</div>
                             <div class="achievement-label">Countries Served</div>
                         </div>
                     </div>
