@@ -38,7 +38,18 @@ define( 'DB_CHARSET', 'utf8' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
-define('WP_DEBUG', false);
+define('HIDE_DEPRECATED_ERRORS', true); // Tu switch personalizado
+
+if (defined('HIDE_DEPRECATED_ERRORS') && HIDE_DEPRECATED_ERRORS) {
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_LOG', true);
+    define('WP_DEBUG_DISPLAY', false);
+    ini_set('display_errors', 0);
+} else {
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_LOG', true);
+    define('WP_DEBUG_DISPLAY', true);
+}
 
 /**#@+
  * Authentication unique keys and salts.
