@@ -33,11 +33,12 @@ function doittrading_forex_bots_page() {
 }
 
 /**
- * 1. HERO SECTION - SEO + Emotional Hook
+ * 1. HERO SECTION - Uses selected bot
  */
 function doittrading_forex_bots_hero() {
     $active_traders = doittrading_get_active_traders();
     $last_trade = doittrading_get_last_trade();
+    $hero_bot = doittrading_get_forex_bots_hero_bot(); // New function
     ?>
     <div class="forex-bots-hero-section">
         <div class="forex-bots-container">
@@ -50,7 +51,7 @@ function doittrading_forex_bots_hero() {
                     <h1 class="hero-main-title">Forex Trading Bots That Actually Work</h1>
                     <h2 class="hero-subtitle">Professional Expert Advisors (EAs) for MT4/MT5</h2>
                     <p class="hero-description">
-                        Real results: <strong>+83% growth</strong> while you sleep
+                        Real results: <strong>+<?php echo round($hero_bot['monthly_gain'] * 6); ?>% growth</strong> while you sleep
                     </p>
                 </div>
                 
@@ -81,16 +82,16 @@ function doittrading_forex_bots_hero() {
             <div class="hero-visual-bots">
                 <div class="bot-preview-card">
                     <div class="bot-preview-header">
-                        <h3>GBP Master Bot</h3>
+                        <h3><?php echo esc_html($hero_bot['name']); ?></h3>
                         <span class="bot-status-live">🟢 TRADING</span>
                     </div>
                     <div class="bot-stats-preview">
                         <div class="stat-item">
-                            <span class="stat-value">+12.8%</span>
+                            <span class="stat-value">+<?php echo esc_html($hero_bot['monthly_gain']); ?>%</span>
                             <span class="stat-label">This Month</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-value">76%</span>
+                            <span class="stat-value"><?php echo esc_html($hero_bot['win_rate']); ?>%</span>
                             <span class="stat-label">Win Rate</span>
                         </div>
                         <div class="stat-item">
@@ -99,18 +100,31 @@ function doittrading_forex_bots_hero() {
                         </div>
                     </div>
                     <div class="bot-activity">
-                        <div class="activity-line">
-                            <span class="activity-time">14:23</span>
-                            <span class="activity-action profit">BUY GBPUSD +15 pips</span>
-                        </div>
-                        <div class="activity-line">
-                            <span class="activity-time">13:45</span>
-                            <span class="activity-action profit">SELL GBPUSD +22 pips</span>
-                        </div>
-                        <div class="activity-line">
-                            <span class="activity-time">12:18</span>
-                            <span class="activity-action profit">BUY GBPUSD +8 pips</span>
-                        </div>
+                        <?php if (!empty($hero_bot['last_trades'])): ?>
+                            <?php foreach ($hero_bot['last_trades'] as $trade): ?>
+                            <div class="activity-line">
+                                <span class="activity-time"><?php echo esc_html($trade['time']); ?></span>
+                                <span class="activity-action <?php echo esc_attr($trade['class']); ?>">
+                                    <?php echo esc_html($trade['action']); ?> 
+                                    <?php echo $trade['pips'] > 0 ? '+' : ''; ?><?php echo esc_html($trade['pips']); ?> pips
+                                </span>
+                            </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <!-- Fallback trades -->
+                            <div class="activity-line">
+                                <span class="activity-time">14:23</span>
+                                <span class="activity-action profit">BUY GBPUSD +15 pips</span>
+                            </div>
+                            <div class="activity-line">
+                                <span class="activity-time">13:45</span>
+                                <span class="activity-action profit">SELL GBPUSD +22 pips</span>
+                            </div>
+                            <div class="activity-line">
+                                <span class="activity-time">12:18</span>
+                                <span class="activity-action profit">BUY GBPUSD +8 pips</span>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -161,9 +175,29 @@ function doittrading_forex_bots_education_bridge() {
 }
 
 /**
- * 3. FEATURED BOT - Revenue Focus
+ * 3. FEATURED BOT - Dynamic
  */
 function doittrading_forex_bots_featured() {
+    $featured = doittrading_get_featured_product();
+    $featured_id = $featured->ID;
+    
+    // Get all product data
+    $product_data = array(
+        'name' => get_the_title($featured_id),
+        'tagline' => get_field('product_tagline', $featured_id) ?: 'Our #1 performing automated Forex trading bot',
+        'win_rate' => get_field('win_rate', $featured_id),
+        'monthly_gain' => get_field('monthly_gain', $featured_id),
+        'min_deposit' => get_field('minimum_deposit', $featured_id),
+        'total_reviews' => get_field('mql5_total_reviews', $featured_id) ?: 0,
+        'avg_rating' => get_field('mql5_average_rating', $featured_id) ?: 4.9,
+        'url' => get_permalink($featured_id),
+        'myfxbook' => get_field('myfxbook_url', $featured_id),
+        'image' => get_the_post_thumbnail_url($featured_id, 'large'),
+        'target_market' => get_field('target_market', $featured_id) ?: 'Multiple Markets'
+    );
+    
+    // Calculate total growth
+    $total_growth = round($product_data['monthly_gain'] * 6.5); // ~6 months compounded
     ?>
     <div class="forex-bots-featured-section" id="featured-bots">
         <div class="forex-bots-container">
@@ -172,52 +206,53 @@ function doittrading_forex_bots_featured() {
                 <div class="featured-badge">🏆 #1 PERFORMING BOT</div>
                 
                 <div class="featured-content">
-                    <h2>DoIt GBP Master Bot - The Profit Machine</h2>
-                    <p class="featured-subtitle">Our #1 performing automated Forex trading bot</p>
+                    <h2><?php echo esc_html($product_data['name']); ?> - The Profit Machine</h2>
+                    <p class="featured-subtitle"><?php echo esc_html($product_data['tagline']); ?></p>
                     
                     <!-- Performance Stats -->
                     <div class="featured-stats">
                         <div class="featured-stat">
-                            <span class="stat-number">76%</span>
+                            <span class="stat-number"><?php echo esc_html($product_data['win_rate']); ?>%</span>
                             <span class="stat-desc">Win Rate</span>
                         </div>
                         <div class="featured-stat highlight">
-                            <span class="stat-number">+83%</span>
+                            <span class="stat-number">+<?php echo esc_html($total_growth); ?>%</span>
                             <span class="stat-desc">Total Growth</span>
                         </div>
                         <div class="featured-stat">
-                            <span class="stat-number">$50</span>
+                            <span class="stat-number">$<?php echo esc_html($product_data['min_deposit']); ?></span>
                             <span class="stat-desc">Min Deposit</span>
                         </div>
                     </div>
                     
                     <!-- Key Features -->
                     <div class="featured-highlights">
-                        <div class="highlight">🎯 GBPUSD specialist</div>
+                        <div class="highlight">🎯 <?php echo esc_html($product_data['target_market']); ?> specialist</div>
                         <div class="highlight">🛡️ Conservative risk management</div>
                         <div class="highlight">📊 MyFxBook verified results</div>
                     </div>
                     
                     <!-- CTAs -->
                     <div class="featured-actions">
-                        <a href="/product/doit-gbp-master/" class="featured-cta-primary">
-                            Get GBP Bot
+                        <a href="<?php echo esc_url($product_data['url']); ?>" class="featured-cta-primary">
+                            Get <?php echo esc_html($product_data['name']); ?>
                         </a>
-                        <a href="https://www.myfxbook.com/members/DoItTrading/doit-gbp-master/11493777" 
+                        <?php if ($product_data['myfxbook']): ?>
+                        <a href="<?php echo esc_url($product_data['myfxbook']); ?>" 
                            target="_blank" class="featured-cta-secondary">
                             Live MyFxBook Proof
                         </a>
-                        <a href="#video-demo" class="featured-cta-tertiary">
-                            Video Demo
-                        </a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 
                 <!-- Featured Visual -->
                 <div class="featured-visual">
-                    <img src="/wp-content/uploads/2025/07/DoItGBPMaster.webp" 
-                         alt="DoIt GBP Master Trading Bot" 
+                    <?php if ($product_data['image']): ?>
+                    <img src="<?php echo esc_url($product_data['image']); ?>" 
+                         alt="<?php echo esc_attr($product_data['name']); ?>" 
                          class="featured-bot-image">
+                    <?php endif; ?>
                     <div class="live-indicator-featured">🟢 LIVE TRADING</div>
                 </div>
                 
@@ -229,9 +264,12 @@ function doittrading_forex_bots_featured() {
 }
 
 /**
- * 4. BOTS COMPARISON - Decision Support
+ * 4. BOTS COMPARISON - Dynamic columns
  */
 function doittrading_forex_bots_comparison() {
+    $products = doittrading_get_comparison_products();
+    $product_count = count($products);
+    $table_class = doittrading_get_comparison_table_class($product_count);
     ?>
     <div class="forex-bots-comparison-section">
         <div class="forex-bots-container">
@@ -241,66 +279,97 @@ function doittrading_forex_bots_comparison() {
                 <p>Each bot is specialized for different trading goals and risk levels</p>
             </div>
             
-            <div class="comparison-table">
+            <div class="comparison-table <?php echo esc_attr($table_class); ?>">
                 <div class="comparison-headers">
                     <div class="header-item">Feature</div>
-                    <div class="header-item featured">GBP Master Bot</div>
-                    <div class="header-item">Gold Guardian Bot</div>
-                    <div class="header-item">Index Vanguard Bot</div>
+                    <?php foreach ($products as $product): ?>
+                    <div class="header-item <?php echo $product['is_featured'] ? 'featured' : ''; ?>">
+                        <?php echo esc_html($product['short_name']); ?>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
                 
                 <div class="comparison-row">
                     <div class="row-label">Target Market</div>
-                    <div class="row-value">GBPUSD</div>
-                    <div class="row-value">Gold (XAUUSD)</div>
-                    <div class="row-value">SP500 Index</div>
+                    <?php foreach ($products as $product): ?>
+                    <div class="row-value"><?php echo esc_html($product['target_market']); ?></div>
+                    <?php endforeach; ?>
                 </div>
                 
                 <div class="comparison-row">
                     <div class="row-label">Trading Style</div>
-                    <div class="row-value">Conservative</div>
-                    <div class="row-value">Aggressive Growth</div>
-                    <div class="row-value">Balanced</div>
+                    <?php foreach ($products as $product): ?>
+                    <div class="row-value"><?php echo esc_html(doittrading_format_trading_style($product['trading_style'])); ?></div>
+                    <?php endforeach; ?>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="row-label">Monthly Gain</div>
+                    <?php foreach ($products as $product): ?>
+                    <div class="row-value success">+<?php echo esc_html($product['monthly_gain']); ?>%</div>
+                    <?php endforeach; ?>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="row-label">Win Rate</div>
+                    <?php foreach ($products as $product): ?>
+                    <div class="row-value"><?php echo esc_html($product['win_rate']); ?>%</div>
+                    <?php endforeach; ?>
                 </div>
                 
                 <div class="comparison-row">
                     <div class="row-label">Risk Level</div>
-                    <div class="row-value success">Low (4.2% DD)</div>
-                    <div class="row-value warning">Medium (8% DD)</div>
-                    <div class="row-value success">Low (3.5% DD)</div>
+                    <?php foreach ($products as $product): ?>
+                    <div class="row-value <?php 
+                        echo $product['risk_level'] === 'low' ? 'success' : 
+                            ($product['risk_level'] === 'medium' ? 'warning' : 'danger'); 
+                    ?>">
+                        <?php echo esc_html(ucfirst($product['risk_level'])); ?> 
+                        (<?php echo esc_html($product['max_drawdown']); ?>% DD)
+                    </div>
+                    <?php endforeach; ?>
                 </div>
                 
                 <div class="comparison-row">
                     <div class="row-label">Min Deposit</div>
-                    <div class="row-value">$50</div>
-                    <div class="row-value">$300</div>
-                    <div class="row-value highlight">$30</div>
+                    <?php foreach ($products as $product): ?>
+                    <div class="row-value <?php echo $product['min_deposit'] <= 50 ? 'highlight' : ''; ?>">
+                        $<?php echo esc_html($product['min_deposit']); ?>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
                 
                 <div class="comparison-row">
                     <div class="row-label">Best For</div>
-                    <div class="row-value">Beginners</div>
-                    <div class="row-value">Risk-tolerant</div>
-                    <div class="row-value">Small accounts</div>
+                    <?php foreach ($products as $product): ?>
+                    <div class="row-value"><?php echo esc_html(doittrading_format_best_for($product['best_for'])); ?></div>
+                    <?php endforeach; ?>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="row-label">Price</div>
+                    <?php foreach ($products as $product): ?>
+                    <div class="row-value">
+                        <?php if ($product['current_price'] < $product['regular_price']): ?>
+                            <span class="price-current">$<?php echo esc_html($product['current_price']); ?></span>
+                            <span class="price-old">$<?php echo esc_html($product['regular_price']); ?></span>
+                        <?php else: ?>
+                            $<?php echo esc_html($product['current_price']); ?>
+                        <?php endif; ?>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
                 
                 <div class="comparison-actions">
                     <div class="action-cell"></div>
+                    <?php foreach ($products as $index => $product): ?>
                     <div class="action-cell">
-                        <a href="/product/doit-gbp-master/" class="comparison-btn primary">
+                        <a href="<?php echo esc_url($product['url']); ?>" 
+                           class="comparison-btn <?php echo $product['is_featured'] ? 'primary' : 'secondary'; ?>">
                             View Details
                         </a>
                     </div>
-                    <div class="action-cell">
-                        <a href="/product/doit-gold-guardian/" class="comparison-btn secondary">
-                            View Details
-                        </a>
-                    </div>
-                    <div class="action-cell">
-                        <a href="/product/index-vanguard/" class="comparison-btn secondary">
-                            View Details
-                        </a>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
             
@@ -560,9 +629,10 @@ function doittrading_forex_bots_setup_process() {
 }
 
 /**
- * 7. LIVE PROOF - Credibility
+ * 7. LIVE PROOF - Dynamic from products
  */
 function doittrading_forex_bots_live_proof() {
+    $accounts = doittrading_get_live_accounts();
     ?>
     <div class="forex-bots-live-proof-section" id="live-results">
         <div class="forex-bots-container">
@@ -577,10 +647,10 @@ function doittrading_forex_bots_live_proof() {
             
             <div class="live-accounts-grid">
                 
-                <!-- Account 1: Conservative -->
+                <?php foreach ($accounts as $account): ?>
                 <div class="live-account-card">
                     <div class="account-header">
-                        <h3>GBP Master Bot - Conservative</h3>
+                        <h3><?php echo esc_html($account['name']); ?></h3>
                         <div class="live-status">
                             <span class="live-dot-proof"></span>
                             <span>LIVE TRADING</span>
@@ -589,79 +659,39 @@ function doittrading_forex_bots_live_proof() {
                     
                     <div class="account-stats">
                         <div class="stat-large">
-                            <span class="stat-value-large">+287%</span>
+                            <span class="stat-value-large">+<?php echo esc_html($account['total_growth']); ?>%</span>
                             <span class="stat-label-large">Total Growth</span>
                         </div>
                         <div class="stat-grid">
                             <div class="stat-small">
-                                <span class="stat-value-small">76%</span>
+                                <span class="stat-value-small"><?php echo esc_html($account['win_rate']); ?>%</span>
                                 <span class="stat-label-small">Win Rate</span>
                             </div>
                             <div class="stat-small">
-                                <span class="stat-value-small">-4.2%</span>
+                                <span class="stat-value-small">-<?php echo esc_html($account['max_drawdown']); ?>%</span>
                                 <span class="stat-label-small">Max DD</span>
                             </div>
                             <div class="stat-small">
-                                <span class="stat-value-small">2.34</span>
+                                <span class="stat-value-small"><?php echo esc_html($account['profit_factor']); ?></span>
                                 <span class="stat-label-small">Profit Factor</span>
                             </div>
                             <div class="stat-small">
-                                <span class="stat-value-small">143</span>
+                                <span class="stat-value-small"><?php echo esc_html($account['total_trades']); ?></span>
                                 <span class="stat-label-small">Total Trades</span>
                             </div>
                         </div>
                     </div>
                     
+                    <?php if ($account['myfxbook_url']): ?>
                     <div class="account-link">
-                        <a href="https://www.myfxbook.com/members/DoItTrading/doit-gbp-master/11493777" 
+                        <a href="<?php echo esc_url($account['myfxbook_url']); ?>" 
                            target="_blank" class="proof-link">
                             📊 View Live Account on MyFxBook →
                         </a>
                     </div>
+                    <?php endif; ?>
                 </div>
-                
-                <!-- Account 2: Aggressive -->
-                <div class="live-account-card">
-                    <div class="account-header">
-                        <h3>Gold Guardian Bot - Aggressive</h3>
-                        <div class="live-status">
-                            <span class="live-dot-proof"></span>
-                            <span>LIVE TRADING</span>
-                        </div>
-                    </div>
-                    
-                    <div class="account-stats">
-                        <div class="stat-large">
-                            <span class="stat-value-large">+456%</span>
-                            <span class="stat-label-large">Total Growth</span>
-                        </div>
-                        <div class="stat-grid">
-                            <div class="stat-small">
-                                <span class="stat-value-small">96.5%</span>
-                                <span class="stat-label-small">Win Rate</span>
-                            </div>
-                            <div class="stat-small">
-                                <span class="stat-value-small">-8.1%</span>
-                                <span class="stat-label-small">Max DD</span>
-                            </div>
-                            <div class="stat-small">
-                                <span class="stat-value-small">1.6</span>
-                                <span class="stat-label-small">Profit Factor</span>
-                            </div>
-                            <div class="stat-small">
-                                <span class="stat-value-small">89</span>
-                                <span class="stat-label-small">Total Trades</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="account-link">
-                        <a href="https://www.myfxbook.com/portfolio/doit-gold-guardian/11493798" 
-                           target="_blank" class="proof-link">
-                            📊 View Live Account on MyFxBook →
-                        </a>
-                    </div>
-                </div>
+                <?php endforeach; ?>
                 
             </div>
             
@@ -807,83 +837,39 @@ function doittrading_forex_bots_vs_competition() {
 }
 
 /**
- * 9. SOCIAL PROOF - Trust
+ * 9. SOCIAL PROOF - Dynamic testimonials
  */
 function doittrading_forex_bots_social_proof() {
-    // Get verified testimonials (using real data from your ACF)
-    $testimonials = array(
-        array(
-            'name' => 'MBlue6',
-            'country' => 'Germany',
-            'text' => 'Setup was simple, and the performance has been great so far. Diego has been exceptionally friendly, responsive, and supportive throughout.',
-            'product' => 'GBP Master Bot',
-            'verified' => true,
-            'rating' => 5,
-            'timeframe' => '3 months'
-        ),
-        array(
-            'name' => 'klausdiemaus', 
-            'country' => 'Austria',
-            'text' => 'Diego\'s EAs have always been reliable, so buying the DoIt GBP Master was an easy decision. Best EA I have ever tried!',
-            'product' => 'GBP Master Bot',
-            'verified' => true,
-            'rating' => 5,
-            'timeframe' => '6 months'
-        ),
-        array(
-            'name' => 'Butterfly0856',
-            'country' => 'Spain', 
-            'text' => 'Been using DoIt GBP Master for two weeks now, and the results have been amazing! The consistency is impressive.',
-            'product' => 'GBP Master Bot',
-            'verified' => true,
-            'rating' => 5,
-            'timeframe' => '2 weeks'
-        ),
-        array(
-            'name' => 'TradingPro_UK',
-            'country' => 'United Kingdom',
-            'text' => 'Finally, a bot that doesn\'t blow my account! Conservative approach but steady profits. Exactly what I needed.',
-            'product' => 'Gold Guardian Bot',
-            'verified' => true,
-            'rating' => 5,
-            'timeframe' => '4 months'
-        ),
-        array(
-            'name' => 'ForexNewbie_CA',
-            'country' => 'Canada',
-            'text' => 'Started with $100 on Index Vanguard. Small profits but consistent. Perfect for beginners like me.',
-            'product' => 'Index Vanguard Bot',
-            'verified' => true,
-            'rating' => 4,
-            'timeframe' => '1 month'
-        )
-    );
+    $testimonials = doittrading_get_forex_bots_testimonials();
+    $stats = doittrading_get_aggregate_stats();
     
-    $stats = array(
-        'total_traders' => '500+',
-        'countries' => '15+',
-        'avg_rating' => '4.9',
-        'total_reviews' => '200+'
-    );
+    // Get featured testimonial (most recent 5-star)
+    $featured_testimonial = null;
+    foreach ($testimonials as $testimonial) {
+        if ($testimonial['stars'] == 5 && strlen($testimonial['text'] ?? 0) > 100) {
+            $featured_testimonial = $testimonial;
+            break;
+        }
+    }
     ?>
     <div class="forex-bots-social-proof-section">
         <div class="forex-bots-container">
             
             <div class="social-proof-header">
-                <h2>Join <?php echo $stats['total_traders']; ?> Successful Bot Traders</h2>
-                <p>Real people, real results from <?php echo $stats['countries']; ?> countries worldwide</p>
+                <h2>Join <?php echo esc_html($stats['total_active_traders']); ?>+ Successful Bot Traders</h2>
+                <p>Real people, real results from <?php echo esc_html($stats['countries']); ?> countries worldwide</p>
                 
                 <div class="social-stats">
                     <div class="social-stat">
-                        <span class="social-stat-number"><?php echo $stats['avg_rating']; ?>★</span>
+                        <span class="social-stat-number"><?php echo esc_html($stats['average_rating']); ?>★</span>
                         <span class="social-stat-label">Average Rating</span>
                     </div>
                     <div class="social-stat">
-                        <span class="social-stat-number"><?php echo $stats['total_reviews']; ?></span>
+                        <span class="social-stat-number"><?php echo esc_html($stats['total_reviews']); ?>+</span>
                         <span class="social-stat-label">Verified Reviews</span>
                     </div>
                     <div class="social-stat">
-                        <span class="social-stat-number"><?php echo $stats['countries']; ?></span>
+                        <span class="social-stat-number"><?php echo esc_html($stats['countries']); ?>+</span>
                         <span class="social-stat-label">Countries</span>
                     </div>
                 </div>
@@ -891,23 +877,25 @@ function doittrading_forex_bots_social_proof() {
             
             <div class="testimonials-showcase">
                 
+                <?php if ($featured_testimonial): ?>
                 <!-- Featured Testimonial -->
                 <div class="featured-testimonial">
                     <div class="testimonial-badge">⭐ FEATURED SUCCESS</div>
                     <div class="testimonial-content">
                         <div class="testimonial-quote">
-                            "Finally, a trading bot that actually works as advertised. My GBP Master bot 
-                            has been running for 6 months with consistent profits and minimal drawdown. 
-                            Diego's support is incredible - he personally helped me optimize my settings."
+                            "<?php echo esc_html($featured_testimonial['text']); ?>"
                         </div>
                         <div class="testimonial-author-info">
                             <div class="author-details">
-                                <strong class="author-name">klausdiemaus</strong>
-                                <span class="author-location">🇦🇹 Austria</span>
-                                <span class="author-timeframe">Using for 6 months</span>
+                                <strong class="author-name"><?php echo esc_html($featured_testimonial['name']); ?></strong>
+                                <span class="author-location">
+                                    <?php echo $featured_testimonial['country_flag']; ?> 
+                                    <?php echo esc_html($featured_testimonial['country']); ?>
+                                </span>
+                                <span class="author-timeframe">Using for <?php echo esc_html($featured_testimonial['timeframe']); ?></span>
                             </div>
                             <div class="author-rating">
-                                <?php echo str_repeat('⭐', 5); ?>
+                                <?php echo str_repeat('⭐', $featured_testimonial['stars'] ?? 5); ?>
                             </div>
                         </div>
                         <div class="verified-purchase-large">
@@ -915,24 +903,25 @@ function doittrading_forex_bots_social_proof() {
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
                 
                 <!-- Testimonials Grid -->
                 <div class="testimonials-grid-social">
-                    <?php foreach (array_slice($testimonials, 0, 4) as $testimonial): ?>
+                    <?php 
+                    $grid_testimonials = array_slice($testimonials, $featured_testimonial ? 1 : 0, 4);
+                    foreach ($grid_testimonials as $testimonial): 
+                    ?>
                     <div class="testimonial-card-social">
                         <div class="testimonial-header-social">
                             <div class="testimonial-author-social">
                                 <strong><?php echo esc_html($testimonial['name']); ?></strong>
-                                <span class="country-flag"><?php 
-                                    $flags = array(
-                                        'Germany' => '🇩🇪', 'Austria' => '🇦🇹', 'Spain' => '🇪🇸',
-                                        'United Kingdom' => '🇬🇧', 'Canada' => '🇨🇦'
-                                    );
-                                    echo $flags[$testimonial['country']] ?? '🏳️';
-                                ?> <?php echo esc_html($testimonial['country']); ?></span>
+                                <span class="country-flag">
+                                    <?php echo $testimonial['country_flag']; ?> 
+                                    <?php echo esc_html($testimonial['country']); ?>
+                                </span>
                             </div>
                             <div class="testimonial-rating-social">
-                                <?php echo str_repeat('⭐', $testimonial['rating']); ?>
+                                <?php echo str_repeat('⭐', $testimonial['stars'] ?? 5); ?>
                             </div>
                         </div>
                         
@@ -951,7 +940,7 @@ function doittrading_forex_bots_social_proof() {
                     <?php endforeach; ?>
                 </div>
                 
-                <!-- Trust Indicators */
+                <!-- Trust Indicators -->
                 <div class="trust-indicators-social">
                     <div class="trust-indicator-social">
                         <span class="trust-icon-large">🛡️</span>
@@ -964,7 +953,7 @@ function doittrading_forex_bots_social_proof() {
                         <span class="trust-icon-large">🌍</span>
                         <div class="trust-content">
                             <strong>Global Community</strong>
-                            <p>Traders from 15+ countries trust our bots</p>
+                            <p>Traders from <?php echo esc_html($stats['countries']); ?>+ countries trust our bots</p>
                         </div>
                     </div>
                     <div class="trust-indicator-social">
@@ -1098,11 +1087,15 @@ function doittrading_forex_bots_faq() {
 }
 
 /**
- * 11. FINAL CTA - Conversion
+ * 11. FINAL CTA - Dynamic pricing and products
  */
 function doittrading_forex_bots_final_cta() {
     $active_traders = doittrading_get_active_traders();
-    $countdown_target = function_exists('doittrading_get_countdown_target') ? doittrading_get_countdown_target() : date('Y-m-d H:i:s', strtotime('+2 days'));
+    $countdown_target = doittrading_get_countdown_target();
+    $cta_bots = doittrading_get_cta_bots();
+    
+    // Get recent purchase name
+    $recent_buyer = doittrading_get_recent_buyer();
     ?>
     <div class="forex-bots-final-cta-section">
         <div class="forex-bots-container">
@@ -1132,19 +1125,23 @@ function doittrading_forex_bots_final_cta() {
                         </div>
                     </div>
                     
+                    <?php if (!empty($cta_bots)): 
+                        $main_bot = $cta_bots[0]; // Featured bot
+                    ?>
                     <div class="final-pricing">
                         <div class="pricing-current">
                             <span class="price-label">Current Launch Price:</span>
-                            <span class="price-amount">$599</span>
+                            <span class="price-amount">$<?php echo esc_html($main_bot['current_price']); ?></span>
                         </div>
                         <div class="pricing-future">
                             <span class="price-label-small">Regular Price: </span>
-                            <span class="price-crossed">$999</span>
+                            <span class="price-crossed">$<?php echo esc_html($main_bot['original_price']); ?></span>
                         </div>
                         <div class="savings-highlight">
-                            Save $400 - Launch Pricing Ends Soon!
+                            Save $<?php echo esc_html($main_bot['original_price'] - $main_bot['current_price']); ?> - Launch Pricing Ends Soon!
                         </div>
                     </div>
+                    <?php endif; ?>
                 </div>
                 
                 <!-- Bot Selection Cards -->
@@ -1153,66 +1150,31 @@ function doittrading_forex_bots_final_cta() {
                     
                     <div class="cta-bots-grid">
                         
-                        <!-- GBP Master - Featured -->
-                        <div class="cta-bot-card featured">
+                        <?php foreach ($cta_bots as $index => $bot): ?>
+                        <div class="cta-bot-card <?php echo $bot['is_featured'] ? 'featured' : ''; ?>">
+                            <?php if ($bot['is_featured']): ?>
                             <div class="cta-bot-badge">🏆 MOST POPULAR</div>
-                            <h4>GBP Master Bot</h4>
+                            <?php endif; ?>
+                            
+                            <h4><?php echo esc_html($bot['name']); ?></h4>
                             <div class="cta-bot-stats">
-                                <span>76% Win Rate</span>
-                                <span>+12.8% Monthly</span>
-                                <span>$50 Min Deposit</span>
+                                <span><?php echo esc_html($bot['win_rate']); ?>% Win Rate</span>
+                                <span>+<?php echo esc_html($bot['monthly_gain']); ?>% Monthly</span>
+                                <span>$<?php echo esc_html($bot['min_deposit']); ?> Min Deposit</span>
                             </div>
                             <div class="cta-bot-price">
-                                <span class="cta-price-current">$599</span>
-                                <span class="cta-price-original">$999</span>
+                                <span class="cta-price-current">$<?php echo esc_html($bot['current_price']); ?></span>
+                                <span class="cta-price-original">$<?php echo esc_html($bot['original_price']); ?></span>
                             </div>
-                            <a href="/product/doit-gbp-master/" class="cta-bot-button primary">
-                                🛒 Get GBP Bot Now
+                            <a href="<?php echo esc_url($bot['url']); ?>" 
+                               class="cta-bot-button <?php echo $index === 0 ? 'primary' : 'secondary'; ?>">
+                                🛒 Get <?php echo esc_html($bot['name']); ?> Now
                             </a>
                             <div class="cta-bot-features">
-                                ✓ Conservative & Reliable ✓ Beginner Friendly ✓ Live Verified
+                                ✓ <?php echo esc_html($bot['features']); ?>
                             </div>
                         </div>
-                        
-                        <!-- Gold Guardian -->
-                        <div class="cta-bot-card">
-                            <h4>Gold Guardian Bot</h4>
-                            <div class="cta-bot-stats">
-                                <span>96.5% Win Rate</span>
-                                <span>+25% Monthly</span>
-                                <span>$300 Min Deposit</span>
-                            </div>
-                            <div class="cta-bot-price">
-                                <span class="cta-price-current">$399</span>
-                                <span class="cta-price-original">$999</span>
-                            </div>
-                            <a href="/product/doit-gold-guardian/" class="cta-bot-button secondary">
-                                🛒 Get Gold Bot
-                            </a>
-                            <div class="cta-bot-features">
-                                ✓ Higher Returns ✓ Gold Specialist ✓ Long-Only Strategy
-                            </div>
-                        </div>
-                        
-                        <!-- Index Vanguard -->
-                        <div class="cta-bot-card">
-                            <h4>Index Vanguard Bot</h4>
-                            <div class="cta-bot-stats">
-                                <span>50.5% Win Rate</span>
-                                <span>+10% Monthly</span>
-                                <span>$30 Min Deposit</span>
-                            </div>
-                            <div class="cta-bot-price">
-                                <span class="cta-price-current">$129</span>
-                                <span class="cta-price-original">$599</span>
-                            </div>
-                            <a href="/product/index-vanguard/" class="cta-bot-button secondary">
-                                🛒 Get Index Bot
-                            </a>
-                            <div class="cta-bot-features">
-                                ✓ Small Accounts ✓ Low Risk ✓ Perfect for Starters
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                         
                     </div>
                 </div>
@@ -1253,7 +1215,10 @@ function doittrading_forex_bots_final_cta() {
                         <strong><?php echo $active_traders; ?> traders</strong> are currently using our bots
                     </div>
                     <div class="recent-purchases">
-                        <span class="purchase-notification">🔔 Michael K. from UK just purchased GBP Master (3 min ago)</span>
+                        <span class="purchase-notification">
+                            🔔 <?php echo esc_html($recent_buyer['name']); ?> from <?php echo esc_html($recent_buyer['country']); ?> 
+                            just purchased <?php echo esc_html($cta_bots[0]['name']); ?> (3 min ago)
+                        </span>
                     </div>
                 </div>
                 

@@ -485,6 +485,72 @@
     font-weight: bold;
 }
 
+/* Comparison table responsive layouts */
+.comparison-table-3 .comparison-headers,
+.comparison-table-3 .comparison-row,
+.comparison-table-3 .comparison-actions {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+}
+
+.comparison-table-4 .comparison-headers,
+.comparison-table-4 .comparison-row,
+.comparison-table-4 .comparison-actions {
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+}
+
+.comparison-table-5 .comparison-headers,
+.comparison-table-5 .comparison-row,
+.comparison-table-5 .comparison-actions {
+    grid-template-columns: 1.5fr repeat(5, 1fr);
+}
+
+.comparison-table-many .comparison-headers,
+.comparison-table-many .comparison-row,
+.comparison-table-many .comparison-actions {
+    grid-template-columns: 1.5fr repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* Mobile scroll for many columns */
+@media (max-width: 1024px) {
+    .comparison-table-4,
+    .comparison-table-5,
+    .comparison-table-many {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .comparison-table-4 .comparison-headers,
+    .comparison-table-4 .comparison-row,
+    .comparison-table-4 .comparison-actions {
+        min-width: 800px;
+    }
+    
+    .comparison-table-5 .comparison-headers,
+    .comparison-table-5 .comparison-row,
+    .comparison-table-5 .comparison-actions {
+        min-width: 1000px;
+    }
+}
+
+/* Visual indicator for selected hero bot */
+.bot-preview-card.hero-selected {
+    border: 3px solid #FFD700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+/* Price styling in comparison */
+.row-value .price-current {
+    color: #00D775;
+    font-weight: bold;
+}
+
+.row-value .price-old {
+    color: #666;
+    text-decoration: line-through;
+    font-size: 0.85em;
+    display: block;
+}
+
 .comparison-actions {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
