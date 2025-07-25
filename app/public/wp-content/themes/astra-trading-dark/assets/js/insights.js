@@ -70,16 +70,19 @@ jQuery(document).ready(function($) {
         $('.filter-btn').removeClass('active');
         $(this).addClass('active');
         
-        // Filter posts with animation
+        // Add filtering class to disable animations
+        $('.posts-grid').addClass('filtering');
+        
+        // Filter posts with smooth transition
         if (category === 'all') {
-            $('.post-card').fadeIn(10);
+            $('.post-card').css('display', 'block').css('opacity', '1');
         } else {
             $('.post-card').each(function() {
                 const postCategory = $(this).data('category');
                 if (postCategory === category) {
-                    $(this).fadeIn(300);
+                    $(this).css('display', 'block').css('opacity', '1');
                 } else {
-                    $(this).fadeOut(300);
+                    $(this).css('display', 'none').css('opacity', '0');
                 }
             });
         }
