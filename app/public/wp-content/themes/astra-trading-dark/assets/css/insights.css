@@ -213,6 +213,7 @@
     gap: 1rem;
     overflow-x: auto;
     padding-bottom: 0.5rem;
+    overflow:visible;
 }
 
 .filter-bar::-webkit-scrollbar {
@@ -231,28 +232,30 @@
 
 .filter-btn {
     padding: 0.7rem 1.5rem;
-    border: 2px solid var(--insights-border-strong);
-    background: transparent;
-    color: var(--doit-text);
+    border: 2px solid var(--insights-border-strong) !important;
+    background: transparent !important;
+    color: var(--doit-text) !important;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s;
     white-space: nowrap;
     font-weight: 500;
     font-size: 0.9rem;
+    text-decoration: none !important;
+    display: inline-block;
 }
 
 .filter-btn:hover {
-    border-color: var(--doit-green);
-    color: var(--doit-green);
-    background: rgba(0, 215, 117, 0.1);
+    border-color: var(--doit-green) !important;
+    color: var(--doit-green) !important;
+    background: rgba(0, 215, 117, 0.1) !important;
     transform: translateY(-2px);
 }
 
 .filter-btn.active {
-    background: var(--doit-green);
-    color: var(--doit-dark);
-    border-color: var(--doit-green);
+    background: var(--doit-green) !important;
+    color: var(--doit-dark) !important;
+    border-color: var(--doit-green) !important;
     font-weight: 700;
     box-shadow: 0 4px 15px rgba(0, 215, 117, 0.3);
 }
