@@ -21,7 +21,7 @@
 .insights-page .hero-section {
     background: linear-gradient(135deg, rgba(0, 215, 117, 0.15) 0%, rgba(0, 215, 117, 0.05) 50%, transparent 100%);
     padding: 4rem 0;
-    text-align: center;
+    text-align: center !important;
     margin-bottom: 3rem;
     border-bottom: 2px solid rgba(0, 215, 117, 0.2);
     position: relative;
@@ -43,6 +43,14 @@
     to { left: 100%; }
 }
 
+/* Asegurar que todo dentro del container esté centrado */
+.insights-page .hero-section .container {
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .hero-title {
     font-size: 3rem;
     font-weight: 800;
@@ -51,11 +59,15 @@
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.hero-subtitle {
+/* Específicamente para el hero-subtitle */
+.insights-page .hero-section .hero-subtitle {
     font-size: 1.3rem;
-    color: var(--doit-text);
+    color: var(--doit-text) !important;
     margin-bottom: 2rem;
     font-weight: 300;
+    text-align: center !important;
+    width: 100%;
+    display: block;
 }
 
 .live-indicator {
@@ -121,7 +133,7 @@
     background: var(--insights-card-bg);
     border: 2px solid var(--insights-border-strong);
     border-radius: 16px;
-    overflow: hidden;
+    overflow: visible;
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -164,7 +176,7 @@
 .featured-badge {
     position: absolute;
     top: 1rem;
-    left: 1rem;
+    left: 2rem;
     background: var(--doit-gold);
     color: var(--doit-dark);
     padding: 0.5rem 1.2rem;
