@@ -164,3 +164,153 @@ function doittrading_get_product_price($product = null) {
     
     return floatval($price);
 }
+
+/**
+ * Track post views
+ */
+function doittrading_track_post_views($post_id) {
+    if (!is_single()) return;
+    
+    $count_key = 'post_views_count';
+    $count = get_post_meta($post_id, $count_key, true);
+    
+    if ($count == '') {
+        $count = 0;
+        delete_post_meta($post_id, $count_key);
+        add_post_meta($post_id, $count_key, '0');
+    } else {
+        $count++;
+        update_post_meta($post_id, $count_key, $count);
+    }
+}
+
+/**
+ * Calculate reading time
+ */
+function doittrading_calculate_reading_time($content) {
+    $word_count = str_word_count(strip_tags($content));
+    $reading_time = ceil($word_count / 200); // Average 200 words per minute
+    
+    return max(1, $reading_time); // Minimum 1 minute
+}
+
+/**
+ * Get insight type from post
+ */
+function doittrading_get_insight_type($post_id) {
+    // First check custom field
+    $type = get_field('insight_type', $post_id);
+    if ($type) return $type;
+    
+    // Check taxonomies
+    if (has_term('performance', 'insight_category', $post_id)) return 'performance';
+    if (has_term('education', 'insight_category', $post_id)) return 'education';
+    if (has_term('setup', 'insight_category', $post_id)) return 'setup';
+    if (has_term('analysis', 'insight_category', $post_id)) return 'analysis';
+    if (has_term('strategy', 'insight_category', $post_id)) return 'strategy';
+    if (has_term('success', 'insight_category', $post_id)) return 'success';
+    
+    // Check tags for regular posts
+    if (has_tag('performance-report', $post_id)) return 'performance';
+    if (has_tag('setup-guide', $post_id)) return 'setup';
+    if (has_tag('success-story', $post_id)) return 'success';
+    
+    // Default
+    return 'education';
+}
+
+/**
+ * Detect mentioned EA in content
+ */
+function doittrading_detect_mentioned_ea($content) {
+    // EA names to detect
+    $eas = array(
+        19 => array('GBP Master', 'DoIt GBP Master', 'GBPMaster'),
+        30 => array('Gold Guardian', 'DoIt Gold Guardian', 'GoldGuardian'),
+        36 => array('Index Vanguard', 'DoIt Index Vanguard', 'IndexVanguard')
+    );
+    
+    foreach ($eas as $ea_id => $names) {
+        foreach ($names as $name) {
+            if (stripos($content, $name) !== false) {
+                return $ea_id;
+            }
+        }
+    }
+    
+    return null;
+}
+
+/**
+ * Get related insights
+ */
+function doittrading_get_related_insights($current_id, $type = '', $limit = 3) {
+    $args = array(
+        'post_type' => 'insight',
+        'posts_per_page' => $limit,
+        'post__not_in' => array($current_id),
+        'orderby' => 'rand'
+    );
+    
+    // If type specified, filter by it
+    if ($type) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'insight_category',
+                'field' => 'slug',
+                'terms' => $type
+            )
+        );
+    }
+    
+    return new WP_Query($args);
+}
+
+/**
+ * Newsletter subscription handler
+ */
+add_action('wp_ajax_doittrading_subscribe', 'doittrading_handle_newsletter');
+add_action('wp_ajax_nopriv_doittrading_subscribe', 'doittrading_handle_newsletter');
+
+function doittrading_handle_newsletter() {
+    // Verify nonce
+    if (!wp_verify_nonce($_POST['newsletter_nonce'], 'newsletter_subscribe')) {
+        wp_send_json_error('Invalid request');
+    }
+    
+    $email = sanitize_email($_POST['email']);
+    
+    if (!is_email($email)) {
+        wp_send_json_error('Invalid email address');
+    }
+    
+    // Here you would integrate with your email service
+    // For now, just save to database
+    $subscribers = get_option('doittrading_subscribers', array());
+    
+    if (!in_array($email, $subscribers)) {
+        $subscribers[] = $email;
+        update_option('doittrading_subscribers', $subscribers);
+        
+        // Send welcome email (implement based on your setup)
+        // wp_mail($email, 'Welcome to DoItTrading Insights', '...');
+        
+        wp_send_json_success('Successfully subscribed!');
+    } else {
+        wp_send_json_error('Already subscribed');
+    }
+}
+
+/**
+ * Format author initials for avatar
+ */
+function doittrading_get_author_initials($author_name) {
+    $names = explode(' ', $author_name);
+    $initials = '';
+    
+    foreach ($names as $name) {
+        $initials .= strtoupper(substr($name, 0, 1));
+    }
+    
+    return substr($initials, 0, 2);
+}
