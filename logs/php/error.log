@@ -6204,3 +6204,6 @@
 [25-Jul-2025 19:06:11 UTC] PHP Warning:  Constant WP_DEBUG already defined in C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php on line 45
 [25-Jul-2025 19:06:31 UTC] PHP Warning:  Constant WP_DEBUG already defined in C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php on line 45
 [25-Jul-2025 19:06:33 UTC] PHP Warning:  Constant WP_DEBUG already defined in C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php on line 45
+[28-Jul-2025 18:37:39 UTC] PHP Warning:  Constant WP_DEBUG already defined in C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php on line 44
+[28-Jul-2025 18:37:40 UTC] PHP Warning:  Constant WP_DEBUG already defined in C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php on line 44
+[28-Jul-2025 18:38:00 UTC] PHP Warning:  Constant WP_DEBUG already defined in C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php on line 44

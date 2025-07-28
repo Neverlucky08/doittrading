@@ -15,13 +15,13 @@ $cta_content = array(
         'title' => 'See Live Results for Yourself',
         'description' => 'Join hundreds of traders already profiting with our verified EAs',
         'button_text' => 'View All EAs',
-        'button_url' => '/shop/'
+        'button_url' => '/forex-trading-bots/'
     ),
     'education' => array(
         'title' => 'Ready to Apply What You\'ve Learned?',
         'description' => 'Start trading smarter with our professionally developed EAs',
         'button_text' => 'Explore Our EAs',
-        'button_url' => '/shop/'
+        'button_url' => '/forex-trading-bots/'
     ),
     'setup' => array(
         'title' => 'Need Help with Setup?',
@@ -33,7 +33,7 @@ $cta_content = array(
         'title' => 'Ready to Start Your Success Story?',
         'description' => 'Join hundreds of traders already profiting with DoItTrading EAs',
         'button_text' => 'Get Started Today',
-        'button_url' => '/shop/'
+        'button_url' => '/forex-trading-bots/'
     ),
     'analysis' => array(
         'title' => 'Trade These Insights Automatically',
@@ -45,7 +45,7 @@ $cta_content = array(
         'title' => 'Automate This Strategy',
         'description' => 'Our EAs implement proven strategies with discipline and precision',
         'button_text' => 'Explore EAs',
-        'button_url' => '/shop/'
+        'button_url' => '/forex-trading-bots/'
     )
 );
 

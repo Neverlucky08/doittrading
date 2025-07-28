@@ -1,3 +1,8 @@
+/**
+ * DoItTrading Insights JavaScript
+ * Handles filtering and dynamic content loading
+ */
+
 // assets/js/insights.js
 jQuery(document).ready(function($) {
     let currentPage = 1;

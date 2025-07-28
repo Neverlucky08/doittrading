@@ -32,4 +32,5 @@ function doittrading_register_insights_taxonomies() {
     ));
 }
 
+
 ?>
