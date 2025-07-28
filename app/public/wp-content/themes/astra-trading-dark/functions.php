@@ -206,9 +206,3 @@ function doittrading_enqueue_single_insight_assets() {
     }
 }
 add_action('wp_enqueue_scripts', 'doittrading_enqueue_single_insight_assets', 25);
-
-/**
- * Also add the helper functions to your theme
- */
-// Include the helper functions we created
-require_once get_stylesheet_directory() . '/inc/insights/insight-helpers.php';

@@ -44,13 +44,6 @@ function doittrading_get_featured_insights() {
     ));
 }
 
-// Track post views
-function doittrading_track_post_views($post_id) {
-    $count = get_post_meta($post_id, 'post_views_count', true);
-    $count = $count ? $count : 0;
-    update_post_meta($post_id, 'post_views_count', $count + 1);
-}
-
 // Get trending insights
 function doittrading_get_trending_insights($limit = 5) {
     return new WP_Query(array(

@@ -43,6 +43,9 @@
 
 /* 13. Trading Insights - Specific page styles */
 @import url('insights.css');
+
+/* 14. Trading Insights - Specific page styles */
+@import url('single-insight.css');
 /* ========================================
    FILE STRUCTURE DOCUMENTATION
    ======================================== */
