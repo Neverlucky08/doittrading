@@ -314,3 +314,29 @@ function doittrading_get_author_initials($author_name) {
     
     return substr($initials, 0, 2);
 }
+
+/**
+ * Generate Table of Contents from content
+ */
+function doittrading_generate_toc_items($content) {
+    $toc = array();
+    
+    // Match h2 and h3 tags with their IDs
+    preg_match_all('/<h([2-3])(?:\s+id="([^"]+)")?[^>]*>(.*?)<\/h\1>/i', $content, $matches, PREG_SET_ORDER);
+    
+    if (!empty($matches)) {
+        foreach ($matches as $match) {
+            $level = 'h' . $match[1];
+            $text = strip_tags($match[3]);
+            $id = $match[2] ?: sanitize_title($text);
+            
+            $toc[] = array(
+                'level' => $level,
+                'text' => $text,
+                'id' => $id
+            );
+        }
+    }
+    
+    return $toc;
+}

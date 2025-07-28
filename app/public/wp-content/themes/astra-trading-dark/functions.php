@@ -179,7 +179,16 @@ add_action('wp_enqueue_scripts', 'doittrading_enqueue_insights_assets');
 
 // Update the existing function to include single insight assets
 function doittrading_enqueue_single_insight_assets() {
+    echo('IN---------------------------------------------------------------');
+    $post_type = get_post_type();
+    echo 'Estoy en un post type: ' . $post_type . '<br>';
+    $isPost0 = is_singular();
+    $isPost = is_singular('insight');
+    $isPost2 = is_post_type_archive('insight');
+    echo '$isPost0: ' . $isPost0 . ' /$isPost: ' . $isPost . ' /$isPost2: ' . $isPost2;
     if (is_singular('insight')) {
+        echo('IN2---------------------------------------------------------------');
+
         // CSS for single insight
         wp_enqueue_style(
             'doittrading-single-insight', 

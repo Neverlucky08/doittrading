@@ -10,7 +10,7 @@ $related_ea = $args['related_ea'] ?? null;
 $insight_type = $args['insight_type'] ?? 'education';
 
 // Get table of contents
-$toc_items = doittrading_generate_toc(get_the_content());
+$toc_items = doittrading_generate_toc_items(get_the_content());
 ?>
 
 <!-- Table of Contents -->
@@ -103,7 +103,7 @@ $toc_items = doittrading_generate_toc(get_the_content());
            target="_blank" 
            rel="noopener">in</a>
         <a href="https://t.me/share/url?url=<?php echo $share_url; ?>&text=<?php echo $share_title; ?>" 
-           class="share-btn share-telegram" 
+           class="share_btn share-telegram" 
            target="_blank" 
            rel="noopener">✈</a>
     </div>
@@ -121,31 +121,3 @@ $toc_items = doittrading_generate_toc(get_the_content());
         <li><a href="/contact/">→ Contact Support</a></li>
     </ul>
 </div>
-
-<?php
-/**
- * Generate Table of Contents from content
- */
-function doittrading_generate_toc($content) {
-    $toc = array();
-    
-    // Match h2 and h3 tags
-    preg_match_all('/<h([2-3])[^>]*>(.*?)<\/h\1>/i', $content, $matches);
-    
-    if (!empty($matches[0])) {
-        foreach ($matches[0] as $index => $heading) {
-            $level = 'h' . $matches[1][$index];
-            $text = strip_tags($matches[2][$index]);
-            $id = sanitize_title($text);
-            
-            $toc[] = array(
-                'level' => $level,
-                'text' => $text,
-                'id' => $id
-            );
-        }
-    }
-    
-    return $toc;
-}
-?>
