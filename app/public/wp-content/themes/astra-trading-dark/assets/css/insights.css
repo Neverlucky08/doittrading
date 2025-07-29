@@ -222,12 +222,11 @@
 /* ===== FILTER SECTION ===== */
 .filter-section {
     background: var(--insights-card-bg);
-    padding: var(--space-md); /* En lugar de 1.5rem */
+    padding: var(--space-xs) var(--space-xs) calc(var(--space-xs));
     border-radius: var(--radius-lg); /* En lugar de 12px */
     margin-bottom: var(--space-lg); /* En lugar de 2rem */
     border: 1px solid var(--insights-border-strong);
     box-shadow: var(--shadow-sm);
-    overflow: hidden;
 }
 
 .filter-bar {
@@ -235,7 +234,8 @@
     gap: var(--space-sm); /* En lugar de 1rem */
     overflow-x: auto;
     overflow-y: visible; /* Permitir que los hover effects se vean */
-    padding-bottom: var(--space-xs); /* En lugar de 0.5rem */
+    padding-top: var(--space-xs); /* En lugar de 0.5rem */
+    padding-bottom: var(--space-sm); /* En lugar de 0.5rem */
     overflow: auto;
 }
 
