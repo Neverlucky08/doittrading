@@ -165,59 +165,6 @@ function doittrading_get_product_price($product = null) {
     return floatval($price);
 }
 
-/**
- * Track post views
- */
-function doittrading_track_post_views($post_id) {
-    if (!is_single()) return;
-    
-    $count_key = 'post_views_count';
-    $count = get_post_meta($post_id, $count_key, true);
-    
-    if ($count == '') {
-        $count = 0;
-        delete_post_meta($post_id, $count_key);
-        add_post_meta($post_id, $count_key, '0');
-    } else {
-        $count++;
-        update_post_meta($post_id, $count_key, $count);
-    }
-}
-
-/**
- * Calculate reading time
- */
-function doittrading_calculate_reading_time($content) {
-    $word_count = str_word_count(strip_tags($content));
-    $reading_time = ceil($word_count / 200); // Average 200 words per minute
-    
-    return max(1, $reading_time); // Minimum 1 minute
-}
-
-/**
- * Get insight type from post
- */
-function doittrading_get_insight_type($post_id) {
-    // First check custom field
-    $type = get_field('insight_type', $post_id);
-    if ($type) return $type;
-    
-    // Check taxonomies
-    if (has_term('performance', 'insight_category', $post_id)) return 'performance';
-    if (has_term('education', 'insight_category', $post_id)) return 'education';
-    if (has_term('setup', 'insight_category', $post_id)) return 'setup';
-    if (has_term('analysis', 'insight_category', $post_id)) return 'analysis';
-    if (has_term('strategy', 'insight_category', $post_id)) return 'strategy';
-    if (has_term('success', 'insight_category', $post_id)) return 'success';
-    
-    // Check tags for regular posts
-    if (has_tag('performance-report', $post_id)) return 'performance';
-    if (has_tag('setup-guide', $post_id)) return 'setup';
-    if (has_tag('success-story', $post_id)) return 'success';
-    
-    // Default
-    return 'education';
-}
 
 /**
  * Detect mentioned EA in content
@@ -239,31 +186,6 @@ function doittrading_detect_mentioned_ea($content) {
     }
     
     return null;
-}
-
-/**
- * Get related insights
- */
-function doittrading_get_related_insights($current_id, $type = '', $limit = 3) {
-    $args = array(
-        'post_type' => 'insight',
-        'posts_per_page' => $limit,
-        'post__not_in' => array($current_id),
-        'orderby' => 'rand'
-    );
-    
-    // If type specified, filter by it
-    if ($type) {
-        $args['tax_query'] = array(
-            array(
-                'taxonomy' => 'insight_category',
-                'field' => 'slug',
-                'terms' => $type
-            )
-        );
-    }
-    
-    return new WP_Query($args);
 }
 
 /**
@@ -301,42 +223,3 @@ function doittrading_handle_newsletter() {
     }
 }
 
-/**
- * Format author initials for avatar
- */
-function doittrading_get_author_initials($author_name) {
-    $names = explode(' ', $author_name);
-    $initials = '';
-    
-    foreach ($names as $name) {
-        $initials .= strtoupper(substr($name, 0, 1));
-    }
-    
-    return substr($initials, 0, 2);
-}
-
-/**
- * Generate Table of Contents from content
- */
-function doittrading_generate_toc_items($content) {
-    $toc = array();
-    
-    // Match h2 and h3 tags with their IDs
-    preg_match_all('/<h([2-3])(?:\s+id="([^"]+)")?[^>]*>(.*?)<\/h\1>/i', $content, $matches, PREG_SET_ORDER);
-    
-    if (!empty($matches)) {
-        foreach ($matches as $match) {
-            $level = 'h' . $match[1];
-            $text = strip_tags($match[3]);
-            $id = $match[2] ?: sanitize_title($text);
-            
-            $toc[] = array(
-                'level' => $level,
-                'text' => $text,
-                'id' => $id
-            );
-        }
-    }
-    
-    return $toc;
-}

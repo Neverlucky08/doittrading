@@ -76,9 +76,11 @@
 
 /* Category-specific badge colors */
 .insight-category-badge.performance { background: var(--doit-blue); }
-.insight-category-badge.education { background: var(--doit-gold); }
+.insight-category-badge.education { background: var(--doit-gold); color: var(--doit-dark); }
 .insight-category-badge.strategy { background: var(--doit-purple); }
 .insight-category-badge.success { background: var(--doit-orange); }
+.insight-category-badge.setup { background: #4CAF50; }
+.insight-category-badge.analysis { background: #00BCD4; }
 
 .insight-title {
     font-size: clamp(2rem, 5vw, 3rem);
@@ -163,6 +165,25 @@
     font-size: 1rem;
     box-shadow: 0 0 30px rgba(0, 215, 117, 0.3);
     margin-top: 1rem;
+}
+
+.live-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--doit-green);
+    border-radius: 50%;
+    animation: pulseLive 2s infinite;
+}
+
+@keyframes pulseLive {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8; 
+        transform: scale(1.3);
+    }
 }
 
 /* ===== CONTENT LAYOUT ===== */
@@ -400,7 +421,7 @@
     margin-bottom: 0.8rem;
 }
 
-.toc-list a {
+.toc-link {
     color: var(--doit-text-muted);
     text-decoration: none;
     transition: all 0.3s;
@@ -410,15 +431,24 @@
     border-left: 2px solid transparent;
 }
 
-.toc-list a:hover {
+.toc-link:hover {
     color: var(--doit-green);
     padding-left: 1.5rem;
     border-left-color: var(--doit-green);
 }
 
-.toc-list a.active {
+.toc-link.active {
     color: var(--doit-green);
     border-left-color: var(--doit-green);
+}
+
+.toc-link.toc-sub {
+    padding-left: 2rem;
+    font-size: 0.9rem;
+}
+
+.toc-link.toc-sub:hover {
+    padding-left: 2.5rem;
 }
 
 /* EA Showcase */
@@ -474,6 +504,7 @@
 .ea-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 215, 117, 0.3);
+    color: var(--doit-dark);
 }
 
 /* Newsletter Form */
@@ -596,6 +627,8 @@
     overflow: hidden;
     transition: all 0.3s;
     cursor: pointer;
+    text-decoration: none;
+    display: block;
 }
 
 .related-card:hover {
@@ -611,12 +644,17 @@
     align-items: center;
     justify-content: center;
     font-size: 3rem;
+    overflow: hidden;
 }
 
 .related-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.related-image .placeholder-icon {
+    font-size: 3rem;
 }
 
 .related-content {
@@ -674,6 +712,7 @@
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 35px rgba(0, 215, 117, 0.3);
+    color: var(--doit-dark);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -715,6 +754,10 @@
     .ea-stats {
         flex-direction: column;
         gap: 1rem;
+    }
+    
+    .insight-hero {
+        padding: 2rem 0;
     }
 }
 

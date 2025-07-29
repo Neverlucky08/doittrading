@@ -4,48 +4,83 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Throttle function to improve performance
+    function throttle(func, wait) {
+        let waiting = false;
+        return function() {
+            if (waiting) {
+                return;
+            }
+            waiting = true;
+            setTimeout(() => {
+                func.apply(this, arguments);
+                waiting = false;
+            }, wait);
+        };
+    }
+
     /**
      * Progress Bar
      */
+    const progressBar = document.getElementById('progressBar');
+    
     function updateProgressBar() {
+        if (!progressBar) return;
+        
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         
-        const progressBar = document.getElementById('progressBar');
-        if (progressBar) {
-            progressBar.style.width = scrolled + '%';
-        }
+        progressBar.style.width = scrolled + '%';
     }
-    
-    window.addEventListener('scroll', updateProgressBar);
     
     /**
      * Table of Contents Active State
      */
     function updateTOC() {
-        const sections = document.querySelectorAll('h2[id], h3[id]');
+        const sections = document.querySelectorAll('.article-content h2[id], .article-content h3[id]');
         const tocLinks = document.querySelectorAll('.toc-link');
         
+        if (!sections.length || !tocLinks.length) return;
+        
+        const scrollPosition = window.scrollY + 100; // Account for fixed header
         let current = '';
         
+        // Find which section we're currently viewing
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= (sectionTop - 200)) {
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            // Check if we're within this section
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                current = section.getAttribute('id');
+            }
+            // If we've scrolled past all sections, highlight the last one
+            else if (scrollPosition >= sectionTop) {
                 current = section.getAttribute('id');
             }
         });
         
+        // Update active states
         tocLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').slice(1) === current) {
+            const href = link.getAttribute('href');
+            if (href && href.slice(1) === current) {
                 link.classList.add('active');
             }
         });
     }
     
-    window.addEventListener('scroll', updateTOC);
+    // Throttled scroll handlers
+    const throttledProgressBar = throttle(updateProgressBar, 16); // ~60fps
+    const throttledTOC = throttle(updateTOC, 100);
+    
+    window.addEventListener('scroll', throttledProgressBar);
+    window.addEventListener('scroll', throttledTOC);
+    
+    // Initial calls
+    updateProgressBar();
+    updateTOC();
     
     /**
      * Smooth Scroll for TOC Links
@@ -58,41 +93,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 100;
+                const headerOffset = 80; // Account for fixed header
+                const elementPosition = targetSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
                 window.scrollTo({
-                    top: offsetTop,
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Update URL without jumping
+                history.pushState(null, null, '#' + targetId);
             }
         });
     });
-    
-    /**
-     * Copy Code Functionality
-     */
-    window.copyCode = function(codeId) {
-        const codeElement = document.getElementById(codeId);
-        const button = document.querySelector(`[data-code-id="${codeId}"] .copy-button`);
-        
-        if (codeElement && button) {
-            const code = codeElement.textContent;
-            
-            navigator.clipboard.writeText(code).then(() => {
-                // Success feedback
-                const originalText = button.textContent;
-                button.textContent = 'Copied!';
-                button.style.background = '#4CAF50';
-                
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.style.background = '';
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy:', err);
-                button.textContent = 'Failed';
-            });
-        }
-    };
     
     /**
      * Newsletter Form

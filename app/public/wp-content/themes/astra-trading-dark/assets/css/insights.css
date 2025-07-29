@@ -2,6 +2,10 @@
    DoItTrading - Trading Insights Styles
    ======================================== */
 
+/* ===== Import Variables ===== */
+@import url('variables.css');
+
+
 /* ===== INSIGHTS PAGE SPECIFIC VARIABLES ===== */
 .insights-page {
     --insights-card-bg: #151515;

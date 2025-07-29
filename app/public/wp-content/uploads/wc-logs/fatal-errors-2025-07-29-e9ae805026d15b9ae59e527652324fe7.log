@@ -1,0 +1,36 @@
+2025-07-29T06:28:37+00:00 CRITICAL Cannot redeclare doittrading_generate_toc_items() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:321) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 38
+
+2025-07-29T06:28:38+00:00 CRITICAL Cannot redeclare doittrading_generate_toc_items() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:321) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 38
+
+2025-07-29T06:28:53+00:00 CRITICAL Cannot redeclare doittrading_generate_toc_items() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:321) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 38
+
+2025-07-29T06:28:53+00:00 CRITICAL Cannot redeclare doittrading_generate_toc_items() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:321) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 38
+
+2025-07-29T06:29:23+00:00 CRITICAL Cannot redeclare doittrading_detect_mentioned_ea() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:225) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 284
+
+2025-07-29T06:29:23+00:00 CRITICAL Cannot redeclare doittrading_detect_mentioned_ea() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:225) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 284
+
+2025-07-29T06:30:20+00:00 CRITICAL Cannot redeclare doittrading_get_related_insights() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:247) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 284
+
+2025-07-29T06:30:20+00:00 CRITICAL Cannot redeclare doittrading_get_related_insights() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:247) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 284
+
+2025-07-29T06:30:49+00:00 CRITICAL Cannot redeclare doittrading_calculate_reading_time() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:190) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 335
+
+2025-07-29T06:30:49+00:00 CRITICAL Cannot redeclare doittrading_calculate_reading_time() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:190) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 335
+
+2025-07-29T06:31:05+00:00 CRITICAL Cannot redeclare doittrading_get_author_initials() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:272) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 347
+
+2025-07-29T06:31:05+00:00 CRITICAL Cannot redeclare doittrading_get_author_initials() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:272) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 347
+
+2025-07-29T06:31:17+00:00 CRITICAL Cannot redeclare doittrading_track_post_views() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:171) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 365
+
+2025-07-29T06:31:17+00:00 CRITICAL Cannot redeclare doittrading_track_post_views() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:171) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 365
+
+2025-07-29T06:31:32+00:00 CRITICAL Cannot redeclare doittrading_get_insight_type() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:172) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 387
+
+2025-07-29T06:31:32+00:00 CRITICAL Cannot redeclare doittrading_get_insight_type() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\core-functions.php:172) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php on line 387
+
+2025-07-29T06:31:56+00:00 CRITICAL Cannot redeclare doittrading_add_heading_ids() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php:10) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\single-insight.php on line 386
+
+2025-07-29T06:32:28+00:00 CRITICAL Cannot redeclare doittrading_add_heading_ids() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php:10) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\single-insight.php on line 386
+

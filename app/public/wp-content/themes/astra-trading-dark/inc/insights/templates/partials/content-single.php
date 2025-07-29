@@ -37,21 +37,6 @@ function doittrading_enhance_insight_content($content) {
 }
 
 /**
- * Add IDs to headings for Table of Contents
- */
-function doittrading_add_heading_ids($content) {
-    $pattern = '/<h([2-3])[^>]*>(.*?)<\/h\1>/i';
-    $replacement = function($matches) {
-        $level = $matches[1];
-        $text = strip_tags($matches[2]);
-        $id = sanitize_title($text);
-        return "<h{$level} id=\"{$id}\">{$matches[2]}</h{$level}>";
-    };
-    
-    return preg_replace_callback($pattern, $replacement, $content);
-}
-
-/**
  * Wrap tables in responsive container
  */
 function doittrading_wrap_tables($content) {
