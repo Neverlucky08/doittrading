@@ -888,9 +888,25 @@
 .article-content > *:nth-child(2) { animation-delay: 0.2s; }
 .article-content > *:nth-child(3) { animation-delay: 0.3s; }
 
-/* ===== ADDITIONAL COLORS ===== */
-:root {
-    --doit-purple: #9C27B0;
-    --doit-orange: #FF9800;
-    --doit-cyan: #00BCD4;
+
+.sidebar-wrapper {
+    position: relative;
+    /* Mantiene el espacio del sidebar */
+}
+
+.insight-sidebar {
+    /* Transición suave */
+    transition: none; /* Evita animaciones durante el cambio de position */
+}
+
+/* Prevenir saltos horizontales */
+.content-grid {
+    position: relative;
+}
+
+/* Durante el estado fixed, prevenir que el sidebar se salga del contenedor */
+@media (min-width: 992px) {
+    .insight-sidebar[style*="position: fixed"] {
+        max-width: 340px; /* Mismo ancho que el grid column */
+    }
 }

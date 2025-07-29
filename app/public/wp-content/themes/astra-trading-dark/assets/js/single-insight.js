@@ -190,40 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', updateReadingProgress);
-    
-    /**
-     * Sticky Sidebar
-     */
-    function handleStickySidebar() {
-        const sidebar = document.querySelector('.insight-sidebar');
-        const content = document.querySelector('.article-content');
-        
-        if (!sidebar || !content || window.innerWidth < 992) return;
-        
-        const sidebarTop = sidebar.offsetTop;
-        const contentBottom = content.offsetTop + content.offsetHeight;
-        const sidebarHeight = sidebar.offsetHeight;
-        
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            
-            if (scrolled > sidebarTop - 20) {
-                if (scrolled + sidebarHeight + 20 < contentBottom) {
-                    sidebar.style.position = 'fixed';
-                    sidebar.style.top = '20px';
-                } else {
-                    sidebar.style.position = 'absolute';
-                    sidebar.style.top = (contentBottom - sidebarHeight - sidebarTop) + 'px';
-                }
-            } else {
-                sidebar.style.position = 'sticky';
-                sidebar.style.top = '20px';
-            }
-        });
-    }
-    
-    handleStickySidebar();
-    
+
     /**
      * Analytics Tracking
      */
