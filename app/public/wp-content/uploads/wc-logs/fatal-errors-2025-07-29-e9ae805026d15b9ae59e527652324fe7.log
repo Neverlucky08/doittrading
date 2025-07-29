@@ -34,3 +34,63 @@
 
 2025-07-29T06:32:28+00:00 CRITICAL Cannot redeclare doittrading_add_heading_ids() (previously declared in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\inc\insights\insights-content-helpers.php:10) in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\single-insight.php on line 386
 
+2025-07-29T11:30:58+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/insights/insights-functions.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:96
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(116): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-admin\admin.php(35): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-admin\index.php(10): require_once('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 96
+
+2025-07-29T11:30:58+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/insights/insights-functions.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:96
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(116): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 96
+
+2025-07-29T11:32:38+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/insights/insights-functions.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:96
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(116): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-admin\admin.php(35): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-admin\index.php(10): require_once('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 96
+
+2025-07-29T11:32:38+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/insights/insights-functions.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:96
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(116): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 96
+
+2025-07-29T11:33:29+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/insights/insights-ajax.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:109
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(116): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-admin\admin.php(35): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\wp-admin\index.php(10): require_once('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 109
+
+2025-07-29T11:33:29+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\Users\Diego\Local Sites\doittrading\app\public/wp-content/themes/astra-trading-dark/inc/insights/insights-ajax.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php:109
+Stack trace:
+#0 C:\Users\Diego\Local Sites\doittrading\app\public\wp-settings.php(695): include()
+#1 C:\Users\Diego\Local Sites\doittrading\app\public\wp-config.php(116): require_once('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\Local Sites\doittrading\app\public\wp-load.php(50): require_once('C:\\Users\\Diego\\...')
+#3 C:\Users\Diego\Local Sites\doittrading\app\public\wp-blog-header.php(13): require_once('C:\\Users\\Diego\\...')
+#4 C:\Users\Diego\Local Sites\doittrading\app\public\index.php(17): require('C:\\Users\\Diego\\...')
+#5 {main}
+  thrown in C:\Users\Diego\Local Sites\doittrading\app\public\wp-content\themes\astra-trading-dark\functions.php on line 109
+

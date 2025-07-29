@@ -93,12 +93,9 @@ require_once get_stylesheet_directory() . '/inc/pages/indicators-page.php';
 
 // 9. Trading insights
 require_once get_stylesheet_directory() . '/inc/insights/insights-cpt.php';
-require_once get_stylesheet_directory() . '/inc/insights/insights-functions.php';
-require_once get_stylesheet_directory() . '/inc/insights/insights-content-helpers.php';
 
 // Registrar CPT y taxonomías
 add_action('init', 'doittrading_register_insights_cpt');
-add_action('init', 'doittrading_register_insights_taxonomies');
 
 /**
  * Add theme support for insights
@@ -108,8 +105,6 @@ add_theme_support('post-thumbnails', array('post', 'page', 'product', 'insight')
 // 10. Helpers for Product date linking
 require_once get_stylesheet_directory() . '/inc/helpers/data-helpers.php';
 
-// Load AJAX handlers
-require_once get_stylesheet_directory() . '/inc/insights/insights-ajax.php';
 
 /**
  * Debug helper (solo en desarrollo)
@@ -256,125 +251,5 @@ function doittrading_enqueue_insight_assets() {
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('insights_nonce')
         ));
-    }
-}
-
-/**
- * Filter to enhance insight content
- */
-add_filter('the_content', 'doittrading_maybe_enhance_insight_content', 20);
-function doittrading_maybe_enhance_insight_content($content) {
-    // Only on single insight pages
-    if (!is_singular() || get_post_type() !== 'insight') {
-        // Also check if it's a regular post with insight category
-        if (get_post_type() === 'post') {
-            $categories = wp_get_post_categories(get_the_ID(), array('fields' => 'slugs'));
-            if (!in_array('trading-insights', $categories)) {
-                return $content;
-            }
-        } else {
-            return $content;
-        }
-    }
-    
-    return doittrading_enhance_insight_content($content);
-}
-
-/**
- * Add custom body class for insights
- */
-add_filter('body_class', 'doittrading_insight_body_class');
-function doittrading_insight_body_class($classes) {
-    if (is_singular('insight') || 
-        (is_singular('post') && has_category('trading-insights'))) {
-        $classes[] = 'single-insight';
-        
-        // Add insight type class
-        $insight_type = doittrading_get_insight_type(get_the_ID());
-        $classes[] = 'insight-type-' . $insight_type;
-    }
-    
-    if (is_page('insights') || is_post_type_archive('insight')) {
-        $classes[] = 'insights-archive';
-    }
-    
-    return $classes;
-}
-
-/**
- * Template redirect for insights
- */
-add_filter('template_include', 'doittrading_insight_template');
-function doittrading_insight_template($template) {
-    // Single insight post
-    if (is_singular('insight')) {
-        $new_template = locate_template(array('single-insight.php'));
-        if ($new_template) {
-            return $new_template;
-        }
-    }
-    
-    // Archive page
-    if (is_post_type_archive('insight')) {
-        $new_template = locate_template(array('archive-insight.php'));
-        if ($new_template) {
-            return $new_template;
-        }
-    }
-    
-    return $template;
-}
-
-/**
- * Add Open Graph tags for insights
- */
-add_action('wp_head', 'doittrading_insight_open_graph');
-function doittrading_insight_open_graph() {
-    if (!is_singular('insight') && !is_singular('post')) return;
-    
-    global $post;
-    
-    // Check if it's an insight-type post
-    $is_insight = false;
-    if (get_post_type() === 'insight') {
-        $is_insight = true;
-    } elseif (has_category('trading-insights') || has_tag(array('performance-report', 'setup-guide'))) {
-        $is_insight = true;
-    }
-    
-    if (!$is_insight) return;
-    
-    $title = get_the_title();
-    $description = get_the_excerpt() ?: wp_trim_words(get_the_content(), 30);
-    $url = get_permalink();
-    $image = get_the_post_thumbnail_url($post->ID, 'large');
-    
-    ?>
-    <meta property="og:title" content="<?php echo esc_attr($title); ?>" />
-    <meta property="og:description" content="<?php echo esc_attr($description); ?>" />
-    <meta property="og:url" content="<?php echo esc_url($url); ?>" />
-    <meta property="og:type" content="article" />
-    <?php if ($image): ?>
-    <meta property="og:image" content="<?php echo esc_url($image); ?>" />
-    <?php endif; ?>
-    
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="<?php echo esc_attr($title); ?>" />
-    <meta name="twitter:description" content="<?php echo esc_attr($description); ?>" />
-    <?php if ($image): ?>
-    <meta name="twitter:image" content="<?php echo esc_url($image); ?>" />
-    <?php endif;
-}
-
-/**
- * Schema markup for insights
- */
-add_action('wp_head', 'doittrading_insight_schema');
-function doittrading_insight_schema() {
-    if (!is_singular('insight') && !is_singular('post')) return;
-    
-    $schema = doittrading_add_insight_schema(get_the_ID());
-    if ($schema) {
-        echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
     }
 }
