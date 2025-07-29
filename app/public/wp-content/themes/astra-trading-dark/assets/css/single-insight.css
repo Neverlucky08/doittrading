@@ -2,6 +2,34 @@
    DoItTrading - Single Insight Styles
    ======================================== */
 
+/* Clase base para todos los contenedores - ESTANDARIZADA */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ===== CONTENT LAYOUT - SIMPLIFICADO ===== */
+.insight-content-wrapper {
+    padding: var(--space-xl) 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-xl);
+    /* El centrado lo maneja .container automáticamente */
+}
+
+/* ===== SINGLE INSIGHT PAGE ===== */
+.single-insight {
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.single-insight-page{
+    background-color: var(--doit-dark-secondary);
+}
 /* ===== PROGRESS BAR ===== */
 .insight-progress-bar {
     position: fixed;
@@ -163,17 +191,6 @@
     font-size: 1rem;
     box-shadow: 0 0 30px rgba(0, 215, 117, 0.3);
     margin-top: 1rem;
-}
-
-/* ===== CONTENT LAYOUT ===== */
-.insight-content-wrapper {
-    padding: 3rem 0;
-}
-
-.content-grid {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 3rem;
 }
 
 /* ===== ARTICLE CONTENT ===== */
