@@ -21,15 +21,15 @@ wp-content/plugins/**/dist/
 vendor/
 
 # --- WordPress (core y runtime) ---
-wp-config.php
-wp-content/uploads/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/backup-db/
-wp-content/advanced-cache.php
-wp-content/wp-cache-config.php
-wp-content/object-cache.php
-wp-content/debug.log
+**/wp-config.php
+**/wp-content/uploads/
+**/wp-content/cache/
+**/wp-content/upgrade/
+**/wp-content/backup-db/
+**/wp-content/advanced-cache.php
+**/wp-content/wp-cache-config.php
+**/wp-content/object-cache.php
+**/wp-content/debug.log
 
 # Ignora todo wp-content salvo las carpetas de temas/plugins
 wp-content/*
