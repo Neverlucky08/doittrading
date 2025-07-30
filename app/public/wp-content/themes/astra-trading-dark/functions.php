@@ -23,7 +23,7 @@ function doittrading_theme_setup() {
     // Título dinámico
     add_theme_support('title-tag');
 }
-// Testing claude
+
 /**
  * Enqueue Styles & Scripts
  */
