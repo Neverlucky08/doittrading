@@ -2,7 +2,7 @@
 .DS_Store
 Thumbs.db
 .idea/
-.vscode/
+!.vscode/
 *.code-workspace
 
 # --- Node / Frontend ---
@@ -41,8 +41,9 @@ wp-content/themes/*
 wp-content/plugins/*
 
 # ...y SOLO versiona tu tema y/o plugin
-!wp-content/themes/tu-tema/**
-!wp-content/plugins/tu-plugin/**
+!wp-content/themes/astra-trading-dark
+!wp-content/plugins/advanced-custom-fields-pro-main
+!wp-content/plugins/astra-sites
 
 # Archivos de core típicos (evita versionarlos)
 /wp-admin/
