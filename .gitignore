@@ -21,15 +21,15 @@ wp-content/plugins/**/dist/
 vendor/
 
 # --- WordPress (core y runtime) ---
-**/wp-config.php
-**/wp-content/uploads/
-**/wp-content/cache/
-**/wp-content/upgrade/
-**/wp-content/backup-db/
-**/wp-content/advanced-cache.php
-**/wp-content/wp-cache-config.php
-**/wp-content/object-cache.php
-**/wp-content/debug.log
+app/public/wp-content/*
+!app/public/wp-content/themes/
+!app/public/wp-content/plugins/
+app/public/wp-content/themes/*
+app/public/wp-content/plugins/*
+!app/public/wp-content/themes/astra-trading-dark
+!app/public/wp-content/plugins/advanced-custom-fields-pro-main
+!app/public/wp-content/plugins/astra-sites
+
 
 # Ignora todo wp-content salvo las carpetas de temas/plugins
 wp-content/*
@@ -46,13 +46,12 @@ wp-content/plugins/*
 !wp-content/plugins/astra-sites
 
 # Archivos de core típicos (evita versionarlos)
-/wp-admin/
-/wp-includes/
-/readme.html
-/license.txt
-/wp-*.php
-/xmlrpc.php
-/index.php
+**/wp-admin/
+**/wp-includes/
+**/wp-*.php
+**/xmlrpc.php
+**/readme.html
+**/license.txt
 
 # --- Extras LocalWP/WPEngine ---
 *.sql

@@ -1,0 +1,25 @@
+/*
+Theme Name: DoItTrading Dark Theme
+Template: astra
+Author: DoItTrading
+Author URI: https://doittrading.com
+Description: Dark theme profesional para DoItTrading - EAs y Trading Indicators
+Version: 1.0
+*/
+
+/* Variables CSS para DoItTrading */
+:root {
+    --doit-dark: #0A0A0A;
+    --doit-dark-secondary: #111111;
+    --doit-green: #00D775;
+    --doit-gold: #FFD700;
+    --doit-text: #E5E5E5;
+    --doit-text-muted: #A0A0A0;
+    --doit-border: rgba(0, 215, 117, 0.2);
+}
+
+/* Base styles */
+body {
+    background-color: var(--doit-dark);
+    color: var(--doit-text);
+}

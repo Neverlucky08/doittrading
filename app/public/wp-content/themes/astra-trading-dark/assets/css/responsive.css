@@ -1,0 +1,203 @@
+/* DoItTrading - Responsive Styles */
+
+/* ========================================
+   MOBILE - 768px y menor
+   ======================================== */
+
+@media (max-width: 768px) {
+    
+    /* === PRODUCT LAYOUT === */
+    .woocommerce div.product div.images,
+    .woocommerce div.product div.summary {
+        width: 100% !important;
+        float: none !important;
+        margin: 0 !important;
+    }
+    
+    .woocommerce div.product .product_title {
+        font-size: var(--font-size-3xl) !important;
+    }
+    
+    .woocommerce div.product p.price {
+        font-size: var(--font-size-2xl) !important;
+    }
+    
+    /* === HERO BAR === */
+    .doittrading-hero-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* === GRIDS === */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .trust-badges-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* === TRUST BAR === */
+    .trust-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+    }
+    
+    /* === LIVE TICKER === */
+    .live-trades-ticker {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin-bottom: var(--space-lg);
+    }
+    
+    /* === BUY SECTION === */
+    .doittrading-buy-section {
+        position: sticky;
+        bottom: 0;
+        z-index: var(--z-sticky);
+        margin: 0 -20px;
+        border-radius: 0;
+    }
+    
+    .mql5-buttons {
+        flex-direction: column;
+    }
+    
+    .mql5-buy-btn {
+        font-size: var(--font-size-md) !important;
+        padding: var(--space-sm) var(--space-md) !important;
+    }
+    
+    /* === DOWNLOAD BUTTONS === */
+    .download-buttons {
+        flex-direction: column;
+    }
+    
+    /* === CONTAINERS === */
+    .woocommerce .col-full,
+    .woocommerce-page .col-full {
+        padding: var(--space-sm);
+    }
+}
+
+/* ========================================
+   TABLET - 768px a 992px
+   ======================================== */
+
+@media (min-width: 769px) and (max-width: 992px) {
+    
+    /* === PRODUCT LAYOUT === */
+    .woocommerce div.product div.images {
+        width: 40% !important;
+    }
+    
+    .woocommerce div.product div.summary {
+        width: 55% !important;
+    }
+    
+    /* === GRIDS === */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .trust-badges-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========================================
+   DESKTOP LARGE - 1200px y mayor
+   ======================================== */
+
+@media (min-width: 1200px) {
+    
+    /* === CONTAINERS === */
+    .woocommerce .col-full,
+    .woocommerce-page .col-full {
+        max-width: 1400px;
+    }
+    
+    /* === PRODUCT LAYOUT === */
+    .woocommerce div.product div.images {
+        width: 30% !important;
+    }
+    
+    .woocommerce div.product div.summary {
+        width: 65% !important;
+    }
+    
+    /* === GRIDS === */
+    .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .trust-badges-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ========================================
+   RESPONSIVE UTILITIES
+   ======================================== */
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Hide on desktop */
+@media (min-width: 769px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* Show only on mobile */
+.show-mobile {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .show-mobile {
+        display: block !important;
+    }
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+
+@media (max-width: 768px) {
+    :root {
+        --font-size-4xl: 2rem;
+        --font-size-3xl: 1.8rem;
+        --font-size-2xl: 1.4rem;
+        --font-size-xl: 1.2rem;
+        --space-xl: 2rem;
+        --space-lg: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-4xl: 1.8rem;
+        --font-size-3xl: 1.6rem;
+        --font-size-2xl: 1.3rem;
+        --space-xl: 1.5rem;
+        --space-lg: 1rem;
+        --container-padding: 1rem;
+    }
+}

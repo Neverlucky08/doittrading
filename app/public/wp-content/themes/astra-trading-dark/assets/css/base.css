@@ -1,0 +1,101 @@
+/* DoItTrading - Base Styles */
+
+/* ========================================
+   RESET Y BASE
+   ======================================== */
+
+/* Reset general */
+* {
+    box-sizing: border-box;
+}
+
+/* Body oscuro */
+body {
+    background-color: var(--doit-dark) !important;
+    color: var(--doit-text) !important;
+    font-family: var(--font-family);
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+/* Títulos generales */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--doit-text) !important;
+    font-weight: var(--font-weight-bold);
+}
+
+/* Párrafos */
+p {
+    color: var(--doit-text) !important;
+    line-height: 1.6 !important;
+}
+
+/* Strong/Bold text */
+strong, b {
+    color: var(--doit-text) !important;
+    font-weight: var(--font-weight-bold) !important;
+}
+
+/* Lista items */
+li {
+    color: var(--doit-text) !important;
+}
+
+/* ========================================
+   ENLACES
+   ======================================== */
+
+/* Enlaces generales */
+a {
+    color: var(--doit-green);
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+a:hover {
+    color: var(--doit-green);
+    opacity: 0.8;
+}
+
+/* ========================================
+   ELEMENTOS BASE
+   ======================================== */
+
+/* Contenido principal */
+.site-content {
+    background-color: var(--doit-dark);
+    min-height: 80vh;
+    color: var(--doit-text) !important;
+}
+
+/* Ocultar site-content en homepage */
+.home .site-content {
+    display: none !important;
+}
+
+/* Articles/Posts */
+article.post {
+    background: var(--doit-dark-secondary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--doit-border);
+}
+
+/* Ocultar sidebar si aparece */
+.widget-area {
+    display: none;
+}
+
+/* ========================================
+   CONTAINERS
+   ======================================== */
+
+/* Full width para productos */
+.woocommerce .col-full,
+.woocommerce-page .col-full {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--container-padding);
+}

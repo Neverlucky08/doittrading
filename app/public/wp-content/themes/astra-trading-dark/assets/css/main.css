@@ -1,0 +1,124 @@
+/* DoItTrading - Main CSS File (Organized Structure) */
+
+/* ========================================
+   CSS IMPORTS
+   Loaded in order of priority
+   ======================================== */
+
+/* 1. Variables - Must be loaded first */
+@import url('variables.css');
+
+/* 2. Base styles - Reset, typography, general elements */
+@import url('base.css');
+
+/* 3. Layout - Header, navigation, containers */
+@import url('layout.css');
+
+/* 4. Components - Reusable elements */
+@import url('components.css');
+
+/* 5. WooCommerce - General shop functionality */
+@import url('woocommerce-base.css');
+
+/* 6. Product Single - Specific to product pages */
+@import url('product-single.css');
+
+/* 7. Sections - FAQs, reviews, specific content areas */
+@import url('sections.css');
+
+/* 8. Product Details - Tabs/Accordion system */
+@import url('product-details.css');
+
+/* 9. Responsive - Mobile and tablet adjustments (loaded last) */
+@import url('responsive.css');
+
+/* 10. Homepage - Sections específicas de homepage */
+@import url('homepage.css');
+
+/* 11. Expert Advisors - Specific page styles */
+@import url('forex-trading-bots.css');
+
+/* 12. Indicators - Specific page styles */
+@import url('indicators.css');
+
+/* 13. Trading Insights - Specific page styles */
+@import url('insights.css');
+
+/* 14. Trading Insights - Specific page styles */
+@import url('single-insight.css');
+/* ========================================
+   FILE STRUCTURE DOCUMENTATION
+   ======================================== */
+
+/*
+📁 CSS ARCHITECTURE:
+
+variables.css
+├── Colors (dark, green, gold, etc)
+├── Spacing (xs, sm, md, lg, xl)
+├── Typography (font sizes, weights)
+├── Gradients & Effects
+└── Breakpoints
+
+base.css
+├── Reset (* box-sizing)
+├── Body styling
+├── Typography (h1-h6, p, strong)
+├── Links
+└── Basic containers
+
+layout.css
+├── Header (.main-header-bar)
+├── Navigation (.main-navigation)
+└── Site structure
+
+components.css
+├── Buttons
+├── Trust elements (badges, bar)
+├── Social proof
+├── Hero elements
+├── Grids (benefits, features)
+└── Live elements (ticker)
+
+woocommerce-base.css
+├── Shop page
+├── Product grid
+├── Related products
+├── Attributes
+├── Forms
+└── Hidden elements
+
+product-single.css
+├── Product layout (images, summary)
+├── Title & price
+├── Short description
+├── Hero live indicators
+├── EA Stats section
+├── Urgency section
+├── Product tabs
+├── Add to cart
+├── MQL5 buy section
+└── Download buttons
+
+sections.css
+├── Product FAQs
+├── Why DoItTrading
+└── MQL5 Reviews
+
+responsive.css
+├── Mobile (≤768px)
+├── Tablet (769px-992px)
+├── Desktop Large (≥1200px)
+├── Responsive utilities
+└── Responsive typography
+
+BENEFITS OF THIS STRUCTURE:
+✅ No duplicates
+✅ Easy to maintain
+✅ Logical organization
+✅ Fast loading (variables first)
+✅ Modular development
+✅ Clear separation of concerns
+✅ Easy debugging
+✅ Git-friendly (specific commits)
+*/

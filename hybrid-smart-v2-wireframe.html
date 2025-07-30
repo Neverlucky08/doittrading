@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Hybrid-Smart V2 - Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0A0A0A;
+            color: #E5E5E5;
+            line-height: 1.6;
+        }
+        
+        .wireframe {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section {
+            border: 2px dashed #00D775;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: rgba(0, 215, 117, 0.05);
+        }
+        
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+            align-items: center;
+            min-height: 450px;
+        }
+        
+        .product-image {
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 12px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .live-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #00D775;
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #E5E5E5;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #00D775;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .verified-badge {
+            background: rgba(0, 215, 117, 0.2);
+            border: 1px solid #00D775;
+            padding: 12px 20px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .price-section {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .countdown {
+            background: #FF4757;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .price {
+            font-size: 2.2rem;
+            color: #FFD700;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .stat-box {
+            background: #111;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: #00D775;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00D775;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .stat-context {
+            font-size: 12px;
+            color: #A0A0A0;
+            margin-top: 5px;
+        }
+        
+        .social-proof {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .review-card {
+            background: #111;
+            border: 1px solid #333;
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .verified-purchase {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #00D775;
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+        
+        .value-props {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .value-left h3 {
+            color: #FF4757;
+            margin-bottom: 15px;
+        }
+        
+        .value-right h3 {
+            color: #00D775;
+            margin-bottom: 15px;
+        }
+        
+        .roi-calculator {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+            border: 2px solid #FFD700;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .roi-item {
+            text-align: center;
+        }
+        
+        .roi-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 215, 117, 0.2), rgba(0, 215, 117, 0.1));
+            border: 2px solid #00D775;
+            padding: 35px;
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .cta-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00D775;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+        
+        .btn {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+            font-size: 16px;
+        }
+        
+        .btn-mt4 {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .btn-mt5 {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .section-label {
+            background: #00D775;
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .wireframe-note {
+            background: #FFD700;
+            color: #000;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .improvement-badge {
+            background: #FF4757;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .social-proof {
+                grid-template-columns: 1fr;
+            }
+            
+            .value-props {
+                grid-template-columns: 1fr;
+            }
+            
+            .roi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe">
+        <div class="wireframe-note">
+            🚀 WIREFRAME V2: Layout "Hybrid-Smart" con Mejoras de Conversión
+        </div>
+        
+        <!-- HERO SECTION MEJORADO -->
+        <div class="section">
+            <div class="section-label">HERO - Con Hook Emocional <span class="improvement-badge">NUEVO</span></div>
+            <div class="hero">
+                <div class="product-image">
+                    <div class="live-badge">🟢 LIVE</div>
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🎯</div>
+                    <div>DoIt GBP Master</div>
+                    <div style="font-size: 12px; margin-top: 10px;">Product Image</div>
+                </div>
+                
+                <div class="hero-content">
+                    <h1>Finally, A GBPUSD EA That Actually Works</h1>
+                    <div class="hero-subtitle">76% Win Rate • MyFxBook Verified • No Martingale</div>
+                    
+                    <div style="background: rgba(0,215,117,0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>🟢 12 traders using now</span>
+                            <span>⚡ Last trade: +47 pips (3m ago)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-section">
+                        <div class="countdown">⏰ Price increases in 2d 14:23:45</div>
+                        <div style="font-size: 14px; color: #FF4757; margin-bottom: 8px; margin-top: 15px;">🔥 LAUNCH PRICE ENDING SOON</div>
+                        <div class="price">$399 <span style="font-size: 1.2rem; text-decoration: line-through; color: #666;">$999</span></div>
+                        <div style="font-size: 14px; margin-top: 8px;">⚠️ Only 7 licenses left at this price</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VERIFIED STATS CON CONTEXTO -->
+        <div class="section">
+            <div class="section-label">VERIFIED PERFORMANCE - Con Contexto <span class="improvement-badge">MEJORADO</span></div>
+            <h2 style="text-align: center; margin-bottom: 30px; color: #00D775;">Real Results, Real Money, Real Timeframes</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-value">+12.8%</div>
+                    <div>Monthly Gain</div>
+                    <div class="stat-context">Last 6 months<br>(vs 2.1% S&P500)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">76%</div>
+                    <div>Win Rate</div>
+                    <div class="stat-context">247 of 325 trades<br>Live verified</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">-4.2%</div>
+                    <div>Max Drawdown</div>
+                    <div class="stat-context">Worst period<br>Dec 2024</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">2.34</div>
+                    <div>Profit Factor</div>
+                    <div class="stat-context">$2.34 profit per<br>$1 risk</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="#" style="color: #00D775; font-weight: 600;">📊 View Live MyFxBook Account (Updated Every Trade) →</a>
+            </div>
+        </div>
+        
+        <!-- SOCIAL PROOF CON VERIFICACIÓN VISUAL -->
+        <div class="section">
+            <div class="section-label">VERIFIED REVIEWS - Con Proof Visual <span class="improvement-badge">MEJORADO</span></div>
+            <h3 style="text-align: center; margin-bottom: 20px;">What Real Traders Are Saying (All Verified Purchases)</h3>
+            <div class="social-proof">
+                <div class="review-card">
+                    <div class="verified-purchase">✓ VERIFIED</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p style="margin: 10px 0;">"Best EA I've ever used. Setup was simple, results are consistent..."</p>
+                    <div style="font-size: 12px; color: #666;">- MBlue6</div>
+                    <a href="#" style="color: #00D775; font-size: 11px;">Read full review on MQL5 →</a>
+                </div>
+                <div class="review-card">
+                    <div class="verified-purchase">✓ VERIFIED</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p style="margin: 10px 0;">"Amazing results! The consistency is impressive, feeling really safe using it..."</p>
+                    <div style="font-size: 12px; color: #666;">- Butterfly0856</div>
+                    <a href="#" style="color: #00D775; font-size: 11px;">Read full review on MQL5 →</a>
+                </div>
+                <div class="review-card">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 2.5rem; color: #FFD700;">4.9★</div>
+                        <div><strong>47 verified reviews</strong></div>
+                        <div style="font-size: 12px; color: #A0A0A0; margin: 5px 0;">All verified purchases</div>
+                        <a href="#" style="color: #00D775; font-size: 12px;">View all reviews on MQL5 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VALUE JUSTIFICATION CON ROI CALCULATOR -->
+        <div class="section">
+            <div class="section-label">WHY $399 VS $99 EAS + ROI Calculator <span class="improvement-badge">NUEVO</span></div>
+            <div class="value-props">
+                <div class="value-left">
+                    <h3>❌ Typical $99 EAs:</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>Backtest-only results</li>
+                        <li>No live verification</li>
+                        <li>Martingale/Grid strategies</li>
+                        <li>No ongoing support</li>
+                        <li>Blow accounts eventually</li>
+                    </ul>
+                </div>
+                <div class="value-right">
+                    <h3>✅ DoIt GBP Master:</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>Live MyFxBook verified</li>
+                        <li>Professional risk management</li>
+                        <li>No dangerous recovery tactics</li>
+                        <li>24/7 support & updates</li>
+                        <li>Sustainable long-term profits</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="roi-calculator">
+                <h3 style="color: #FFD700; margin-bottom: 15px;">💰 ROI Calculator: See Your Real Returns</h3>
+                <div class="roi-grid">
+                    <div class="roi-item">
+                        <div class="roi-value">$399</div>
+                        <div>EA Cost</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-value">$128</div>
+                        <div>Monthly Return<br><small>(12.8% on $1000)</small></div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-value">3.1</div>
+                        <div>Months to<br>Pay for Itself</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-value">285%</div>
+                        <div>Year 1 ROI<br><small>($1,137 profit)</small></div>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-size: 14px; color: #A0A0A0;">*Based on verified 6-month performance. Past results don't guarantee future returns.</p>
+            </div>
+        </div>
+        
+        <!-- MAIN CTA MEJORADA -->
+        <div class="section">
+            <div class="section-label">SECURE PURCHASE - CTA Mejorada <span class="improvement-badge">MEJORADO</span></div>
+            <div class="cta-section">
+                <div class="cta-badge">🚀 SECURE CHECKOUT</div>
+                <h2 style="margin-bottom: 15px; margin-top: 10px;">Join 47+ Verified Traders Making Consistent Profits</h2>
+                <p style="margin-bottom: 20px; font-size: 18px;">Start your automated GBPUSD trading journey today</p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-mt4">🛒 Get MT4 Version - $399</a>
+                    <a href="#" class="btn btn-mt5">🛒 Get MT5 Version - $399</a>
+                </div>
+                
+                <div style="margin-top: 25px; font-size: 14px; color: #A0A0A0;">
+                    ✓ Secure payment via MQL5 Market<br>
+                    ✓ Instant download after purchase<br>
+                    ✓ Free lifetime updates included<br>
+                    ✓ 24/7 setup support available
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 6px;">
+                    <strong style="color: #FFD700;">⏰ Remember:</strong> Price increases to $999 in <strong>2 days 14:23:45</strong>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DETAILED INFO FOLD -->
+        <div class="section">
+            <div class="section-label">BELOW THE FOLD</div>
+            <div style="text-align: center; padding: 40px; background: #111; border-radius: 8px;">
+                <h3 style="margin-bottom: 20px;">Extended Content Area</h3>
+                <p style="color: #A0A0A0;">Advanced FAQs • Technical Setup Guide • Risk Management • Creator Background • Full Transparency Report</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

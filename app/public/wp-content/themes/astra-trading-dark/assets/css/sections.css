@@ -1,0 +1,167 @@
+/* DoItTrading - Sections */
+
+/* ========================================
+   PRODUCT FAQs
+   ======================================== */
+
+.product-faqs {
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+    background: var(--doit-dark-secondary);
+    border-radius: var(--radius-md);
+}
+
+.product-faqs h2 {
+    color: var(--doit-green);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--doit-border-light);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    color: var(--doit-text);
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-size-lg);
+}
+
+.faq-item p {
+    color: var(--doit-text-muted);
+    line-height: 1.6;
+}
+
+/* ========================================
+   WHY DOITTRADING
+   ======================================== */
+
+.why-doittrading {
+    margin: var(--space-xl) 0;
+    text-align: center;
+}
+
+.why-doittrading h2 {
+    color: var(--doit-text);
+    margin-bottom: var(--space-lg);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature .icon {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-sm);
+}
+
+.feature h3 {
+    color: var(--doit-green);
+    margin-bottom: var(--space-xs);
+}
+
+.feature p {
+    color: var(--doit-text-muted);
+    line-height: 1.6;
+}
+
+/* ========================================
+   MQL5 REVIEWS
+   ======================================== */
+
+.mql5-reviews {
+    max-width: 800px;
+}
+
+.reviews-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--doit-border-light);
+}
+
+.rating-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+    font-size: var(--font-size-xl);
+}
+
+.rating-summary .stars {
+    color: var(--doit-gold);
+}
+
+.review-item {
+    background: var(--doit-bg-white-light);
+    border: 1px solid var(--doit-border-light);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    transition: var(--transition-normal);
+}
+
+.review-item:hover {
+    background: var(--doit-bg-green-light);
+    border-color: var(--doit-border);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.review-header strong {
+    color: var(--doit-green);
+    font-size: var(--font-size-lg);
+}
+
+.review-date {
+    color: var(--doit-text-dark);
+    font-size: var(--font-size-sm);
+}
+
+.review-text {
+    line-height: 1.6;
+    margin-bottom: var(--space-xs);
+    color: var(--doit-text);
+}
+
+.verified-badge {
+    display: inline-block;
+    background: var(--doit-bg-green-medium);
+    color: var(--doit-green);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-sm);
+}
+
+.view-all-reviews {
+    display: inline-block;
+    margin-top: var(--space-lg);
+    color: var(--doit-green);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    transition: var(--transition-normal);
+}
+
+.view-all-reviews:hover {
+    text-decoration: underline;
+}
