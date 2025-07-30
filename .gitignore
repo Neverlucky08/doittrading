@@ -1,3 +1,59 @@
-**/logs
+# --- SO/Editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace
+
+# --- Node / Frontend ---
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# Artefactos de build comunes
+wp-content/themes/**/dist/
+wp-content/plugins/**/dist/
 *.log
-app/public/wp-content/debug.log
+
+# --- Composer ---
+# Si NO comiteas vendor, déjalo ignorado; si lo comiteas, borra esta línea.
+vendor/
+
+# --- WordPress (core y runtime) ---
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/object-cache.php
+wp-content/debug.log
+
+# Ignora todo wp-content salvo las carpetas de temas/plugins
+wp-content/*
+!wp-content/themes/
+!wp-content/plugins/
+
+# Ignora todos los temas/plugins por defecto...
+wp-content/themes/*
+wp-content/plugins/*
+
+# ...y SOLO versiona tu tema y/o plugin
+!wp-content/themes/tu-tema/**
+!wp-content/plugins/tu-plugin/**
+
+# Archivos de core típicos (evita versionarlos)
+/wp-admin/
+/wp-includes/
+/readme.html
+/license.txt
+/wp-*.php
+/xmlrpc.php
+/index.php
+
+# --- Extras LocalWP/WPEngine ---
+*.sql
+.wpe-push-ignore
+.wpe-pull-ignore
