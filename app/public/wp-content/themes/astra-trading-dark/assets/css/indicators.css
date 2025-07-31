@@ -288,19 +288,26 @@ Guardar en: wp-content/themes/astra-trading-dark/assets/css/
 }
 
 .tool-benefits {
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .tool-benefits h3 {
     color: var(--doit-green) !important;
     font-size: var(--font-size-2xl);
     margin-bottom: var(--space-lg);
+    margin-top: var(--space-lg);
+    text-align: left;
 }
 
 .benefits-list {
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
+    align-items: flex-start;
+    width: 100%;
 }
 
 .benefit-item {
