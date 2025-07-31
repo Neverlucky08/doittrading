@@ -267,10 +267,10 @@ Guardar en: wp-content/themes/astra-trading-dark/assets/css/
 }
 
 .tool-stats {
-    color: var(--doit-green);
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    margin-bottom: var(--space-sm);
+    color: var(--doit-green) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: var(--font-weight-semibold) !important;
+    margin-bottom: var(--space-sm) !important;
 }
 
 .tool-description {
@@ -282,13 +282,17 @@ Guardar en: wp-content/themes/astra-trading-dark/assets/css/
 /* Tool Showcase Grid */
 .tool-showcase-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: var(--space-xl);
     align-items: start;
 }
 
+.tool-benefits {
+    align-items: center;
+}
+
 .tool-benefits h3 {
-    color: var(--doit-green);
+    color: var(--doit-green) !important;
     font-size: var(--font-size-2xl);
     margin-bottom: var(--space-lg);
 }
@@ -301,27 +305,35 @@ Guardar en: wp-content/themes/astra-trading-dark/assets/css/
 
 .benefit-item {
     display: flex;
+    flex-direction: row;
     gap: var(--space-md);
-    align-items: flex-start;
+    align-items: center;
 }
 
 .benefit-icon {
     font-size: var(--font-size-3xl);
     flex-shrink: 0;
     width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
 .benefit-content strong {
-    color: var(--doit-text);
-    font-size: var(--font-size-lg);
+    color: var(--doit-text) !important;
+    font-size: var(--font-size-xl) !important;
     display: block;
     margin-bottom: var(--space-xs);
+    text-align: left;
 }
 
 .benefit-content p {
     color: var(--doit-text-muted);
+    font-size: var(--font-size-lg) !important;
     margin: 0;
+    text-align: left;
 }
 
 /* Tool Stats Card */
@@ -663,6 +675,16 @@ Guardar en: wp-content/themes/astra-trading-dark/assets/css/
     .tool-showcase-grid {
         grid-template-columns: 1fr;
         gap: var(--space-xl);
+    }
+    
+    .benefit-item {
+        gap: var(--space-sm);
+    }
+    
+    .benefit-icon {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-2xl);
     }
     
     .comparison-charts {
