@@ -977,7 +977,7 @@ function doittrading_get_indicator_stats() {
             $product_id = get_the_ID();
             
             // Use actual downloads count field
-            $downloads = doittrading_get_field('downloads_count', $product_id, rand(50, 200));
+            $downloads = doittrading_get_field('downloads_count', $product_id, rand(10, 20));
             $total_downloads += $downloads;
             
             // Aggregate real active users from products
