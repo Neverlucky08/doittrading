@@ -212,10 +212,20 @@ function doittrading_featured_tool_section() {
     // Get benefits and stats from custom fields if product ID exists
     $benefits = array();
     $stats = array();
+    $before_after_data = array();
 
     if (isset($featured_tool['id']) && $featured_tool['id'] > 0) {
-        $benefits = doittrading_get_product_benefits($featured_tool['id']);
-        $stats = doittrading_get_product_stats($featured_tool['id']);
+        $product_id = $featured_tool['id'];
+        $benefits = doittrading_get_product_benefits($product_id);
+        $stats = doittrading_get_product_stats($product_id);
+        
+        // Get before/after comparison data from ACF (if exists)
+        $before_after_data = array(
+            'before_win_rate' => get_field('before_win_rate', $product_id) ?: '60%',
+            'after_win_rate' => get_field('after_win_rate', $product_id) ?: '79%',
+            'time_saved' => get_field('time_saved_percentage', $product_id) ?: '65%',
+            'losses_prevented' => get_field('avg_losses_prevented', $product_id) ?: '$2,600'
+        );
     }
     
     // Fallback benefits if none from custom fields
@@ -244,6 +254,15 @@ function doittrading_featured_tool_section() {
         );
     }
     
+    // Fallback stats if none from custom fields
+    if (empty($stats)) {
+        $stats = array(
+            array('value' => '79%', 'label' => 'Average win rate<br>improvement'),
+            array('value' => '65%', 'label' => 'Less time spent<br>testing'),
+            array('value' => '$2,600', 'label' => 'Average losses<br>prevented')
+        );
+    }
+
     // Map icon names to emojis
     $icon_map = array(
         'lightning' => '⚡',
@@ -258,6 +277,10 @@ function doittrading_featured_tool_section() {
         'dollar-sign' => '💰',
         'trending-up' => '📈'
     );
+    
+    // Get additional product data
+    $product_url = isset($featured_tool['id']) ? get_permalink($featured_tool['id']) : $featured_tool['url'];
+    $mql5_link = get_field('mql5_purchase_link_mt4', $featured_tool['id']) ?: get_field('mql5_purchase_link_mt5', $featured_tool['id']);
     ?>
     <div class="doittrading-featured-tool-section">
         <div class="featured-tool-container">
@@ -293,44 +316,85 @@ function doittrading_featured_tool_section() {
                     </div>
                 </div>
                 
-                <!-- Right: Visual/Stats -->
-                <div class="tool-visual">
-                    <div class="tool-stats-card">
-                        <div class="stats-header">
-                            <h4>Real Impact</h4>
+                <!-- Right: NEW Visual Showcase -->
+                <div class="tool-visual-showcase">
+                    <div class="visual-header">
+                        <h4>See The Difference</h4>
+                        <div class="live-indicator">
+                            <div class="live-dot"></div>
+                            <span>LIVE COMPARISON</span>
                         </div>
-                        <div class="impact-stats">
-                            <?php if (!empty($stats)): ?>
-                                <?php foreach ($stats as $stat): ?>
-                                <div class="impact-stat">
-                                    <div class="impact-number"><?php echo esc_html($stat['value']); ?></div>
-                                    <div class="impact-label"><?php echo esc_html($stat['label']); ?></div>
-                                </div>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <!-- Fallback stats -->
-                                <div class="impact-stat">
-                                    <div class="impact-number">78%</div>
-                                    <div class="impact-label">Average win rate<br>improvement</div>
-                                </div>
-                                <div class="impact-stat">
-                                    <div class="impact-number">65%</div>
-                                    <div class="impact-label">Less time spent<br>testing</div>
-                                </div>
-                                <div class="impact-stat">
-                                    <div class="impact-number">$2,400</div>
-                                    <div class="impact-label">Average losses<br>prevented</div>
-                                </div>
-                            <?php endif; ?>
+                    </div>
+                    
+                    <!-- Comparison Charts -->
+                    <div class="comparison-charts">
+                        <div class="chart-container before">
+                            <span class="chart-label">❌ Without Tool</span>
+                            <div class="chart-content">
+                                <div class="price-line"></div>
+                                <!-- Candles representing poor performance -->
+                                <div class="candle red" style="height: 30px; bottom: 40%; left: 20%;"></div>
+                                <div class="candle red" style="height: 25px; bottom: 35%; left: 30%;"></div>
+                                <div class="candle green" style="height: 20px; bottom: 45%; left: 40%;"></div>
+                                <div class="candle red" style="height: 35px; bottom: 30%; left: 50%;"></div>
+                                <div class="candle red" style="height: 28px; bottom: 25%; left: 60%;"></div>
+                                <div class="signal-marker missed-signal">Missed Entry</div>
+                                <div class="signal-marker late-exit" style="bottom: 20px; left: 60%;">Late Exit</div>
+                            </div>
                         </div>
                         
-                        <div class="tool-cta-section">
-                            <a href="<?php echo esc_url($featured_tool['url']); ?>" class="tool-cta-primary">
+                        <div class="chart-container after">
+                            <span class="chart-label">✅ With <?php echo esc_html(str_replace('Backtesting Simulator', 'Simulator', $featured_tool['name'])); ?></span>
+                            <div class="chart-content">
+                                <div class="price-line"></div>
+                                <!-- Candles representing good performance -->
+                                <div class="candle green" style="height: 35px; bottom: 40%; left: 20%;"></div>
+                                <div class="candle green" style="height: 40px; bottom: 45%; left: 30%;"></div>
+                                <div class="candle green" style="height: 30px; bottom: 50%; left: 40%;"></div>
+                                <div class="candle green" style="height: 45px; bottom: 55%; left: 50%;"></div>
+                                <div class="candle green" style="height: 50px; bottom: 60%; left: 60%;"></div>
+                                <div class="signal-marker perfect-entry">Perfect Entry</div>
+                                <div class="signal-marker smart-exit">Smart Exit</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Impact Stats -->
+                    <div class="visual-stats">
+                        <?php foreach ($stats as $stat): ?>
+                        <div class="visual-stat">
+                            <div class="stat-value"><?php echo esc_html($stat['value']); ?></div>
+                            <div class="stat-label"><?php echo $stat['label']; ?></div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    
+                    <!-- CTA Section -->
+                    <div class="visual-cta-section">
+                        <?php if ($mql5_link): ?>
+                            <a href="<?php echo esc_url($mql5_link); ?>" target="_blank" class="cta-primary">
                                 Get <?php echo esc_html($featured_tool['name']); ?> ($<?php echo esc_html($featured_tool['price']); ?>)
                             </a>
-                            <a href="#demo" class="tool-cta-secondary">
-                                Watch Demo
+                        <?php else: ?>
+                            <a href="<?php echo esc_url($product_url); ?>" class="cta-primary">
+                                Get <?php echo esc_html($featured_tool['name']); ?> ($<?php echo esc_html($featured_tool['price']); ?>)
                             </a>
+                        <?php endif; ?>
+                        <a href="<?php echo esc_url($product_url); ?>" class="cta-secondary">
+                            View Details
+                        </a>
+                    </div>
+                    
+                    <!-- Trust Badges -->
+                    <div class="tool-trust-badges">
+                        <div class="trust-badge-item">
+                            ✓ <strong>Instant Download</strong>
+                        </div>
+                        <div class="trust-badge-item">
+                            ✓ <strong>Free Updates</strong>
+                        </div>
+                        <div class="trust-badge-item">
+                            ✓ <strong>24/7 Support</strong>
                         </div>
                     </div>
                 </div>
