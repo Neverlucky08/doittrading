@@ -13,14 +13,19 @@ function doittrading_load_more_insights() {
     $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
     
     $args = array(
-        'post_type' => 'post', // O 'insight' si usas CPT
-        'category_name' => 'trading-insights',
+        'post_type' => 'insight',
         'posts_per_page' => 9,
         'paged' => $page
     );
     
     if ($category) {
-        $args['tag'] = $category; // O taxonomy query si usas CPT
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'insight_category',
+                'field' => 'slug',
+                'terms' => $category
+            )
+        );
     }
     
     $query = new WP_Query($args);

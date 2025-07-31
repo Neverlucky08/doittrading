@@ -92,10 +92,60 @@ article.post {
    CONTAINERS
    ======================================== */
 
+/* Base container utility class */
+.container-base {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
 /* Full width para productos */
 .woocommerce .col-full,
 .woocommerce-page .col-full {
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: var(--container-padding);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Base button utility class */
+.btn-base {
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-weight-semibold);
+    transition: var(--transition-all);
+    cursor: pointer;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-base);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Primary button variant */
+.btn-primary {
+    background: var(--doit-green);
+    color: var(--doit-dark);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 215, 117, 0.3);
+    color: var(--doit-dark);
+}
+
+/* Secondary button variant */
+.btn-secondary {
+    background: var(--doit-dark-secondary);
+    color: var(--doit-text);
+    border: 1px solid var(--doit-border);
+}
+
+.btn-secondary:hover {
+    background: var(--doit-green);
+    color: var(--doit-dark);
+    border-color: var(--doit-green);
 }

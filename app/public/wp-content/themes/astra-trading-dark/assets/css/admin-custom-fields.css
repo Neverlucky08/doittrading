@@ -1,0 +1,296 @@
+/**
+ * Admin Custom Fields Styles
+ * Styling for the native WordPress custom fields that replace ACF
+ */
+
+/* Meta Box Styling */
+#doittrading_common_fields,
+#doittrading_eas_fields,
+#doittrading_indicator_fields,
+#doittrading_reviews {
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+#doittrading_common_fields .inside,
+#doittrading_eas_fields .inside,
+#doittrading_indicator_fields .inside,
+#doittrading_reviews .inside {
+    margin: 0;
+    padding: 12px;
+}
+
+/* Section Headers */
+#doittrading_common_fields h3,
+#doittrading_eas_fields h3,
+#doittrading_indicator_fields h3,
+#doittrading_reviews h3 {
+    margin: 20px 0 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+    color: #23282d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#doittrading_common_fields h3:first-child,
+#doittrading_eas_fields h3:first-child,
+#doittrading_indicator_fields h3:first-child,
+#doittrading_reviews h3:first-child {
+    margin-top: 0;
+}
+
+/* Form Table Enhancements */
+.form-table th {
+    width: 200px;
+    font-weight: 600;
+    color: #23282d;
+}
+
+.form-table td {
+    vertical-align: top;
+    padding: 10px 0;
+}
+
+.form-table td .description {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-style: italic;
+    font-size: 13px;
+}
+
+/* Input Field Styling */
+.form-table input[type="text"],
+.form-table input[type="number"],
+.form-table input[type="url"],
+.form-table input[type="date"],
+.form-table input[type="datetime-local"],
+.form-table select,
+.form-table textarea {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-table textarea.large-text {
+    max-width: 600px;
+    min-height: 80px;
+}
+
+/* Checkbox Styling */
+.form-table input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.form-table label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Multi-checkbox Groups */
+.form-table td label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-table td label input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Star Rating Display */
+.star-rating {
+    font-size: 18px;
+    color: #ffb900;
+    margin-left: 10px;
+}
+
+.star-rating .star.filled {
+    color: #ffb900;
+}
+
+.star-rating .star.empty {
+    color: #ddd;
+}
+
+/* Review Sections */
+.review-section {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.review-section h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.review-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    grid-column: 1 / -1;
+}
+
+.review-fields > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-fields label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #23282d;
+}
+
+.stars-display {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #ffb900;
+}
+
+/* Performance Metrics Styling */
+.form-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.form-table input[readonly] {
+    background-color: #f1f1f1;
+    color: #666;
+}
+
+/* Required Field Indicators */
+.form-table th label[required]:after {
+    content: " *";
+    color: #d54e21;
+}
+
+/* Input Groups */
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group span {
+    margin: 0 5px;
+    color: #666;
+    font-weight: normal;
+}
+
+/* Color coding for different field types */
+.eas-field {
+    border-left: 4px solid #0073aa;
+    padding-left: 10px;
+}
+
+.indicator-field {
+    border-left: 4px solid #00a32a;
+    padding-left: 10px;
+}
+
+.common-field {
+    border-left: 4px solid #826eb4;
+    padding-left: 10px;
+}
+
+.review-field {
+    border-left: 4px solid #ff8c00;
+    padding-left: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 782px) {
+    .form-table th,
+    .form-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .form-table th {
+        border-bottom: none;
+        padding-bottom: 5px;
+    }
+    
+    .review-fields {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .form-table input[type="text"],
+    .form-table input[type="number"],
+    .form-table input[type="url"],
+    .form-table input[type="date"],
+    .form-table input[type="datetime-local"],
+    .form-table select,
+    .form-table textarea {
+        max-width: 100%;
+    }
+}
+
+/* Success/Error Messages */
+.custom-fields-notice {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.custom-fields-notice.success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.custom-fields-notice.error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Loading State */
+.custom-fields-loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.custom-fields-loading:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Tooltips */
+.field-tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    cursor: help;
+}
+
+.field-tooltip:hover:after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+    z-index: 1000;
+    font-size: 12px;
+}

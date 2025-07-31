@@ -1,0 +1,16 @@
+.github/workflows/claude.ymlname: Claude Code
+on:
+  issue_comment:
+    types: [created]   # reacciona a @claude en issues y PRs
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+jobs:
+  claude:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # o: claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}

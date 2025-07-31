@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "deny": [
+    ]
+  },
+  "includeCoAuthoredBy": true,
+  "env": {
+    "WP_ENV": "local"
+  }
+}

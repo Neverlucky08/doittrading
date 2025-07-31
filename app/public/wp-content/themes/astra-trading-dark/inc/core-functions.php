@@ -10,21 +10,32 @@ if (!defined('ABSPATH')) exit;
 
 /**
  * Get active traders count (con cache)
+ * @param bool $with_variation Add hourly/random variation
+ * @param int $cache_duration Cache duration in seconds
  */
-function doittrading_get_active_traders() {
-    $cached = get_transient('doittrading_active_traders');
+function doittrading_get_active_traders($with_variation = false, $cache_duration = HOUR_IN_SECONDS) {
+    $cache_key = $with_variation ? 'doittrading_active_traders_varied' : 'doittrading_active_traders';
+    $cached = get_transient($cache_key);
     
     if ($cached !== false) {
         return $cached;
     }
     
-    // En producción, esto vendría de una API real
-    // Por ahora, número aleatorio consistente por hora
-    $base_number = 12;
-    $hour_variation = date('H') % 5;
-    $active_traders = $base_number + $hour_variation + rand(0, 5);
+    // Get base number from aggregate stats
+    $stats = doittrading_get_aggregate_stats();
+    $base_number = intval($stats['total_active_traders']) ?: 150;
     
-    set_transient('doittrading_active_traders', $active_traders, HOUR_IN_SECONDS);
+    if ($with_variation) {
+        // Add hourly and random variation
+        $hour_variation = date('H') % 10;
+        $random_variation = rand(-5, 10);
+        $active_traders = $base_number + $hour_variation + $random_variation;
+    } else {
+        // Simple base number with minimal variation
+        $active_traders = $base_number + rand(0, 5);
+    }
+    
+    set_transient($cache_key, $active_traders, $cache_duration);
     
     return $active_traders;
 }
@@ -49,10 +60,6 @@ function doittrading_get_last_trade() {
     set_transient('doittrading_last_trade', $trade_data, 5 * MINUTE_IN_SECONDS);
     
     return $trade_data;
-}
-
-function doittrading_get_start_year() {
-    return 2021;
 }
 
 /**
@@ -339,4 +346,130 @@ function doittrading_generate_toc_items($content) {
     }
     
     return $toc;
+}
+
+/**
+ * Centralized EA product query helper
+ * @param string $type Type of query: 'featured', 'hero', 'top', 'comparison', 'all'
+ * @param int $limit Number of products to return
+ * @param array $args Additional WP_Query arguments
+ * @return WP_Query|array Returns WP_Query object or array of product data
+ */
+function doittrading_get_ea_products($type = 'featured', $limit = 3, $args = array()) {
+    $base_args = array(
+        'post_type' => 'product',
+        'posts_per_page' => $limit,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'slug',
+                'terms' => 'expert-advisors'
+            )
+        )
+    );
+    
+    // Merge with custom args
+    $query_args = array_merge($base_args, $args);
+    
+    switch ($type) {
+        case 'featured':
+            $query_args['meta_query'] = array(
+                array(
+                    'key' => 'is_featured_product',
+                    'value' => '1',
+                    'compare' => '='
+                )
+            );
+            $query_args['meta_key'] = 'homepage_order';
+            $query_args['orderby'] = 'meta_value_num';
+            $query_args['order'] = 'ASC';
+            break;
+            
+        case 'hero':
+            $query_args['meta_query'] = array(
+                array(
+                    'key' => 'featured_in_forex_bots_hero',
+                    'value' => '1',
+                    'compare' => '='
+                )
+            );
+            $query_args['posts_per_page'] = 1;
+            break;
+            
+        case 'top':
+            $query_args['meta_key'] = 'monthly_gain';
+            $query_args['orderby'] = 'meta_value_num';
+            $query_args['order'] = 'DESC';
+            $query_args['posts_per_page'] = 1;
+            break;
+            
+        case 'comparison':
+            $query_args['meta_query'] = array(
+                array(
+                    'key' => 'show_in_comparisons',
+                    'value' => '1',
+                    'compare' => '='
+                )
+            );
+            $query_args['meta_key'] = 'homepage_order';
+            $query_args['orderby'] = 'meta_value_num';
+            $query_args['order'] = 'ASC';
+            break;
+            
+        case 'all':
+        default:
+            // Use base args as-is
+            break;
+    }
+    
+    $query = new WP_Query($query_args);
+    
+    // For featured type, return formatted product data array
+    if ($type === 'featured' && $query->have_posts()) {
+        return doittrading_format_products_array($query);
+    }
+    
+    // For specific product IDs (fallback), also return formatted array
+    if (isset($query_args['post__in']) && $query->have_posts()) {
+        return doittrading_format_products_array($query);
+    }
+    
+    return $query;
+}
+
+/**
+ * Helper function to format products query into array
+ */
+function doittrading_format_products_array($query) {
+    $products = array();
+    
+    while ($query->have_posts()) {
+        $query->the_post();
+        $product_id = get_the_ID();
+        $product = wc_get_product($product_id);
+        
+        if ($product) {
+            $products[] = array(
+                'id' => $product_id,
+                'name' => get_the_title(),
+                'subtitle' => get_field('hero_subtitle', $product_id) ?: doittrading_get_product_subtitle($product_id),
+                'description' => get_the_excerpt(),
+                'monthly_gain' => get_field('monthly_gain', $product_id),
+                'win_rate' => get_field('win_rate', $product_id),
+                'max_drawdown' => get_field('max_drawdown', $product_id),
+                'min_deposit' => get_field('minimum_deposit', $product_id),
+                'profit_factor' => get_field('profit_factor', $product_id),
+                'original_price' => $product->get_regular_price(),
+                'current_price' => $product->get_price() ?: $product->get_regular_price(),
+                'badge' => doittrading_get_product_badge($product_id),
+                'badge_color' => doittrading_get_badge_color($product_id),
+                'url' => get_permalink($product_id),
+                'myfxbook' => get_field('myfxbook_url', $product_id),
+                'image' => get_the_post_thumbnail_url($product_id, 'medium')
+            );
+        }
+    }
+    
+    wp_reset_postdata();
+    return $products;
 }

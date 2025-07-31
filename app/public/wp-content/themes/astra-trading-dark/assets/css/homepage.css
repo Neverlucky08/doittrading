@@ -3,9 +3,6 @@
    Based on homepage-sections.php
    ======================================== */
 
-/* ===== Import Variables ===== */
-@import url('variables.css');
-
 /* ===== Homepage Base ===== */
 .home {
     background: var(--gradient-hero);
@@ -26,6 +23,10 @@
     max-width: var(--container-max-width);
     margin: 0 auto;
     background: radial-gradient(ellipse at top right, rgba(0, 215, 117, 0.15) 0%, var(--doit-dark) 50%);
+}
+
+.doittrading-homepage-hero-content .container-base{
+    display: contents;
 }
 
 /* Hero Content Main */
