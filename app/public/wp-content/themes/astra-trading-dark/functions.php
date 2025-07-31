@@ -147,7 +147,7 @@ add_filter('body_class', 'doittrading_page_body_class');
 
 function doittrading_enqueue_insights_assets() {
     if (is_page('insights') || is_singular('insight')) {
-        // CSS
+        // CSS for insights page and single insights
         wp_enqueue_style(
             'doittrading-insights', 
             get_stylesheet_directory_uri() . '/assets/css/insights.css', 
@@ -155,7 +155,17 @@ function doittrading_enqueue_insights_assets() {
             '1.0'
         );
         
-        // JavaScript
+        // Additional CSS for single insight pages
+        if (is_singular('insight')) {
+            wp_enqueue_style(
+                'doittrading-single-insight', 
+                get_stylesheet_directory_uri() . '/assets/css/single-insight.css', 
+                array('doittrading-insights'), 
+                '1.0'
+            );
+        }
+        
+        // JavaScript for insights functionality
         wp_enqueue_script(
             'doittrading-insights', 
             get_stylesheet_directory_uri() . '/assets/js/insights.js', 
@@ -164,7 +174,25 @@ function doittrading_enqueue_insights_assets() {
             true
         );
         
-        // Localize para AJAX
+        // Additional JS for single insight pages
+        if (is_singular('insight')) {
+            wp_enqueue_script(
+                'doittrading-single-insight', 
+                get_stylesheet_directory_uri() . '/assets/js/single-insight.js', 
+                array('jquery'), 
+                '1.0', 
+                true
+            );
+            
+            // Localize script for single insight AJAX
+            wp_localize_script('doittrading-single-insight', 'doittrading_single', array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'post_id' => get_the_ID(),
+                'nonce' => wp_create_nonce('single_insight_nonce')
+            ));
+        }
+        
+        // Localize para insights page AJAX
         wp_localize_script('doittrading-insights', 'doittrading_ajax', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('insights_nonce')
@@ -173,38 +201,3 @@ function doittrading_enqueue_insights_assets() {
 }
 add_action('wp_enqueue_scripts', 'doittrading_enqueue_insights_assets');
 
-/**
- * Add this to your functions.php file in the doittrading_enqueue_scripts function
- */
-
-// Update the existing function to include single insight assets
-function doittrading_enqueue_single_insight_assets() {
-
-    if (is_singular('insight')) {
-
-        // CSS for single insight
-        wp_enqueue_style(
-            'doittrading-single-insight', 
-            get_stylesheet_directory_uri() . '/assets/css/single-insight.css', 
-            array('doittrading-main'), 
-            '1.0'
-        );
-        
-        // JavaScript for single insight
-        wp_enqueue_script(
-            'doittrading-single-insight', 
-            get_stylesheet_directory_uri() . '/assets/js/single-insight.js', 
-            array('jquery'), 
-            '1.0', 
-            true
-        );
-        
-        // Localize script for AJAX
-        wp_localize_script('doittrading-single-insight', 'doittrading_single', array(
-            'ajax_url' => admin_url('admin-ajax.php'),
-            'post_id' => get_the_ID(),
-            'nonce' => wp_create_nonce('single_insight_nonce')
-        ));
-    }
-}
-add_action('wp_enqueue_scripts', 'doittrading_enqueue_single_insight_assets', 25);

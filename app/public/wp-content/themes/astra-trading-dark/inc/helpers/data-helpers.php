@@ -41,63 +41,18 @@ function doittrading_get_featured_product() {
 }
 
 /**
- * Get featured products for homepage
+ * Get featured products for homepage - Now uses centralized helper
  */
 function doittrading_get_featured_products() {
-    $args = array(
-        'post_type' => 'product',
-        'posts_per_page' => 3,
-        'meta_key' => 'homepage_order',
-        'orderby' => 'meta_value_num',
-        'order' => 'ASC',
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'product_cat',
-                'field' => 'slug',
-                'terms' => 'expert-advisors'
-            )
-        )
-    );
+    $products = doittrading_get_ea_products('featured', 3);
     
-    $query = new WP_Query($args);
-    
-    // If less than 3, get by specific IDs
-    if ($query->post_count < 3) {
-        $args['post__in'] = array(19, 30, 36); // GBP Master, Gold Guardian, Index Vanguard
-        $args['orderby'] = 'post__in';
-        unset($args['meta_key']);
-        $query = new WP_Query($args);
-    }
-    
-    $products = array();
-    
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $product_id = get_the_ID();
-            $product = wc_get_product($product_id);
-            
-            // Get all ACF data
-            $products[] = array(
-                'id' => $product_id,
-                'name' => get_the_title(),
-                'subtitle' => get_field('hero_subtitle', $product_id) ?: doittrading_get_product_subtitle($product_id),
-                'description' => get_the_excerpt(),
-                'monthly_gain' => get_field('monthly_gain', $product_id),
-                'win_rate' => get_field('win_rate', $product_id),
-                'max_drawdown' => get_field('max_drawdown', $product_id),
-                'min_deposit' => get_field('minimum_deposit', $product_id),
-                'profit_factor' => get_field('profit_factor', $product_id),
-                'original_price' => $product->get_regular_price(),
-                'current_price' => $product->get_price() ?: $product->get_regular_price(),
-                'badge' => doittrading_get_product_badge($product_id),
-                'badge_color' => doittrading_get_badge_color($product_id),
-                'url' => get_permalink($product_id),
-                'myfxbook' => get_field('myfxbook_url', $product_id),
-                'image' => get_the_post_thumbnail_url($product_id, 'medium')
-            );
-        }
-        wp_reset_postdata();
+    // If less than 3, get fallback products by specific IDs
+    if (count($products) < 3) {
+        $fallback_args = array(
+            'post__in' => array(19, 30, 36), // GBP Master, Gold Guardian, Index Vanguard
+            'orderby' => 'post__in'
+        );
+        $products = doittrading_get_ea_products('all', 3, $fallback_args);
     }
     
     return $products;
@@ -212,7 +167,7 @@ function doittrading_get_all_reviews($limit = 3) {
 }
 
 /**
- * Get reviewer country (could be expanded with real data)
+ * Get reviewer country based on name (could be expanded with real data)
  */
 function doittrading_get_reviewer_country($name) {
     $countries = array(
@@ -339,19 +294,6 @@ function doittrading_get_live_performance_data() {
     return $performance;
 }
 
-/**
- * Get active traders count with variation
- */
-function doittrading_get_dynamic_active_traders() {
-    $stats = doittrading_get_aggregate_stats();
-    $base = intval($stats['total_active_traders']);
-    
-    // Add some hourly variation
-    $hour_variation = date('H') % 10;
-    $random_variation = rand(-5, 10);
-    
-    return $base + $hour_variation + $random_variation;
-}
 
 /**
  * Get countries where we have active users
@@ -622,10 +564,11 @@ function doittrading_calculate_timeframe($date) {
 }
 
 /**
- * Get country flag emoji
+ * Get country flag emoji - Enhanced version with more countries
  */
 function doittrading_get_country_flag($country) {
     $flags = array(
+        // Main trading countries
         'Germany' => '🇩🇪',
         'Austria' => '🇦🇹', 
         'Spain' => '🇪🇸',
@@ -642,7 +585,10 @@ function doittrading_get_country_flag($country) {
         'Mexico' => '🇲🇽',
         'Brazil' => '🇧🇷',
         'India' => '🇮🇳',
-        'Netherlands' => '🇳🇱'
+        'Netherlands' => '🇳🇱',
+        // Additional countries from reviewer function
+        'International' => '🌍',
+        'UAE' => '🇦🇪'
     );
     
     return $flags[$country] ?? '🌍';
