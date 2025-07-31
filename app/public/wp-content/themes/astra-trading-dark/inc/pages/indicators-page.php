@@ -112,25 +112,60 @@ function doittrading_indicators_hero_section() {
             
             <!-- Featured Tool Stats Card -->
             <div class="hero-stats-card">
-                <?php $hero_tool = doittrading_get_featured_indicator(); ?>
+                <?php 
+                $hero_tool = doittrading_get_featured_indicator(); 
+                
+                // Get specific data for hero stats
+                $active_users = '';
+                $rating = '';
+                $benefit_1_title = '';
+                
+                if (isset($hero_tool['id']) && $hero_tool['id'] > 0) {
+                    // Get active users
+                    $active_users_count = doittrading_get_field('total_active_users', $hero_tool['id'], 0);
+                    $active_users = $active_users_count > 0 ? number_format($active_users_count) . '+' : $hero_tool['downloads'];
+                    
+                    // Get rating
+                    $rating_value = doittrading_get_field('mql5_average_rating', $hero_tool['id'], $hero_tool['rating']);
+                    $rating = $rating_value . '★';
+                    
+                    // Get first benefit title
+                    $benefits = doittrading_get_product_benefits($hero_tool['id']);
+                    $benefit_1_title = !empty($benefits[0]['title']) ? $benefits[0]['title'] : '6x Faster Testing';
+                } else {
+                    // Fallback values
+                    $active_users = $hero_tool['downloads'];
+                    $rating = $hero_tool['rating'] . '★';
+                    $benefit_1_title = '6x Faster Testing';
+                }
+                
+                $hero_stats = array(
+                    array(
+                        'value' => $active_users,
+                        'label' => 'Downloads'
+                    ),
+                    array(
+                        'value' => $rating,
+                        'label' => 'Rating'
+                    ),
+                    array(
+                        'value' => $benefit_1_title,
+                        'label' => ''
+                    )
+                );
+                ?>
                 <div class="stats-card-header">
                     <h3><?php echo esc_html($hero_tool['name']); ?></h3>
                     <span class="live-badge-small">🔥 TRENDING</span>
                 </div>
                 
                 <div class="stats-showcase-grid">
+                    <?php foreach ($hero_stats as $stat): ?>
                     <div class="stat-showcase">
-                        <div class="stat-number"><?php echo esc_html($hero_tool['downloads']); ?></div>
-                        <div class="stat-label">Downloads</div>
+                        <div class="stat-number"><?php echo esc_html($stat['value']); ?></div>
+                        <div class="stat-label"><?php echo esc_html($stat['label']); ?></div>
                     </div>
-                    <div class="stat-showcase">
-                        <div class="stat-number"><?php echo esc_html($hero_tool['rating']); ?>★</div>
-                        <div class="stat-label">Rating</div>
-                    </div>
-                    <div class="stat-showcase">
-                        <div class="stat-number">6x</div>
-                        <div class="stat-label">Faster Testing</div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 
                 <div class="stats-card-footer">
