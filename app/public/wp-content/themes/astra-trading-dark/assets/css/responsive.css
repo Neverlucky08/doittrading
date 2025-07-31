@@ -1,6 +1,40 @@
 /* DoItTrading - Responsive Styles */
 
 /* ========================================
+   RESPONSIVE UTILITIES - Common Classes
+   ======================================== */
+
+/* Common container adjustments */
+@media (max-width: 768px) {
+    .container-base {
+        padding: 0 var(--space-sm);
+    }
+}
+
+/* Common grid responsive patterns */
+@media (max-width: 768px) {
+    .responsive-grid-1 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .responsive-grid-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .responsive-grid-tablet {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .responsive-grid-desktop {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+/* ========================================
    MOBILE - 768px y menor
    ======================================== */
 
@@ -125,7 +159,7 @@
     /* === CONTAINERS === */
     .woocommerce .col-full,
     .woocommerce-page .col-full {
-        max-width: 1400px;
+        max-width: calc(var(--container-max-width) + 200px);
     }
     
     /* === PRODUCT LAYOUT === */

@@ -60,9 +60,10 @@
 
 /* Product Images */
 .woocommerce div.product div.images {
-    width: 35% !important;
-    max-width: 400px !important;
+    width: 40% !important;
+    max-width: 450px !important;
     margin-right: var(--space-xl) !important;
+    flex-shrink: 0;
     background: var(--doit-dark-secondary);
     padding: var(--space-lg);
     border-radius: var(--radius-lg);
@@ -155,22 +156,6 @@
 /* ========================================
    EA STATS SECTION
    ======================================== */
-
-.doittrading-ea-stats {
-    background: var(--gradient-green) !important;
-    border-left: 5px solid var(--doit-green) !important;
-    border-radius: var(--radius-md);
-    padding: var(--space-md);
-    margin: var(--space-lg) 0;
-    box-shadow: var(--shadow-green-lg) !important;
-}
-
-.doittrading-ea-stats h3 {
-    color: var(--doit-green) !important;
-    font-size: var(--font-size-xl) !important;
-    margin-bottom: var(--space-sm) !important;
-    text-align: center !important;
-}
 
 .stats-grid {
     display: grid;
@@ -417,14 +402,6 @@
     gap: 2rem;
 }
 
-/* Hero Images - 40% más equilibrado */
-.woocommerce div.product div.images {
-    width: 40% !important;
-    max-width: 450px !important;
-    margin-right: 0 !important;
-    flex-shrink: 0;
-}
-
 /* Hero Summary - 55% para mejor distribución */
 .woocommerce div.product div.summary {
     width: 55% !important;
@@ -443,23 +420,6 @@
 .woocommerce div.product p.price {
     margin-bottom: 2rem !important;
     text-align: left;
-}
-
-/* Hero Live Bar - Más compacta */
-.doittrading-hero-bar {
-    margin-bottom: 2rem;
-    max-width: 100%;
-}
-
-/* EA Stats - Optimizada para hero */
-.doittrading-ea-stats {
-    margin: 2rem 0 !important;
-    max-width: 100%;
-}
-
-.doittrading-ea-stats h3 {
-    font-size: 1.4rem !important;
-    margin-bottom: 1.5rem !important;
 }
 
 /* Urgency Section - Más compacta */
@@ -506,51 +466,6 @@
     color: var(--doit-text-dark) !important; /* #666666 */
     line-height: 1.6;
     margin: 0;
-}
-
-/* ========================================
-   MOBILE RESPONSIVE HERO FIXES
-   ======================================== */
-
-@media (max-width: 768px) {
-    /* Stack en mobile */
-    .woocommerce div.product {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .woocommerce div.product div.images,
-    .woocommerce div.product div.summary {
-        width: 100% !important;
-        min-width: auto;
-    }
-    
-    .woocommerce div.product .product_title {
-        font-size: 2rem !important;
-        text-align: center;
-    }
-    
-    .woocommerce div.product p.price {
-        font-size: 1.8rem !important;
-        text-align: center;
-    }
-    
-    .doittrading-buy-section {
-        max-width: 100%;
-        margin: 1.5rem 0 !important;
-    }
-}
-
-@media (max-width: 992px) and (min-width: 769px) {
-    /* Tablet adjustments */
-    .woocommerce div.product div.images {
-        width: 45% !important;
-    }
-    
-    .woocommerce div.product div.summary {
-        width: 50% !important;
-        min-width: 350px;
-    }
 }
 
 /* ========================================
@@ -1170,8 +1085,51 @@
     100% { box-shadow: 0 0 0 rgba(255, 215, 0, 0.7); }
 }
 
+/* ========================================
+   MOBILE RESPONSIVE HERO FIXES
+   ======================================== */
+
+@media (max-width: 992px) and (min-width: 769px) {
+    /* Tablet adjustments */
+    .woocommerce div.product div.images {
+        width: 45% !important;
+    }
+    
+    .woocommerce div.product div.summary {
+        width: 50% !important;
+        min-width: 350px;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Stack en mobile */
+    .woocommerce div.product {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .woocommerce div.product div.images,
+    .woocommerce div.product div.summary {
+        width: 100% !important;
+        min-width: auto;
+    }
+    
+    .woocommerce div.product .product_title {
+        font-size: 2rem !important;
+        text-align: center;
+    }
+    
+    .woocommerce div.product p.price {
+        font-size: 1.8rem !important;
+        text-align: center;
+    }
+    
+    .doittrading-buy-section {
+        max-width: 100%;
+        margin: 1.5rem 0 !important;
+    }
+
     .capital-display {
         font-size: 2.5rem;
     }

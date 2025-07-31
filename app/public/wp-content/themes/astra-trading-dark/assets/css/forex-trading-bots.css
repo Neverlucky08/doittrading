@@ -1,15 +1,15 @@
 /* CSS para Forex Trading Bots Page */
 
-/* Container general */
+/* Container general - usando utility class */
 .forex-bots-container {
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--container-padding);
 }
 
 /* === HERO SECTION === */
 .forex-bots-hero-section {
-    background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
+    background: linear-gradient(135deg, var(--doit-dark) 0%, var(--doit-dark-secondary) 100%);
     padding: 4rem 0;
     min-height: 70vh;
     display: flex;
@@ -26,7 +26,7 @@
 .hero-main-title {
     font-size: 3.5rem;
     font-weight: 800;
-    color: #E5E5E5;
+    color: var(--doit-text);
     line-height: 1.1;
     margin-bottom: 1rem;
 }
@@ -40,7 +40,7 @@
 
 .hero-description {
     font-size: 1.2rem;
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     margin-bottom: 2rem;
 }
 
@@ -95,7 +95,7 @@
 
 .hero-cta-primary {
     background: #00D775;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 1rem 2rem;
     border-radius: 8px;
     text-decoration: none;
@@ -107,12 +107,12 @@
 .hero-cta-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0, 215, 117, 0.4);
-    color: #0A0A0A;
+    color: var(--doit-dark);
 }
 
 .hero-cta-secondary {
     background: transparent;
-    color: #E5E5E5;
+    color: var(--doit-text);
     padding: 1rem 2rem;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
@@ -128,7 +128,7 @@
 
 /* Bot Preview Card */
 .bot-preview-card {
-    background: linear-gradient(135deg, #111111 0%, #1A1A1A 100%);
+    background: linear-gradient(135deg, var(--doit-dark-secondary) 0%, var(--doit-dark-tertiary) 100%);
     border: 2px solid rgba(0, 215, 117, 0.3);
     border-radius: 12px;
     padding: 1.5rem;
@@ -143,14 +143,14 @@
 }
 
 .bot-preview-header h3 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 1.3rem;
     margin: 0;
 }
 
 .bot-status-live {
     background: #00D775;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -181,7 +181,7 @@
 
 .stat-label {
     font-size: 0.9rem;
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
 }
 
 .bot-activity {
@@ -207,7 +207,7 @@
 
 /* === EDUCATION SECTION === */
 .forex-bots-education-section {
-    background: #111111;
+    background: var(--doit-dark-secondary);
     padding: 3rem 0;
 }
 
@@ -219,13 +219,13 @@
 
 .education-content h2 {
     font-size: 2.5rem;
-    color: #E5E5E5;
+    color: var(--doit-text);
     margin-bottom: 1rem;
 }
 
 .education-description {
     font-size: 1.2rem;
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     line-height: 1.6;
     margin-bottom: 2rem;
 }
@@ -249,13 +249,13 @@
 }
 
 .benefit-text {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-weight: 500;
 }
 
 /* === FEATURED SECTION === */
 .forex-bots-featured-section {
-    background: #0A0A0A;
+    background: var(--doit-dark);
     padding: 4rem 0;
 }
 
@@ -277,7 +277,7 @@
     left: 50%;
     transform: translateX(-50%);
     background: #FFD700;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
     font-weight: bold;
@@ -285,7 +285,7 @@
 }
 
 .featured-content h2 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
 }
@@ -327,7 +327,7 @@
 }
 
 .stat-desc {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.9rem;
 }
 
@@ -342,7 +342,7 @@
     background: rgba(255, 255, 255, 0.05);
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 0.9rem;
 }
 
@@ -354,7 +354,7 @@
 
 .featured-cta-primary {
     background: #00D775;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 1rem 2rem;
     border-radius: 8px;
     text-decoration: none;
@@ -365,7 +365,7 @@
 .featured-cta-secondary,
 .featured-cta-tertiary {
     background: transparent;
-    color: #E5E5E5;
+    color: var(--doit-text);
     padding: 1rem 2rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
@@ -376,7 +376,7 @@
 .featured-cta-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 215, 117, 0.4);
-    color: #0A0A0A;
+    color: var(--doit-dark);
 }
 
 .featured-visual {
@@ -395,7 +395,7 @@
     top: -10px;
     right: -10px;
     background: #00D775;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -404,7 +404,7 @@
 
 /* === COMPARISON SECTION === */
 .forex-bots-comparison-section {
-    background: #111111;
+    background: var(--doit-dark-secondary);
     padding: 4rem 0;
 }
 
@@ -414,18 +414,18 @@
 }
 
 .comparison-header h2 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .comparison-header p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.1rem;
 }
 
 .comparison-table {
-    background: #0A0A0A;
+    background: var(--doit-dark);
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -434,12 +434,12 @@
 .comparison-headers {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    background: #1A1A1A;
+    background: var(--doit-dark-tertiary);
 }
 
 .header-item {
     padding: 1.5rem 1rem;
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-weight: bold;
     text-align: center;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -458,15 +458,15 @@
 
 .row-label {
     padding: 1rem;
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-weight: 500;
-    background: #111111;
+    background: var(--doit-dark-secondary);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .row-value {
     padding: 1rem;
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     text-align: center;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -554,7 +554,7 @@
 .comparison-actions {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    background: #1A1A1A;
+    background: var(--doit-dark-tertiary);
 }
 
 .action-cell {
@@ -572,12 +572,12 @@
 
 .comparison-btn.primary {
     background: #00D775;
-    color: #0A0A0A;
+    color: var(--doit-dark);
 }
 
 .comparison-btn.secondary {
     background: transparent;
-    color: #E5E5E5;
+    color: var(--doit-text);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -611,7 +611,7 @@
 
 /* === 5. HOW IT WORKS SECTION === */
 .forex-bots-how-it-works-section {
-    background: #0A0A0A;
+    background: var(--doit-dark);
     padding: 4rem 0;
 }
 
@@ -622,13 +622,13 @@
 
 .how-it-works-header h2 {
     font-size: 2.5rem;
-    color: #E5E5E5;
+    color: var(--doit-text);
     margin-bottom: 1rem;
 }
 
 .how-it-works-header p {
     font-size: 1.2rem;
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
 }
 
 .how-it-works-steps {
@@ -643,7 +643,7 @@
     gap: 2rem;
     align-items: center;
     padding: 2rem;
-    background: #111111;
+    background: var(--doit-dark-secondary);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -660,7 +660,7 @@
 }
 
 .step-content p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     line-height: 1.6;
     margin-bottom: 1rem;
 }
@@ -725,7 +725,7 @@
 
 .signal-indicator {
     background: #00D775;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-weight: bold;
@@ -747,7 +747,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     font-weight: bold;
     font-size: 0.8rem;
     transition: width 2s ease;
@@ -769,14 +769,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     font-weight: bold;
     font-size: 0.9rem;
 }
 
 .gauge-label {
     font-size: 0.8rem;
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
 }
 
 .protection-shield {
@@ -786,7 +786,7 @@
 
 .execution-speed {
     background: #FFD700;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-weight: bold;
@@ -821,14 +821,14 @@
 }
 
 .summary-box p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.1rem;
     line-height: 1.6;
 }
 
 /* === 6. SETUP PROCESS SECTION === */
 .forex-bots-setup-section {
-    background: #111111;
+    background: var(--doit-dark-secondary);
     padding: 4rem 0;
 }
 
@@ -838,13 +838,13 @@
 }
 
 .setup-header h2 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .setup-header p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.2rem;
 }
 
@@ -856,7 +856,7 @@
 }
 
 .setup-step {
-    background: #0A0A0A;
+    background: var(--doit-dark);
     border-radius: 16px;
     padding: 2rem;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -883,7 +883,7 @@
 }
 
 .setup-step-content p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -896,7 +896,7 @@
 }
 
 .detail-item {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 0.9rem;
     padding: 0.3rem 0;
 }
@@ -966,7 +966,7 @@
     height: 16px;
     background: #00D775;
     border-radius: 50%;
-    border: 2px solid #0A0A0A;
+    border: 2px solid var(--doit-dark);
 }
 
 .risk-labels {
@@ -1039,7 +1039,7 @@
 }
 
 .status-text {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 0.9rem;
 }
 
@@ -1074,14 +1074,14 @@
 }
 
 .guarantee-item p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     margin: 0;
     font-size: 0.9rem;
 }
 
 /* === 7. LIVE PROOF SECTION === */
 .forex-bots-live-proof-section {
-    background: #0A0A0A;
+    background: var(--doit-dark);
     padding: 4rem 0;
 }
 
@@ -1094,13 +1094,13 @@
 }
 
 .live-proof-header h2 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .live-proof-header p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.2rem;
     line-height: 1.6;
 }
@@ -1117,7 +1117,7 @@
 }
 
 .live-account-card {
-    background: linear-gradient(135deg, #111111 0%, #1A1A1A 100%);
+    background: linear-gradient(135deg, var(--doit-dark-secondary) 0%, var(--doit-dark-tertiary) 100%);
     border: 2px solid rgba(0, 215, 117, 0.3);
     border-radius: 16px;
     padding: 2rem;
@@ -1138,7 +1138,7 @@
 }
 
 .account-header h3 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 1.3rem;
     margin: 0;
 }
@@ -1189,7 +1189,7 @@
 }
 
 .stat-label-large {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -1214,13 +1214,13 @@
     display: block;
     font-size: 1.3rem;
     font-weight: bold;
-    color: #E5E5E5;
+    color: var(--doit-text);
     margin-bottom: 0.3rem;
     font-family: 'Courier New', monospace;
 }
 
 .stat-label-small {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1263,7 +1263,7 @@
 }
 
 .transparency-box p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
@@ -1287,7 +1287,7 @@
 
 /* === 8. VS COMPETITION SECTION === */
 .forex-bots-vs-competition-section {
-    background: #111111;
+    background: var(--doit-dark-secondary);
     padding: 4rem 0;
 }
 
@@ -1297,13 +1297,13 @@
 }
 
 .vs-header h2 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .vs-header p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.2rem;
 }
 
@@ -1351,7 +1351,7 @@
 }
 
 .vs-subtitle {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.9rem;
 }
 
@@ -1399,7 +1399,7 @@
 }
 
 .vs-content p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.4;
@@ -1425,19 +1425,19 @@
 }
 
 .bottom-line-box p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
 }
 
 .bottom-line-box strong {
-    color: #E5E5E5;
+    color: var(--doit-text);
 }
 
 .bottom-line-cta {
     background: #00D775;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 1rem 2rem;
     border-radius: 8px;
     text-decoration: none;
@@ -1449,7 +1449,7 @@
 .bottom-line-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0, 215, 117, 0.4);
-    color: #0A0A0A;
+    color: var(--doit-dark);
 }
 
 /* === ANIMATIONS === */
@@ -1537,7 +1537,7 @@
 
 /* === 9. SOCIAL PROOF SECTION === */
 .forex-bots-social-proof-section {
-    background: #0A0A0A;
+    background: var(--doit-dark);
     padding: 4rem 0;
 }
 
@@ -1547,13 +1547,13 @@
 }
 
 .social-proof-header h2 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .social-proof-header p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }
@@ -1579,7 +1579,7 @@
 }
 
 .social-stat-label {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1608,7 +1608,7 @@
     left: 50%;
     transform: translateX(-50%);
     background: #FFD700;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
     font-weight: bold;
@@ -1616,7 +1616,7 @@
 }
 
 .testimonial-quote {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 1.3rem;
     line-height: 1.6;
     font-style: italic;
@@ -1643,7 +1643,7 @@
 }
 
 .author-location {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.9rem;
 }
 
@@ -1675,7 +1675,7 @@
 }
 
 .testimonial-card-social {
-    background: #111111;
+    background: var(--doit-dark-secondary);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
@@ -1708,7 +1708,7 @@
 }
 
 .country-flag {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.85rem;
 }
 
@@ -1717,7 +1717,7 @@
 }
 
 .testimonial-text-social {
-    color: #E5E5E5;
+    color: var(--doit-text);
     line-height: 1.5;
     margin-bottom: 1rem;
     font-style: italic;
@@ -1733,7 +1733,7 @@
 }
 
 .testimonial-product {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
 }
 
 .testimonial-timeframe {
@@ -1778,7 +1778,7 @@
 }
 
 .trust-content p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.4;
@@ -1786,7 +1786,7 @@
 
 /* === 10. FAQ SECTION === */
 .forex-bots-faq-section {
-    background: #111111;
+    background: var(--doit-dark-secondary);
     padding: 4rem 0;
 }
 
@@ -1796,13 +1796,13 @@
 }
 
 .faq-header h2 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .faq-header p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.2rem;
 }
 
@@ -1814,7 +1814,7 @@
 }
 
 .faq-item-bot {
-    background: #0A0A0A;
+    background: var(--doit-dark);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 2rem;
@@ -1849,7 +1849,7 @@
 }
 
 .faq-answer-bot p {
-    color: #E5E5E5;
+    color: var(--doit-text);
     line-height: 1.6;
     margin: 0;
     font-size: 0.95rem;
@@ -1875,7 +1875,7 @@
 }
 
 .support-box p {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.1rem;
     margin-bottom: 2rem;
 }
@@ -1913,13 +1913,13 @@
 }
 
 .support-details span {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.9rem;
 }
 
 /* === 11. FINAL CTA SECTION === */
 .forex-bots-final-cta-section {
-    background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
+    background: linear-gradient(135deg, var(--doit-dark) 0%, var(--doit-dark-secondary) 100%);
     padding: 4rem 0;
     border-top: 3px solid #00D775;
 }
@@ -1950,14 +1950,14 @@
 }
 
 .cta-urgency-header h2 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 800;
 }
 
 .cta-subtitle {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 1.3rem;
     margin: 0;
 }
@@ -2008,7 +2008,7 @@
 }
 
 .countdown-unit {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.9rem;
     font-weight: 500;
 }
@@ -2028,7 +2028,7 @@
 }
 
 .price-label {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -2058,7 +2058,7 @@
 
 .savings-highlight {
     background: #FFD700;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: bold;
@@ -2071,7 +2071,7 @@
 }
 
 .cta-bot-selection h3 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 2rem;
     margin-bottom: 2rem;
 }
@@ -2085,7 +2085,7 @@
 }
 
 .cta-bot-card {
-    background: #111111;
+    background: var(--doit-dark-secondary);
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     padding: 2rem;
@@ -2109,7 +2109,7 @@
     left: 50%;
     transform: translateX(-50%);
     background: #FFD700;
-    color: #0A0A0A;
+    color: var(--doit-dark);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: bold;
@@ -2117,7 +2117,7 @@
 }
 
 .cta-bot-card h4 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 1.4rem;
     text-align: center;
     margin-bottom: 1rem;
@@ -2172,12 +2172,12 @@
 
 .cta-bot-button.primary {
     background: #00D775;
-    color: #0A0A0A;
+    color: var(--doit-dark);
 }
 
 .cta-bot-button.secondary {
     background: transparent;
-    color: #E5E5E5;
+    color: var(--doit-text);
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -2187,7 +2187,7 @@
 }
 
 .cta-bot-button.primary:hover {
-    color: #0A0A0A;
+    color: var(--doit-dark);
 }
 
 .cta-bot-button.secondary:hover {
@@ -2197,7 +2197,7 @@
 
 .cta-bot-features {
     text-align: center;
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.8rem;
     line-height: 1.4;
 }
@@ -2208,7 +2208,7 @@
 }
 
 .benefits-guarantee h3 {
-    color: #E5E5E5;
+    color: var(--doit-text);
     font-size: 1.8rem;
     margin-bottom: 2rem;
 }
@@ -2243,7 +2243,7 @@
 }
 
 .guarantee-final span {
-    color: #A0A0A0;
+    color: var(--doit-text-muted);
     font-size: 0.9rem;
     line-height: 1.3;
 }
