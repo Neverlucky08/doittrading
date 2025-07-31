@@ -62,10 +62,6 @@ function doittrading_get_last_trade() {
     return $trade_data;
 }
 
-function doittrading_get_start_year() {
-    return 2021;
-}
-
 /**
  * Format price with currency
  */

@@ -203,6 +203,16 @@ class DoItTrading_Indicators_Product_Fields {
                     <span class="description">Include in product comparison tables</span>
                 </td>
             </tr>
+            
+            <tr>
+                <th><label for="is_trending">Trending Tool</label></th>
+                <td>
+                    <input type="checkbox" id="is_trending" name="is_trending" value="1" 
+                           <?php checked($fields['is_trending'], 1); ?>>
+                    <span class="description">Mark as trending tool</span>
+                </td>
+            </tr>
+            
         </table>
         <?php
     }
@@ -227,7 +237,8 @@ class DoItTrading_Indicators_Product_Fields {
 
         $fields = array(
             'featured_in_indicators_page' => 'checkbox',
-            'show_in_comparisons' => 'checkbox'
+            'show_in_comparisons' => 'checkbox',
+            'is_trending' => 'checkbox'
         );
 
         // Benefits fields (4 benefits)
@@ -272,6 +283,7 @@ class DoItTrading_Indicators_Product_Fields {
         $fields = array(
             'featured_in_indicators_page' => get_post_meta($post_id, 'featured_in_indicators_page', true),
             'show_in_comparisons' => get_post_meta($post_id, 'show_in_comparisons', true) ?: 1,
+            'is_trending' => get_post_meta($post_id, 'is_trending', true),
         );
 
         // Benefits fields (4 benefits)

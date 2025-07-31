@@ -87,6 +87,19 @@ class DoItTrading_Common_Product_Fields {
             </tr>
         </table>
         
+        <h3>Analytics & Metrics</h3>
+        <table class="form-table">
+            <tr>
+                <th><label for="downloads_count">Downloads Count</label></th>
+                <td>
+                    <input type="number" id="downloads_count" name="downloads_count" 
+                           value="<?php echo esc_attr($fields['downloads_count']); ?>" 
+                           class="regular-text" min="0" step="1">
+                    <span class="description">Total number of downloads/purchases</span>
+                </td>
+            </tr>
+        </table>
+        
         <h3>Purchase Links</h3>
         <table class="form-table">
             <tr>
@@ -194,7 +207,8 @@ class DoItTrading_Common_Product_Fields {
             'trading_style' => 'text',
             'mql5_purchase_link_mt4' => 'url',
             'mql5_purchase_link_mt5' => 'url',
-            'best_for' => 'text'
+            'best_for' => 'text',
+            'downloads_count' => 'number'
         );
         
         // Key Features (4 features)
@@ -236,6 +250,7 @@ class DoItTrading_Common_Product_Fields {
             'mql5_purchase_link_mt4' => get_post_meta($post_id, 'mql5_purchase_link_mt4', true),
             'mql5_purchase_link_mt5' => get_post_meta($post_id, 'mql5_purchase_link_mt5', true),
             'best_for' => get_post_meta($post_id, 'best_for', true),
+            'downloads_count' => get_post_meta($post_id, 'downloads_count', true) ?: 0,
             'faq_question_1' => get_post_meta($post_id, 'faq_question_1', true),
             'faq_answer_1' => get_post_meta($post_id, 'faq_answer_1', true),
             'faq_question_2' => get_post_meta($post_id, 'faq_question_2', true),

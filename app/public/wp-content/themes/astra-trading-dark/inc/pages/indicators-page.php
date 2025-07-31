@@ -32,9 +32,11 @@ function doittrading_indicators_page() {
 function doittrading_indicators_hero_section() {
     // Get dynamic data
     $stats = doittrading_get_indicator_stats();
-    $active_traders = $stats['active_users']; // Dynamic traders using indicators
-    $total_downloads = $stats['total_downloads']; // Dynamic total indicator downloads
-    $years_active = date('Y') - 2022;
+    $aggregate_stats = doittrading_get_aggregate_stats('indicators'); // Get stats from indicator products
+    
+    $active_traders = $aggregate_stats['total_active_traders']; // From indicator products
+    $total_downloads = $aggregate_stats['total_downloads']; // Aggregate downloads from ALL indicators
+    $years_active = date('Y') - doittrading_get_start_year(); // Dynamic start year
     ?>
     <div class="doittrading-homepage-hero indicators-hero">
         
@@ -121,8 +123,8 @@ function doittrading_indicators_hero_section() {
                 $benefit_1_title = '';
                 
                 if (isset($hero_tool['id']) && $hero_tool['id'] > 0) {
-                    // Get active users
-                    $active_users_count = doittrading_get_field('total_active_users', $hero_tool['id'], 0);
+                    // Get downloads count (not active users - this is for indicators)
+                    $active_users_count = doittrading_get_field('downloads_count', $hero_tool['id'], 0);
                     $active_users = $active_users_count > 0 ? number_format($active_users_count) . '+' : $hero_tool['downloads'];
                     
                     // Get rating

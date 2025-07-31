@@ -183,12 +183,15 @@ function doittrading_get_reviewer_country($name) {
 }
 
 /**
- * Get aggregate stats from all products
+ * Get aggregate stats from products by category
+ * 
+ * @param string $product_type 'all', 'eas', 'indicators' - defaults to 'eas' for backward compatibility
  */
-function doittrading_get_aggregate_stats() {
+function doittrading_get_aggregate_stats($product_type = 'eas') {
     $stats = array(
         'total_active_traders' => 0,
         'total_volume_traded' => 0,
+        'total_downloads' => 0,
         'total_reviews' => 0,
         'average_rating' => 0,
         'total_trades' => 0,
@@ -199,15 +202,29 @@ function doittrading_get_aggregate_stats() {
     
     $args = array(
         'post_type' => 'product',
-        'posts_per_page' => -1,
-        'tax_query' => array(
+        'posts_per_page' => -1
+    );
+    
+    // Add category filter based on product type
+    if ($product_type === 'eas') {
+        $args['tax_query'] = array(
             array(
                 'taxonomy' => 'product_cat',
                 'field' => 'slug',
                 'terms' => 'expert-advisors'
             )
-        )
-    );
+        );
+    } elseif ($product_type === 'indicators') {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'slug',
+                'terms' => array('indicators', 'trading-indicators'),
+                'operator' => 'IN'
+            )
+        );
+    }
+    // For 'all', no tax_query filter is added
     
     $query = new WP_Query($args);
     $product_count = 0;
@@ -220,31 +237,35 @@ function doittrading_get_aggregate_stats() {
             $product_id = get_the_ID();
             
             // Active traders
-            $active_users = get_field('total_active_users', $product_id);
+            $active_users = doittrading_get_field('total_active_users', $product_id, 0);
             $stats['total_active_traders'] += $active_users ?: rand(50, 150);
             
             // Volume traded
-            $volume = get_field('total_volume_traded', $product_id);
+            $volume = doittrading_get_field('total_volume_traded', $product_id, 0);
             $stats['total_volume_traded'] += $volume ?: rand(500000, 1000000);
             
+            // Downloads
+            $downloads = doittrading_get_field('downloads_count', $product_id, 0);
+            $stats['total_downloads'] += $downloads ?: 0;
+            
             // Reviews
-            $reviews = get_field('mql5_total_reviews', $product_id) ?: 0;
+            $reviews = doittrading_get_field('mql5_total_reviews', $product_id, 0);
             $stats['total_reviews'] += $reviews;
             
             // Rating
-            $rating = get_field('mql5_average_rating', $product_id) ?: 0;
+            $rating = doittrading_get_field('mql5_average_rating', $product_id, 0);
             if ($rating > 0) {
                 $total_rating_sum += $rating * $reviews; // Weighted by number of reviews
             }
             
             // Best monthly gain
-            $monthly_gain = get_field('monthly_gain', $product_id) ?: 0;
+            $monthly_gain = doittrading_get_field('monthly_gain', $product_id, 0);
             if ($monthly_gain > $stats['best_monthly_gain']) {
                 $stats['best_monthly_gain'] = $monthly_gain;
             }
             
             // Average win rate
-            $win_rate = get_field('win_rate', $product_id) ?: 0;
+            $win_rate = doittrading_get_field('win_rate', $product_id, 0);
             $total_win_rate += $win_rate;
             $product_count++;
         }
@@ -993,7 +1014,7 @@ function doittrading_get_indicator_stats() {
         $stats['total_downloads'] = 1247; // Original fallback
         $stats['trending_tool'] = array(
             'name' => 'ICT Order Blocks',
-            'downloads' => 309
+            'downloads' => 189
         );
         $stats['active_users'] = 500;
     }
@@ -1055,6 +1076,14 @@ function doittrading_get_featured_indicator() {
     return $fallback;
 }
 
+
+/**
+ * Get company start year
+ */
+function doittrading_get_start_year() {
+    // Return the year DoItTrading started
+    return 2021;
+}
 
 /**
  * Get testimonials for indicators from product reviews - Enhanced version using actual review fields
