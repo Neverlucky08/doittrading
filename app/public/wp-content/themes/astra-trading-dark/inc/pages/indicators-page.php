@@ -31,8 +31,9 @@ function doittrading_indicators_page() {
  */
 function doittrading_indicators_hero_section() {
     // Get dynamic data
-    $active_traders = 500; // Manual traders using indicators
-    $total_downloads = 1247; // Total indicator downloads
+    $stats = doittrading_get_indicator_stats();
+    $active_traders = $stats['active_users']; // Dynamic traders using indicators
+    $total_downloads = $stats['total_downloads']; // Dynamic total indicator downloads
     $years_active = date('Y') - 2022;
     ?>
     <div class="doittrading-homepage-hero indicators-hero">
@@ -70,7 +71,10 @@ function doittrading_indicators_hero_section() {
                     <div class="live-dot-hero"></div>
                     <span class="live-text">TRENDING:</span>
                     <span class="live-details">
-                        ICT Order Blocks - 309 downloads this month
+                        <?php 
+                        $trending = $stats['trending_tool'];
+                        echo esc_html($trending['name']) . ' - ' . esc_html($trending['downloads']) . ' downloads this month';
+                        ?>
                     </span>
                 </div>
                 <div class="active-traders-count">
@@ -108,18 +112,19 @@ function doittrading_indicators_hero_section() {
             
             <!-- Featured Tool Stats Card -->
             <div class="hero-stats-card">
+                <?php $hero_tool = doittrading_get_featured_indicator(); ?>
                 <div class="stats-card-header">
-                    <h3>Backtesting Simulator</h3>
+                    <h3><?php echo esc_html($hero_tool['name']); ?></h3>
                     <span class="live-badge-small">🔥 TRENDING</span>
                 </div>
                 
                 <div class="stats-showcase-grid">
                     <div class="stat-showcase">
-                        <div class="stat-number">309</div>
+                        <div class="stat-number"><?php echo esc_html($hero_tool['downloads']); ?></div>
                         <div class="stat-label">Downloads</div>
                     </div>
                     <div class="stat-showcase">
-                        <div class="stat-number">4.8★</div>
+                        <div class="stat-number"><?php echo esc_html($hero_tool['rating']); ?>★</div>
                         <div class="stat-label">Rating</div>
                     </div>
                     <div class="stat-showcase">
@@ -129,8 +134,8 @@ function doittrading_indicators_hero_section() {
                 </div>
                 
                 <div class="stats-card-footer">
-                    <a href="/product/backtesting-simulator/" class="stats-card-cta">
-                        Get Simulator →
+                    <a href="<?php echo esc_url($hero_tool['url']); ?>" class="stats-card-cta">
+                        Get <?php echo esc_html(str_replace(array('Backtesting ', 'Simulator'), array('', 'Tool'), $hero_tool['name'])); ?> →
                     </a>
                 </div>
             </div>
@@ -161,9 +166,11 @@ function doittrading_indicators_hero_section() {
 }
 
 /**
- * Featured Tool Section - Backtesting Simulator
+ * Featured Tool Section - Dynamic Featured Tool
  */
 function doittrading_featured_tool_section() {
+    // Get featured tool data
+    $featured_tool = doittrading_get_featured_indicator();
     ?>
     <div class="doittrading-featured-tool-section">
         <div class="featured-tool-container">
@@ -171,10 +178,10 @@ function doittrading_featured_tool_section() {
             <!-- Section Header -->
             <div class="featured-tool-header">
                 <div class="tool-badge bestseller">⭐ #1 DOWNLOADED</div>
-                <h2>Backtesting Simulator</h2>
-                <p class="tool-stats">309 downloads | Test 6 months in 1 hour</p>
+                <h2><?php echo esc_html($featured_tool['name']); ?></h2>
+                <p class="tool-stats"><?php echo esc_html($featured_tool['downloads']); ?> downloads | <?php echo esc_html($featured_tool['feature']); ?></p>
                 <p class="tool-description">
-                    "Validate your strategy before risking real money"
+                    "<?php echo esc_html($featured_tool['description'] ?: 'Professional trading tool for better market analysis'); ?>"
                 </p>
             </div>
             
@@ -238,8 +245,8 @@ function doittrading_featured_tool_section() {
                         </div>
                         
                         <div class="tool-cta-section">
-                            <a href="/product/backtesting-simulator/" class="tool-cta-primary">
-                                Get Simulator ($149)
+                            <a href="<?php echo esc_url($featured_tool['url']); ?>" class="tool-cta-primary">
+                                Get <?php echo esc_html($featured_tool['name']); ?> (<?php echo esc_html($featured_tool['price_html']); ?>)
                             </a>
                             <a href="#demo" class="tool-cta-secondary">
                                 Watch Demo
@@ -259,32 +266,59 @@ function doittrading_featured_tool_section() {
  * ICT Tools Section
  */
 function doittrading_ict_tools_section() {
-    $ict_tools = array(
-        array(
-            'name' => 'Order Blocks ICT Multi TF',
-            'description' => 'Identify institutional order blocks across multiple timeframes',
-            'downloads' => '127',
-            'rating' => '4.6',
-            'price' => '$89',
-            'url' => '#'
-        ),
-        array(
-            'name' => 'ICT Breakers Multi TF', 
-            'description' => 'Spot market structure breaks with ICT methodology',
-            'downloads' => '94',
-            'rating' => '4.8',
-            'price' => '$79',
-            'url' => '#'
-        ),
-        array(
-            'name' => 'SMT Divergences',
-            'description' => 'Smart Money Tool divergences for better entries',
-            'downloads' => '156',
-            'rating' => '4.7', 
-            'price' => '$69',
-            'url' => '#'
-        )
-    );
+    // Get ICT tools dynamically
+    $ict_query = doittrading_get_indicator_products('ict', 3, 'downloads');
+    $ict_tools = array();
+    
+    if ($ict_query->have_posts()) {
+        while ($ict_query->have_posts()) {
+            $ict_query->the_post();
+            $product_id = get_the_ID();
+            $tool_data = doittrading_format_indicator_data($product_id);
+            
+            if ($tool_data) {
+                $ict_tools[] = array(
+                    'name' => $tool_data['name'],
+                    'description' => $tool_data['description'],
+                    'downloads' => $tool_data['downloads'],
+                    'rating' => $tool_data['rating'],
+                    'price' => $tool_data['price_html'],
+                    'url' => $tool_data['url']
+                );
+            }
+        }
+        wp_reset_postdata();
+    }
+    
+    // Fallback data if no ICT tools found
+    if (empty($ict_tools)) {
+        $ict_tools = array(
+            array(
+                'name' => 'Order Blocks ICT Multi TF',
+                'description' => 'Identify institutional order blocks across multiple timeframes',
+                'downloads' => '127',
+                'rating' => '4.6',
+                'price' => '$89',
+                'url' => '#'
+            ),
+            array(
+                'name' => 'ICT Breakers Multi TF', 
+                'description' => 'Spot market structure breaks with ICT methodology',
+                'downloads' => '94',
+                'rating' => '4.8',
+                'price' => '$79',
+                'url' => '#'
+            ),
+            array(
+                'name' => 'SMT Divergences',
+                'description' => 'Smart Money Tool divergences for better entries',
+                'downloads' => '156',
+                'rating' => '4.7', 
+                'price' => '$69',
+                'url' => '#'
+            )
+        );
+    }
     ?>
     <div class="doittrading-ict-section">
         <div class="ict-container">
@@ -336,58 +370,87 @@ function doittrading_ict_tools_section() {
  * 4. Tools Grid Section - Catalog completo
  */
 function doittrading_tools_grid_section() {
-    $all_tools = array(
-        array(
-            'id' => 'backtesting-simulator',
-            'name' => 'Backtesting Simulator',
-            'rating' => '4.8',
-            'downloads' => '309',
-            'feature' => 'Test 6 months in 1 hour',
-            'price' => '$149',
-            'url' => '/product/backtesting-simulator/',
-            'premium' => true
-        ),
-        array(
-            'id' => 'smt-divergences',
-            'name' => 'SMT Divergences',
-            'rating' => '4.6',
-            'downloads' => '156',
-            'feature' => 'Institutional divergence detection',
-            'price' => '$89',
-            'url' => '#',
-            'premium' => false
-        ),
-        array(
-            'id' => 'fear-greed-index',
-            'name' => 'Fear & Greed Index',
-            'rating' => '4.7',
-            'downloads' => '234',
-            'feature' => 'Market sentiment analysis',
-            'price' => '$79',
-            'url' => '#',
-            'premium' => false
-        ),
-        array(
-            'id' => 'order-blocks-ict',
-            'name' => 'Order Blocks ICT Multi TF',
-            'rating' => '4.9',
-            'downloads' => '187',
-            'feature' => 'Multi-timeframe order blocks',
-            'price' => '$99',
-            'url' => '#',
-            'premium' => false
-        ),
-        array(
-            'id' => 'ict-breakers',
-            'name' => 'ICT Breakers Multi TF',
-            'rating' => '4.5',
-            'downloads' => '143',
-            'feature' => 'Market structure breaks',
-            'price' => '$79',
-            'url' => '#',
-            'premium' => false
-        )
-    );
+    // Get all indicator tools dynamically
+    $tools_query = doittrading_get_indicator_products('all', 6, 'downloads');
+    $all_tools = array();
+    
+    if ($tools_query->have_posts()) {
+        while ($tools_query->have_posts()) {
+            $tools_query->the_post();
+            $product_id = get_the_ID();
+            $tool_data = doittrading_format_indicator_data($product_id);
+            
+            if ($tool_data) {
+                $all_tools[] = array(
+                    'id' => 'tool-' . $product_id,
+                    'name' => $tool_data['name'],
+                    'rating' => $tool_data['rating'],
+                    'downloads' => $tool_data['downloads'],
+                    'feature' => $tool_data['feature'],
+                    'price' => $tool_data['price_html'],
+                    'url' => $tool_data['url'],
+                    'premium' => $tool_data['is_premium']
+                );
+            }
+        }
+        wp_reset_postdata();
+    }
+    
+    // Fallback data if no tools found
+    if (empty($all_tools)) {
+        $all_tools = array(
+            array(
+                'id' => 'backtesting-simulator',
+                'name' => 'Backtesting Simulator',
+                'rating' => '4.8',
+                'downloads' => '309',
+                'feature' => 'Test 6 months in 1 hour',
+                'price' => '$149',
+                'url' => '/product/backtesting-simulator/',
+                'premium' => true
+            ),
+            array(
+                'id' => 'smt-divergences',
+                'name' => 'SMT Divergences',
+                'rating' => '4.6',
+                'downloads' => '156',
+                'feature' => 'Institutional divergence detection',
+                'price' => '$89',
+                'url' => '#',
+                'premium' => false
+            ),
+            array(
+                'id' => 'fear-greed-index',
+                'name' => 'Fear & Greed Index',
+                'rating' => '4.7',
+                'downloads' => '234',
+                'feature' => 'Market sentiment analysis',
+                'price' => '$79',
+                'url' => '#',
+                'premium' => false
+            ),
+            array(
+                'id' => 'order-blocks-ict',
+                'name' => 'Order Blocks ICT Multi TF',
+                'rating' => '4.9',
+                'downloads' => '187',
+                'feature' => 'Multi-timeframe order blocks',
+                'price' => '$99',
+                'url' => '#',
+                'premium' => false
+            ),
+            array(
+                'id' => 'ict-breakers',
+                'name' => 'ICT Breakers Multi TF',
+                'rating' => '4.5',
+                'downloads' => '143',
+                'feature' => 'Market structure breaks',
+                'price' => '$79',
+                'url' => '#',
+                'premium' => false
+            )
+        );
+    }
     ?>
     <div class="doittrading-tools-grid-section" id="tools-grid">
         <div class="tools-grid-container">
@@ -564,7 +627,11 @@ function doittrading_before_after_section() {
  * 6. Trader Testimonials Section - Social proof
  */
 function doittrading_indicators_testimonials_section() {
-    $testimonials = array(
+    // Try to get testimonials from actual products first
+    $dynamic_testimonials = doittrading_get_indicator_testimonials();
+    
+    // Fallback testimonials if no dynamic ones found
+    $fallback_testimonials = array(
         array(
             'name' => 'Alex K.',
             'level' => 'Pro Trader',
@@ -620,6 +687,8 @@ function doittrading_indicators_testimonials_section() {
             'timeframe' => '8 months'
         )
     );
+    
+    $testimonials = !empty($dynamic_testimonials) ? $dynamic_testimonials : $fallback_testimonials;
     ?>
     <div class="doittrading-indicators-testimonials-section">
         <div class="testimonials-container">
@@ -670,13 +739,16 @@ function doittrading_indicators_testimonials_section() {
             
             <!-- Success Stats -->
             <div class="success-stats-section">
+                <?php 
+                $success_stats = doittrading_get_indicator_stats();
+                ?>
                 <div class="success-header">
-                    <h3>Join 500+ Successful Traders</h3>
+                    <h3>Join <?php echo number_format($success_stats['active_users']); ?>+ Successful Traders</h3>
                 </div>
                 
                 <div class="success-stats">
                     <div class="success-stat">
-                        <div class="success-number">500+</div>
+                        <div class="success-number"><?php echo number_format($success_stats['active_users']); ?>+</div>
                         <div class="success-label">Active Users</div>
                     </div>
                     <div class="success-stat">
@@ -684,7 +756,7 @@ function doittrading_indicators_testimonials_section() {
                         <div class="success-label">Avg Win Rate</div>
                     </div>
                     <div class="success-stat">
-                        <div class="success-number">1,247</div>
+                        <div class="success-number"><?php echo number_format($success_stats['total_downloads']); ?></div>
                         <div class="success-label">Total Downloads</div>
                     </div>
                     <div class="success-stat">

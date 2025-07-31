@@ -70,6 +70,9 @@ function doittrading_enqueue_styles() {
 // 1. Core functions y helpers (DEBE IR PRIMERO)
 require_once get_stylesheet_directory() . '/inc/core-functions.php';
 
+// 1.5. Custom Fields (native WordPress, replaces ACF)
+require_once get_stylesheet_directory() . '/inc/custom-fields/custom-fields-loader.php';
+
 // 2. WooCommerce modifications
 require_once get_stylesheet_directory() . '/inc/products/woocommerce-mods.php';
 
@@ -128,9 +131,9 @@ function doittrading_check_dependencies() {
         echo '<div class="notice notice-warning"><p>DoItTrading Theme works best with WooCommerce activated.</p></div>';
     }
     
-    // Verificar ACF
-    if (!class_exists('ACF')) {
-        echo '<div class="notice notice-warning"><p>DoItTrading Theme requires Advanced Custom Fields for full functionality.</p></div>';
+    // Verificar Custom Fields Migration
+    if (class_exists('ACF') && !get_option('doittrading_acf_migrated')) {
+        echo '<div class="notice notice-info"><p>DoItTrading Theme: ACF detected. Consider migrating to native custom fields for better performance. <a href="#" onclick="doittrading_migrate_acf()">Migrate Now</a></p></div>';
     }
 }
 
