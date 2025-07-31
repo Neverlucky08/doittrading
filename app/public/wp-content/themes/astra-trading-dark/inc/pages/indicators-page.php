@@ -362,7 +362,7 @@ function doittrading_ict_tools_section() {
                     'description' => $tool_data['description'],
                     'downloads' => $tool_data['downloads'],
                     'rating' => $tool_data['rating'],
-                    'price' => $tool_data['price_html'],
+                    'price' => $tool_data['price'],
                     'url' => $tool_data['url'],
                     'image' => $tool_data['image'] // Add image for potential future use
                 );
@@ -426,7 +426,7 @@ function doittrading_ict_tools_section() {
                     <p class="tool-description"><?php echo esc_html($tool['description']); ?></p>
                     
                     <div class="tool-footer">
-                        <span class="tool-price"><?php echo esc_html($tool['price']); ?></span>
+                        <span class="tool-price">$<?php echo esc_html($tool['price']); ?></span>
                         <a href="<?php echo esc_url($tool['url']); ?>" class="tool-btn">
                             View Tool →
                         </a>
@@ -468,7 +468,7 @@ function doittrading_tools_grid_section() {
                     'rating' => $tool_data['rating'],
                     'downloads' => $tool_data['downloads'],
                     'feature' => $tool_data['feature'],
-                    'price' => $tool_data['price_html'],
+                    'price' => $tool_data['price'],
                     'url' => $tool_data['url'],
                     'premium' => $tool_data['is_premium'],
                     'image' => $tool_data['image'] // Add product image
@@ -578,7 +578,7 @@ function doittrading_tools_grid_section() {
                         <p class="tool-feature"><?php echo esc_html($tool['feature']); ?></p>
                         
                         <div class="tool-card-footer">
-                            <span class="tool-card-price"><?php echo esc_html($tool['price']); ?></span>
+                            <span class="tool-card-price">$<?php echo esc_html($tool['price']); ?></span>
                             <a href="<?php echo esc_url($tool['url']); ?>" class="tool-card-cta">
                                 Get Now
                             </a>
