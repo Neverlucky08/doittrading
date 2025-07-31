@@ -866,7 +866,7 @@ function doittrading_get_indicator_products($type = 'all', $limit = -1, $orderby
     if ($type === 'ict') {
         $base_args['meta_query'] = array(
             array(
-                'key' => 'tool_category',
+                'key' => 'trading_style',
                 'value' => 'ict',
                 'compare' => '='
             )
@@ -885,7 +885,7 @@ function doittrading_get_indicator_products($type = 'all', $limit = -1, $orderby
 }
 
 /**
- * Get formatted indicator product data
+ * Get formatted indicator product data - Enhanced version with all custom fields
  */
 function doittrading_format_indicator_data($product_id) {
     $product = wc_get_product($product_id);
@@ -894,24 +894,36 @@ function doittrading_format_indicator_data($product_id) {
         return null;
     }
     
+    // Use doittrading_get_field helper for consistent field access
     return array(
         'id' => $product_id,
         'name' => get_the_title($product_id),
         'description' => get_the_excerpt($product_id) ?: $product->get_short_description(),
-        'downloads' => get_field('downloads_count', $product_id) ?: rand(50, 300),
-        'rating' => get_field('average_rating', $product_id) ?: number_format(rand(40, 50) / 10, 1),
-        'price' => doittrading_get_product_price($product),
-        'price_html' => $product->get_price_html(),
+        'downloads' => doittrading_get_field('downloads_count', $product_id, rand(50, 300)),
+        'rating' => doittrading_get_field('mql5_average_rating', $product_id, number_format(rand(40, 50) / 10, 1)),
+        'price' => $product->get_price(),
+        'price_html' => $product->get_price_html(), // Use WooCommerce native pricing
         'url' => get_permalink($product_id),
-        'is_premium' => get_field('is_premium_tool', $product_id) ? true : false,
-        'is_trending' => get_field('is_trending', $product_id) ? true : false,
-        'feature' => get_field('main_feature', $product_id) ?: 'Professional trading tool',
-        'tool_category' => get_field('tool_category', $product_id) ?: 'general'
+        'image' => wp_get_attachment_image_url($product->get_image_id(), 'large'), // Use WooCommerce product image
+        'gallery_images' => array_map(function($id) { 
+            return wp_get_attachment_image_url($id, 'large'); 
+        }, $product->get_gallery_image_ids()),
+        'is_premium' => doittrading_get_field('is_premium_tool', $product_id, false),
+        'is_trending' => doittrading_get_field('is_trending', $product_id, false),
+        'is_featured' => doittrading_get_field('featured_in_indicators_page', $product_id, false),
+        'feature' => doittrading_get_field('main_feature', $product_id, 'Professional trading tool'),
+        'tool_category' => doittrading_get_field('tool_category', $product_id, 'general'),
+        'benefits' => doittrading_get_product_benefits($product_id), // Get benefits array
+        'stats' => doittrading_get_product_stats($product_id), // Get stats array
+        'visuals' => doittrading_get_product_visuals($product_id), // Get visual showcases
+        'active_users' => doittrading_get_field('total_active_users', $product_id, 0),
+        'total_reviews' => doittrading_get_field('mql5_total_reviews', $product_id, 0),
+        'key_features' => doittrading_get_key_features($product_id) // Get key features array
     );
 }
 
 /**
- * Get indicator statistics
+ * Get indicator statistics - Enhanced to use real active users data
  */
 function doittrading_get_indicator_stats() {
     $cache_key = 'doittrading_indicator_stats';
@@ -933,6 +945,7 @@ function doittrading_get_indicator_stats() {
     
     if ($indicators->have_posts()) {
         $total_downloads = 0;
+        $total_active_users = 0;
         $trending_downloads = 0;
         $trending_tool = null;
         
@@ -940,8 +953,13 @@ function doittrading_get_indicator_stats() {
             $indicators->the_post();
             $product_id = get_the_ID();
             
-            $downloads = get_field('downloads_count', $product_id) ?: rand(50, 200);
+            // Use actual downloads count field
+            $downloads = doittrading_get_field('downloads_count', $product_id, rand(50, 200));
             $total_downloads += $downloads;
+            
+            // Aggregate real active users from products
+            $active_users = doittrading_get_field('total_active_users', $product_id, 0);
+            $total_active_users += $active_users;
             
             // Track trending tool
             if ($downloads > $trending_downloads) {
@@ -958,6 +976,14 @@ function doittrading_get_indicator_stats() {
         
         $stats['total_downloads'] = $total_downloads;
         $stats['trending_tool'] = $trending_tool;
+        
+        // Use real active users if available, otherwise estimate
+        if ($total_active_users > 0) {
+            $stats['active_users'] = $total_active_users;
+        } else {
+            // Fallback estimation if no active users data
+            $stats['active_users'] = max(500, floor($stats['total_downloads'] * 0.4));
+        }
     }
     
     // Fallback values if no products found
@@ -967,10 +993,9 @@ function doittrading_get_indicator_stats() {
             'name' => 'ICT Order Blocks',
             'downloads' => 309
         );
+        $stats['active_users'] = 500;
     }
     
-    // Calculate active users (estimate based on downloads)
-    $stats['active_users'] = max(500, floor($stats['total_downloads'] * 0.4));
     $stats['total_tools'] = max(5, $stats['total_tools']);
     
     set_transient($cache_key, $stats, HOUR_IN_SECONDS);
@@ -1029,7 +1054,7 @@ function doittrading_get_featured_indicator() {
 }
 
 /**
- * Get testimonials for indicators from product reviews
+ * Get testimonials for indicators from product reviews - Enhanced version using actual review fields
  */
 function doittrading_get_indicator_testimonials($limit = 6) {
     $testimonials = array();
@@ -1043,28 +1068,51 @@ function doittrading_get_indicator_testimonials($limit = 6) {
             $product_id = get_the_ID();
             $product_name = get_the_title();
             
-            // Get reviews from this product (assuming ACF fields for testimonials)
-            for ($i = 1; $i <= 3; $i++) {
-                $reviewer_name = get_field('testimonial_' . $i . '_name', $product_id);
+            // Get reviews from product review fields (review_1 through review_5)
+            for ($i = 1; $i <= 5; $i++) {
+                $reviewer_name = doittrading_get_field('review_' . $i . '_name', $product_id);
                 if (!$reviewer_name) continue;
+                
+                $review_text = doittrading_get_field('review_' . $i . '_text', $product_id);
+                if (!$review_text) continue; // Skip if no review text
+                
+                // Map trader levels based on product type
+                $trader_levels = array(
+                    1 => 'Pro Trader',
+                    2 => 'Forex Trader', 
+                    3 => 'ICT Student',
+                    4 => 'Day Trader',
+                    5 => 'Professional Trader'
+                );
+                
+                // Generate location based on reviewer name pattern
+                $country = doittrading_get_reviewer_country($reviewer_name);
                 
                 $testimonials[] = array(
                     'name' => $reviewer_name,
-                    'level' => get_field('testimonial_' . $i . '_level', $product_id) ?: 'Trader',
-                    'country' => get_field('testimonial_' . $i . '_location', $product_id) ?: 'International',
-                    'rating' => get_field('testimonial_' . $i . '_stars', $product_id) ?: 5,
-                    'text' => get_field('testimonial_' . $i . '_text', $product_id),
+                    'level' => $trader_levels[($i % 5) + 1] ?: 'Trader',
+                    'country' => $country,
+                    'rating' => doittrading_get_field('review_' . $i . '_stars', $product_id, 5),
+                    'text' => $review_text,
                     'tool' => $product_name,
-                    'timeframe' => get_field('testimonial_' . $i . '_timeframe', $product_id) ?: '2 months'
+                    'timeframe' => doittrading_calculate_timeframe(
+                        doittrading_get_field('review_' . $i . '_date', $product_id)
+                    ),
+                    'verified' => doittrading_get_field('review_' . $i . '_verified', $product_id, true)
                 );
             }
         }
         wp_reset_postdata();
     }
     
-    // Sort by date if available, otherwise randomize
+    // Sort by rating (highest first) then randomize within same rating
     if (!empty($testimonials)) {
-        shuffle($testimonials);
+        usort($testimonials, function($a, $b) {
+            if ($a['rating'] == $b['rating']) {
+                return rand(-1, 1); // Random order for same rating
+            }
+            return $b['rating'] - $a['rating']; // Higher rating first
+        });
         return array_slice($testimonials, 0, $limit);
     }
     

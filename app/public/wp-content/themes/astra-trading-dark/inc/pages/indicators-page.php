@@ -171,6 +171,56 @@ function doittrading_indicators_hero_section() {
 function doittrading_featured_tool_section() {
     // Get featured tool data
     $featured_tool = doittrading_get_featured_indicator();
+    
+    // Get benefits and stats from custom fields if product ID exists
+    $benefits = array();
+    $stats = array();
+    
+    if (isset($featured_tool['id']) && $featured_tool['id'] > 0) {
+        $benefits = doittrading_get_product_benefits($featured_tool['id']);
+        $stats = doittrading_get_product_stats($featured_tool['id']);
+    }
+    
+    // Fallback benefits if none from custom fields
+    if (empty($benefits)) {
+        $benefits = array(
+            array(
+                'icon' => 'lightning',
+                'title' => '6x Faster Testing',
+                'description' => 'Test months of data in minutes, not hours'
+            ),
+            array(
+                'icon' => 'chart-line',
+                'title' => 'Real Market Data',
+                'description' => 'Uses actual broker historical data'
+            ),
+            array(
+                'icon' => 'target',
+                'title' => 'Strategy Validation',
+                'description' => 'Prove your edge before going live'
+            ),
+            array(
+                'icon' => 'tools',
+                'title' => 'Easy Setup',
+                'description' => 'Works with any MT4/MT5 strategy'
+            )
+        );
+    }
+    
+    // Map icon names to emojis
+    $icon_map = array(
+        'lightning' => '⚡',
+        'chart-line' => '📊',
+        'target' => '🎯',
+        'bullseye' => '🎯',
+        'tools' => '🛠️',
+        'shield-check' => '🛡️',
+        'clock' => '⏱️',
+        'trophy' => '🏆',
+        'users' => '👥',
+        'dollar-sign' => '💰',
+        'trending-up' => '📈'
+    );
     ?>
     <div class="doittrading-featured-tool-section">
         <div class="featured-tool-container">
@@ -192,34 +242,17 @@ function doittrading_featured_tool_section() {
                 <div class="tool-benefits">
                     <h3>Why Traders Love It:</h3>
                     <div class="benefits-list">
+                        <?php foreach ($benefits as $benefit): ?>
                         <div class="benefit-item">
-                            <span class="benefit-icon">⚡</span>
+                            <span class="benefit-icon">
+                                <?php echo isset($icon_map[$benefit['icon']]) ? $icon_map[$benefit['icon']] : '✓'; ?>
+                            </span>
                             <div class="benefit-content">
-                                <strong>6x Faster Testing</strong>
-                                <p>Test months of data in minutes, not hours</p>
+                                <strong><?php echo esc_html($benefit['title']); ?></strong>
+                                <p><?php echo esc_html($benefit['description']); ?></p>
                             </div>
                         </div>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">📊</span>
-                            <div class="benefit-content">
-                                <strong>Real Market Data</strong>
-                                <p>Uses actual broker historical data</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">🎯</span>
-                            <div class="benefit-content">
-                                <strong>Strategy Validation</strong>
-                                <p>Prove your edge before going live</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">🛠️</span>
-                            <div class="benefit-content">
-                                <strong>Easy Setup</strong>
-                                <p>Works with any MT4/MT5 strategy</p>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 
@@ -230,18 +263,28 @@ function doittrading_featured_tool_section() {
                             <h4>Real Impact</h4>
                         </div>
                         <div class="impact-stats">
-                            <div class="impact-stat">
-                                <div class="impact-number">78%</div>
-                                <div class="impact-label">Average win rate<br>improvement</div>
-                            </div>
-                            <div class="impact-stat">
-                                <div class="impact-number">65%</div>
-                                <div class="impact-label">Less time spent<br>testing</div>
-                            </div>
-                            <div class="impact-stat">
-                                <div class="impact-number">$2,400</div>
-                                <div class="impact-label">Average losses<br>prevented</div>
-                            </div>
+                            <?php if (!empty($stats)): ?>
+                                <?php foreach ($stats as $stat): ?>
+                                <div class="impact-stat">
+                                    <div class="impact-number"><?php echo esc_html($stat['value']); ?></div>
+                                    <div class="impact-label"><?php echo esc_html($stat['label']); ?></div>
+                                </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <!-- Fallback stats -->
+                                <div class="impact-stat">
+                                    <div class="impact-number">78%</div>
+                                    <div class="impact-label">Average win rate<br>improvement</div>
+                                </div>
+                                <div class="impact-stat">
+                                    <div class="impact-number">65%</div>
+                                    <div class="impact-label">Less time spent<br>testing</div>
+                                </div>
+                                <div class="impact-stat">
+                                    <div class="impact-number">$2,400</div>
+                                    <div class="impact-label">Average losses<br>prevented</div>
+                                </div>
+                            <?php endif; ?>
                         </div>
                         
                         <div class="tool-cta-section">
@@ -283,7 +326,8 @@ function doittrading_ict_tools_section() {
                     'downloads' => $tool_data['downloads'],
                     'rating' => $tool_data['rating'],
                     'price' => $tool_data['price_html'],
-                    'url' => $tool_data['url']
+                    'url' => $tool_data['url'],
+                    'image' => $tool_data['image'] // Add image for potential future use
                 );
             }
         }
@@ -389,7 +433,8 @@ function doittrading_tools_grid_section() {
                     'feature' => $tool_data['feature'],
                     'price' => $tool_data['price_html'],
                     'url' => $tool_data['url'],
-                    'premium' => $tool_data['is_premium']
+                    'premium' => $tool_data['is_premium'],
+                    'image' => $tool_data['image'] // Add product image
                 );
             }
         }
@@ -468,9 +513,13 @@ function doittrading_tools_grid_section() {
                     
                     <!-- Tool Image/Icon Area -->
                     <div class="tool-image-area">
-                        <div class="tool-icon">
-                            📊
-                        </div>
+                        <?php if (!empty($tool['image'])): ?>
+                            <img src="<?php echo esc_url($tool['image']); ?>" alt="<?php echo esc_attr($tool['name']); ?>" class="tool-image">
+                        <?php else: ?>
+                            <div class="tool-icon">
+                                📊
+                            </div>
+                        <?php endif; ?>
                         <div class="tool-overlay">
                             <span class="downloads">⬇️ <?php echo esc_html($tool['downloads']); ?> downloads</span>
                         </div>
@@ -628,7 +677,7 @@ function doittrading_before_after_section() {
  */
 function doittrading_indicators_testimonials_section() {
     // Try to get testimonials from actual products first
-    $dynamic_testimonials = doittrading_get_indicator_testimonials();
+    $dynamic_testimonials = doittrading_get_indicator_testimonials(6);
     
     // Fallback testimonials if no dynamic ones found
     $fallback_testimonials = array(

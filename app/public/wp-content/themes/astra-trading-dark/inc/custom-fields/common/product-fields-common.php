@@ -75,7 +75,8 @@ class DoItTrading_Common_Product_Fields {
                             'trend' => 'Trend Following',
                             'grid' => 'Grid Trading',
                             'news' => 'News Trading',
-                            'swing' => 'Swing Trading'
+                            'swing' => 'Swing Trading',
+                            'ict' => 'ICT (Inner Circle Trader)'
                         );
                         foreach ($styles as $value => $label) {
                             echo '<option value="' . esc_attr($value) . '" ' . selected($fields['trading_style'], $value, false) . '>' . esc_html($label) . '</option>';
