@@ -175,7 +175,7 @@ function doittrading_featured_tool_section() {
     // Get benefits and stats from custom fields if product ID exists
     $benefits = array();
     $stats = array();
-    
+
     if (isset($featured_tool['id']) && $featured_tool['id'] > 0) {
         $benefits = doittrading_get_product_benefits($featured_tool['id']);
         $stats = doittrading_get_product_stats($featured_tool['id']);
@@ -289,7 +289,7 @@ function doittrading_featured_tool_section() {
                         
                         <div class="tool-cta-section">
                             <a href="<?php echo esc_url($featured_tool['url']); ?>" class="tool-cta-primary">
-                                Get <?php echo esc_html($featured_tool['name']); ?> (<?php echo esc_html($featured_tool['price_html']); ?>)
+                                Get <?php echo esc_html($featured_tool['name']); ?> ($<?php echo esc_html($featured_tool['price']); ?>)
                             </a>
                             <a href="#demo" class="tool-cta-secondary">
                                 Watch Demo

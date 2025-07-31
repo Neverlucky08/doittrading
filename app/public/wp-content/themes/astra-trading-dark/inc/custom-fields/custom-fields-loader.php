@@ -275,7 +275,7 @@ function doittrading_get_product_benefits($post_id = null) {
         global $post;
         $post_id = $post ? $post->ID : 0;
     }
-    
+
     if (class_exists('DoItTrading_Indicators_Product_Fields')) {
         return DoItTrading_Indicators_Product_Fields::get_benefits($post_id);
     }

@@ -811,24 +811,27 @@ function doittrading_get_indicator_products($type = 'all', $limit = -1, $orderby
     );
     
     // Try indicators category first, then tools, then fallback to all products
-    $taxonomy_terms = array('indicators', 'tools', 'trading-tools');
-    $tax_query = array();
-    
-    foreach ($taxonomy_terms as $term) {
-        if (term_exists($term, 'product_cat')) {
-            $tax_query = array(
-                array(
-                    'taxonomy' => 'product_cat',
-                    'field' => 'slug',
-                    'terms' => $term
-                )
-            );
-            break;
+    // BUT skip this for featured products - they can be in any category
+    if ($type !== 'featured') {
+        $taxonomy_terms = array('indicators', 'tools', 'trading-tools', 'trading-indicators');
+        $tax_query = array();
+        
+        foreach ($taxonomy_terms as $term) {
+            if (term_exists($term, 'product_cat')) {
+                $tax_query = array(
+                    array(
+                        'taxonomy' => 'product_cat',
+                        'field' => 'slug',
+                        'terms' => $term
+                    )
+                );
+                break;
+            }
         }
-    }
-    
-    if (!empty($tax_query)) {
-        $base_args['tax_query'] = $tax_query;
+        
+        if (!empty($tax_query)) {
+            $base_args['tax_query'] = $tax_query;
+        }
     }
     
     // Set ordering
@@ -848,22 +851,21 @@ function doittrading_get_indicator_products($type = 'all', $limit = -1, $orderby
             $base_args['orderby'] = 'meta_value_num';
             $base_args['order'] = 'ASC';
             break;
-        case 'featured':
-            $base_args['meta_query'] = array(
-                array(
-                    'key' => 'is_featured_indicator',
-                    'value' => '1',
-                    'compare' => '='
-                )
-            );
-            break;
         default:
             $base_args['orderby'] = 'date';
             $base_args['order'] = 'DESC';
     }
     
     // Filter by type
-    if ($type === 'ict') {
+    if ($type === 'featured') {
+        $base_args['meta_query'] = array(
+            array(
+                'key' => 'featured_in_indicators_page',
+                'value' => '1',
+                'compare' => '='
+            )
+        );
+    } elseif ($type === 'ict') {
         $base_args['meta_query'] = array(
             array(
                 'key' => 'trading_style',
@@ -901,8 +903,8 @@ function doittrading_format_indicator_data($product_id) {
         'description' => get_the_excerpt($product_id) ?: $product->get_short_description(),
         'downloads' => doittrading_get_field('downloads_count', $product_id, rand(50, 300)),
         'rating' => doittrading_get_field('mql5_average_rating', $product_id, number_format(rand(40, 50) / 10, 1)),
-        'price' => $product->get_price(),
-        'price_html' => $product->get_price_html(), // Use WooCommerce native pricing
+        'price' => $product->get_price(), // Current selling price
+        'price_html' => $product->get_price_html(), // Full HTML formatting for display
         'url' => get_permalink($product_id),
         'image' => wp_get_attachment_image_url($product->get_image_id(), 'large'), // Use WooCommerce product image
         'gallery_images' => array_map(function($id) { 
@@ -1008,13 +1010,13 @@ function doittrading_get_indicator_stats() {
 function doittrading_get_featured_indicator() {
     $cache_key = 'doittrading_featured_indicator';
     $cached = get_transient($cache_key);
-    
+
     if ($cached !== false) {
-        return $cached;
+      return $cached;
     }
-    
-    // Try to get featured indicator
-    $featured = doittrading_get_indicator_products('featured', 1);
+
+    // Try to get featured indicator - use 'date' ordering to avoid requiring downloads_count field
+    $featured = doittrading_get_indicator_products('featured', 1, 'date');
     
     if ($featured->have_posts()) {
         $featured->the_post();
@@ -1052,6 +1054,7 @@ function doittrading_get_featured_indicator() {
     set_transient($cache_key, $fallback, HOUR_IN_SECONDS);
     return $fallback;
 }
+
 
 /**
  * Get testimonials for indicators from product reviews - Enhanced version using actual review fields
