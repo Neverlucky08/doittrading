@@ -75,6 +75,21 @@ a:hover {
     display: none !important;
 }
 
+/* Ocultar site-content en página forex-trading-bots */
+.page-id-forex-trading-bots .site-content,
+.page-slug-forex-trading-bots .site-content,
+body.page-template-default.page[class*="forex-trading-bots"] .site-content,
+.forex-bots-page .site-content {
+    display: none !important;
+}
+
+/* Ocultar site-content en página indicators */
+.page-id-indicators .site-content,
+.page-slug-indicators .site-content,
+body.page-template-default.page[class*="indicators"] .site-content {
+    display: none !important;
+}
+
 /* Articles/Posts */
 article.post {
     background: var(--doit-dark-secondary);

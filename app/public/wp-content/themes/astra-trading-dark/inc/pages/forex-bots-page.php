@@ -10,6 +10,17 @@
 if (!defined('ABSPATH')) exit;
 
 /**
+ * Add body class for forex bots page. Necesario para quitar el site-content
+ */
+add_filter('body_class', 'doittrading_forex_bots_body_class');
+function doittrading_forex_bots_body_class($classes) {
+    if (is_page('forex-trading-bots')) {
+        $classes[] = 'forex-bots-page';
+    }
+    return $classes;
+}
+
+/**
  * Main Forex Bots Page Handler
  */
 add_action('astra_content_before', 'doittrading_forex_bots_page', 5);

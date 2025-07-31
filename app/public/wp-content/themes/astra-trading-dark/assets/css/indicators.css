@@ -313,7 +313,7 @@ Guardar en: wp-content/themes/astra-trading-dark/assets/css/
 .benefit-item {
     display: flex;
     flex-direction: row;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     align-items: center;
 }
 
@@ -480,6 +480,7 @@ Guardar en: wp-content/themes/astra-trading-dark/assets/css/
 .signal-marker {
     position: absolute;
     padding: 4px 8px;
+    max-width: 90px;
     border-radius: var(--radius-sm);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
@@ -1018,6 +1019,11 @@ Guardar en: wp-content/themes/astra-trading-dark/assets/css/
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.tool-image {
+    height: 200px;
+    width: 200px;
 }
 
 .tool-icon {
