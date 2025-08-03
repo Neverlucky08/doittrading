@@ -91,3 +91,85 @@ function doittrading_social_proof_box() {
     </div>
     <?php
 }
+
+/**
+ * Common Buy Section - Used by both EAs and Indicators
+ * 
+ * @param array $args Arguments to customize the buy section
+ *                    - show_countdown (bool): Whether to show countdown timer
+ *                    - title_prefix (string): Prefix for the title (default: 'Join')
+ *                    - product_type (string): 'ea' or 'indicator'
+ */
+function doittrading_common_buy_section($args = array()) {
+    // Default arguments
+    $defaults = array(
+        'show_countdown' => true,
+        'title_prefix' => 'Join',
+        'product_type' => 'ea'
+    );
+    
+    $args = wp_parse_args($args, $defaults);
+    
+    $product_id = get_the_ID();
+    $mt4_link = get_field('mql5_purchase_link_mt4', $product_id);
+    $mt5_link = get_field('mql5_purchase_link_mt5', $product_id);
+    
+    // Only show if we have MQL5 links
+    if (!$mt4_link && !$mt5_link) {
+        return;
+    }
+    
+    // Get total reviews/users count from field
+    $count_field = 'total_active_users';
+    $count = get_field($count_field, $product_id) ?: 10;
+    
+    // Title text based on product type
+    $title_suffix = $args['product_type'] === 'indicator' ? 
+        '+ Verified Traders Using This Indicator' : 
+        '+ Verified Traders Making Consistent Profits';
+    
+    ?>
+    <div class="doittrading-buy-section">
+        <h2><?php echo esc_html($args['title_prefix']); ?> <?php echo esc_html($count); ?><?php echo esc_html($title_suffix); ?></h2>
+        
+        <div class="mql5-buttons">
+            <?php if ($mt4_link): ?>
+                <a href="<?php echo esc_url($mt4_link); ?>" 
+                   target="_blank" 
+                   class="mql5-buy-btn mt4-btn"
+                   onclick="doittrading_track_click('mql5_mt4', <?php echo $product_id; ?>)">
+                    🛒 Get MT4 Version
+                </a>
+            <?php endif; ?>
+            
+            <?php if ($mt5_link): ?>
+                <a href="<?php echo esc_url($mt5_link); ?>" 
+                   target="_blank" 
+                   class="mql5-buy-btn mt5-btn"
+                   onclick="doittrading_track_click('mql5_mt5', <?php echo $product_id; ?>)">
+                    🛒 Get MT5 Version
+                </a>
+            <?php endif; ?>
+        </div>
+        
+        <div class="purchase-benefits">
+            <p>
+                ✓ Secure payment via MQL5 Market<br>
+                ✓ Instant download after purchase<br>
+                ✓ Free lifetime updates included<br>
+                ✓ 24/7 setup support available
+            </p>
+        </div>
+        
+        <?php if ($args['show_countdown']): 
+            $countdown_target = function_exists('doittrading_get_countdown_target') ? 
+                doittrading_get_countdown_target() : 
+                date('Y-m-d H:i:s', strtotime('+2 days'));
+        ?>
+            <div class="price-reminder-box">
+                <strong>⏰ Remember:</strong> Price increases to $999 in <strong class="countdown-inline" data-target="<?php echo esc_attr($countdown_target); ?>">calculating...</strong>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php
+}

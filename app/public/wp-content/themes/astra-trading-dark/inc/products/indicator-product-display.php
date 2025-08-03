@@ -31,6 +31,7 @@ class DoItTrading_Indicator_Product_Display {
             add_action('woocommerce_single_product_summary', array($this, 'benefits_section'), 12);
             add_action('woocommerce_single_product_summary', array($this, 'visual_showcase'), 13);
             add_action('woocommerce_single_product_summary', array($this, 'stats_card'), 14);
+            add_action('woocommerce_single_product_summary', array($this, 'buy_section'), 15);
             add_action('woocommerce_after_single_product_summary', array($this, 'details_section'), 5);
             
             // Enqueue scripts
@@ -74,28 +75,31 @@ class DoItTrading_Indicator_Product_Display {
                 
                 <!-- Right Column: Content -->
                 <div class="indicator-hero-content">
-                    <h1 class="indicator-hero-title"><?php the_title(); ?></h1>
-                    <div class="indicator-hero-subtitle">
-                        <?php echo wp_kses_post($product->get_short_description()); ?>
-                    </div>
-                    
-                    <!-- Stats Bar -->
-                    <div class="indicator-stats-bar">
-                        <div class="stat-item">
-                            <span class="stat-number"><?php echo $this->get_product_download_count($product_id); ?></span>
-                            <span class="stat-label">Downloads</span>
+                    <!-- Hero Container with Border and Background -->
+                    <div class="indicator-hero-container">
+                        <h1 class="indicator-hero-title"><?php the_title(); ?></h1>
+                        <div class="indicator-hero-subtitle">
+                            <?php echo wp_kses_post($product->get_short_description()); ?>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number"><?php echo $this->get_product_rating($product_id); ?>/5</span>
-                            <span class="stat-label">Rating</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number"><?php echo $this->get_active_users_count($product_id); ?>+</span>
-                            <span class="stat-label">Active Users</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label">Support</span>
+                        
+                        <!-- Stats Bar -->
+                        <div class="indicator-stats-bar">
+                            <div class="stat-item">
+                                <span class="stat-number"><?php echo $this->get_product_download_count($product_id); ?></span>
+                                <span class="stat-label">Downloads</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number"><?php echo $this->get_product_rating($product_id); ?>/5</span>
+                                <span class="stat-label">Rating</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number"><?php echo $this->get_active_users_count($product_id); ?>+</span>
+                                <span class="stat-label">Active Users</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Support</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -687,6 +691,18 @@ class DoItTrading_Indicator_Product_Display {
         );
         
         return isset($icons[$icon_name]) ? $icons[$icon_name] : '📍';
+    }
+    
+    /**
+     * Buy Section - Final CTA
+     */
+    public function buy_section() {
+        // Use common buy section without countdown for indicators
+        doittrading_common_buy_section(array(
+            'show_countdown' => false,
+            'title_prefix' => 'Join',
+            'product_type' => 'indicator'
+        ));
     }
     
     /**
