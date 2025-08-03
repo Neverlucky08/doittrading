@@ -21,15 +21,9 @@
 /* ========================================
    Posicionar LIVE Badge sobre la imagen
    ======================================== */
-.doittrading-hero-hybrid .hero-image-column .product-image-wrapper {
-  position: relative;
-}
+/* hero-image-wrapper base styles are in components.css */
 
-.doittrading-hero-hybrid .hero-image-column .hero-product-image {
-  width: auto;                    /* respeta el ratio */
-  height: 100%;                   /* llena toda la altura del contenedor */
-  object-fit: contain;            /* sin recortar, mantiene proporción */
-}
+/* hero-product-image styles are in components.css */
 
 /* ========================================
    PRODUCT LAYOUT

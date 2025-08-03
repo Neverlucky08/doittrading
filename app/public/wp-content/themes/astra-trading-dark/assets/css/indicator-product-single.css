@@ -32,10 +32,8 @@
     background: radial-gradient(ellipse at center, rgba(0, 215, 117, 0.1) 0%, transparent 70%);
 }
 
-.hero-image-wrapper {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
+/* Indicator-specific hero image wrapper styles */
+.indicator-hero-visual .hero-image-wrapper {
     box-shadow: 
         0 20px 60px rgba(0, 215, 117, 0.2),
         0 0 0 4px rgba(0, 215, 117, 0.5);
@@ -63,12 +61,7 @@
     100% { transform: translate(20px, 20px); }
 }
 
-/* Image Styling */
-.indicator-hero-visual .indicator-hero-image {
-    width: auto;                    /* respeta el ratio */
-    height: 100%;                   /* llena toda la altura del contenedor */
-    object-fit: contain;            /* sin recortar, mantiene proporción */
-}
+/* indicator-hero-image styles are in components.css */
 
 .trending-badge {
     position: absolute;
@@ -108,11 +101,7 @@
     z-index: 3;
 }
 
-.indicator-hero-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+/* Removed duplicate - styles are above in .indicator-hero-visual .indicator-hero-image */
 
 /* Hero Content */
 .indicator-hero-content {

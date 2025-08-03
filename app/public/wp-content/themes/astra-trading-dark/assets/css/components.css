@@ -288,3 +288,38 @@ button:hover {
     text-align: center;
     padding: 0;
 }
+
+/* ========================================
+   HERO IMAGE WRAPPER
+   ======================================== */
+
+/* Base hero image wrapper - shared between products and indicators */
+.hero-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: visible;
+}
+
+/* Default styling with green glow */
+.hero-image-wrapper {
+    box-shadow: 0 20px 60px rgba(0, 215, 117, 0.2);
+}
+
+/* Hero images base styles */
+.hero-image-wrapper img {
+    display: block;
+}
+
+/* Product-specific image sizing */
+.hero-product-image {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Indicator-specific image sizing */
+.indicator-hero-image {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}

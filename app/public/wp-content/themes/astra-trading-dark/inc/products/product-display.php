@@ -48,7 +48,7 @@ function doittrading_hero_hybrid_smart() {
     <div class="doittrading-hero-hybrid">
         <!-- Left Column: Product Image with Live Badge -->
         <div class="hero-image-column">
-            <div class="product-image-wrapper">
+            <div class="hero-image-wrapper">
                 <div class="live-badge-hero">🟢 LIVE</div>
                 <img src="<?php echo esc_url($image_url); ?>" 
                      alt="<?php echo esc_attr($image_alt ?: get_the_title()); ?>" 
