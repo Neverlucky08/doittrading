@@ -79,6 +79,9 @@ require_once get_stylesheet_directory() . '/inc/products/woocommerce-mods.php';
 // 3. Product display features
 require_once get_stylesheet_directory() . '/inc/products/product-display.php';
 
+// 3.1 Indicator product display
+require_once get_stylesheet_directory() . '/inc/products/indicator-product-display.php';
+
 // 4. Social proof elements
 require_once get_stylesheet_directory() . '/inc/products/social-proof.php';
 

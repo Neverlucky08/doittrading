@@ -41,10 +41,13 @@
 /* 12. Indicators - Specific page styles */
 @import url('indicators.css');
 
-/* 13. Trading Insights - Specific page styles */
-@import url('insights.css');
+/* 13. Indicator Product Single - Specific indicator product page styles */
+@import url('indicator-product-single.css');
 
 /* 14. Trading Insights - Specific page styles */
+@import url('insights.css');
+
+/* 15. Trading Insights - Specific page styles */
 @import url('single-insight.css');
 /* ========================================
    FILE STRUCTURE DOCUMENTATION

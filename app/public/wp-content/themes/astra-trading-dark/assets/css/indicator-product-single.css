@@ -1,0 +1,936 @@
+/**
+ * DoItTrading Indicator Product Single Page Styles
+ * Styles for individual indicator product pages
+ * 
+ * @package DoItTrading
+ */
+
+/* ========================================
+   INDICATOR HERO SECTION
+   ======================================== */
+
+.doittrading-indicator-hero {
+    background: linear-gradient(135deg, var(--doit-dark) 0%, var(--doit-dark-secondary) 100%);
+    padding: var(--space-xl) 0;
+    border-bottom: 2px solid rgba(0, 215, 117, 0.3);
+}
+
+.indicator-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Hero Visual */
+.indicator-hero-visual {
+    position: relative;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 215, 117, 0.2);
+}
+
+.trending-badge {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: var(--doit-dark);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-xl);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    animation: pulse 2s infinite;
+    z-index: 2;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.indicator-hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Hero Content */
+.indicator-hero-content {
+    padding: var(--space-lg) 0;
+}
+
+.indicator-hero-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-black);
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--doit-text) 0%, var(--doit-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.indicator-hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--doit-text-muted);
+    margin-bottom: var(--space-xl);
+    line-height: 1.5;
+}
+
+/* Stats Bar */
+.indicator-stats-bar {
+    background: rgba(0, 215, 117, 0.05);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.indicator-stats-bar .stat-item {
+    text-align: center;
+}
+
+.indicator-stats-bar .stat-number {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-black);
+    color: var(--doit-green);
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-mono);
+}
+
+.indicator-stats-bar .stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--doit-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Price Section */
+.indicator-price-section {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--doit-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+}
+
+.price-display {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    justify-content: center;
+}
+
+.price-original {
+    font-size: var(--font-size-2xl);
+    color: var(--doit-text-dark);
+    text-decoration: line-through;
+}
+
+.price-current {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-black);
+    color: #FFD700;
+    font-family: var(--font-mono);
+}
+
+.price-savings {
+    background: var(--doit-red);
+    color: white;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    display: inline-block;
+    margin: 0 auto var(--space-lg);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.cta-buttons form.cart {
+    flex: 1;
+}
+
+.cta-buttons .single_add_to_cart_button {
+    width: 100%;
+    background: var(--doit-green);
+    color: var(--doit-dark);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    border: 2px solid var(--doit-green);
+    transition: var(--transition-all);
+}
+
+.cta-buttons .single_add_to_cart_button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-green);
+}
+
+.cta-secondary {
+    flex: 1;
+    background: transparent;
+    color: var(--doit-green);
+    padding: var(--space-md) var(--space-xl);
+    border: 2px solid var(--doit-border-light);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition-all);
+}
+
+.cta-secondary:hover {
+    border-color: var(--doit-green);
+    color: var(--doit-green);
+    transform: translateY(-2px);
+    background: rgba(0, 215, 117, 0.05);
+}
+
+.trust-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.trust-point {
+    text-align: center;
+    padding: var(--space-md);
+    background: rgba(0, 215, 117, 0.05);
+    border-radius: var(--radius-md);
+}
+
+.trust-icon {
+    font-size: var(--font-size-xl);
+    display: block;
+    margin-bottom: var(--space-xs);
+}
+
+.trust-text {
+    font-size: var(--font-size-sm);
+    color: var(--doit-text-muted);
+}
+
+/* ========================================
+   BENEFITS SECTION
+   ======================================== */
+
+.doittrading-indicator-benefits {
+    padding: var(--space-xl) 0;
+    background: var(--doit-dark);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.section-header h2 {
+    font-size: var(--font-size-3xl);
+    color: var(--doit-text);
+    margin-bottom: var(--space-sm);
+}
+
+.section-header p {
+    font-size: var(--font-size-lg);
+    color: var(--doit-text-muted);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.benefit-card {
+    background: linear-gradient(135deg, #111111 0%, #1A1A1A 100%);
+    border: 1px solid rgba(0, 215, 117, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: var(--transition-all);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 215, 117, 0.2);
+    border-color: var(--doit-green);
+}
+
+.benefit-icon {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-md);
+    display: block;
+}
+
+.benefit-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-sm);
+    color: var(--doit-green);
+}
+
+.benefit-description {
+    color: var(--doit-text-muted);
+    line-height: 1.6;
+}
+
+/* ========================================
+   VISUAL SHOWCASE
+   ======================================== */
+
+.doittrading-visual-showcase {
+    padding: var(--space-xl) 0;
+    background: #111111;
+}
+
+.showcase-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.showcase-tab {
+    padding: var(--space-sm) var(--space-lg);
+    background: rgba(0, 215, 117, 0.1);
+    border: 1px solid rgba(0, 215, 117, 0.2);
+    border-radius: var(--radius-md);
+    color: var(--doit-text);
+    cursor: pointer;
+    transition: var(--transition-all);
+    font-weight: var(--font-weight-medium);
+}
+
+.showcase-tab.active,
+.showcase-tab:hover {
+    background: var(--doit-green);
+    color: var(--doit-dark);
+    border-color: var(--doit-green);
+}
+
+.showcase-content {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.showcase-item {
+    display: none;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+}
+
+.showcase-item.active {
+    display: grid;
+}
+
+.showcase-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.showcase-details {
+    padding: var(--space-xl);
+}
+
+.showcase-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+    color: var(--doit-green);
+}
+
+.showcase-description {
+    color: var(--doit-text-muted);
+    line-height: 1.8;
+}
+
+/* ========================================
+   STATS CARD
+   ======================================== */
+
+.doittrading-indicator-stats-card {
+    padding: var(--space-xl) 0;
+    background: var(--doit-dark);
+}
+
+.tool-stats-card {
+    background: linear-gradient(135deg, #1A1A1A 0%, #111111 100%);
+    border: 2px solid var(--doit-green);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 215, 117, 0.2);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stats-card-header {
+    margin-bottom: var(--space-xl);
+}
+
+.stats-card-header h3 {
+    font-size: var(--font-size-2xl);
+    color: var(--doit-text);
+    margin-bottom: var(--space-xs);
+}
+
+.stats-card-header p {
+    color: var(--doit-text-muted);
+}
+
+.main-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.main-stat {
+    padding: var(--space-lg);
+    background: rgba(0, 215, 117, 0.05);
+    border-radius: var(--radius-lg);
+}
+
+.main-stat-icon {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-md);
+    display: block;
+}
+
+.main-stat-value {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-black);
+    color: var(--doit-green);
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-mono);
+}
+
+.main-stat-label {
+    font-size: var(--font-size-md);
+    color: var(--doit-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   DETAILS SECTION (TABS)
+   ======================================== */
+
+.doittrading-indicator-details {
+    padding: var(--space-xl) 0;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+/* Desktop Tabs */
+.details-tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    border-bottom: 2px solid var(--doit-border-light);
+}
+
+.tab-btn {
+    padding: var(--space-md) var(--space-xl);
+    background: transparent;
+    border: none;
+    color: var(--doit-text-muted);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: var(--transition-all);
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: var(--doit-text);
+}
+
+.tab-btn.active {
+    color: var(--doit-green);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--doit-green);
+}
+
+.tab-contents {
+    padding: var(--space-xl) var(--container-padding);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Mobile Accordion */
+.details-accordion {
+    display: none;
+}
+
+.accordion-item {
+    border: 1px solid var(--doit-border-light);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border: none;
+    color: var(--doit-text);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-all);
+}
+
+.accordion-header:hover {
+    background: rgba(0, 215, 117, 0.05);
+}
+
+.accordion-item.active .accordion-header {
+    background: rgba(0, 215, 117, 0.1);
+    color: var(--doit-green);
+}
+
+.accordion-icon {
+    font-size: var(--font-size-xl);
+    transition: var(--transition-all);
+}
+
+.accordion-content {
+    display: none;
+    padding: var(--space-lg);
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+/* Content Styles */
+.overview-content,
+.how-it-works-content,
+.requirements-content,
+.faqs-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.product-description {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    color: var(--doit-text);
+    margin-bottom: var(--space-xl);
+}
+
+.key-features-section {
+    background: rgba(0, 215, 117, 0.05);
+    border: 1px solid var(--doit-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.key-features-section h3 {
+    color: var(--doit-green);
+    margin-bottom: var(--space-md);
+}
+
+.features-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features-content li {
+    padding: var(--space-sm) 0;
+    color: var(--doit-text);
+    font-size: var(--font-size-md);
+}
+
+.trading-capabilities,
+.capabilities-grid {
+    margin-bottom: var(--space-xl);
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+.capability {
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    transition: var(--transition-all);
+}
+
+.capability:hover {
+    background: rgba(0, 215, 117, 0.05);
+    transform: translateY(-2px);
+}
+
+.capability .icon {
+    font-size: var(--font-size-2xl);
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.capability strong {
+    display: block;
+    color: var(--doit-text);
+    margin-bottom: var(--space-xs);
+}
+
+.capability p {
+    color: var(--doit-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+/* How It Works */
+.how-it-works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.how-step {
+    position: relative;
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--doit-border-light);
+    transition: var(--transition-all);
+}
+
+.how-step:hover {
+    border-color: var(--doit-green);
+    background: rgba(0, 215, 117, 0.05);
+}
+
+.step-icon {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-md);
+    display: block;
+}
+
+.how-step h4 {
+    color: var(--doit-text);
+    margin-bottom: var(--space-sm);
+}
+
+.how-step p {
+    color: var(--doit-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+.signal-types {
+    background: rgba(0, 215, 117, 0.05);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+}
+
+.signal-types h3 {
+    color: var(--doit-green);
+    margin-bottom: var(--space-md);
+}
+
+.signal-types ul {
+    list-style: none;
+    padding: 0;
+}
+
+.signal-types li {
+    padding: var(--space-xs) 0;
+    color: var(--doit-text);
+}
+
+/* Requirements */
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.requirement-item {
+    text-align: center;
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--doit-border-light);
+}
+
+.requirement-item strong {
+    display: block;
+    color: var(--doit-text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.requirement-item span {
+    color: var(--doit-green);
+    font-weight: var(--font-weight-semibold);
+}
+
+.setup-steps {
+    background: rgba(0, 215, 117, 0.05);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.setup-steps h3 {
+    color: var(--doit-green);
+    margin-bottom: var(--space-md);
+}
+
+.setup-list {
+    counter-reset: step-counter;
+    list-style: none;
+    padding: 0;
+}
+
+.setup-list li {
+    counter-increment: step-counter;
+    position: relative;
+    padding-left: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--doit-text);
+}
+
+.setup-list li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    background: var(--doit-green);
+    color: var(--doit-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+}
+
+.setup-note {
+    background: rgba(0, 215, 117, 0.1);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--doit-border);
+}
+
+.setup-note p {
+    margin: 0;
+    color: var(--doit-text);
+}
+
+/* FAQs */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+.faq-item-enhanced {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--doit-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: var(--transition-all);
+}
+
+.faq-item-enhanced:hover {
+    background: rgba(0, 215, 117, 0.05);
+    border-color: var(--doit-border);
+}
+
+.faq-question {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--doit-text);
+    margin-bottom: var(--space-sm);
+}
+
+.faq-answer {
+    color: var(--doit-text-muted);
+    line-height: 1.6;
+}
+
+.support-section {
+    background: linear-gradient(135deg, rgba(0, 215, 117, 0.1) 0%, rgba(0, 215, 117, 0.05) 100%);
+    border: 2px solid var(--doit-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    margin-top: var(--space-xl);
+}
+
+.support-section h3 {
+    color: var(--doit-green);
+    margin-bottom: var(--space-md);
+}
+
+.support-section ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+.support-section li {
+    color: var(--doit-text);
+    padding: var(--space-sm);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Hero */
+    .indicator-hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    
+    .indicator-stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+    
+    /* Benefits */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Showcase */
+    .showcase-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .showcase-item {
+        grid-template-columns: 1fr;
+    }
+    
+    .showcase-image {
+        height: 300px;
+    }
+    
+    /* Stats */
+    .main-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Trust Points */
+    .trust-points {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Details */
+    .details-tabs-nav {
+        display: none;
+    }
+    
+    .tab-contents {
+        display: none;
+    }
+    
+    .details-accordion {
+        display: block;
+    }
+    
+    /* Content */
+    .capabilities-grid,
+    .how-it-works-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .support-section ul {
+        grid-template-columns: 1fr;
+    }
+    
+    /* CTAs */
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-secondary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .indicator-hero-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .indicator-hero-subtitle {
+        font-size: var(--font-size-lg);
+    }
+    
+    .price-current {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .showcase-tab {
+        padding: var(--space-xs) var(--space-md);
+        font-size: var(--font-size-sm);
+    }
+}

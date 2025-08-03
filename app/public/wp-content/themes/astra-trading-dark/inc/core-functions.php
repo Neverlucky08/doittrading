@@ -81,6 +81,17 @@ function doittrading_is_ea($product_id = null) {
 }
 
 /**
+ * Check if product is Indicator
+ */
+function doittrading_is_indicator_new($product_id = null) {
+    if (!$product_id) {
+        $product_id = get_the_ID();
+    }
+    
+    return has_term('indicators', 'product_cat', $product_id) || has_term('trading-indicators', 'product_cat', $product_id);
+}
+
+/**
  * Get time until price increase
  */
 function doittrading_get_countdown_target() {

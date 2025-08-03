@@ -20,9 +20,14 @@ remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_pro
 add_action('woocommerce_before_single_product_summary', 'doittrading_hero_hybrid_smart', 20);
 
 function doittrading_hero_hybrid_smart() {
-    if (!doittrading_is_ea()) {
-        // For non-EA products, show default images
+    if (!doittrading_is_ea() && !doittrading_is_indicator()) {
+        // For non-EA and non-indicator products, show default images
         woocommerce_show_product_images();
+        return;
+    }
+    
+    // Handle indicators separately - they have their own class
+    if (doittrading_is_indicator()) {
         return;
     }
     
@@ -93,13 +98,13 @@ function doittrading_hero_hybrid_smart() {
  */
 add_action('woocommerce_single_product_summary', 'doittrading_full_width_wrapper_start', 10);
 function doittrading_full_width_wrapper_start() {
-    if (!doittrading_is_ea()) return;
+    if (!doittrading_is_ea() && !doittrading_is_indicator()) return;
     echo '<div class="doittrading-full-width-sections">';
 }
 
 add_action('woocommerce_single_product_summary', 'doittrading_full_width_wrapper_end', 25);
 function doittrading_full_width_wrapper_end() {
-    if (!doittrading_is_ea()) return;
+    if (!doittrading_is_ea() && !doittrading_is_indicator()) return;
     echo '</div>';
 }
 
@@ -110,6 +115,7 @@ add_action('woocommerce_single_product_summary', 'doittrading_stats_enhanced', 1
 function doittrading_stats_enhanced() {
     $product_id = get_the_ID();
     
+    // Only show for EAs that have monthly gain data
     if (!doittrading_is_ea() || !get_field('monthly_gain', $product_id)) return;
     ?>
     <div class="doittrading-stats-enhanced">
@@ -156,6 +162,7 @@ function doittrading_interactive_roi_calculator() {
     global $product;
     $product_id = get_the_ID();
     
+    // ROI calculator is only for EAs
     if (!doittrading_is_ea()) return;
     
     $monthly_gain = get_field('monthly_gain', $product_id);
@@ -242,6 +249,7 @@ function doittrading_interactive_roi_calculator() {
  */
 add_filter('the_content', 'doittrading_add_benefits_grid');
 function doittrading_add_benefits_grid($content) {
+    // Benefits grid is only for EAs
     if (!is_product() || !doittrading_is_ea()) {
         return $content;
     }
@@ -279,7 +287,12 @@ function doittrading_add_benefits_grid($content) {
  */
 add_action('woocommerce_after_single_product_summary', 'doittrading_product_details_section', 5);
 function doittrading_product_details_section() {
-    if (!doittrading_is_ea()) return;
+    if (!doittrading_is_ea() && !doittrading_is_indicator()) return;
+    
+    // Handle indicators separately - they have their own class
+    if (doittrading_is_indicator()) {
+        return;
+    }
     
     $product_id = get_the_ID();
     ?>
@@ -704,6 +717,7 @@ function doittrading_get_faqs_content($product_id) {
     
     return $content;
 }
+
 
 add_filter( 'woocommerce_product_tabs', 'woo_remove_all_product_tabs', 98 );
 function woo_remove_all_product_tabs( $tabs ) {

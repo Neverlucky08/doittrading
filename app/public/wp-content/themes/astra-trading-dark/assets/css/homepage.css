@@ -431,37 +431,6 @@
     text-align: center;
 }
 
-.process-steps {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
-
-.process-step {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-    font-size: var(--font-size-md);
-    color: var(--doit-text);
-}
-
-.step-number {
-    background: linear-gradient(135deg, var(--doit-gold) 0%, var(--doit-green) 100%);
-    color: var(--doit-dark);
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    flex-shrink: 0;
-}
-
-.step-text {
-    font-weight: var(--font-weight-medium);
-}
 
 /* ========================================
    SOCIAL PROOF SECTION (doittrading_homepage_social_proof)
