@@ -236,18 +236,21 @@
     background: var(--doit-dark);
 }
 
-.section-header {
+.doittrading-indicator-benefits .section-header {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--space-sm);
     text-align: center;
     margin-bottom: var(--space-xl);
 }
 
-.section-header h2 {
+.doittrading-indicator-benefits .section-header h2 {
     font-size: var(--font-size-3xl);
     color: var(--doit-text);
     margin-bottom: var(--space-sm);
 }
 
-.section-header p {
+.doittrading-indicator-benefits .section-header p {
     font-size: var(--font-size-lg);
     color: var(--doit-text-muted);
 }
@@ -285,7 +288,7 @@
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     margin-bottom: var(--space-sm);
-    color: var(--doit-green);
+    color: var(--doit-green) !important;
 }
 
 .benefit-description {
@@ -385,19 +388,25 @@
     box-shadow: 0 20px 60px rgba(0, 215, 117, 0.2);
     max-width: 1000px;
     margin: 0 auto;
+    justify-items: center;
 }
 
 .stats-card-header {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--space-sm);
+    text-align: center;
     margin-bottom: var(--space-xl);
 }
 
-.stats-card-header h3 {
+.tool-stats-card .stats-card-header h3 {
     font-size: var(--font-size-2xl);
     color: var(--doit-text);
     margin-bottom: var(--space-xs);
+    text-align: center;
 }
 
-.stats-card-header p {
+.tool-stats-card .stats-card-header p {
     color: var(--doit-text-muted);
 }
 
