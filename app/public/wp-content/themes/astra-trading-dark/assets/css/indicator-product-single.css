@@ -115,12 +115,36 @@
     letter-spacing: 0.5px;
 }
 
-/* Price Section */
+/* Price Section - Similar to hero-price-section */
 .indicator-price-section {
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid var(--doit-border);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+    border: 2px solid var(--doit-gold);
     border-radius: var(--radius-lg);
-    padding: var(--space-xl);
+    padding: var(--space-lg);
+    text-align: center;
+    position: relative;
+    margin-top: var(--space-lg);
+}
+
+/* Price Savings Badge - Positioned like countdown */
+.price-savings {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--doit-red);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    animation: pulse-savings 3s infinite;
+    z-index: 2;
+}
+
+@keyframes pulse-savings {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
 }
 
 .price-display {
@@ -129,30 +153,23 @@
     gap: var(--space-md);
     margin-bottom: var(--space-md);
     justify-content: center;
+    margin-top: var(--space-sm);
+}
+
+.price-current {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-black);
+    color: var(--doit-gold);
+    font-family: var(--font-mono);
+    order: 1; /* Precio actual a la izquierda */
 }
 
 .price-original {
     font-size: var(--font-size-2xl);
     color: var(--doit-text-dark);
     text-decoration: line-through;
-}
-
-.price-current {
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-black);
-    color: #FFD700;
-    font-family: var(--font-mono);
-}
-
-.price-savings {
-    background: var(--doit-red);
-    color: white;
-    padding: var(--space-xs) var(--space-md);
-    border-radius: var(--radius-xl);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    display: inline-block;
-    margin: 0 auto var(--space-lg);
+    opacity: 0.7;
+    order: 2; /* Precio original a la derecha */
 }
 
 .cta-buttons {
