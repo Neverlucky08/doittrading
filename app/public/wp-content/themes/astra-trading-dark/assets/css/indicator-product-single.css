@@ -28,18 +28,52 @@
 /* Hero Visual */
 .indicator-hero-visual {
     position: relative;
+    padding: var(--space-xl);
+    background: radial-gradient(ellipse at center, rgba(0, 215, 117, 0.1) 0%, transparent 70%);
 }
 
 .hero-image-wrapper {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 215, 117, 0.2);
+    box-shadow: 
+        0 20px 60px rgba(0, 215, 117, 0.2),
+        0 0 0 4px rgba(0, 215, 117, 0.5),
+        inset 0 0 20px rgba(0, 0, 0, 0.5);
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%),
+        radial-gradient(circle at 20% 50%, rgba(0, 215, 117, 0.1) 0%, transparent 50%);
+    padding: 3px;
+}
+
+/* Grid Pattern Overlay */
+.indicator-hero-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(0, 215, 117, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 215, 117, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+/* Image Styling */
+.indicator-hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .trending-badge {
     position: absolute;
-    top: var(--space-md);
+    top: calc(30px + var(--space-md)); /* Below terminal header */
     right: var(--space-md);
     background: linear-gradient(135deg, #FFD700, #FFA500);
     color: var(--doit-dark);
@@ -48,12 +82,31 @@
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-sm);
     animation: pulse 2s infinite;
-    z-index: 2;
+    z-index: 4;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
 }
 
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
+}
+
+/* Terminal Title */
+.terminal-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 1px;
+    color: rgba(0, 215, 117, 0.8);
+    text-transform: uppercase;
+    z-index: 3;
 }
 
 .indicator-hero-image {
