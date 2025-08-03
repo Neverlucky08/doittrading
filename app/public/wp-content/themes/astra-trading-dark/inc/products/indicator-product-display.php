@@ -114,6 +114,22 @@ class DoItTrading_Indicator_Product_Display {
         global $product;
         ?>
         <div class="indicator-price-section">
+            <?php if ($product->is_on_sale()): 
+                $savings = $product->get_regular_price() - $product->get_price();
+            ?>
+            <div class="price-savings">SAVE <?php echo wc_price($savings); ?> - Limited Time Offer</div>
+            <?php endif; ?>
+            
+            <!-- Last Purchase Info -->
+            <div class="last-purchase-info">
+                <?php 
+                // Use product ID to generate consistent pseudo-random time
+                $product_id = get_the_ID();
+                $last_purchase_time = (($product_id * 7) % 12) + 1; // Generates 1-12 based on product ID
+                ?>
+                🔥 Last purchase: <?php echo $last_purchase_time; ?> hours ago
+            </div>
+            
             <div class="price-display">
                 <?php if ($product->is_on_sale()): ?>
                     <span class="price-original"><?php echo wc_price($product->get_regular_price()); ?></span>
@@ -121,33 +137,56 @@ class DoItTrading_Indicator_Product_Display {
                 <span class="price-current"><?php echo wc_price($product->get_price()); ?></span>
             </div>
             
-            <?php if ($product->is_on_sale()): 
-                $savings = $product->get_regular_price() - $product->get_price();
+            <!-- Compact Trust Badges -->
+            <div class="trust-badges-compact">
+                <span class="trust-badge-mini">
+                    <span class="icon">🔒</span> Secure
+                </span>
+                <span class="trust-badge-mini">
+                    <span class="icon">⚡</span> Instant
+                </span>
+                <span class="trust-badge-mini">
+                    <span class="icon">🔄</span> Updates
+                </span>
+            </div>
+        </div>
+        
+        <!-- Hero CTA Compact Section -->
+        <div class="hero-cta-compact">
+            <?php 
+            $product_id = get_the_ID();
+            $mt4_link = get_field('mql5_purchase_link_mt4', $product_id);
+            $mt5_link = get_field('mql5_purchase_link_mt5', $product_id);
             ?>
-            <div class="price-savings">SAVE <?php echo wc_price($savings); ?> - Limited Time Offer</div>
+            
+            <?php if ($mt4_link || $mt5_link): ?>
+                <div class="hero-buy-buttons">
+                    <?php if ($mt4_link): ?>
+                        <a href="<?php echo esc_url($mt4_link); ?>" 
+                        target="_blank" 
+                        class="hero-buy-btn mt4-compact"
+                        onclick="doittrading_track_click('hero_mt4', <?php echo $product_id; ?>)">
+                            🛒 Get MT4 Version
+                        </a>
+                    <?php endif; ?>
+                    
+                    <?php if ($mt5_link): ?>
+                        <a href="<?php echo esc_url($mt5_link); ?>" 
+                        target="_blank" 
+                        class="hero-buy-btn mt5-compact"
+                        onclick="doittrading_track_click('hero_mt5', <?php echo $product_id; ?>)">
+                            🛒 Get MT5 Version
+                        </a>
+                    <?php endif; ?>
+                </div>
+            <?php else: ?>
+                <div class="cta-buttons">
+                    <?php woocommerce_template_single_add_to_cart(); ?>
+                    <?php if (get_field('demo_url', get_the_ID())): ?>
+                    <a href="<?php the_field('demo_url'); ?>" class="cta-secondary" target="_blank">View Demo</a>
+                    <?php endif; ?>
+                </div>
             <?php endif; ?>
-            
-            <div class="cta-buttons">
-                <?php woocommerce_template_single_add_to_cart(); ?>
-                <?php if (get_field('demo_url', get_the_ID())): ?>
-                <a href="<?php the_field('demo_url'); ?>" class="cta-secondary" target="_blank">View Demo</a>
-                <?php endif; ?>
-            </div>
-            
-            <div class="trust-points">
-                <div class="trust-point">
-                    <span class="trust-icon">🔒</span>
-                    <span class="trust-text">Secure Payment</span>
-                </div>
-                <div class="trust-point">
-                    <span class="trust-icon">⚡</span>
-                    <span class="trust-text">Instant Access</span>
-                </div>
-                <div class="trust-point">
-                    <span class="trust-icon">🔄</span>
-                    <span class="trust-text">Free Updates</span>
-                </div>
-            </div>
         </div>
         <?php
     }

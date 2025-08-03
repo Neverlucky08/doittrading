@@ -172,6 +172,48 @@
     order: 2; /* Precio original a la derecha */
 }
 
+/* Last Purchase Info */
+.last-purchase-info {
+    font-size: var(--font-size-sm);
+    color: var(--doit-text-muted);
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-md);
+    animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Compact Trust Badges */
+.trust-badges-compact {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.trust-badge-mini {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--font-size-xs);
+    color: var(--doit-text-muted);
+    font-weight: var(--font-weight-medium);
+    transition: var(--transition-fast);
+}
+
+.trust-badge-mini:hover {
+    color: var(--doit-text);
+}
+
+.trust-badge-mini .icon {
+    font-size: var(--font-size-sm);
+}
+
 .cta-buttons {
     display: flex;
     gap: var(--space-md);
