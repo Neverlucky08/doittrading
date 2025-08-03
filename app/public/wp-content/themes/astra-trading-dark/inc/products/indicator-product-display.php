@@ -303,7 +303,7 @@ class DoItTrading_Indicator_Product_Display {
     public function details_section() {
         $product_id = get_the_ID();
         ?>
-        <div class="doittrading-indicator-details">
+        <div class="doittrading-product-details">
             
             <!-- Desktop Tabs Navigation -->
             <div class="details-tabs-nav hide-mobile">

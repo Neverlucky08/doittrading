@@ -5,7 +5,8 @@
    ======================================== */
 
 .doittrading-product-details {
-    margin: var(--space-xl) 0;
+    margin: var(--space-xl) auto;
+    max-width: var(--container-max-width);
     background: var(--doit-dark-secondary);
     border-radius: var(--radius-lg);
     border: 1px solid var(--doit-border-light);
@@ -95,15 +96,7 @@
     box-shadow: inset 0 0 0 2px var(--doit-green);
 }
 
-/* Container para evitar problemas de ancho */
-.doittrading-product-details {
-    margin: var(--space-xl) auto; /* Centrar */
-    max-width: var(--container-max-width);
-    background: var(--doit-dark-secondary);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--doit-border-light);
-    overflow: hidden;
-}
+/* Container duplicado removido - definición principal está arriba */
 
 /* ========================================
    TAB CONTENTS (DESKTOP)
