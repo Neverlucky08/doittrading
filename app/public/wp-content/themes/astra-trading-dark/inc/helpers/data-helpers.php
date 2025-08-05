@@ -512,7 +512,8 @@ function doittrading_get_cta_bots() {
             'current_price' => $product['current_price'],
             'original_price' => $product['original_price'],
             'is_featured' => $product['badge'] === 'BESTSELLER',
-            'features' => doittrading_get_bot_features($product['id'])
+            'features' => doittrading_get_bot_features($product['id']),
+            'launching_promo' => get_post_meta($product['id'], 'launching_promo', true)
         );
     }
     

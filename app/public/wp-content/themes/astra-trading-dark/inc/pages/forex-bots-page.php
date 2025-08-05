@@ -1121,7 +1121,18 @@ function doittrading_forex_bots_final_cta() {
                 </div>
                 
                 <!-- Price & Countdown -->
-                <div class="cta-pricing-section">
+                <?php 
+                // Check if any bot has launching promo active
+                $show_countdown = false;
+                foreach ($cta_bots as $bot) {
+                    if (!empty($bot['launching_promo'])) {
+                        $show_countdown = true;
+                        break;
+                    }
+                }
+                ?>
+                <div class="cta-pricing-section <?php echo !$show_countdown ? 'no-countdown' : ''; ?>">
+                    <?php if ($show_countdown): ?>
                     <div class="price-countdown">
                         <div class="countdown-timer-final" data-target="<?php echo esc_attr($countdown_target); ?>">
                             <div class="countdown-label">Price increases in:</div>
@@ -1135,6 +1146,7 @@ function doittrading_forex_bots_final_cta() {
                             </div>
                         </div>
                     </div>
+                    <?php endif; ?>
                     
                     <?php if (!empty($cta_bots)): 
                         $main_bot = $cta_bots[0]; // Featured bot

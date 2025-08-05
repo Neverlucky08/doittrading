@@ -1973,6 +1973,17 @@
     margin-right: auto;
 }
 
+/* When no countdown, center the pricing */
+.cta-pricing-section.no-countdown {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+}
+
+.cta-pricing-section.no-countdown .final-pricing {
+    text-align: center;
+    margin: 0 auto;
+}
+
 .price-countdown {
     background: rgba(255, 71, 87, 0.1);
     border: 2px solid rgba(255, 71, 87, 0.3);

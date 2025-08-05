@@ -179,6 +179,21 @@ class DoItTrading_Common_Product_Fields {
                 </td>
             </tr>
         </table>
+        
+        <h3>Marketing Settings</h3>
+        <table class="form-table">
+            <tr>
+                <th><label for="launching_promo">Launching Promo</label></th>
+                <td>
+                    <label>
+                        <input type="checkbox" id="launching_promo" name="launching_promo" value="1" 
+                               <?php checked($fields['launching_promo'], '1'); ?>>
+                        Activar promoción de lanzamiento (muestra countdown timers)
+                    </label>
+                    <p class="description">Cuando está activo, muestra contadores de cuenta regresiva en las secciones de precio</p>
+                </td>
+            </tr>
+        </table>
         <?php
     }
     
@@ -208,7 +223,8 @@ class DoItTrading_Common_Product_Fields {
             'mql5_purchase_link_mt4' => 'url',
             'mql5_purchase_link_mt5' => 'url',
             'best_for' => 'text',
-            'downloads_count' => 'number'
+            'downloads_count' => 'number',
+            'launching_promo' => 'checkbox'
         );
         
         // Key Features (4 features)
@@ -251,6 +267,7 @@ class DoItTrading_Common_Product_Fields {
             'mql5_purchase_link_mt5' => get_post_meta($post_id, 'mql5_purchase_link_mt5', true),
             'best_for' => get_post_meta($post_id, 'best_for', true),
             'downloads_count' => get_post_meta($post_id, 'downloads_count', true) ?: 0,
+            'launching_promo' => get_post_meta($post_id, 'launching_promo', true),
             'faq_question_1' => get_post_meta($post_id, 'faq_question_1', true),
             'faq_answer_1' => get_post_meta($post_id, 'faq_answer_1', true),
             'faq_question_2' => get_post_meta($post_id, 'faq_question_2', true),

@@ -19,13 +19,17 @@ function doittrading_urgency_section() {
     // Verificar que las funciones existan
     if (!function_exists('doittrading_is_ea') || !doittrading_is_ea()) return;
     
+    $product_id = $product->get_id();
+    $launching_promo = get_post_meta($product_id, 'launching_promo', true);
     $remaining = function_exists('doittrading_get_remaining_stock') ? doittrading_get_remaining_stock() : 10;
     $countdown_target = function_exists('doittrading_get_countdown_target') ? doittrading_get_countdown_target() : date('Y-m-d H:i:s', strtotime('+2 days'));
     ?>
     <div class="hero-price-section">
+        <?php if ($launching_promo): ?>
         <div class="countdown-timer" data-target="<?php echo esc_attr($countdown_target); ?>">
             ⏰ Price increases in <span class="countdown-display">calculating...</span>
         </div>
+        <?php endif; ?>
         
         <?php if ($product->is_on_sale()): ?>
             <div class="price-warning">🔥 LAUNCH PRICE ENDING SOON</div>
@@ -162,14 +166,18 @@ function doittrading_common_buy_section($args = array()) {
         </div>
         
         <?php if ($args['show_countdown']): 
-            $countdown_target = function_exists('doittrading_get_countdown_target') ? 
-                doittrading_get_countdown_target() : 
-                date('Y-m-d H:i:s', strtotime('+2 days'));
+            $launching_promo = get_post_meta($product_id, 'launching_promo', true);
+            if ($launching_promo):
+                $countdown_target = function_exists('doittrading_get_countdown_target') ? 
+                    doittrading_get_countdown_target() : 
+                    date('Y-m-d H:i:s', strtotime('+2 days'));
         ?>
             <div class="price-reminder-box">
                 <strong>⏰ Remember:</strong> Price increases to $999 in <strong class="countdown-inline" data-target="<?php echo esc_attr($countdown_target); ?>">calculating...</strong>
             </div>
-        <?php endif; ?>
+        <?php 
+            endif;
+        endif; ?>
     </div>
     <?php
 }
