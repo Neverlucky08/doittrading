@@ -49,6 +49,7 @@ wp-content/plugins/*
 **/wp-admin/
 **/wp-includes/
 **/wp-*.php
+!**/wp-config.php
 **/xmlrpc.php
 **/readme.html
 **/license.txt

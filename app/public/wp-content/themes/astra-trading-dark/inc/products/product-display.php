@@ -277,7 +277,7 @@ function doittrading_add_benefits_grid($content) {
         </div>
     </div>';
     
-    return $benefits . $content;
+    return $benefits . '<div style="margin-bottom: 40px;"></div>' . $content;
 }
 
 
