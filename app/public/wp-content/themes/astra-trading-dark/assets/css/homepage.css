@@ -1009,6 +1009,12 @@
     color: white;
 }
 
+.product-badge.badge-silver {
+    background: linear-gradient(135deg, #B0B0B0 0%, #D0D0D0 100%);
+    color: var(--doit-dark);
+    box-shadow: 0 5px 15px rgba(176, 176, 176, 0.3);
+}
+
 /* Product Content - Sin cambios */
 .product-card-header {
     margin-bottom: var(--space-lg);

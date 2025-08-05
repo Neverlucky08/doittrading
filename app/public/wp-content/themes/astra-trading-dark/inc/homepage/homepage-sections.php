@@ -398,7 +398,7 @@ function doittrading_homepage_featured_products() {
                         <div class="product-card-header">
                             <h3 class="product-name"><?php echo esc_html($product['name']); ?></h3>
                             <p class="product-subtitle"><?php echo esc_html($product['subtitle']); ?></p>
-                            <p class="product-description"><?php echo esc_html($product['description']); ?></p>
+                            <p class="product-description"><?php echo wp_kses_post($product['description']); ?></p>
                         </div>
                         
                         <!-- Product Stats -->
