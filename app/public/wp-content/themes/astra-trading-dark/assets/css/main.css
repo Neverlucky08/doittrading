@@ -49,6 +49,9 @@
 
 /* 15. Trading Insights - Specific page styles */
 @import url('single-insight.css');
+
+/* 16. Footer - Custom footer styles */
+@import url('footer.css');
 /* ========================================
    FILE STRUCTURE DOCUMENTATION
    ======================================== */

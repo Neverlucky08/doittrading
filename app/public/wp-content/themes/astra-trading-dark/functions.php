@@ -60,6 +60,9 @@ function doittrading_enqueue_styles() {
     if (is_page('indicators')) {
             wp_enqueue_style('indicators-style', get_stylesheet_directory_uri() . '/assets/css/indicators.css');
     }
+
+    // Footer styles - loaded on all pages
+    wp_enqueue_style('doittrading-footer', get_stylesheet_directory_uri() . '/assets/css/footer.css', array('doittrading-main'), '1.0');
 }
 
 /**
@@ -107,6 +110,9 @@ add_action('init', 'doittrading_register_insights_taxonomies');
 
 // 10. Helpers for Product date linking
 require_once get_stylesheet_directory() . '/inc/helpers/data-helpers.php';
+
+// 11. Custom Footer
+require_once get_stylesheet_directory() . '/inc/footer/custom-footer.php';
 
 /**
  * Debug helper (solo en desarrollo)
@@ -206,4 +212,3 @@ function doittrading_enqueue_insights_assets() {
     }
 }
 add_action('wp_enqueue_scripts', 'doittrading_enqueue_insights_assets');
-

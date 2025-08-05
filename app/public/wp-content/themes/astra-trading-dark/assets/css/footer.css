@@ -1,0 +1,203 @@
+/**
+ * DoItTrading Custom Footer Styles
+ * Version: 1.0
+ */
+
+.doittrading-footer {
+    background-color: var(--doit-dark);
+    border-top: 1px solid var(--doit-border-light);
+    padding: var(--space-xl) 0 var(--space-lg);
+    margin-top: 80px;
+}
+
+.doittrading-footer .footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-xl);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+/* Footer Column Base Styles */
+.footer-column {
+    color: var(--doit-text);
+}
+
+.footer-title {
+    color: #ffffff;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-family);
+}
+
+.footer-brand {
+    color: var(--doit-gold);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    margin: 0 0 var(--space-sm) 0;
+    font-family: var(--font-family);
+}
+
+/* Column 1: Copyright */
+.footer-copyright {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.footer-logo img {
+    max-width: 180px;
+    height: auto;
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--doit-text-muted);
+    line-height: 1.6;
+}
+
+.footer-tagline {
+    font-style: italic;
+    color: var(--doit-text-dark) !important;
+    font-size: var(--font-size-sm) !important;
+    line-height: 1.6;
+}
+
+.footer-tagline span {
+    display: block;
+    margin-bottom: calc(var(--space-xs) / 2);
+}
+
+.footer-tagline span:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer Badges */
+.footer-badges {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+.footer-badges .badge {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--doit-gold);
+    padding: calc(var(--space-xs) / 2) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+/* Column 2: Top Products */
+.footer-products-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-products-list li {
+    margin-bottom: var(--space-sm);
+    padding-left: 0;
+}
+
+.footer-products-list li:before {
+    content: none;
+}
+
+.footer-products-list a {
+    color: var(--doit-text);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    transition: var(--transition-all);
+    display: inline-block;
+    position: relative;
+}
+
+.footer-products-list a:hover {
+    color: var(--doit-gold);
+    transform: translateX(5px);
+}
+
+.footer-products-list a:before {
+    content: "→";
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: var(--transition-all);
+}
+
+.footer-products-list a:hover:before {
+    opacity: 1;
+    left: -15px;
+}
+
+/* Column 3: Legal Links */
+.footer-legal-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-legal-list li {
+    margin-bottom: var(--space-sm);
+    padding-left: 0;
+}
+
+.footer-legal-list li:before {
+    content: none;
+}
+
+.footer-legal-list a {
+    color: var(--doit-text);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-normal);
+}
+
+.footer-legal-list a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .doittrading-footer {
+        padding: var(--space-xl) 0 var(--space-md);
+    }
+    
+    .doittrading-footer .footer-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        padding: 0 var(--space-md);
+    }
+    
+    .footer-column {
+        text-align: center;
+    }
+    
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .footer-products-list a:before,
+    .footer-products-list a:hover:before {
+        display: none;
+    }
+    
+    .footer-products-list a:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-title {
+        font-size: var(--font-size-md);
+    }
+    
+    .footer-logo img {
+        max-width: 150px;
+    }
+}
