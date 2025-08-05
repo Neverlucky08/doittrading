@@ -29,9 +29,15 @@ function doittrading_urgency_section() {
         <div class="countdown-timer" data-target="<?php echo esc_attr($countdown_target); ?>">
             ⏰ Price increases in <span class="countdown-display">calculating...</span>
         </div>
+        <?php else: ?>
+            <?php if ($product->is_on_sale()): 
+                $savings = $product->get_regular_price() - $product->get_price();
+            ?>
+            <div class="price-savings">SAVE <?php echo wc_price($savings); ?> - Limited Time Offer</div>
+            <?php endif; ?>
         <?php endif; ?>
         
-        <?php if ($product->is_on_sale()): ?>
+        <?php if ($product->is_on_sale() && $launching_promo): ?>
             <div class="price-warning">🔥 LAUNCH PRICE ENDING SOON</div>
         <?php endif; ?>
         <div class="hero-price">

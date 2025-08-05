@@ -599,6 +599,21 @@
     animation: pulse-countdown 3s infinite;
 }
 
+/* Price Savings Badge */
+.price-savings {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--doit-green);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    white-space: nowrap;
+}
+
 @keyframes pulse-countdown {
     0%, 100% { transform: translateX(-50%) scale(1); }
     50% { transform: translateX(-50%) scale(1.05); }
