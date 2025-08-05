@@ -164,3 +164,64 @@ article.post {
     color: var(--doit-dark);
     border-color: var(--doit-green);
 }
+
+/* ========================================
+   GENERIC PAGES (Terms, Privacy, etc)
+   ======================================== */
+
+.page .entry-content {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    color: var(--doit-text);
+}
+
+.page .entry-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: var(--doit-text);
+}
+
+.page .entry-content h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: var(--doit-text);
+    font-size: 1.8rem;
+}
+
+.page .entry-content h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--doit-text);
+    font-size: 1.4rem;
+}
+
+.page .entry-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: var(--doit-text-muted);
+}
+
+.page .entry-content ul,
+.page .entry-content ol {
+    margin: 20px 0;
+    padding-left: 30px;
+    color: var(--doit-text-muted);
+}
+
+.page .entry-content li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.page .entry-content strong {
+    color: var(--doit-text);
+}
+
+/* Separator for sections */
+.page .entry-content hr {
+    border: none;
+    border-top: 1px solid var(--doit-border-light);
+    margin: 40px 0;
+}

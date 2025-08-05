@@ -1,7 +1,7 @@
 <?php
 /**
- * DoItTrading Product Display Features
- * Hero sections, stats, y elementos de producto
+ * DoItTrading EA Product Display Features
+ * Hero sections, stats, y elementos de producto para Expert Advisors
  * 
  * @package DoItTrading
  */
