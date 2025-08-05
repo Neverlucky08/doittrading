@@ -25,7 +25,7 @@ app/public/wp-content/*
 !app/public/wp-content/themes/
 !app/public/wp-content/plugins/
 app/public/wp-content/themes/*
-app/public/wp-content/plugins/*
+!app/public/wp-content/plugins/*
 !app/public/wp-content/themes/astra-trading-dark
 !app/public/wp-content/plugins/advanced-custom-fields-pro-main
 !app/public/wp-content/plugins/astra-sites

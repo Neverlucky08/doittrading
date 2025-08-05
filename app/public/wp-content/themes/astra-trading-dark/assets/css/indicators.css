@@ -1251,6 +1251,10 @@ Guardar en: wp-content/themes/astra-trading-dark/assets/css/
     border-radius: var(--radius-sm);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    white-space: nowrap;
 }
 
 .missed-entry, .late-exit {
