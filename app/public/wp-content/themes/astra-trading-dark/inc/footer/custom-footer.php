@@ -90,6 +90,11 @@ function doittrading_custom_footer_markup() {
                     </ul>
                 </div>
             </div>
+            
+            <!-- Risk Warning -->
+            <div class="footer-risk-warning">
+                <p>Between 74-89 % of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.</p>
+            </div>
         </div>
     </footer>
     <?php

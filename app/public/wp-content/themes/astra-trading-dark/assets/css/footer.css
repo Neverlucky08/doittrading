@@ -201,3 +201,30 @@
         max-width: 150px;
     }
 }
+
+/* Risk Warning Section */
+.footer-risk-warning {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--doit-border-light);
+    text-align: center;
+}
+
+.footer-risk-warning p {
+    color: var(--doit-text-muted);
+    font-size: var(--font-size-xs);
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .footer-risk-warning {
+        padding: var(--space-lg) var(--space-md) 0;
+    }
+    
+    .footer-risk-warning p {
+        font-size: calc(var(--font-size-xs) - 1px);
+    }
+}
