@@ -113,18 +113,118 @@ function doittrading_get_remaining_stock() {
 
 /**
  * Get random recent buyer
+ * @param int|null $product_id - Si se proporciona, devuelve comprador específico del producto
  */
-function doittrading_get_recent_buyer() {
+function doittrading_get_recent_buyer($product_id = null) {
+    // Iniciar sesión si no está iniciada
+    if (!session_id()) {
+        session_start();
+    }
+    
+    // Determinar la clave de sesión basada en si es específico del producto o global
+    $session_key = $product_id ? 'doittrading_buyer_product_' . $product_id : 'doittrading_recent_buyer_global';
+    
+    // Verificar si ya tenemos un comprador en la sesión
+    if (isset($_SESSION[$session_key])) {
+        $buyer_data = $_SESSION[$session_key];
+        
+        // Verificar si debe rotar (después de 45 minutos)
+        if (doittrading_should_rotate_buyer($buyer_data['timestamp'])) {
+            // Generar nuevo comprador
+            $buyer_data = doittrading_generate_new_buyer($product_id);
+            $_SESSION[$session_key] = $buyer_data;
+        }
+        
+        return $buyer_data;
+    }
+    
+    // Generar nuevo comprador
+    $buyer_data = doittrading_generate_new_buyer($product_id);
+    $_SESSION[$session_key] = $buyer_data;
+    
+    return $buyer_data;
+}
+
+/**
+ * Generar nuevo comprador
+ */
+function doittrading_generate_new_buyer($product_id = null) {
     $buyers = array(
         array('name' => 'Juan M.', 'country' => 'Spain'),
         array('name' => 'Michael S.', 'country' => 'UK'),
         array('name' => 'Li Wei', 'country' => 'Singapore'),
         array('name' => 'Ahmed K.', 'country' => 'UAE'),
         array('name' => 'Carlos R.', 'country' => 'Mexico'),
-        array('name' => 'Thomas B.', 'country' => 'Germany')
+        array('name' => 'Thomas B.', 'country' => 'Germany'),
+        array('name' => 'Anna K.', 'country' => 'Poland'),
+        array('name' => 'Roberto F.', 'country' => 'Italy'),
+        array('name' => 'Yuki T.', 'country' => 'Japan'),
+        array('name' => 'David L.', 'country' => 'Canada'),
+        array('name' => 'Sofia M.', 'country' => 'Brazil'),
+        array('name' => 'Pierre D.', 'country' => 'France')
     );
     
-    return $buyers[array_rand($buyers)];
+    $buyer = $buyers[array_rand($buyers)];
+    $buyer['timestamp'] = time();
+    
+    // Si es para un producto específico, agregar el nombre del producto
+    if ($product_id) {
+        $product = wc_get_product($product_id);
+        if ($product) {
+            $buyer['product_name'] = $product->get_name();
+        }
+    }
+    
+    return $buyer;
+}
+
+/**
+ * Verificar si debe rotar el comprador (después de 45 minutos)
+ */
+function doittrading_should_rotate_buyer($timestamp) {
+    $minutes_elapsed = (time() - $timestamp) / 60;
+    return $minutes_elapsed > 45;
+}
+
+/**
+ * Get recent purchase time (minutes ago) - dinámico basado en timestamp
+ * @param array $buyer_data - Datos del comprador con timestamp
+ */
+function doittrading_get_purchase_time($buyer_data = null) {
+    // Si no se proporciona buyer_data, usar el método antiguo para compatibilidad
+    if (!$buyer_data || !isset($buyer_data['timestamp'])) {
+        // Usar sesión para mantener consistencia
+        if (!session_id()) {
+            session_start();
+        }
+        
+        // Verificar si ya tenemos un tiempo en la sesión
+        if (isset($_SESSION['doittrading_purchase_time'])) {
+            return $_SESSION['doittrading_purchase_time'];
+        }
+        
+        // Generar un tiempo aleatorio entre 3 y 15 minutos
+        $minutes = rand(3, 15);
+        
+        // Guardar en sesión
+        $_SESSION['doittrading_purchase_time'] = $minutes;
+        
+        return $minutes;
+    }
+    
+    // Calcular minutos reales transcurridos
+    $minutes_elapsed = round((time() - $buyer_data['timestamp']) / 60);
+    
+    // Agregar el offset inicial (3-15 minutos) para que no empiece en 0
+    $initial_offset = ($buyer_data['timestamp'] % 13) + 3; // Genera un número pseudo-aleatorio entre 3-15
+    $total_minutes = $minutes_elapsed + $initial_offset;
+    
+    // Limitar a máximo 120 minutos (2 horas)
+    if ($total_minutes > 120) {
+        $total_minutes = 120;
+    }
+    
+    return $total_minutes;
 }
 
 /**

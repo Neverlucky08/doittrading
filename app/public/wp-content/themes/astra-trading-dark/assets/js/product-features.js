@@ -84,7 +84,26 @@
         // Solo mostrar si hay stock warning
         if (!$('.stock-warning').length) return;
         
-        setTimeout(() => {
+        // Obtener datos del DOM si están disponibles
+        const $recentPurchase = $('.recent-purchase');
+        let buyerData = null;
+        
+        if ($recentPurchase.length) {
+            // Extraer datos del HTML existente
+            const text = $recentPurchase.text();
+            const matches = text.match(/🔥\s*([^from]+)\s*from\s*([^just]+)\s*just purchased\s*\((\d+)\s*minutes? ago\)/);
+            
+            if (matches) {
+                buyerData = {
+                    name: matches[1].trim(),
+                    location: matches[2].trim(),
+                    minutes: parseInt(matches[3])
+                };
+            }
+        }
+        
+        // Si no hay datos, usar valores por defecto
+        if (!buyerData) {
             const buyers = [
                 { name: 'Alex K.', location: 'London' },
                 { name: 'Maria S.', location: 'Madrid' },
@@ -93,12 +112,18 @@
             ];
             
             const buyer = buyers[Math.floor(Math.random() * buyers.length)];
-            const minutes = Math.floor(Math.random() * 10) + 3;
-            
+            buyerData = {
+                name: buyer.name,
+                location: buyer.location,
+                minutes: Math.floor(Math.random() * 10) + 3
+            };
+        }
+        
+        setTimeout(() => {
             const notification = $(`
                 <div class="purchase-notification">
                     <span class="close">&times;</span>
-                    <p>🔥 <strong>${buyer.name}</strong> from ${buyer.location} just purchased (${minutes} minutes ago)</p>
+                    <p>🔥 <strong>${buyerData.name}</strong> from ${buyerData.location} just purchased (${buyerData.minutes} minutes ago)</p>
                 </div>
             `);
             

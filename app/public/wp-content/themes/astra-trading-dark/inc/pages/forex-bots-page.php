@@ -1105,8 +1105,11 @@ function doittrading_forex_bots_final_cta() {
     $countdown_target = doittrading_get_countdown_target();
     $cta_bots = doittrading_get_cta_bots();
     
-    // Get recent purchase name
-    $recent_buyer = doittrading_get_recent_buyer();
+    // Get recent purchase name and time for the featured product
+    // Usar el primer producto (featured) para mantener consistencia
+    $featured_product_id = !empty($cta_bots) ? $cta_bots[0]['id'] : null;
+    $recent_buyer = $featured_product_id ? doittrading_get_recent_buyer($featured_product_id) : doittrading_get_recent_buyer();
+    $minutes_ago = doittrading_get_purchase_time($recent_buyer);
     ?>
     <div class="forex-bots-final-cta-section">
         <div class="forex-bots-container">
@@ -1240,7 +1243,7 @@ function doittrading_forex_bots_final_cta() {
                     <div class="recent-purchases">
                         <span class="purchase-notification">
                             🔔 <?php echo esc_html($recent_buyer['name']); ?> from <?php echo esc_html($recent_buyer['country']); ?> 
-                            just purchased <?php echo esc_html($cta_bots[0]['name']); ?> (3 min ago)
+                            just purchased <?php echo esc_html($featured_product_id && !empty($cta_bots) ? $cta_bots[0]['name'] : 'this EA'); ?> (<?php echo $minutes_ago; ?> min ago)
                         </span>
                     </div>
                 </div>

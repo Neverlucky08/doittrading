@@ -89,10 +89,18 @@ add_action('woocommerce_single_product_summary', 'doittrading_social_proof_box',
 function doittrading_social_proof_box() {
     if (!function_exists('doittrading_is_ea') || !doittrading_is_ea()) return;
     
+    global $product;
+    $product_id = $product ? $product->get_id() : get_the_ID();
+    
+    // Obtener comprador específico del producto
     $recent_buyer = function_exists('doittrading_get_recent_buyer') 
-        ? doittrading_get_recent_buyer() 
-        : array('name' => 'Alex K.', 'country' => 'USA');
-    $minutes_ago = rand(3, 15);
+        ? doittrading_get_recent_buyer($product_id) 
+        : array('name' => 'Alex K.', 'country' => 'USA', 'timestamp' => time());
+    
+    // Obtener tiempo dinámico basado en timestamp
+    $minutes_ago = function_exists('doittrading_get_purchase_time') 
+        ? doittrading_get_purchase_time($recent_buyer) 
+        : rand(3, 15);
     ?>
     <div class="social-proof-box">
         <div class="recent-purchase">
