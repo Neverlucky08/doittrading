@@ -3,20 +3,7 @@
 /* ========================================
    HERO HYBRID – Ajuste de imagen al alto del contenido
    ======================================== */
-.product-hero {
-  display: grid;
-  /* ajusta estas proporciones según tu diseño */
-  grid-template-columns: 40% 60%;
-  gap: var(--space-lg);
-  align-items: stretch;           /* estira ambas columnas al mismo alto */
-}
 
-.product-hero .product-hero-visual {
-  height: 100%;                   /* iguala la altura de la fila */
-  display: flex;
-  align-items: center;            /* centra verticalmente */
-  justify-content: center;        /* centra horizontalmente */
-}
 
 /* ========================================
    Posicionar LIVE Badge sobre la imagen
@@ -1449,29 +1436,7 @@
    HERO WIREFRAME LAYOUT - CORRECCIÓN
    ======================================== */
 
-   .live-badge-hero {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: var(--doit-green);
-    color: var(--doit-dark);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    animation: pulse-live 2s infinite;
-    z-index: 10;
-}
-
 /* Live indicators ÚNICOS */
-
-.live-indicator-hero {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--doit-green);
-    font-size: 0.95rem;
-}
 
 .recent-trade-hero {
     color: var(--doit-gold);

@@ -289,34 +289,5 @@ button:hover {
     padding: 0;
 }
 
-/* ========================================
-   HERO IMAGE WRAPPER
-   ======================================== */
 
-/* Base hero image wrapper - shared between products and indicators */
-.hero-image-wrapper {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: visible;
-
-    /*box-shadow: 
-        0 20px 60px rgba(0, 215, 117, 0.2),
-        0 0 0 4px rgba(0, 215, 117, 0.5);
-    background: 
-        linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%),
-        radial-gradient(circle at 20% 50%, rgba(0, 215, 117, 0.1) 0%, transparent 50%);
-    padding: 3px;*/
-}
-
-/* Hero images base styles */
-.hero-image-wrapper img {
-    display: block;
-}
-
-/* Product image sizing - unified for both EA and indicators */
-.product-hero-image {
-    width: auto;
-    height: 100%;
-    object-fit: contain;
-}
 

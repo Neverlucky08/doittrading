@@ -20,6 +20,7 @@
 /* 5. WooCommerce - General shop functionality */
 @import url('woocommerce-base.css');
 
+@import url('product-common.css');
 /* 6. Product Single - Specific to product pages */
 @import url('ea-product-single.css');
 
