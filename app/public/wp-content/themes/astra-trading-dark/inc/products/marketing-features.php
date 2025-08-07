@@ -24,7 +24,7 @@ function doittrading_urgency_section() {
     $remaining = function_exists('doittrading_get_remaining_stock') ? doittrading_get_remaining_stock() : 10;
     $countdown_target = function_exists('doittrading_get_countdown_target') ? doittrading_get_countdown_target() : date('Y-m-d H:i:s', strtotime('+2 days'));
     ?>
-    <div class="hero-price-section">
+    <div class="product-price-section">
         <?php if ($launching_promo): ?>
         <div class="countdown-timer" data-target="<?php echo esc_attr($countdown_target); ?>">
             ⏰ Price increases in <span class="countdown-display">calculating...</span>

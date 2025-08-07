@@ -115,7 +115,7 @@ class DoItTrading_Indicator_Product_Display {
     private function price_section() {
         global $product;
         ?>
-        <div class="indicator-price-section">
+        <div class="product-price-section">
             <?php if ($product->is_on_sale()): 
                 $savings = $product->get_regular_price() - $product->get_price();
             ?>

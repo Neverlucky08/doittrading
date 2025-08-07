@@ -117,3 +117,132 @@
     line-height: 1.5;
     font-weight: var(--font-weight-semibold);
 }
+
+/* ========================================
+   PRODUCT PRICE SECTION - COMMON
+   ======================================== */
+
+.product-price-section {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+    border: 2px solid var(--doit-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+    position: relative;
+    margin-top: var(--space-lg);
+}
+
+/* Price Savings Badge */
+.price-savings {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--doit-green);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* Countdown Timer */
+.countdown-timer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--doit-red);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    animation: pulse-countdown 3s infinite;
+}
+
+@keyframes pulse-countdown {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
+
+@keyframes pulse-savings {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
+
+.countdown-display {
+    font-family: var(--font-mono);
+    letter-spacing: 1px;
+}
+
+/* Price Display */
+.price-display {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.price-current {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-black);
+    color: var(--doit-gold);
+    font-family: var(--font-mono);
+}
+
+.price-original {
+    font-size: var(--font-size-2xl);
+    color: var(--doit-text-dark);
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.hero-price {
+    font-size: 3rem;
+    font-weight: var(--font-weight-black);
+    color: var(--doit-gold);
+    font-family: var(--font-mono);
+    margin: var(--space-sm) 0;
+    line-height: 1;
+}
+
+.original-price {
+    font-size: 1.8rem !important;
+    text-decoration: line-through !important;
+    color: var(--doit-text-dark) !important;
+    margin-left: var(--space-sm);
+}
+
+/* Warning Messages */
+.price-warning {
+    color: var(--doit-red);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-xs);
+    margin-top: var(--space-sm);
+}
+
+.stock-warning {
+    color: var(--doit-red);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    margin-top: var(--space-xs);
+}
+
+/* Last Purchase Info */
+.last-purchase-info {
+    font-size: var(--font-size-sm);
+    color: var(--doit-text-muted);
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-md);
+    animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
