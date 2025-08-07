@@ -200,9 +200,9 @@
     font-weight: var(--font-weight-bold);
 }
 
-.tab-content h3,
-.accordion-content h3 {
-    color: var(--doit-text) !important;
+.tab-content h3:not(.benefits-overview h3),
+.accordion-content h3:not(.benefits-overview h3) {
+    color: var(--doit-text);
     font-size: var(--font-size-xl) !important;
     margin-bottom: var(--space-md) !important;
     font-weight: var(--font-weight-semibold);
@@ -498,48 +498,7 @@
    BENEFITS OVERVIEW
    ======================================== */
 
-.benefits-overview {
-    margin: var(--space-xl) 0;
-}
-
-.benefits-overview h3 {
-    color: var(--doit-green) !important;
-    text-align: center;
-    margin-bottom: var(--space-lg) !important;
-}
-
-.benefits-overview .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-lg);
-}
-
-.benefits-overview .benefit {
-    background: rgba(0, 215, 117, 0.03);
-    border: 1px solid var(--doit-border);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    text-align: center;
-}
-
-.benefits-overview .benefit .icon {
-    font-size: var(--font-size-4xl);
-    display: block;
-    margin-bottom: var(--space-sm);
-}
-
-.benefits-overview .benefit strong {
-    color: var(--doit-green) !important;
-    display: block;
-    margin-bottom: var(--space-sm);
-    font-size: var(--font-size-lg);
-}
-
-.benefits-overview .benefit p {
-    color: var(--doit-text-muted) !important;
-    font-size: var(--font-size-sm) !important;
-    margin: 0 !important;
-}
+/* Benefits overview styles moved to product-common.css */
 
 /* Key Features Section */
 .key-features-section {
@@ -621,9 +580,7 @@
         grid-template-columns: 1fr;
     }
     
-    .benefits-overview .benefits-grid {
-        grid-template-columns: 1fr;
-    }
+    /* Benefits grid responsive moved to product-common.css */
 }
 
 @media (max-width: 480px) {

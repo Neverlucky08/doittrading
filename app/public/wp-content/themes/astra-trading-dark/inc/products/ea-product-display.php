@@ -245,35 +245,38 @@ function doittrading_interactive_roi_calculator() {
 }
 
 /**
- * Benefits Grid (antes del content)
+ * Benefits Overview (antes del content)
  */
-add_filter('the_content', 'doittrading_add_benefits_grid');
-function doittrading_add_benefits_grid($content) {
-    // Benefits grid is only for EAs
+add_filter('the_content', 'doittrading_add_benefits_overview');
+function doittrading_add_benefits_overview($content) {
+    // Benefits overview is only for EAs
     if (!is_product() || !doittrading_is_ea()) {
         return $content;
     }
     
-    $benefits = '<div class="benefits-grid">
-        <div class="benefit">
-            <span class="icon">💰</span>
-            <strong>Start Earning While You Sleep</strong>
-            <p>EA trades 24/5 automatically</p>
-        </div>
-        <div class="benefit">
-            <span class="icon">⚡</span>
-            <strong>Live Proven Strategy</strong>
-            <p>Real results you can verify</p>
-        </div>
-        <div class="benefit">
-            <span class="icon">🛡️</span>
-            <strong>Protected Capital</strong>
-            <p>Smart risk management built-in</p>
-        </div>
-        <div class="benefit">
-            <span class="icon">🎯</span>
-            <strong>Setup in 5 Minutes</strong>
-            <p>Pre-optimized settings included</p>
+    $benefits = '<div class="benefits-overview">
+        <h3>💰 Why This EA Changes Everything</h3>
+        <div class="benefits-grid">
+            <div class="benefit">
+                <span class="icon">💰</span>
+                <strong>Start Earning While You Sleep</strong>
+                <p>EA trades 24/5 automatically</p>
+            </div>
+            <div class="benefit">
+                <span class="icon">⚡</span>
+                <strong>Live Proven Strategy</strong>
+                <p>Real results you can verify</p>
+            </div>
+            <div class="benefit">
+                <span class="icon">🛡️</span>
+                <strong>Protected Capital</strong>
+                <p>Smart risk management built-in</p>
+            </div>
+            <div class="benefit">
+                <span class="icon">🎯</span>
+                <strong>Setup in 5 Minutes</strong>
+                <p>Pre-optimized settings included</p>
+            </div>
         </div>
     </div>';
     
@@ -418,33 +421,6 @@ function doittrading_get_overview_content($product_id) {
             </div>
         </div>
         <?php endif; ?>
-        
-        <!-- Benefits Grid -->
-        <div class="benefits-overview">
-            <h3>💰 Why This EA Changes Everything</h3>
-            <div class="benefits-grid">
-                <div class="benefit">
-                    <span class="icon">💰</span>
-                    <strong>Passive Income Stream</strong>
-                    <p>EA trades automatically 24/5 while you sleep, work, or travel</p>
-                </div>
-                <div class="benefit">
-                    <span class="icon">📊</span>
-                    <strong>Verified Performance</strong>
-                    <p>Live MyFxBook account shows real results, not backtest dreams</p>
-                </div>
-                <div class="benefit">
-                    <span class="icon">🛡️</span>
-                    <strong>Protected Capital</strong>
-                    <p>Conservative risk management prevents account blowups</p>
-                </div>
-                <div class="benefit">
-                    <span class="icon">⚡</span>
-                    <strong>Instant Setup</strong>
-                    <p>Pre-optimized settings mean you're trading in under 5 minutes</p>
-                </div>
-            </div>
-        </div>
         
     </div>
     <?php

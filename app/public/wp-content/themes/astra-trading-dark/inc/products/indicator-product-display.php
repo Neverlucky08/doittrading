@@ -423,34 +423,6 @@ class DoItTrading_Indicator_Product_Display {
                 </div>
             </div>
             <?php endif; ?>
-            
-            <!-- Trading Capabilities -->
-            <div class="trading-capabilities">
-                <h3>📊 Trading Capabilities</h3>
-                <div class="capabilities-grid">
-                    <div class="capability">
-                        <span class="icon">📈</span>
-                        <strong>Multi-Timeframe Analysis</strong>
-                        <p>Works seamlessly across all timeframes from M1 to Monthly</p>
-                    </div>
-                    <div class="capability">
-                        <span class="icon">🎯</span>
-                        <strong>Precision Signals</strong>
-                        <p>Advanced filtering eliminates false signals and noise</p>
-                    </div>
-                    <div class="capability">
-                        <span class="icon">⚡</span>
-                        <strong>Real-Time Alerts</strong>
-                        <p>Instant notifications for high-probability setups</p>
-                    </div>
-                    <div class="capability">
-                        <span class="icon">🛡️</span>
-                        <strong>Risk Management</strong>
-                        <p>Built-in stop loss and take profit recommendations</p>
-                    </div>
-                </div>
-            </div>
-            
         </div>
         <?php
         return ob_get_clean();

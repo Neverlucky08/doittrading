@@ -524,46 +524,6 @@
     font-size: var(--font-size-md);
 }
 
-.trading-capabilities,
-.capabilities-grid {
-    margin-bottom: var(--space-xl);
-}
-
-.capabilities-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
-}
-
-.capability {
-    padding: var(--space-md);
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: var(--radius-md);
-    transition: var(--transition-all);
-}
-
-.capability:hover {
-    background: rgba(0, 215, 117, 0.05);
-    transform: translateY(-2px);
-}
-
-.capability .icon {
-    font-size: var(--font-size-2xl);
-    display: block;
-    margin-bottom: var(--space-sm);
-}
-
-.capability strong {
-    display: block;
-    color: var(--doit-text);
-    margin-bottom: var(--space-xs);
-}
-
-.capability p {
-    color: var(--doit-text-muted);
-    font-size: var(--font-size-sm);
-}
-
 /* How It Works */
 .how-it-works-grid {
     display: grid;
@@ -808,7 +768,7 @@
     }
     
     /* Content */
-    .capabilities-grid,
+    .benefits-overview .benefits-grid,
     .how-it-works-grid {
         grid-template-columns: 1fr;
     }
