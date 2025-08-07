@@ -45,25 +45,25 @@ function doittrading_hero_hybrid_smart() {
         $image_alt = 'Product placeholder';
     }
     ?>
-    <div class="doittrading-hero-hybrid">
+    <div class="product-hero">
         <!-- Left Column: Product Image with Live Badge -->
-        <div class="hero-image-column">
+        <div class="product-hero-visual">
             <div class="hero-image-wrapper">
                 <div class="live-badge-hero">🟢 LIVE</div>
                 <img src="<?php echo esc_url($image_url); ?>" 
                      alt="<?php echo esc_attr($image_alt ?: get_the_title()); ?>" 
-                     class="hero-product-image">
+                     class="product-hero-image">
             </div>
         </div>
         
         <!-- Right Column: Hero Content -->
-        <div class="hero-content-column">
+        <div class="product-hero-content">
             <!-- Hero V2 Content -->
-            <div class="doittrading-hero-v2">
+            <div class="product-hero-container">
                 <!-- Hook Emocional -->
-                <div class="hero-hook">
-                    <h1 class="hero-title">Finally, A Trading EA That Actually Works</h1>
-                    <div class="hero-subtitle">
+                <div class="product-hero-hook">
+                    <h1 class="product-hero-title">Finally, A Trading EA That Actually Works</h1>
+                    <div class="product-hero-subtitle">
                         <?php echo esc_html($win_rate); ?>% Win Rate • MyFxBook Verified • No Martingale
                     </div>
                 </div>
@@ -118,7 +118,7 @@ function doittrading_stats_enhanced() {
     // Only show for EAs that have monthly gain data
     if (!doittrading_is_ea() || !get_field('monthly_gain', $product_id)) return;
     ?>
-    <div class="doittrading-stats-enhanced">
+    <div class="product-stats-card">
         <h3>Real Results, Real Money, Real Timeframes</h3>
         <div class="stats-grid-enhanced">
             <div class="stat-box-enhanced">

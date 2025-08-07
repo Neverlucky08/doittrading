@@ -59,53 +59,51 @@ class DoItTrading_Indicator_Product_Display {
         // Get indicator specific fields
         $is_trending = get_post_meta($product_id, 'is_trending', true);
         ?>
-        <div class="doittrading-indicator-hero">
-            <div class="indicator-hero-grid">
-                <!-- Left Column: Visual -->
-                <div class="indicator-hero-visual">
-                    <div class="hero-image-wrapper">
-                        <?php if ($is_trending): ?>
-                        <div class="trending-badge">🔥 TRENDING</div>
-                        <?php endif; ?>
-                        <img src="<?php echo esc_url($image_url); ?>" 
-                             alt="<?php echo esc_attr($image_alt ?: get_the_title()); ?>" 
-                             class="indicator-hero-image">
+        <div class="product-hero">
+            <!-- Left Column: Visual -->
+            <div class="product-hero-visual">
+                <div class="hero-image-wrapper">
+                    <?php if ($is_trending): ?>
+                    <div class="trending-badge">🔥 TRENDING</div>
+                    <?php endif; ?>
+                    <img src="<?php echo esc_url($image_url); ?>" 
+                            alt="<?php echo esc_attr($image_alt ?: get_the_title()); ?>" 
+                            class="product-hero-image">
+                </div>
+            </div>
+            
+            <!-- Right Column: Content -->
+            <div class="product-hero-content">
+                <!-- Hero Container with Border and Background -->
+                <div class="product-hero-container">
+                    <h1 class="product-hero-title"><?php the_title(); ?></h1>
+                    <div class="product-hero-subtitle">
+                        <?php echo wp_kses_post($product->get_short_description()); ?>
+                    </div>
+                    
+                    <!-- Stats Bar -->
+                    <div class="product-stats-bar">
+                        <div class="stat-item">
+                            <span class="stat-number"><?php echo $this->get_product_download_count($product_id); ?></span>
+                            <span class="stat-label">Downloads</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number"><?php echo $this->get_product_rating($product_id); ?>/5</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number"><?php echo $this->get_active_users_count($product_id); ?>+</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Support</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Right Column: Content -->
-                <div class="indicator-hero-content">
-                    <!-- Hero Container with Border and Background -->
-                    <div class="indicator-hero-container">
-                        <h1 class="indicator-hero-title"><?php the_title(); ?></h1>
-                        <div class="indicator-hero-subtitle">
-                            <?php echo wp_kses_post($product->get_short_description()); ?>
-                        </div>
-                        
-                        <!-- Stats Bar -->
-                        <div class="indicator-stats-bar">
-                            <div class="stat-item">
-                                <span class="stat-number"><?php echo $this->get_product_download_count($product_id); ?></span>
-                                <span class="stat-label">Downloads</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number"><?php echo $this->get_product_rating($product_id); ?>/5</span>
-                                <span class="stat-label">Rating</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number"><?php echo $this->get_active_users_count($product_id); ?>+</span>
-                                <span class="stat-label">Active Users</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">24/7</span>
-                                <span class="stat-label">Support</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Price Section -->
-                    <?php $this->price_section(); ?>
-                </div>
+                <!-- Price Section -->
+                <?php $this->price_section(); ?>
             </div>
         </div>
         <?php
@@ -204,7 +202,7 @@ class DoItTrading_Indicator_Product_Display {
         
         if (empty($benefits)) return;
         ?>
-        <div class="doittrading-indicator-benefits">
+        <div class="product-benefits">
             <div class="section-header">
                 <h2>Why Traders Love This Indicator</h2>
                 <p>Transform your trading with features designed for real market conditions</p>
@@ -276,8 +274,8 @@ class DoItTrading_Indicator_Product_Display {
         
         if (empty($stats)) return;
         ?>
-        <div class="doittrading-indicator-stats-card">
-            <div class="tool-stats-card">
+        <div class="product-stats-wrapper">
+            <div class="product-stats-card">
                 <div class="stats-card-header">
                     <h3>Performance That Speaks For Itself</h3>
                     <p>Real statistics from our community of successful traders</p>

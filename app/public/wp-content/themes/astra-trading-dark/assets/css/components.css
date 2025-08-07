@@ -313,15 +313,8 @@ button:hover {
     display: block;
 }
 
-/* Product-specific image sizing */
-.hero-product-image {
-    width: auto;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Indicator-specific image sizing */
-.indicator-hero-image {
+/* Product image sizing - unified for both EA and indicators */
+.product-hero-image {
     width: auto;
     height: 100%;
     object-fit: contain;

@@ -21,7 +21,7 @@
 @import url('woocommerce-base.css');
 
 /* 6. Product Single - Specific to product pages */
-@import url('product-single.css');
+@import url('ea-product-single.css');
 
 /* 7. Sections - FAQs, reviews, specific content areas */
 @import url('sections.css');
