@@ -225,3 +225,52 @@ article.post {
     border-top: 1px solid var(--doit-border-light);
     margin: 40px 0;
 }
+
+/* ========================================
+   EMPTY PAGE TEMPLATE
+   ======================================== */
+
+/* Center content in empty page */
+.empty-page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Adjust site-content padding for empty page template */
+.page-template-empty-page .site-content {
+    padding-bottom: 40px !important;
+    min-height: auto;
+}
+
+.page-template-empty-page .site-content .container {
+    min-height: auto;
+}
+
+/* Ensure content is properly centered */
+.empty-page-content > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Keep text content readable */
+.empty-page-content p,
+.empty-page-content h1,
+.empty-page-content h2,
+.empty-page-content h3,
+.empty-page-content h4,
+.empty-page-content h5,
+.empty-page-content h6 {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Full width for images and media */
+.empty-page-content img,
+.empty-page-content video,
+.empty-page-content iframe {
+    max-width: 100%;
+    height: auto;
+}
