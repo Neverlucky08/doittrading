@@ -60,6 +60,12 @@ function doittrading_enqueue_styles() {
     if (is_page('indicators')) {
             wp_enqueue_style('indicators-style', get_stylesheet_directory_uri() . '/assets/css/indicators.css');
     }
+    
+    // User Guide template styles and scripts
+    if (is_page_template('page-userguide.php')) {
+        wp_enqueue_style('doittrading-userguide', get_stylesheet_directory_uri() . '/assets/css/userguide.css', array('doittrading-main'), '1.0');
+        wp_enqueue_script('doittrading-userguide', get_stylesheet_directory_uri() . '/assets/js/userguide.js', array(), '1.0', true);
+    }
 
     // Footer styles - loaded on all pages
     wp_enqueue_style('doittrading-footer', get_stylesheet_directory_uri() . '/assets/css/footer.css', array('doittrading-main'), '1.0');
