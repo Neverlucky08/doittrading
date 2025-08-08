@@ -24,6 +24,12 @@ function doittrading_clean_woocommerce() {
 
     // Quitar el formulario <form class="cart"> original
     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+    
+    // Remover productos relacionados predeterminados de WooCommerce
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+    
+    // También remover upsells si existen
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 }
 
 /**
