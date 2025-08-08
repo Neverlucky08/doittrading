@@ -699,10 +699,10 @@
     object-fit: contain;
 }
 
-.share-twitter { background: #1DA1F2; }
-.share-facebook { background: #4267B2; }
-.share-whatsapp { background: #25D366; }
-.share-telegram { background: #0088cc; }
+.share-twitter { background: white; }
+.share-facebook { background: transparent; }
+.share-whatsapp { background: transparent; }
+.share-telegram { background: transparent; }
 
 /* Quick Links */
 .quick-links {

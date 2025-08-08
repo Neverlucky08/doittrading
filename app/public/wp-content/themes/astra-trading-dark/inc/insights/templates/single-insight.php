@@ -94,13 +94,13 @@ $toc_items = doittrading_generate_toc(get_the_content());
            class="share-btn share-twitter" 
            target="_blank" 
            rel="noopener">
-            <span class="share-icon">𝕏</span>
+            <img src="<?php echo content_url('uploads/2025/08/x_logo.webp'); ?>" alt="X" class="share-logo">
         </a>
         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url; ?>" 
            class="share-btn share-facebook" 
            target="_blank" 
            rel="noopener">
-            <span class="share-icon">f</span>
+            <img src="<?php echo content_url('uploads/2025/08/facebook_logo.webp'); ?>" alt="Facebook" class="share-logo">
         </a>
         <a href="https://wa.me/?text=<?php echo $share_title; ?>%20<?php echo $share_url; ?>" 
            class="share-btn share-whatsapp" 
