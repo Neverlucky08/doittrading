@@ -113,7 +113,7 @@ $toc_items = doittrading_generate_toc(get_the_content());
 <div class="sidebar-widget">
     <h3 class="widget-header">🔗 Quick Links</h3>
     <ul class="quick-links">
-        <li><a href="/shop/">→ View All EAs</a></li>
+        <li><a href="/forex-trading-bots/">→ View All EAs</a></li>
         <li><a href="/forex-trading-bots/#live-results">→ Live Results</a></li>
         <?php if ($insight_type === 'setup' || $insight_type === 'education'): ?>
             <li><a href="/insights/?category=setup">→ More Setup Guides</a></li>

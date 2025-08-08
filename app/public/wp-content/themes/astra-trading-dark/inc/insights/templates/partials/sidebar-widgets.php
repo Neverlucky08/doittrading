@@ -21,7 +21,7 @@
             <span class="performance-value">+94%</span>
         </div>
     </div>
-    <a href="/shop/" class="view-all-link">View All Results →</a>
+    <a href="/forex-trading-bots/" class="view-all-link">View All Results →</a>
 </div>
 
 <!-- Trending Widget -->
@@ -70,7 +70,7 @@
     <h3 class="widget-header">💬 Need Help?</h3>
     <div class="help-links">
         <a href="/contact/">• EA Setup Support</a>
-        <a href="/shop/">• Choose the Right EA</a>
+        <a href="/forex-trading-bots/">• Choose the Right EA</a>
         <a href="/contact/">• Contact Diego Directly</a>
         <a href="#">• Join Telegram Group</a>
     </div>

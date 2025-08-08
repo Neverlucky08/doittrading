@@ -622,7 +622,7 @@ function doittrading_homepage_why_choose_us() {
                         don't buy them. It's that simple.
                     </p>
                     <div class="promise-actions">
-                        <a href="/shop/" class="promise-cta-primary">
+                        <a href="/forex-trading-bots/" class="promise-cta-primary">
                             See Our Live Results
                         </a>
                         <a href="#social-proof" class="promise-cta-secondary">
@@ -1098,7 +1098,7 @@ function doittrading_homepage_about() {
                         conservative EA trading. See our live results and decide for yourself.
                     </p>
                     <div class="about-cta-buttons">
-                        <a href="/shop/" class="about-cta-primary">
+                        <a href="/forex-trading-bots/" class="about-cta-primary">
                             Explore Our EAs
                         </a>
                         <a href="#live-results" class="about-cta-secondary">
