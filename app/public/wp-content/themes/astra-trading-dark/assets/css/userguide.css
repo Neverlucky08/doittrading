@@ -194,7 +194,7 @@
 
 .userguide-body h3 {
     font-size: 1.5rem;
-    color: var(--doit-green) !important;
+    color: var(--doit-text);
     margin: 30px 0 15px;
     font-weight: var(--font-weight-semibold);
 }
@@ -443,8 +443,10 @@
         font-size: 1.5rem;
     }
     
-    .userguide-body h3 {
+    .userguide-content .userguide-body h3,
+    .userguide-article .userguide-body h3 {
         font-size: 1.3rem;
+        color: var(--doit-green) !important;
     }
     
     .userguide-cta {

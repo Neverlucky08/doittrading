@@ -27,8 +27,8 @@
     padding: 0 var(--container-padding);
 }
 
-.single-insight-page{
-    background-color: var(--doit-dark-secondary);
+.single-insight{
+    background-color: var(--doit-dark);
 }
 /* ===== PROGRESS BAR ===== */
 .insight-progress-bar {

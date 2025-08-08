@@ -39,7 +39,7 @@ $product = $product_id ? wc_get_product($product_id) : null;
             
             <!-- Navigation Menu -->
             <nav class="userguide-nav">
-                <h4 class="nav-title">Table of Contents</h4>
+                <h4 class="nav-title">📑 Table of Contents</h4>
                 <ul class="nav-menu" id="userguide-nav-menu">
                     <!-- Navigation items will be generated dynamically via JavaScript -->
                 </ul>
