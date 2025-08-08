@@ -41,6 +41,9 @@ define( 'DB_COLLATE', '' );
 // Forzar SSL en admin
 define('FORCE_SSL_ADMIN', true);
 
+// En todos tus archivos PHP
+define('DOIT_GPT_SECURE_CONFIG', ABSPATH . '../doittrading_secure_data/gpt/config.php');
+
 define('HIDE_DEPRECATED_ERRORS', true); // Tu switch personalizado
 
 if (defined('HIDE_DEPRECATED_ERRORS') && HIDE_DEPRECATED_ERRORS) {

@@ -4,6 +4,7 @@ Thumbs.db
 .idea/
 !.vscode/
 *.code-workspace
+**config.php
 
 # --- Node / Frontend ---
 **/node_modules/

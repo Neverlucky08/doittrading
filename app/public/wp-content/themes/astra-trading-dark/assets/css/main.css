@@ -58,6 +58,9 @@
 
 /* 16. Footer - Custom footer styles */
 @import url('footer.css');
+
+/* 17. DoIt GPT Chat - AI Chat Integration */
+@import url('doit-chat.css');
 /* ========================================
    FILE STRUCTURE DOCUMENTATION
    ======================================== */
