@@ -74,7 +74,7 @@ $product = $product_id ? wc_get_product($product_id) : null;
                             </div>
                         <?php endif; ?>
                         
-                        <!-- Support Section -->
+                        <!-- Support Section
                         <div class="userguide-support">
                             <h3>Need Help?</h3>
                             <p>Our support team is here to assist you with setup and configuration.</p>
@@ -83,6 +83,7 @@ $product = $product_id ? wc_get_product($product_id) : null;
                                 <a href="/documentation" class="btn-secondary">View Documentation</a>
                             </div>
                         </div>
+                        -->
                     </div>
                 </article>
                 <?php

@@ -11,8 +11,8 @@
 
 /* Body oscuro */
 body {
-    background-color: var(--doit-dark) !important;
-    color: var(--doit-text) !important;
+    background-color: var(--doit-dark);
+    color: var(--doit-text);
     font-family: var(--font-family);
 }
 
@@ -22,25 +22,25 @@ body {
 
 /* Títulos generales */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--doit-text) !important;
+    color: var(--doit-text);
     font-weight: var(--font-weight-bold);
 }
 
 /* Párrafos */
 p {
-    color: var(--doit-text) !important;
-    line-height: 1.6 !important;
+    color: var(--doit-text);
+    line-height: 1.6;
 }
 
 /* Strong/Bold text */
 strong, b {
-    color: var(--doit-text) !important;
-    font-weight: var(--font-weight-bold) !important;
+    color: var(--doit-text);
+    font-weight: var(--font-weight-bold);
 }
 
 /* Lista items */
 li {
-    color: var(--doit-text) !important;
+    color: var(--doit-text);
 }
 
 /* ========================================
@@ -67,7 +67,7 @@ a:hover {
 .site-content {
     background-color: var(--doit-dark);
     min-height: 80vh;
-    color: var(--doit-text) !important;
+    color: var(--doit-text);
 }
 
 /* Ocultar site-content en homepage */
