@@ -126,7 +126,7 @@ $toc_items = doittrading_generate_toc(get_the_content());
         <?php if ($insight_type === 'setup' || $insight_type === 'education'): ?>
             <li><a href="/insights/?category=setup">→ More Setup Guides</a></li>
         <?php endif; ?>
-        <li><a href="/contact/">→ Contact Support</a></li>
+        <li><a href="/doit-chat/">→ Contact Support</a></li>
     </ul>
 </div>
 

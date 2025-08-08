@@ -5,7 +5,7 @@
 
 /* ===== Homepage Base ===== */
 .home {
-    background: var(--gradient-hero);
+    background: var(--doit-dark);
     color: var(--doit-text);
 }
 

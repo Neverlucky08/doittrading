@@ -69,9 +69,9 @@
 <div class="widget">
     <h3 class="widget-header">💬 Need Help?</h3>
     <div class="help-links">
-        <a href="/contact/">• EA Setup Support</a>
+        <a href="/doit-chat/">• EA Setup Support</a>
         <a href="/forex-trading-bots/">• Choose the Right EA</a>
-        <a href="/contact/">• Contact Diego Directly</a>
+        <a href="/doit-chat/">• Contact Diego Directly</a>
         <a href="#">• Join Telegram Group</a>
     </div>
 </div>

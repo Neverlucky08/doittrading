@@ -15,6 +15,10 @@
 /* ========================================
    PRODUCT LAYOUT
    ======================================== */
+.site-header
+{
+    background-color: var(--doit-dark);
+}
 
 .woocommerce div.product div.images img {
     max-width: 100% !important;

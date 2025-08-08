@@ -950,7 +950,7 @@ function doittrading_indicators_testimonials_section() {
                     <a href="#tools-grid" class="testimonials-cta-primary">
                         Browse All Tools
                     </a>
-                    <a href="/contact/" class="testimonials-cta-secondary">
+                    <a href="/doit-chat/" class="testimonials-cta-secondary">
                         Get Recommendations
                     </a>
                 </div>

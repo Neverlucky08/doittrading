@@ -16,6 +16,10 @@ body {
     font-family: var(--font-family);
 }
 
+.page
+{
+    background-color: var(--doit-dark);
+}
 /* ========================================
    TYPOGRAPHY
    ======================================== */

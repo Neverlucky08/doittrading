@@ -27,7 +27,7 @@ $cta_content = array(
         'title' => 'Need Help with Setup?',
         'description' => 'Get personal support from our team for a smooth start',
         'button_text' => 'Contact Support',
-        'button_url' => '/contact/'
+        'button_url' => '/doit-chat/'
     ),
     'success' => array(
         'title' => 'Ready to Start Your Success Story?',
