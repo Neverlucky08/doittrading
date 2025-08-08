@@ -971,6 +971,7 @@
     z-index: 3;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: var(--transition-all);
+    pointer-events: none;
 }
 
 /* Badge para card destacada - posición ajustada */
@@ -1138,6 +1139,8 @@
     flex-direction: column;
     gap: var(--space-sm);
     margin-bottom: var(--space-lg);
+    position: relative;
+    z-index: 2;
 }
 
 .product-cta-primary {
@@ -1190,6 +1193,8 @@
     text-decoration: none;
     text-align: center;
     transition: var(--transition-all);
+    position: relative;
+    z-index: 2;
 }
 
 .product-cta-secondary:hover {
