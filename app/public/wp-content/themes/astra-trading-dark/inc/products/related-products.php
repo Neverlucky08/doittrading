@@ -211,6 +211,26 @@ function doittrading_related_products_section() {
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
+            
+            <!-- Section Footer CTA -->
+            <div class="related-products-footer">
+                <?php if ($is_ea): ?>
+                    <p class="footer-text">
+                        <strong>Build a diversified EA portfolio</strong> to maximize profits and minimize risk
+                    </p>
+                    <a href="/forex-trading-bots/" class="footer-cta">
+                        Browse All Expert Advisors →
+                    </a>
+                <?php else: ?>
+                    <p class="footer-text">
+                        <strong>Discover more professional indicators</strong> to enhance your trading analysis
+                    </p>
+                    <a href="/forex-indicators/" class="footer-cta">
+                        Browse All Indicators →
+                    </a>
+                <?php endif; ?>
+            </div>
+            
         </div>
     </div>
     <?php

@@ -61,9 +61,10 @@
 /* Products Grid */
 .related-products-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-lg);
     margin-bottom: var(--space-xl);
+    width: 100%;
 }
 
 /* Product Card Base */
@@ -76,6 +77,8 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    width: 100%;
+    min-width: 0;
 }
 
 .related-product-card:hover {
