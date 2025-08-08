@@ -187,9 +187,40 @@
 }
 
 .product-rating .stars {
-    color: var(--doit-gold);
     font-size: var(--font-size-md);
     letter-spacing: 2px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Star styles with half-star support */
+.product-rating .star {
+    position: relative;
+    display: inline-block;
+    color: var(--doit-gold);
+}
+
+.product-rating .star.full {
+    color: var(--doit-gold);
+}
+
+.product-rating .star.half {
+    position: relative;
+    color: rgba(255, 215, 0, 0.3); /* Light gold for empty part */
+}
+
+.product-rating .star.half::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--doit-gold);
+}
+
+.product-rating .star.empty {
+    color: rgba(255, 215, 0, 0.3); /* Light gold for empty stars */
 }
 
 .product-rating .rating-value {

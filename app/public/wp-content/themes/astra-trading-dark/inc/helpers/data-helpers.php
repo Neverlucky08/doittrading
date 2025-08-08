@@ -926,6 +926,7 @@ function doittrading_format_indicator_data($product_id) {
         'downloads' => doittrading_get_field('downloads_count', $product_id, rand(50, 300)),
         'rating' => doittrading_get_field('mql5_average_rating', $product_id, number_format(rand(40, 50) / 10, 1)),
         'price' => $product->get_price(), // Current selling price
+        'regular_price' => $product->get_regular_price(), // Original price for comparison
         'price_html' => $product->get_price_html(), // Full HTML formatting for display
         'url' => get_permalink($product_id),
         'image' => wp_get_attachment_image_url($product->get_image_id(), 'large'), // Use WooCommerce product image

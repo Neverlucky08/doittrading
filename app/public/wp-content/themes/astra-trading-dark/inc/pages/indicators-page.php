@@ -533,6 +533,7 @@ function doittrading_tools_grid_section() {
                     'downloads' => $tool_data['downloads'],
                     'feature' => $tool_data['feature'],
                     'price' => $tool_data['price'],
+                    'regular_price' => $tool_data['regular_price'],
                     'url' => $tool_data['url'],
                     'premium' => $tool_data['is_premium'],
                     'image' => $tool_data['image'] // Add product image
@@ -634,15 +635,40 @@ function doittrading_tools_grid_section() {
                         <h3 class="tool-name"><?php echo esc_html($tool['name']); ?></h3>
                         
                         <div class="tool-rating">
-                            <?php echo str_repeat('★', floor($tool['rating'])); ?>
-                            <?php if ($tool['rating'] - floor($tool['rating']) >= 0.5): ?>☆<?php endif; ?>
-                            <?php echo esc_html($tool['rating']); ?>
+                            <span class="stars" data-rating="<?php echo esc_attr($tool['rating']); ?>">
+                                <?php 
+                                $rating = floatval($tool['rating']);
+                                
+                                for ($i = 1; $i <= 5; $i++) {
+                                    if ($i <= $rating) {
+                                        // Full star
+                                        echo '<span class="star full">★</span>';
+                                    } elseif ($i - 0.5 <= $rating) {
+                                        // Half star
+                                        echo '<span class="star half">★</span>';
+                                    } else {
+                                        // Empty star
+                                        echo '<span class="star empty">★</span>';
+                                    }
+                                }
+                                ?>
+                            </span>
+                            <span class="rating-value"><?php echo esc_html($tool['rating']); ?></span>
                         </div>
                         
                         <p class="tool-feature"><?php echo esc_html($tool['feature']); ?></p>
                         
                         <div class="tool-card-footer">
-                            <span class="tool-card-price">$<?php echo esc_html($tool['price']); ?></span>
+                            <div class="tool-card-price">
+                                <?php if ($tool['price'] == 0): ?>
+                                    <span class="price-free">FREE</span>
+                                <?php elseif (isset($tool['regular_price']) && $tool['regular_price'] && $tool['price'] < $tool['regular_price']): ?>
+                                    <span class="price-current">$<?php echo esc_html($tool['price']); ?></span>
+                                    <span class="price-original">$<?php echo esc_html($tool['regular_price']); ?></span>
+                                <?php else: ?>
+                                    <span class="price-current">$<?php echo esc_html($tool['price']); ?></span>
+                                <?php endif; ?>
+                            </div>
                             <a href="<?php echo esc_url($tool['url']); ?>" class="tool-card-cta">
                                 Get Now
                             </a>

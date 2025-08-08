@@ -86,16 +86,20 @@ function doittrading_related_products_section() {
                                 <div class="related-product-info">
                                     <?php if ($product['rating']): ?>
                                         <div class="product-rating">
-                                            <span class="stars">
+                                            <span class="stars" data-rating="<?php echo esc_attr($product['rating']); ?>">
                                                 <?php 
                                                 $rating = floatval($product['rating']);
+                                                
                                                 for ($i = 1; $i <= 5; $i++) {
                                                     if ($i <= $rating) {
-                                                        echo '★';
+                                                        // Full star
+                                                        echo '<span class="star full">★</span>';
                                                     } elseif ($i - 0.5 <= $rating) {
-                                                        echo '☆';
+                                                        // Half star
+                                                        echo '<span class="star half">★</span>';
                                                     } else {
-                                                        echo '☆';
+                                                        // Empty star
+                                                        echo '<span class="star empty">★</span>';
                                                     }
                                                 }
                                                 ?>
@@ -166,16 +170,20 @@ function doittrading_related_products_section() {
                                 <div class="related-product-info">
                                     <?php if ($product['rating']): ?>
                                         <div class="product-rating">
-                                            <span class="stars">
+                                            <span class="stars" data-rating="<?php echo esc_attr($product['rating']); ?>">
                                                 <?php 
                                                 $rating = floatval($product['rating']);
+                                                
                                                 for ($i = 1; $i <= 5; $i++) {
                                                     if ($i <= $rating) {
-                                                        echo '★';
+                                                        // Full star
+                                                        echo '<span class="star full">★</span>';
                                                     } elseif ($i - 0.5 <= $rating) {
-                                                        echo '☆';
+                                                        // Half star
+                                                        echo '<span class="star half">★</span>';
                                                     } else {
-                                                        echo '☆';
+                                                        // Empty star
+                                                        echo '<span class="star empty">★</span>';
                                                     }
                                                 }
                                                 ?>
@@ -225,7 +233,7 @@ function doittrading_related_products_section() {
                     <p class="footer-text">
                         <strong>Discover more professional indicators</strong> to enhance your trading analysis
                     </p>
-                    <a href="/forex-indicators/" class="footer-cta">
+                    <a href="/indicators/" class="footer-cta">
                         Browse All Indicators →
                     </a>
                 <?php endif; ?>
