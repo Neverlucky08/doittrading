@@ -132,10 +132,10 @@ class DoItTrading_Indicator_Product_Display {
                 🔥 Last purchase: <?php echo $last_purchase_time; ?> hours ago
             </div>
             
-            <div class="price-display">
+            <div class="hero-price">
                 <?php if ($product->is_on_sale()): ?>
                     <span class="price-original"><?php echo wc_price($product->get_regular_price()); ?></span>
-                <?php endif; ?>
+                    <?php endif; ?>
                 <span class="price-current"><?php echo wc_price($product->get_price()); ?></span>
             </div>
             

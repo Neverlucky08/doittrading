@@ -41,10 +41,10 @@ function doittrading_urgency_section() {
             <div class="price-warning">🔥 LAUNCH PRICE ENDING SOON</div>
         <?php endif; ?>
         <div class="hero-price">
-                $<?php echo $product->get_sale_price() ?: $product->get_regular_price(); ?>
                 <?php if ($product->get_sale_price()): ?>
                     <span class="original-price">$<?php echo $product->get_regular_price(); ?></span>
                 <?php endif; ?>
+                $<?php echo $product->get_sale_price() ?: $product->get_regular_price(); ?>
             </div>
         <div class="stock-warning">
             ⚠️ Only <strong><?php echo $remaining; ?> licenses</strong> left at this price

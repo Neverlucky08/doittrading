@@ -587,21 +587,8 @@
     margin-top: var(--space-sm);
 }
 
-.hero-price {
-    font-size: 3rem;
-    font-weight: var(--font-weight-black);
-    color: var(--doit-gold);
-    font-family: var(--font-mono);
-    margin: var(--space-sm) 0;
-    line-height: 1;
-}
-
-.original-price {
-    font-size: 1.8rem !important;
-    text-decoration: line-through !important;
-    color: var(--doit-text-dark) !important;
-    margin-left: var(--space-sm);
-}
+/* Hero price styles moved to product-common.css for consistency */
+/* Use the unified .hero-price class from product-common.css */
 
 .stock-warning {
     color: var(--doit-red);
@@ -1345,9 +1332,7 @@
         gap: var(--space-xs);
     }
     
-    .hero-price {
-        font-size: 2.2rem;
-    }
+    /* Responsive adjustments handled in product-common.css */
     
     .stats-grid-enhanced {
         grid-template-columns: repeat(2, 1fr);

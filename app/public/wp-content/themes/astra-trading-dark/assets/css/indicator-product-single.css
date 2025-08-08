@@ -120,30 +120,8 @@
     50% { transform: translateX(-50%) scale(1.05); }
 }
 
-.hero-price {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-md);
-    margin-bottom: var(--space-md);
-    justify-content: center;
-    margin-top: var(--space-sm);
-}
-
-.price-current {
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-black);
-    color: var(--doit-gold);
-    font-family: var(--font-mono);
-    order: 1; /* Precio actual a la izquierda */
-}
-
-.price-original {
-    font-size: var(--font-size-2xl);
-    color: var(--doit-text-dark);
-    text-decoration: line-through;
-    opacity: 0.7;
-    order: 2; /* Precio original a la derecha */
-}
+/* Hero price styles moved to product-common.css for consistency */
+/* Use the unified .hero-price class from product-common.css */
 
 /* Last Purchase Info */
 .last-purchase-info {
