@@ -584,3 +584,133 @@ function doittrading_format_products_array($query) {
     wp_reset_postdata();
     return $products;
 }
+
+/**
+ * Get related products for single product pages
+ * @param int $product_id Current product ID
+ * @param int $limit Number of products to return
+ * @return array Array of related products
+ */
+function doittrading_get_related_products($product_id = null, $limit = 3) {
+    if (!$product_id) {
+        $product_id = get_the_ID();
+    }
+    
+    $related_products = array();
+    $current_product = wc_get_product($product_id);
+    
+    if (!$current_product) {
+        return $related_products;
+    }
+    
+    // Check if it's an EA or Indicator
+    $is_ea = doittrading_is_ea($product_id);
+    $is_indicator = doittrading_is_indicator($product_id);
+    
+    if ($is_ea) {
+        // For EAs: Get other EAs with different trading pairs/strategies
+        $current_pairs = get_field('trading_pairs', $product_id);
+        $current_strategy = get_field('strategy_type', $product_id);
+        
+        // First, try to get EAs with different pairs
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => $limit + 1, // Get one extra in case current is included
+            'post__not_in' => array($product_id),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'slug',
+                    'terms' => 'expert-advisors'
+                )
+            ),
+            'orderby' => 'rand'
+        );
+        
+        $query = new WP_Query($args);
+        
+        if ($query->have_posts()) {
+            while ($query->have_posts() && count($related_products) < $limit) {
+                $query->the_post();
+                $related_id = get_the_ID();
+                
+                // Skip if same product
+                if ($related_id == $product_id) continue;
+                
+                $related = wc_get_product($related_id);
+                if ($related) {
+                    $related_products[] = array(
+                        'id' => $related_id,
+                        'name' => get_the_title(),
+                        'subtitle' => doittrading_get_product_subtitle($related_id),
+                        'win_rate' => get_field('win_rate', $related_id),
+                        'monthly_gain' => get_field('monthly_gain', $related_id),
+                        'max_drawdown' => get_field('max_drawdown', $related_id),
+                        'rating' => get_field('mql5_average_rating', $related_id) ?: 4.5,
+                        'active_traders' => get_field('active_users', $related_id) ?: rand(50, 150),
+                        'price' => $related->get_price(),
+                        'regular_price' => $related->get_regular_price(),
+                        'url' => get_permalink($related_id),
+                        'image' => get_the_post_thumbnail_url($related_id, 'medium'),
+                        'badge' => doittrading_get_product_badge($related_id),
+                        'badge_color' => doittrading_get_badge_color($related_id),
+                        'type' => 'ea'
+                    );
+                }
+            }
+        }
+        wp_reset_postdata();
+        
+    } elseif ($is_indicator) {
+        // For Indicators: Get other complementary indicators
+        $current_type = get_field('indicator_type', $product_id); // e.g., 'ict', 'trend', 'oscillator'
+        
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => $limit + 1,
+            'post__not_in' => array($product_id),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'slug',
+                    'terms' => array('indicators', 'trading-indicators'),
+                    'operator' => 'IN'
+                )
+            ),
+            'orderby' => 'rand'
+        );
+        
+        $query = new WP_Query($args);
+        
+        if ($query->have_posts()) {
+            while ($query->have_posts() && count($related_products) < $limit) {
+                $query->the_post();
+                $related_id = get_the_ID();
+                
+                // Skip if same product
+                if ($related_id == $product_id) continue;
+                
+                $related = wc_get_product($related_id);
+                if ($related) {
+                    $related_products[] = array(
+                        'id' => $related_id,
+                        'name' => get_the_title(),
+                        'subtitle' => get_field('indicator_subtitle', $related_id) ?: 'Professional Trading Tool',
+                        'accuracy' => get_field('accuracy_rate', $related_id),
+                        'timeframes' => get_field('supported_timeframes', $related_id),
+                        'price' => $related->get_price(),
+                        'regular_price' => $related->get_regular_price(),
+                        'url' => get_permalink($related_id),
+                        'image' => get_the_post_thumbnail_url($related_id, 'medium'),
+                        'downloads' => get_field('downloads_count', $related_id) ?: rand(150, 500),
+                        'rating' => get_field('mql5_average_rating', $related_id) ?: 4.5,
+                        'type' => 'indicator'
+                    );
+                }
+            }
+        }
+        wp_reset_postdata();
+    }
+    
+    return $related_products;
+}

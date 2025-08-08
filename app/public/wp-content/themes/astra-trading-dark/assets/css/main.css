@@ -47,7 +47,10 @@
 /* 13. Indicator Product Single - Specific indicator product page styles */
 @import url('indicator-product-single.css');
 
-/* 14. Trading Insights - Specific page styles */
+/* 14. Related Products - Product recommendations section */
+@import url('related-products.css');
+
+/* 15. Trading Insights - Specific page styles */
 @import url('insights.css');
 
 /* 15. Trading Insights - Specific page styles */

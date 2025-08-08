@@ -88,6 +88,9 @@ require_once get_stylesheet_directory() . '/inc/products/indicator-product-displ
 // 4. Social proof elements
 require_once get_stylesheet_directory() . '/inc/products/social-proof.php';
 
+// 4.1 Related products section
+require_once get_stylesheet_directory() . '/inc/products/related-products.php';
+
 // 5. Marketing features (DEBE IR AL FINAL porque usa funciones de core)
 require_once get_stylesheet_directory() . '/inc/products/marketing-features.php';
 
