@@ -674,15 +674,34 @@
     text-decoration: none;
     color: white;
     transition: all 0.3s;
+    padding: 0;
+    overflow: hidden;
+    font-weight: bold;
 }
 
 .share-btn:hover {
     transform: translateY(-3px);
 }
 
+/* Share button icons - text based for Twitter/FB */
+.share-icon {
+    font-size: 20px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Share button logos - image based for WhatsApp/Telegram */
+.share-logo {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
 .share-twitter { background: #1DA1F2; }
 .share-facebook { background: #4267B2; }
-.share-linkedin { background: #0077B5; }
+.share-whatsapp { background: #25D366; }
 .share-telegram { background: #0088cc; }
 
 /* Quick Links */

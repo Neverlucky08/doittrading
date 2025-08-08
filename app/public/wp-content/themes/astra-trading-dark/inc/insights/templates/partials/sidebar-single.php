@@ -93,19 +93,27 @@ $toc_items = doittrading_generate_toc_items(get_the_content());
         <a href="https://twitter.com/intent/tweet?url=<?php echo $share_url; ?>&text=<?php echo $share_title; ?>" 
            class="share-btn share-twitter" 
            target="_blank" 
-           rel="noopener">𝕏</a>
+           rel="noopener">
+            <span class="share-icon">𝕏</span>
+        </a>
         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url; ?>" 
            class="share-btn share-facebook" 
            target="_blank" 
-           rel="noopener">f</a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo $share_url; ?>" 
-           class="share-btn share-linkedin" 
+           rel="noopener">
+            <span class="share-icon">f</span>
+        </a>
+        <a href="https://wa.me/?text=<?php echo $share_title; ?>%20<?php echo $share_url; ?>" 
+           class="share-btn share-whatsapp" 
            target="_blank" 
-           rel="noopener">in</a>
+           rel="noopener">
+            <img src="<?php echo content_url('uploads/2025/08/whatsapp_logo.webp'); ?>" alt="WhatsApp" class="share-logo">
+        </a>
         <a href="https://t.me/share/url?url=<?php echo $share_url; ?>&text=<?php echo $share_title; ?>" 
-           class="share_btn share-telegram" 
+           class="share-btn share-telegram" 
            target="_blank" 
-           rel="noopener">✈</a>
+           rel="noopener">
+            <img src="<?php echo content_url('uploads/2025/08/telegram_logo.webp'); ?>" alt="Telegram" class="share-logo">
+        </a>
     </div>
 </div>
 
