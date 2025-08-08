@@ -169,6 +169,8 @@
     color: var(--doit-text);
     margin-bottom: 10px;
     font-weight: var(--font-weight-bold);
+    text-align: left;
+    padding-left: 0;
 }
 
 .userguide-subtitle {
@@ -485,6 +487,83 @@
     .mobile-nav-toggle {
         display: flex;
     }
+}
+
+/* ========================================
+   NEWSLETTER WIDGET
+   ======================================== */
+
+.newsletter-widget {
+    background: var(--doit-dark-secondary);
+    border: 1px solid var(--doit-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.newsletter-widget .widget-header {
+    display: block !important;
+    font-size: 1rem;
+    color: var(--doit-text);
+    margin-bottom: 10px;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left !important;
+    justify-content: flex-start !important;
+}
+
+.widget-description {
+    font-size: 0.9rem;
+    color: var(--doit-text-muted);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-input {
+    width: 100%;
+    padding: 12px;
+    background: var(--doit-dark);
+    border: 1px solid var(--doit-border);
+    border-radius: var(--radius-sm);
+    color: var(--doit-text);
+    font-size: 0.95rem;
+    transition: var(--transition-normal);
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--doit-green);
+    box-shadow: 0 0 0 2px rgba(0, 215, 117, 0.1);
+}
+
+.newsletter-input::placeholder {
+    color: var(--doit-text-dark);
+    opacity: 0.6;
+}
+
+.newsletter-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--doit-green);
+    color: var(--doit-dark);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-weight-semibold);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-all);
+}
+
+.newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 215, 117, 0.3);
 }
 
 /* Scrollbar Styling for Sidebar */

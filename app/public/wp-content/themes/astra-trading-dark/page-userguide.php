@@ -44,6 +44,16 @@ $product = $product_id ? wc_get_product($product_id) : null;
                     <!-- Navigation items will be generated dynamically via JavaScript -->
                 </ul>
             </nav>
+            
+            <!-- Newsletter Widget -->
+            <div class="widget newsletter-widget">
+                <h3 class="widget-header">📧 Weekly Insights</h3>
+                <p class="widget-description">Get trading tips and EA performance reports in your inbox</p>
+                <form class="newsletter-form" action="#" method="post">
+                    <input type="email" class="newsletter-input" placeholder="Your email" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
         </aside>
         
         <!-- Main Content -->
